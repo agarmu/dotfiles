@@ -14,6 +14,7 @@
         fswatch
         gcc12
         gnumake
+        lazygit
         ninja
         meson
         gnumake
