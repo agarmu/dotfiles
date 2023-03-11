@@ -27,10 +27,21 @@ in
 			username = username;
 			homeDirectory = homedir;
 			shellAliases = {
-				"ll" = "exa -l";
-				"la" = "exa -al";
-				"tree" = "exa --tree";
-				"tral" = "exa --tree -al";
+				v = "nvim";
+				vim = "nvim";
+				gpl = "git pull";
+				gp = "git push";
+				lg = "lazygit";
+				gc = "git commit -v";
+				kb = "git commit -m \"\$(curl -s http://whatthecommit.com/index.txt)\"";
+				gs = "git status -v";
+				gfc = "git fetch && git checkout";
+				gl = "git log --graph";
+				ll = "exa -l --git";
+				la = "exa -al --git";
+				tree = "exa --tree";
+				tral = "exa --tree -al --git";
+				cat = "bat";
 				".." = "cd ..";
 			};
 		};
