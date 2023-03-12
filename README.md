@@ -6,4 +6,4 @@ My [**Nix**](https://nixos.org/) dotfiles using [**nix-darwin**](https://github.
 ## Currently working on:
  - Switching from _channels_ to [_flakes_](https://nixos.wiki/wiki/Flakes)
  - Adding multi-device configuration
- - Porting Mac App Store/Homebrew installations to be declarative with **nix-darwin** and [**mas**](https://github.com/mas-cli/mas)
+ - ~~Porting Mac App Store/Homebrew installations to be declarative with **nix-darwin** and [**mas**](https://github.com/mas-cli/mas)~~
