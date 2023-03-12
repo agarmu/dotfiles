@@ -4,6 +4,7 @@
     home.packages = with pkgs; [
         aria
         alacritty
+        delta
         discord
         docker
         cmake

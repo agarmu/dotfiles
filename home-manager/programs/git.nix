@@ -2,7 +2,7 @@
 {
 	programs.git = {
 		enable = true; 
-		delta.enable = true;
+		difftastic.enable = true;
 		lfs = {
 			enable = true;
 			skipSmudge = false;
