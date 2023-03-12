@@ -1,14 +1,15 @@
 { config, pkgs, ... }:
 {
-    nix.gc = {
+    nix = {
+		gc = {
 		automatic = true;
 		interval = { Hour = 24; Minute = 0; };
+		};
+		extraOptions = ''experimental-features = nix-command flakes'';
 	};
 
-	# Use a custom configuration.nix location.
-	# $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-	# environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
-
 	# Auto upgrade nix package and the daemon service.
-	services.nix-daemon.enable = true;
+	services.nix-daemon = {
+		enable = true;
+	};
 }
