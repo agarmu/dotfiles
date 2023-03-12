@@ -6,6 +6,7 @@ in
 	users.users.mukul = {
 		name = username;
 		home = homedir;
+		shell = pkgs.zsh;
 	};
 	home-manager = {
 		backupFileExtension = "orig";
