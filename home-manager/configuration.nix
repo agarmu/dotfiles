@@ -1,18 +1,17 @@
 { config, pkgs, ... }:
-let username = "mukul"; homedir = "/Users/${username}";
+let username = "mukul"; fullname = "Mukul Agarwal"; homedir = "/Users/${username}";
 in
 {
 	imports = [ <home-manager/nix-darwin> ];
-	users.users.mukul = {
-		name = username;
+	users.users.${username} = {
+		name = fullname;
 		home = homedir;
-		shell = pkgs.zsh;
 	};
 	home-manager = {
 		backupFileExtension = "orig";
 
 	};
-	home-manager.users.mukul = {pkgs, ... }:
+	home-manager.users.${username} = {pkgs, ... }:
 	let
 		programs = map (n: "${./programs}/${n}") (builtins.attrNames (builtins.readDir ./programs));
 		services = map (n: "${./services}/${n}") (builtins.attrNames (builtins.readDir ./services));
@@ -25,11 +24,10 @@ in
 		# Home Manager needs a bit of information about you and the
 		# paths it should manage.
 		home = {
-			username = username;
+			username = fullname;
 			homeDirectory = homedir;
 			shellAliases = {
-				v = "nvim";
-				vim = "nvim";
+				v = "vi";
 				gpl = "git pull";
 				gp = "git push";
 				lg = "lazygit";
