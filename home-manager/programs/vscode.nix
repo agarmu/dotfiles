@@ -2,36 +2,73 @@
 {
     programs.vscode = {
         enable = true;
-        package = pkgs.vscodium;
-        extensions = [
-           /*  # General
-            pkgs.vscode-extensions.alefragnani.bookmarks
-            pkgs.vscode-extensions.draivin.hscopes
-            pkgs.vscode-extensions.draivin.hsnips
-            pkgs.vscode-extensions.vscodevim.vim
+        extensions = with pkgs.vscode-extensions; [
+            # General
+            # vscodevim.vim
             # Themes
-            pkgs.vscode-extensions.dracula-theme.theme-draula
+            dracula-theme.theme-dracula
             ### Languages
-            # C/C++
-            pkgs.vscode-extensions.ms-vscode.cpptools-extension-pack
-            # Haskell
-            pkgs.vscode-extensions.justusadam.language-haskell
-            # Jupyter
-            pkgs.vscode-extensions.ms-python.python
             # LaTeX
-            pkgs.vscode-extensions.mathematic.vscode-latex
-            pkgs.vscode-extensions.tecosaur.latex-utilities
-            pkgs.vscode-extensions.james-yu.latex-workshop
-            pkgs.vscode-extensions.bnavetta.zoterolatex
+            james-yu.latex-workshop
             # Nix
-            pkgs.vscode-extensions.bbenoist.nix
-            # Python
-            pkgs.vscode-extensions.ms-python.python
-            pkgs.vscode-extensions.ms-python.vscode-pylance
-            pkgs.vscode-extensions.ms-python.isort
+            bbenoist.nix
             # Rust
-            pkgs.vscode-extensions.rust-lang.rust-analyzer */
-
+            rust-lang.rust-analyzer
+        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+            {
+                name = "hscopes";
+                publisher = "draivin";
+                version = "0.0.9";
+                sha256 = "RgZxnAysKiHAdUQQuOL7TP0SWTBCsk7V28zy5NXBJa0=";
+            }
+            {
+                name = "hsnips";
+                publisher = "draivin";
+                version = "0.2.8";
+                sha256 = "hLz+BkOzAzatpCNuVndZlvKgThULGdwUl1x8V7h1tK4=";
+            }
+            {
+                name = "cpptools";
+                publisher = "ms-vscode";
+                version = "1.14.4";
+                sha256 = "3gWMrsVr5XjsuXL3DJ+KkVVD2RWtN6Uqdp3e7u9OwnM=";
+            }
+            {
+                name = "python";
+                publisher = "ms-python";
+                version = "2023.5.10721010";
+                sha256 = "m1ft4CAOkUvG23JBPRNL1P+RhkXRGCAwFrQ36l2FWKk=";
+            }
+            {
+                name = "vscode-latex";
+                publisher = "mathematic";
+                version = "1.2.0";
+                sha256 = "8QTza0aK3Qu0UhBwpW8b90EztoJJxDrVrGDHqWDZsJE=";
+            }
+            {
+                name = "latex-utilities";
+                publisher = "tecosaur";
+                version = "0.4.10";
+                sha256 = "tNf4sTsae+NKB7QZ5PQOXI6T14eEH0YIK/LhgWq6QHA=";
+            }
+            {
+                name = "zoterolatex";
+                publisher = "bnavetta";
+                version = "0.4.1";
+                sha256 = "PLenGF6A68LodZfGtjk8LxdrWb/yd2cMtp0VTEwwxWQ=";
+            }
+            {
+                name = "vscode-pylance";
+                publisher = "ms-python";
+                version = "2023.3.11";
+                sha256 = "aGnBNASxqA4pA9900DItMjkTiLQtZdiS/YnJ7yXE0bI=";
+            }
+            {
+                name = "isort";
+                publisher = "ms-python";
+                version = "2022.8.0";
+                sha256 = "l7mXTKdAE56DdnSaY1cs7sajhG6Yzz0XlZLtHY2saB0=";
+            }
         ];
         userSettings = {
     "telemetry.telemetryLevel"= "off";
@@ -72,7 +109,7 @@
         "inkscapeStart"= "inkscape-figures watch";
         "quiver"= "open -na 'Google Chrome' --args --new-window <path-to-quiver>/quiver/src/index.html";
     };
-    "editor.fontFamily"= "'JetBrainsMono Nerd Font Mono', Menlo; Monaco; 'Courier New', 'SF Pro', monospace";
+    "editor.fontFamily"= "Menlo";
     "latex-workshop.bibtex-format.sortby"= [
         "author"
         "title"
