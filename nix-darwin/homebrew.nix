@@ -4,7 +4,9 @@
         enable = true;
         casks = [
             "anaconda"
+            "adobe-acrobat-pro"
             "anki"
+            "calibre"
             "firefox"
             "firefox-developer-edition"
             "hammerspoon"
