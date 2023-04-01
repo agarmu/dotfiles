@@ -32,7 +32,7 @@ in
 				gp = "git push";
 				lg = "lazygit";
 				gc = "git commit -v";
-				kb = "git commit -m \"\$(curl -s http://whatthecommit.com/index.txt)\"";
+				kb = "git commit -m \"\$(curl -s https://whatthecommit.com/index.txt)\"";
 				gs = "git status -v";
 				gfc = "git fetch && git checkout";
 				gl = "git log --graph";
@@ -41,6 +41,7 @@ in
 				tree = "exa --tree";
 				tral = "exa --tree -al --git";
 				cat = "bat";
+				drs = "darwin-rebuild switch";
 				".." = "cd ..";
 			};
 		};
