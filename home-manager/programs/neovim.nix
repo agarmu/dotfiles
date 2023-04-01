@@ -13,9 +13,6 @@
             vim-commentary
             fzf-vim
             vim-startuptime
-            {
-                plugin = dashboard-nvim;
-            }
         ];
         viAlias = true;
         vimAlias = true;
