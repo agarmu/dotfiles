@@ -1,7 +1,16 @@
 { config, pkgs, ... }:
 {
 	programs.git = {
-		enable = true; 
+		enable = true;
+		aliases = {
+			c = "commit";
+			cl = "clone";
+			co = "checkout";
+			d = "diff";
+			ds = "diff --staged";
+			s = "status";
+			l = "log";
+		};
 		difftastic.enable = true;
 		lfs = {
 			enable = true;
