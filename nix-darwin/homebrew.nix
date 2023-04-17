@@ -2,6 +2,9 @@
 {
     homebrew = {
         enable = true;
+        taps = [
+            "homebrew/cask"
+        ];
         casks = [
             "anaconda"
             "adobe-acrobat-pro"
@@ -9,18 +12,19 @@
             "calibre"
             "firefox"
             "firefox-developer-edition"
+            "eagle"
             "hammerspoon"
             "inkscape"
             "insomnia"
             "logseq"
             "maccy"
-            "mactex"
             "mochi"
             "qbittorrent"
             "raspberry-pi-imager"
             "signal"
             "skim"
             "spotify"
+            "veracrypt"
             "visual-studio-code"
             "vlc"
             "xournal-plus-plus"
