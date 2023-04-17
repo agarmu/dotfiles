@@ -1,4 +1,8 @@
 { config, pkgs, ... }:
+let draculatheme = builtins.fetchurl {
+	url = "https://raw.githubusercontent.com/dracula/sublime/c5de15a0ad654a2c7d8f086ae67c2c77fda07c5f/Dracula.tmTheme";
+	sha256 = "0nlapygw0jwv1gvg9mkb47n3v6hq1i86y587h889sxd2ymygwrv7";
+}; in
 {
 	programs.bat = {
 		enable = true;
@@ -7,13 +11,7 @@
 			theme = "dracula";
 		};
 		themes = {
-			dracula = builtins.readFile (pkgs.fetchFromGitHub {
-				owner = "dracula";
-				repo = "sublime"; # Bat uses sublime syntax for its themes
-				rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
-				sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
-			} + "/Dracula.tmTheme"); 
-
+			dracula = builtins.readFile (draculatheme);
 		};
 	};
 }
