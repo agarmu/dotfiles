@@ -32,7 +32,9 @@
         spicetify-cli
         spotify-tui
         yt-dlp
-        # zathura
+        zathura
         zoom-us
+        texlive.combined.scheme-full
+        teams
     ];
 }
