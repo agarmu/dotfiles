@@ -1,0 +1,20 @@
+snippet sign "sign"
+Warm Regards,
+
+Mukul Agarwal
+endsnippet
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+snippet Today "Long Date"
+`date +"%A, %d %B %Y"`
+endsnippet
+
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
