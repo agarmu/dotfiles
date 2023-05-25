@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 {
-    environment.shells = 
+	environment.shells = 
 		with pkgs; [
 			bashInteractive
 			zsh
 			fish
 			nushell
 		];
-    # Create /etc/zshrc that loads the nix-darwin environment.
+	# Create /etc/zshrc that loads the nix-darwin environment.
 	programs.zsh = {
 		enable = true;
 		enableCompletion = true;
