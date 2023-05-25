@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    nix = {
+	nix = {
 		gc = {
 		automatic = true;
 		interval = { Hour = 24; Minute = 0; };

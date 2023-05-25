@@ -1,4 +1,4 @@
 { config, pkgs, ... }:
 {
-    programs.info.enable = true;
+	programs.info.enable = true;
 }

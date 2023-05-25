@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    services.skhd = {
+	services.skhd = {
 		enable = false;
 	};
 }
