@@ -8,7 +8,7 @@ environment.systemPackages =
 			htop
 			jq
 			mold
-      		rustup
+	  		rustup
 			wget
 			wget2
 		];

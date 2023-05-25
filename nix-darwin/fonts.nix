@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    fonts.fontDir.enable = true;
+	fonts.fontDir.enable = true;
 	fonts.fonts = with pkgs;
 		[
 			dejavu_fonts
