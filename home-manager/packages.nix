@@ -36,5 +36,6 @@
 	    zoom-us
 	    texlive.combined.scheme-full
 	    teams
+		wasm-pack
 	];
 }
