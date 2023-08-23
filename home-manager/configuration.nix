@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
-let username = "mukul"; fullname = "Mukul Agarwal"; homedir = "/Users/${username}";
+let username = "mukul"; homedir = "/Users/${username}";
 in
 {
 	imports = [ <home-manager/nix-darwin> ];
 	users.users.${username} = {
-		name = fullname;
+		name = username;
 		home = homedir;
 	};
 	home-manager = {
@@ -24,7 +24,7 @@ in
 		# Home Manager needs a bit of information about you and the
 		# paths it should manage.
 		home = {
-			username = fullname;
+			username = username;
 			homeDirectory = homedir;
 			shellAliases = {
 				v = "vi";
