@@ -2,7 +2,9 @@
 {
 	programs.gh = {
 		enable = true;
-		enableGitCredentialHelper = true;
+                gitCredentialHelper = {
+                  enable = true;
+                };
 		extensions = with pkgs; [
 			gh-eco
 			gh-dash
