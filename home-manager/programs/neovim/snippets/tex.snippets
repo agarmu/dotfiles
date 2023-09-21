@@ -17,7 +17,7 @@ snippet template "Basic template" b
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[dutch]{babel}
+\usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 
 
@@ -225,6 +225,11 @@ snippet bmat "bmat" iA
 \begin{bmatrix} $1 \end{bmatrix} $0
 endsnippet
 
+snippet vmat "vmat" iA
+\begin{vmatrix} $1 \end{vmatrix} $0
+endsnippet
+
+
 context "math()"
 snippet () "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
@@ -387,23 +392,6 @@ snippet R0+ "R0+" iA
 \\R_0^+
 endsnippet
 
-snippet plot "Plot" w
-\begin{figure}[$1]
-	\centering
-	\begin{tikzpicture}
-		\begin{axis}[
-			xmin= ${2:-10}, xmax= ${3:10},
-			ymin= ${4:-10}, ymax = ${5:10},
-			axis lines = middle,
-		]
-			\addplot[domain=$2:$3, samples=${6:100}]{$7};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{$8}
-	\label{${9:$8}}
-\end{figure}
-endsnippet
-
 snippet nn "Tikz node" w
 \node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};
 $0
@@ -413,6 +401,52 @@ context "math()"
 snippet mcal "mathcal" iA
 \mathcal{$1}$0
 endsnippet
+
+context "math()"
+snippet rx "r vec" iA
+\mathbf{r}
+endsnippet
+
+context "math()"
+snippet vx "v vec" iA
+\mathbf{v}
+endsnippet
+
+context "math()"
+snippet att "a vec" iA
+\mathbf{a}
+endsnippet
+
+context "math()"
+snippet tx "unit tangent" iA
+\mathbf{T}
+endsnippet
+
+context "math()"
+snippet nx "unit normal" iA
+\mathbf{N}
+endsnippet
+
+context "math()"
+snippet bx "unit binormal" iA
+\mathbf{B}
+endsnippet
+
+
+context "math()"
+snippet abs "abs" iA
+\abs{$1}$0
+endsnippet
+
+context "math()"
+snippet norm "norm" iA
+\norm{$1}$0
+endsnippet
+
+context "math()"
+snippet nv "normal vec" iA
+\vec{n}
+endsnipped
 
 snippet lll "l" iA
 \ell
@@ -431,11 +465,6 @@ endsnippet
 priority 100
 snippet ** "cdot" iA
 \cdot 
-endsnippet
-
-context "math()"
-snippet norm "norm" iA
-\|$1\|$0
 endsnippet
 
 priority 100
@@ -609,6 +638,10 @@ snippet "bar" "bar" riA
 \overline{$1}$0
 endsnippet
 
+context "math()"
+snippet "basis" "basis" riA
+$1 \i $2 \j $3 \k $0
+endsnippet
 priority 100
 context "math()"
 snippet "([a-zA-Z])bar" "bar" riA
@@ -619,6 +652,18 @@ priority 10
 context "math()"
 snippet "hat" "hat" riA
 \hat{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "vv" "vector" riA
+\vec{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet "tfr" "therefore" riA
+\therefore
 endsnippet
 
 priority 100
@@ -640,4 +685,159 @@ snippet DD "D" iA
 \mathbb{D}
 endsnippet
 
-# vim:ft=snippets
+# greek letter snippets
+context "math()"
+snippet ;a "Greek letter alpha" iA
+\alpha
+endsnippet
+context "math()"
+snippet ;b "Greek letter beta" iA
+\beta
+endsnippet
+context "math()"
+snippet ;g "Greek letter gamma" iA
+\gamma
+endsnippet
+context "math()"
+snippet ;G "Greek letter Gamma (uppercase)" iA
+\Gamma
+endsnippet
+context "math()"
+snippet ;d "Greek letter delta" iA
+\delta
+endsnippet
+context "math()"
+snippet ;D "Greek letter Delta (uppercase)" iA
+\Delta
+endsnippet
+context "math()"
+snippet ;e "Greek letter epsilon" iA
+\epsilon
+endsnippet
+context "math()"
+
+priority 100
+snippet ;;e "Greek letter epsilon (cursive)" iA
+\varepsilon
+endsnippet
+
+context "math()"
+snippet ;z "Greek letter zeta" iA
+\zeta
+endsnippet
+context "math()"
+snippet ;h "Greek letter eta" iA
+\eta
+endsnippet
+context "math()"
+snippet ;t "Greek letter theta" iA
+\theta
+endsnippet
+context "math()"
+snippet ;T "Greek letter Theta (uppercase)" iA
+\Theta
+endsnippet
+context "math()"
+snippet ;k "Greek letter kappa" iA
+\kappa
+endsnippet
+context "math()"
+snippet ;i "Greek letter iota" iA
+\iota
+endsnippet
+context "math()"
+snippet ;l "Greek letter lambda" iA
+\lambda
+endsnippet
+context "math()"
+snippet ;L "Greek letter Lambda (uppercase)" iA
+\Lambda
+endsnippet
+context "math()"
+snippet ;m "Greek letter mu" iA
+\mu
+endsnippet
+context "math()"
+snippet ;n "Greek letter nu" iA
+\nu
+endsnippet
+context "math()"
+snippet ;x "Greek letter xi" iA
+\xi
+endsnippet
+context "math()"
+snippet ;X "Greek letter Xi (uppercase)" iA
+\Xi
+endsnippet
+context "math()"
+snippet ;p "Greek letter pi" iA
+\pi
+endsnippet
+
+priority 100
+snippet ;;p "Greek letter pi (cursive)" iA
+\varpi
+endsnippet
+
+context "math()"
+snippet ;P "Greek letter Pi (uppercase)" iA
+\Pi
+endsnippet
+context "math()"
+snippet ;r "Greek letter rho" iA
+\rho
+endsnippet
+context "math()"
+snippet ;s "Greek letter sigma" iA
+\sigma
+endsnippet
+context "math()"
+snippet ;S "Greek letter Sigma (uppercase)" iA
+\Sigma
+endsnippet
+context "math()"
+snippet ;o "Greek letter omega" iA
+\omega
+endsnippet
+context "math()"
+snippet ;O "Greek letter Omega (uppercase)" iA
+\Omega
+endsnippet
+context "math()"
+snippet ;c "Greek letter chi" iA
+\chi
+endsnippet
+context "math()"
+snippet ;f "Greek letter phi" iA
+\phi
+endsnippet
+context "math()"
+
+priority 100
+snippet ;;f "Greek letter phi (cursive)" iA
+\varphi
+endsnippet
+context "math()"
+snippet ;I "Greek letter Phi (uppercase)" iA
+\Phi
+endsnippet
+context "math()"
+snippet ;y "Greek letter upsilon" iA
+\upsilon
+endsnippet
+context "math()"
+snippet ;Y "Greek letter Upsilon (uppercase)" iA
+\Upsilon
+endsnippet
+context "math()"
+snippet ;v "Greek letter psi" iA
+\psi
+endsnippet
+context "math()"
+snippet ;V "Greek letter Psi (uppercase)" iA
+\Psi
+endsnippet
+context "math()"
+snippet ;u "Greek letter tau" iA
+\tau
+endsnippet
