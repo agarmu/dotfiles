@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
 {
-	programs.nix-index.enable = true;
+  config,
+  pkgs,
+  ...
+}: {
+  programs.nix-index.enable = true;
 }
