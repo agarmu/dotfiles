@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
 {
-	programs.yt-dlp = {
-		enable = true;
-	};
+  config,
+  pkgs,
+  ...
+}: {
+  programs.yt-dlp = {
+    enable = true;
+  };
 }
-
