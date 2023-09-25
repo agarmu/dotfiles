@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
 {
-	programs.gnupg.agent.enable = true;
+  config,
+  pkgs,
+  ...
+}: {
+  programs.gnupg.agent.enable = true;
 }

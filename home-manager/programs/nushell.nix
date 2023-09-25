@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
 {
-	programs.nushell = {
-		enable = true;
-	};
+  config,
+  pkgs,
+  ...
+}: {
+  programs.nushell = {
+    enable = true;
+  };
 }
-

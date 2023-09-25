@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
 {
-	programs.man.enable = true;
+  config,
+  pkgs,
+  ...
+}: {
+  programs.man.enable = true;
 }
