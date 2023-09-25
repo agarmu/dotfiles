@@ -1,15 +1,17 @@
-{ config, pkgs, ... }:
 {
-environment.systemPackages = 
-	with pkgs; [
-			coreutils
-			exa
-			ffmpeg
-			htop
-			jq
-			mold
-	  		rustup
-			wget
-			wget2
-		];
+  config,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    coreutils
+    eza
+    ffmpeg
+    htop
+    jq
+    mold
+    rustup
+    wget
+    wget2
+  ];
 }
