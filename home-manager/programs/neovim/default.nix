@@ -73,7 +73,7 @@ in {
       {
         plugin = catppuccin;
         config = ''
-          colorscheme catppuccin-macchiato 
+          colorscheme catppuccin-macchiato
         '';
       }
       deoplete-nvim
