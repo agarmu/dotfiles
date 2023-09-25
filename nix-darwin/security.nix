@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
 {
-	security = {
-	    pam.enableSudoTouchIdAuth = true;
-	};
+  config,
+  pkgs,
+  ...
+}: {
+  security = {
+    pam.enableSudoTouchIdAuth = true;
+    pki.caCertificateBlacklist = [];
+  };
 }
