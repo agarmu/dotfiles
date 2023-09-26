@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   catppuccin = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    name = "github";
+    name = "catppuccin";
     src = pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "nvim";
