@@ -38,6 +38,7 @@
     ripgrep # Grep alternative
     yt-dlp # Download media from YouTube and similar
     nnn # Small file browser
+    parallel # GNU Tool to execute commands in parallel
 
     file # Gets file type
     which # Gets executable path
