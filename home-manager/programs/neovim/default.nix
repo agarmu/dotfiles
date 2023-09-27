@@ -109,10 +109,18 @@ in {
         config = ''
           require('neorg').setup {
             load = {
-              ["core.defaults"] = {}
+                ["core.defaults"] = {},
+                ["core.concealer"] = {},
+                ["core.dirman"] = {
+                    config = {
+                        workspaces = {
+                            main = "~/notes",
+                        }
+                    }
+                }
             }
-          }
-        '';
+        }
+       '';
       }
       {
         plugin = gitsigns-nvim;
