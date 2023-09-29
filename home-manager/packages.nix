@@ -92,6 +92,12 @@
     ##############
     flyctl
     cloudflared
+    wrangler
+    heroku
+    nodePackages.vercel
+    netlify-cli
+    awscli2
+    oci-cli
 
     ##############
     # Typsetting #
