@@ -19,6 +19,11 @@
     wget
     wget2 # Of course, the generic networking utilities
 
+    ###########
+    # Editors #
+    ###########
+    helix # Post-modern vi
+
     ###############
     # Compression #
     ###############
