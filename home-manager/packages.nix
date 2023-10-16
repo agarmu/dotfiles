@@ -44,6 +44,7 @@
     yt-dlp # Download media from YouTube and similar
     nnn # Small file browser
     parallel # GNU Tool to execute commands in parallel
+    spotify-tui # Because I like music
 
     file # Gets file type
     which # Gets executable path
