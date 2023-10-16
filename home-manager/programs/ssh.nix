@@ -49,11 +49,6 @@
         user = "x-magarwal";
         forwardAgent = true;
       };
-      "oracle" = {
-        hostname = "207.211.183.164";
-        user = "mukul";
-        forwardAgent = true;
-      };
     };
   };
 }
