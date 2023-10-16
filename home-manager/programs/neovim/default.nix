@@ -107,20 +107,20 @@ in {
         plugin = neorg;
         type = "lua";
         config = ''
-          require('neorg').setup {
-            load = {
-                ["core.defaults"] = {},
-                ["core.concealer"] = {},
-                ["core.dirman"] = {
-                    config = {
-                        workspaces = {
-                            main = "~/notes",
-                        }
-                    }
-                }
-            }
-        }
-       '';
+            require('neorg').setup {
+              load = {
+                  ["core.defaults"] = {},
+                  ["core.concealer"] = {},
+                  ["core.dirman"] = {
+                      config = {
+                          workspaces = {
+                              main = "~/notes",
+                          }
+                      }
+                  }
+              }
+          }
+        '';
       }
       {
         plugin = gitsigns-nvim;
