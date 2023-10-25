@@ -21,12 +21,14 @@
       "meson"
       "pandoc"
       "ykman"
+      "libiconv"
     ];
     casks = [
       "anaconda"
       "anki"
       "calibre"
       "coconutbattery"
+      "cutter"
       "docker"
       "element"
       "firefox"
