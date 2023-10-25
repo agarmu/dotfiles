@@ -9,6 +9,7 @@
     # Nix Tools #
     #############
     alejandra # Formatter for Nix
+    nil # LSP for nix
 
     ##############
     # Networking #
@@ -19,10 +20,12 @@
     wget
     wget2 # Of course, the generic networking utilities
 
-    ###########
-    # Editors #
-    ###########
+    ##########################
+    # Editors & Multiplexers #
+    ##########################
     helix # Post-modern vi
+    zellij # Rusty terminal multiplexer
+    tmux # Need I say more?
 
     ###############
     # Compression #
@@ -69,6 +72,7 @@
     hyperfine # Terminal benchmarking utility
     wasm-pack # Packages an application for WASM
     mold # Drop-in ld replacement
+    ghidra # Reverse-engineering tool developed by the NSA
 
     #################
     # Build Systems #
@@ -105,6 +109,11 @@
     awscli2
     oci-cli
 
+    ############
+    # Security #
+    ############
+    gnupg
+    
     ##############
     # Typsetting #
     ##############
