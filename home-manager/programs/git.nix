@@ -14,7 +14,7 @@
       s = "status";
       l = "log";
     };
-    difftastic.enable = true;
+    difftastic.enable = false;
     lfs = {
       enable = true;
       skipSmudge = false;
