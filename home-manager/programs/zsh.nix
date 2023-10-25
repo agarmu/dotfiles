@@ -25,6 +25,8 @@
       eval "$(/usr/libexec/path_helper)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH="/Users/mukul/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:"$PATH
+      export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
+      export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
       eval "$(fnm env --use-on-cd)"
 
       # >>> conda initialize >>>
@@ -41,6 +43,7 @@
       fi
       unset __conda_setup
       # <<< conda initialize <<<
+      export PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
     '';
   };
 }
