@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  catppuccin = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  catppuccin = pkgs.vimUtils.buildVimPlugin {
     name = "catppuccin";
     src = pkgs.fetchFromGitHub {
       owner = "catppuccin";
