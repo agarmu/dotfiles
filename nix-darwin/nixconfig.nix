@@ -11,7 +11,7 @@
         Minute = 0;
       };
     };
-    extraOptions = ''experimental-features = nix-command flakes'';
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   # Auto upgrade nix package and the daemon service.
