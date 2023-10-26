@@ -15,7 +15,9 @@ in {
       theme = "catppuccin-macchiato";
     };
     themes = {
-      catppuccin-macchiato = builtins.readFile catppuccin-macchiato-file;
+      catppuccin-macchiato = {
+        src = catppuccin-macchiato-file;
+      };
     };
   };
 }
