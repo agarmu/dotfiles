@@ -132,5 +132,6 @@
     neofetch
     hyfetch
     freshfetch # Pretty Terminals
+    plantuml # Nice Diagramming
   ];
 }
