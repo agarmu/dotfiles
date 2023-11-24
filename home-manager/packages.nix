@@ -23,7 +23,6 @@
     ##########################
     # Editors & Multiplexers #
     ##########################
-    helix # Post-modern vi
     zellij # Rusty terminal multiplexer
     tmux # Need I say more?
 

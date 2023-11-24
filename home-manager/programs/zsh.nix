@@ -46,7 +46,7 @@
       fi
       unset __conda_setup
       # <<< conda initialize <<<
-      export PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
+      export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
     '';
   };
 }
