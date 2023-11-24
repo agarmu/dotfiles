@@ -128,8 +128,9 @@
     # Typsetting #
     ##############
 
-    ## LaTeX
-    texlive.combined.scheme-full
+    ## TeX
+    texlive.combined.scheme-full # TeX/LaTeX Distribution
+    texlab # TeX lsp
 
     ## Typst
     typst
