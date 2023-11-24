@@ -22,6 +22,7 @@
       "pandoc"
       "ykman"
       "libiconv"
+      "llvm"
     ];
     casks = [
       "anaconda"
