@@ -144,5 +144,11 @@
     hyfetch
     freshfetch # Pretty Terminals
     plantuml # Nice Diagramming
+
+    #############
+    # Databases #
+    #############
+    sqlite # Embedded SQL Database
+    postgresql # Postgres SQL database
   ];
 }
