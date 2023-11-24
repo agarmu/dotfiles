@@ -89,7 +89,18 @@
     deno # Fast JS Runtime
     fnm # Fast Node Version Management
     rustup # Rust management software
-
+    jdk21 # OpenJDK 21
+    maven # Maven
+    lean4 # Lean theorem prover
+    coq # Coq theorem prover
+    ghc # Glasgow Haskell Compiler
+    cabal-install # Haskell Cabal
+    haskellPackages.haskell-language-server # Haskell lsp
+    elixir # Elixir language
+    elixir-ls # LSP for elixir
+    nodePackages.bash-language-server # bash lsp
+    nodePackages.vscode-css-languageserver-bin # css lsp
+ 
     ##########################
     # Communication Software #
     ##########################
