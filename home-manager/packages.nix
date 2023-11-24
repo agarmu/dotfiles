@@ -100,7 +100,7 @@
     elixir-ls # LSP for elixir
     nodePackages.bash-language-server # bash lsp
     nodePackages.vscode-css-languageserver-bin # css lsp
- 
+
     ##########################
     # Communication Software #
     ##########################
