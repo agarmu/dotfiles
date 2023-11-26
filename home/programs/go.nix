@@ -3,7 +3,9 @@
   pkgs,
   ...
 }: {
-  programs.fish = {
+  programs.go = {
     enable = true;
+    packages = {
+    };
   };
 }
