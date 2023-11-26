@@ -18,7 +18,8 @@
     aria # CLI download utility
     socat # Better netcat
     wget
-    wget2 # Of course, the generic networking utilities
+    wget2
+    curl # Of course, the generic networking utilities
 
     ##########################
     # Editors & Multiplexers #
