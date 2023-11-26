@@ -1,9 +1,10 @@
 {
   config,
   pkgs,
+  nur,
   ...
 }: let
-  buildFirefoxXpiAddon = pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon;
+  buildFirefoxXpiAddon = nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon;
   zotero-connector = buildFirefoxXpiAddon {
     pname = "zotero-connector";
     version = "5.0.114";
@@ -26,7 +27,9 @@ in {
     package = pkgs.runCommand "firefox-0.0.0" {} "mkdir $out";
     profiles = let
       userChrome = builtins.readFile ./userChrome.css;
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions = []; # TODO: FIX
+      /*
+        extensions = with nur.repos.rycee.firefox-addons; [
         auto-tab-discard
         brandon1024-find
         cliget
@@ -42,6 +45,7 @@ in {
         zotero-connector
         dark-space
       ];
+      */
     in {
       default = {
         inherit extensions;
