@@ -26,7 +26,7 @@ in {
     package = pkgs.runCommand "firefox-0.0.0" {} "mkdir $out";
     profiles = let
       userChrome = builtins.readFile ./userChrome.css;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         auto-tab-discard
         brandon1024-find
         cliget
