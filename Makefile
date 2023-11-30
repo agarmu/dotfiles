@@ -5,6 +5,10 @@ darwin:
 darwin-debug:
 	nix build .#darwinConfigurations.rosencrantz.system --show-trace --verbose \
 		--extra-experimental-features 'nix-command flakes'
+diff:
+	nvd diff /run/current-system result 
+switch:
+	./result/sw/bin/darwin-rebuild switch --flake .#rosencrantz
 
 update:
 	nix flake update
@@ -21,7 +25,7 @@ gc:
 
 fmt:
 	# format the nix files in this repo
-	alejandra .
+	nix fmt
 
 .PHONY: clean  
 clean:  
