@@ -3,11 +3,16 @@
 
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
-
+    trusted-users = ["root" "mukul" "admin"];
     substituters = [
-      # Replace official cache with a mirror located in China
-      #
       "https://cache.nixos.org"
+      "https://cachix.org/api/v1/cache/nix-community"
+    ];
+    trusted-substituters = [
+      "https://cache.nixos.org"
+    ];
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
@@ -29,7 +34,6 @@
     nixpkgs,
     darwin,
     home-manager,
-    nur,
     ...
   }: {
     darwinConfigurations."rosencrantz" = darwin.lib.darwinSystem {
@@ -46,6 +50,12 @@
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = inputs;
           home-manager.users.mukul = import ./home;
+        }
+        {
+          nix.nixPath = with inputs; [{inherit darwin;}];
+          nixpkgs.overlays = with inputs; [
+            nur.overlay
+          ];
         }
       ];
     };

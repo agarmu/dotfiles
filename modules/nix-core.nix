@@ -3,8 +3,22 @@
   lib,
   ...
 }: {
-  # enable flakes globally
+  # Enable flakes globally
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  # Set trusted users
+  nix.settings.trusted-users = ["root" "mukul" "admin"];
+  nix.settings.substituters = [
+    "https://cache.nixos.org"
+    "https://cachix.org/api/v1/cache/nix-community"
+  ];
+
+  nix.settings.trusted-substituters = [
+    "https://cache.nixos.org"
+  ];
+
+  nix.settings.trusted-public-keys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Auto upgrade nix package and the daemon service.
@@ -23,4 +37,7 @@
   };
   # Optimize Nix Store
   nix.settings.auto-optimise-store = true;
+  # Optimize Nix build cores/jobs
+  nix.settings.cores = 0;
+  nix.settings.max-jobs = "auto";
 }

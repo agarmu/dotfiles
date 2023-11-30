@@ -3,7 +3,6 @@ darwin:
 		--extra-experimental-features 'nix-command flakes'
 
 darwin-debug:
-	# TODO update hostname here!
 	nix build .#darwinConfigurations.rosencrantz.system --show-trace --verbose \
 		--extra-experimental-features 'nix-command flakes'
 
@@ -22,7 +21,7 @@ gc:
 
 fmt:
 	# format the nix files in this repo
-	nix fmt
+	alejandra .
 
 .PHONY: clean  
 clean:  
