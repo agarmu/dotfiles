@@ -11,7 +11,7 @@
     defaults = {
       menuExtraClock.Show24Hour = true; # show 24 hour clock
       dock = {
-        autohide = true;
+        autohide = false;
         show-recents = false; # disable recent apps
       };
 
@@ -29,7 +29,7 @@
       trackpad = {
         Clicking = true; # tap to click
         TrackpadRightClick = true; # enable two finger right click
-        TrackpadThreeFingerDrag = true; # enable three finger drag
+        TrackpadThreeFingerDrag = false; # disable three finger drag
       };
 
       # customize macOS
@@ -38,7 +38,6 @@
         "com.apple.sound.beep.feedback" = 0; # disable beep sound when pressing volume up/down key
 
         # AppleInterfaceStyle = "Dark";  # TODO: enable switching mode
-
         AppleKeyboardUIMode = 3; # Mode 3 enables full keyboard control.
         ApplePressAndHoldEnabled = true; # enable press and hold
 
