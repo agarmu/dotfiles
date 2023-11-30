@@ -113,7 +113,8 @@
     ##############
     flyctl
     cloudflared
-    wrangler
+    # TODO: fix this
+    # wrangler
     heroku
     nodePackages.vercel
     netlify-cli
