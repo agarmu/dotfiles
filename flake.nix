@@ -60,8 +60,6 @@
       ];
     };
 
-    # nix code formatter
-    # TODO also change this line to "aarch64-darwin" if you are using Apple Silicon
-    # formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
+    formatter.x86_64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
 }
