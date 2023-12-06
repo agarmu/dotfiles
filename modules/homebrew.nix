@@ -42,6 +42,7 @@
     ];
 
     brews = [
+      "homebank"
       "openjdk"
       "openssh"
       "bun"
