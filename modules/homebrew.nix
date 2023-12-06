@@ -80,6 +80,7 @@
       "spotify"
       "thunderbird"
       "vlc"
+      "vscodium"
       "xournal-plus-plus"
       "zoom"
       "zotero"
