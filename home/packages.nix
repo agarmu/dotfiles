@@ -48,6 +48,7 @@
     nnn # Small file browser
     parallel # GNU Tool to execute commands in parallel
     spotify-tui # Because I like music
+    qrencode # Works with qr codes
 
     file # Gets file type
     which # Gets executable path
