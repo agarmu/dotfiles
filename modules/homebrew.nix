@@ -55,6 +55,7 @@
     ];
 
     casks = [
+      "tor-browser"
       "anaconda"
       "anki"
       "calibre"
