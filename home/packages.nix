@@ -87,7 +87,7 @@
     # Programming Languages/SDKs #
     ##############################
 
-    gcc12 # GNU Compiler Collection v12
+    gcc13 # GNU Compiler Collection v13
     deno # Fast JS Runtime
     fnm # Fast Node Version Management
     rustup # Rust management software

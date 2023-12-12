@@ -52,6 +52,7 @@
       "ykman"
       "libiconv"
       "llvm"
+      "gdb"
     ];
 
     casks = [
