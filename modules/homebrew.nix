@@ -53,6 +53,7 @@
       "libiconv"
       "llvm"
       "gdb"
+      "valgrind"
     ];
 
     casks = [
