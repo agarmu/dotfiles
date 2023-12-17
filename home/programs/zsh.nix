@@ -24,7 +24,7 @@
       autoload -Uz compinit
       eval "$(/usr/libexec/path_helper)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      export PATH="/Users/mukul/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:"$PATH
+      export PATH="/etc/profiles/per-user/mukul/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:"$PATH
       export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
       export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
       export HISTSIZE=1000000000
@@ -46,6 +46,7 @@
       fi
       unset __conda_setup
       # <<< conda initialize <<<
+      # Add Cargo, LLVM, and Brew Prefixes to path
       export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
     '';
   };
