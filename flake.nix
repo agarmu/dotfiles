@@ -42,7 +42,7 @@
       modules = [
         ./modules/nix-core.nix
         ./modules/system.nix
-        ./modules/homebrew.nix
+        ./modules/applications.nix
         ./modules/programs.nix
         ./modules/host-users.nix
         home-manager.darwinModules.home-manager

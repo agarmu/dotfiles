@@ -86,6 +86,7 @@
       "xournal-plus-plus"
       "zoom"
       "zotero"
+      "sage"
     ];
   };
 }
