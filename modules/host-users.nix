@@ -1,5 +1,5 @@
 {...} @ args: let
-  hostname = "rosencrantz";
+  hostname = "Mukul's MacBook";
   username = "mukul";
 in {
   networking.hostName = hostname;

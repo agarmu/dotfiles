@@ -1,14 +1,14 @@
 darwin:
-	nix build .#darwinConfigurations.rosencrantz.system \
+	nix build .#darwinConfigurations.macbook-pro.system \
 		--extra-experimental-features 'nix-command flakes'
 
 darwin-debug:
-	nix build .#darwinConfigurations.rosencrantz.system --show-trace --verbose \
+	nix build .#darwinConfigurations.macbook-pro.system --show-trace --verbose \
 		--extra-experimental-features 'nix-command flakes'
 diff:
 	nvd diff /run/current-system result 
 switch:
-	./result/sw/bin/darwin-rebuild switch --flake .#rosencrantz
+	./result/sw/bin/darwin-rebuild switch --flake .#macbook-pro
 
 update:
 	nix flake update

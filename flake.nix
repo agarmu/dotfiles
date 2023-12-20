@@ -37,7 +37,7 @@
     home-manager,
     ...
   }: {
-    darwinConfigurations."rosencrantz" = darwin.lib.darwinSystem {
+    darwinConfigurations."macbook-pro" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./modules/nix-core.nix
