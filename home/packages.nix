@@ -102,12 +102,6 @@
     nodePackages.bash-language-server # bash lsp
     nodePackages.vscode-css-languageserver-bin # css lsp
 
-    ##########################
-    # Communication Software #
-    ##########################
-    teams
-    zoom-us
-
     ##############
     # SaaS Tools #
     ##############
