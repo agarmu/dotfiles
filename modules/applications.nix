@@ -87,6 +87,7 @@
       "zoom"
       "zotero"
       "sage"
+      "calibre"
     ];
   };
 }
