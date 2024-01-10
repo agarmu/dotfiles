@@ -158,6 +158,9 @@ in {
           }
         '';
       }
+      {
+        plugin = typst;
+      }
     ];
     coc = {
       enable = true;
