@@ -14,6 +14,8 @@
     ##############
     # Networking #
     ##############
+
+    openssh # SSH Agent
     mosh # robust alternative to ssh
     aria # CLI download utility
     socat # Better netcat
