@@ -1,14 +1,17 @@
 darwin:
 	nix build .#darwinConfigurations.macbook-pro.system \
-		--extra-experimental-features 'nix-command flakes'
+		--extra-experimental-features 'nix-command flakes' \
+		-j 8
 
 darwin-debug:
 	nix build .#darwinConfigurations.macbook-pro.system --show-trace --verbose \
-		--extra-experimental-features 'nix-command flakes'
+		--extra-experimental-features 'nix-command flakes' \
+		-j 8
 diff:
 	nvd diff /run/current-system result 
-switch:
-	./result/sw/bin/darwin-rebuild switch --flake .#macbook-pro
+
+switch: darwin
+	./result/sw/bin/darwin-rebuild switch --flake .#macbook-pro 
 
 update:
 	nix flake update
@@ -27,6 +30,6 @@ fmt:
 	# format the nix files in this repo
 	nix fmt
 
-.PHONY: clean  
+.PHONY: clean darwin darwin-debug diff update history gc fmt 
 clean:  
 	rm -rf result
