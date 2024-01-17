@@ -58,6 +58,7 @@ in {
       }
       yankring
       vim-nix
+      nvim-tree
       {
         plugin = vimtex;
         config = ''
@@ -158,8 +159,27 @@ in {
           }
         '';
       }
+      typst-vim
       {
-        plugin = typst;
+        plugin = mason-nvim;
+        type = "lua";
+        config = ''
+          require('mason').setup()
+        '';
+      }
+      mason-lspconfig-nvim
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = ''
+          require'lspconfig'.typst_lsp.setup{
+            settings = {
+              exportPdf = "onType" -- Choose onType, onSave or never.
+              -- serverPath = "" -- Normally, there is no need to uncomment it.
+            },
+            filetypes = { "typst", "typ" }
+          }
+        '';
       }
     ];
     coc = {
