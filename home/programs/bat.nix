@@ -14,6 +14,17 @@ in {
     config = {
       theme = "catppuccin-macchiato";
     };
+    syntaxes = {
+      typst = {
+          src = pkgs.fetchFromGitHub {
+          owner = "hyrious";
+          repo = "typst-syntax-highlight";
+          rev = "9931aee3238a639f1812e27b96e3b9017f24e4e3";
+          hash = "sha256-gyXuByjfmzgFrmbwV6xIxRrphI4wEXukBpZH5rEi4MA=";
+        };
+        file = "Typst.sublime-syntax";
+      };
+    };
     themes = {
       catppuccin-macchiato = {
         src = catppuccin-macchiato-file;
