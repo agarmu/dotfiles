@@ -27,7 +27,7 @@ in {
     profiles = let
       userChrome = builtins.readFile ./userChrome.css;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        auto-tab-discard
+        /* auto-tab-discard */
         brandon1024-find
         cliget
         clearurls
