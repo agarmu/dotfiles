@@ -16,7 +16,7 @@ in {
     };
     syntaxes = {
       typst = {
-          src = pkgs.fetchFromGitHub {
+        src = pkgs.fetchFromGitHub {
           owner = "hyrious";
           repo = "typst-syntax-highlight";
           rev = "9931aee3238a639f1812e27b96e3b9017f24e4e3";
