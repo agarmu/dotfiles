@@ -20,6 +20,18 @@
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
     nur.url = github:nix-community/NUR;
+    vim-catppuccin-plug = {
+      url = github:catppuccin/nvim;
+      flake = false;
+    };
+    vim-typst-plug = {
+      url = github:kaarmu/typst.vim;
+      flake = false;
+    };
+    vim-tree-plug = {
+      url = github:nvim-tree/nvim-tree.lua;
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +48,11 @@
     darwin,
     home-manager,
     ...
-  }: {
+  }: let
+    specialArgs = {
+      inputs = inputs;
+    };
+  in {
     darwinConfigurations."macbook-pro" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
@@ -49,7 +65,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = inputs;
+          home-manager.extraSpecialArgs = specialArgs;
           home-manager.users.mukul = import ./home;
         }
         {
@@ -60,7 +76,6 @@
         }
       ];
     };
-
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
 }

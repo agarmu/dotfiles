@@ -1,4 +1,4 @@
-{...}: let
+{inputs, ...}: let
   username = "mukul";
   programs = map (n: "${./programs}/${n}") (builtins.attrNames (builtins.readDir ./programs));
   services = map (n: "${./services}/${n}") (builtins.attrNames (builtins.readDir ./services));

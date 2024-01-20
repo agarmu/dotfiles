@@ -2,9 +2,23 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: let
-  plugins = pkgs.vimPlugins // pkgs.callPackage ./custom-plugins.nix {};
+  catppuccin = pkgs.vimUtils.buildVimPlugin {
+    name = "catppuccin";
+    src = inputs.vim-catppuccin-plug;
+  };
+  typst-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "typst.vim";
+    src = inputs.vim-typst-plug;
+  };
+  nvim-tree = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-tree";
+    src = inputs.vim-tree-plug; 
+  };
+
+  plugins = pkgs.vimPlugins;
 in {
   # Snippets!
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
