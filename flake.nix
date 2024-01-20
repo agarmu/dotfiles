@@ -18,15 +18,15 @@
   };
 
   inputs = {
-    nixpkgs-darwin.url = github:nixos/nixpkgs/nixpkgs-unstable;
+    nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
     nur.url = github:nix-community/NUR;
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
       url = github:lnl7/nix-darwin;
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
