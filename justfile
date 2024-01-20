@@ -22,7 +22,7 @@ diff:
 	nvd diff /run/current-system result
 
 switch:
-	./result/sw/bin/darwin-rebuild --switch --flake .#macbook-pro
+	./result/sw/bin/darwin-rebuild switch --flake .#macbook-pro
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
