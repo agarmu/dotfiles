@@ -30,6 +30,11 @@ fmt:
 	# format the nix files in this repo
 	nix fmt
 
-.PHONY: clean darwin darwin-debug diff update history gc fmt 
+meta:
+	nix flake metadata
+
 clean:  
 	rm -rf result
+
+.PHONY: clean darwin darwin-debug diff update history gc fmt meta
+
