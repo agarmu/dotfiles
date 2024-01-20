@@ -1,4 +1,7 @@
-darwin:
+alias b := build
+alias u := update
+
+build:
 	nix build .#darwinConfigurations.macbook-pro.system \
 		--extra-experimental-features 'nix-command flakes' \
 		-j 8
@@ -7,14 +10,19 @@ darwin-debug:
 	nix build .#darwinConfigurations.macbook-pro.system --show-trace --verbose \
 		--extra-experimental-features 'nix-command flakes' \
 		-j 8
-diff:
-	nvd diff /run/current-system result 
 
-switch: darwin
-	./result/sw/bin/darwin-rebuild switch --flake .#macbook-pro 
+update INPUT:
+	nix flake lock --update-input {{INPUT}}
 
-update:
+
+update-all:
 	nix flake update
+
+diff:
+	nvd diff /run/current-system result
+
+switch:
+	./result/sw/bin/darwin-rebuild --switch --flake .#macbook-pro
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
@@ -35,6 +43,4 @@ meta:
 
 clean:  
 	rm -rf result
-
-.PHONY: clean darwin darwin-debug diff update history gc fmt meta
 
