@@ -14,7 +14,7 @@ in {
     };
     syntaxes = {
       typst = {
-        src = inputs.bat-typst-syntax; 
+        src = inputs.bat-typst-syntax;
         file = "Typst.sublime-syntax";
       };
     };
