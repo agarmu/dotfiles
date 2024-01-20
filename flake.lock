@@ -77,7 +77,58 @@
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nur": "nur",
+        "vim-catppuccin-plug": "vim-catppuccin-plug",
+        "vim-tree-plug": "vim-tree-plug",
+        "vim-typst-plug": "vim-typst-plug"
+      }
+    },
+    "vim-catppuccin-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705766520,
+        "narHash": "sha256-5t9CqqLLHWQZGvOhkL3padkA1iPXkJGkt/1qPFJvGlg=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "6853cc8e6efc76e85e10ec153d05fc2520653508",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "vim-tree-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705727533,
+        "narHash": "sha256-2MkdSd3112nLPrZuxueG6XVZb6+N81EawvZOJc1d5wM=",
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "rev": "e9c5abe073a973f54d3ca10bfe30f253569f4405",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
+    "vim-typst-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704326301,
+        "narHash": "sha256-lm6V0USAzFEIpziGC1kx7X4rqYOXCfztte9w62MlZp8=",
+        "owner": "kaarmu",
+        "repo": "typst.vim",
+        "rev": "630bb8b7faf1fe02c253673a37a70c135ad43a40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kaarmu",
+        "repo": "typst.vim",
+        "type": "github"
       }
     }
   },
