@@ -15,7 +15,7 @@
   };
   nvim-tree = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-tree";
-    src = inputs.vim-tree-plug; 
+    src = inputs.vim-tree-plug;
   };
 
   plugins = pkgs.vimPlugins;
