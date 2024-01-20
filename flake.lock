@@ -1,5 +1,53 @@
 {
   "nodes": {
+    "alacritty-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705348726,
+        "narHash": "sha256-47F9YwhIDEvPK01zMwwUcAJ3xAetXhWfRHf1cfpuna4=",
+        "owner": "alacritty",
+        "repo": "alacritty-theme",
+        "rev": "489cb8d014e5e2d6aea8bc8a5680a10b8b13b0c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alacritty",
+        "repo": "alacritty-theme",
+        "type": "github"
+      }
+    },
+    "bat-catppuccin-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668065083,
+        "narHash": "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "ba4d16880d63e656acced2b7d4e034e4a93f74b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
+    "bat-typst-syntax": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1701077890,
+        "narHash": "sha256-gyXuByjfmzgFrmbwV6xIxRrphI4wEXukBpZH5rEi4MA=",
+        "owner": "hyrious",
+        "repo": "typst-syntax-highlight",
+        "rev": "9931aee3238a639f1812e27b96e3b9017f24e4e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyrious",
+        "repo": "typst-syntax-highlight",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -74,6 +122,9 @@
     },
     "root": {
       "inputs": {
+        "alacritty-themes": "alacritty-themes",
+        "bat-catppuccin-plug": "bat-catppuccin-plug",
+        "bat-typst-syntax": "bat-typst-syntax",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",

@@ -1,12 +1,10 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: let
-  draculatheme = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/0ea6ab87fed0d71dc9658dea95debc4124984607/themes/dracula.yaml";
-    sha256 = "0f3w58i8kmi4y3i97jxz9bfwvnbqy54x1cscyx4ziygvwihsdm8s";
-  };
+  draculatheme = builtins.readFile "${inputs.alacritty-theme}/themes/dracula.yaml";
 in {
   programs.alacritty = {
     enable = false;

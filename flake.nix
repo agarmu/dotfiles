@@ -16,10 +16,25 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
-
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
     nur.url = github:nix-community/NUR;
+    home-manager = {
+      url = github:nix-community/home-manager/master;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin = {
+      url = github:lnl7/nix-darwin;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    bat-catppuccin-plug = {
+      url = github:catppuccin/bat;
+      flake = false;
+    };
+    bat-typst-syntax = {
+      url = github:hyrious/typst-syntax-highlight;
+      flake = false;
+    };
     vim-catppuccin-plug = {
       url = github:catppuccin/nvim;
       flake = false;
@@ -32,16 +47,11 @@
       url = github:nvim-tree/nvim-tree.lua;
       flake = false;
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    darwin = {
-      url = github:lnl7/nix-darwin;
-      inputs.nixpkgs.follows = "nixpkgs";
+    alacritty-themes = {
+      url = github:alacritty/alacritty-theme;
+      flake = false;
     };
   };
-
   outputs = inputs @ {
     self,
     nixpkgs,
