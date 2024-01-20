@@ -83,6 +83,8 @@
     gnumake
     ninja
     meson
+    just
+    bazel_7
 
     ##############################
     # Programming Languages/SDKs #
