@@ -24,7 +24,6 @@ in {
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
     extraPython3Packages = ps: [
       ps.sympy
     ];
