@@ -12,14 +12,6 @@
     sha256 = "1c66d8fccbdc7096cfc5b4b5f250c4249fbe48395c1b944d2fd26d52434a2dbd";
     meta = {};
   };
-  dark-space = buildFirefoxXpiAddon {
-    pname = "Dark-Space";
-    version = "1.1.1";
-    addonId = "{22b0eca1-8c02-4c0d-a5d7-6604ddd9836e}";
-    url = "https://addons.mozilla.org/firefox/downloads/file/3765900/nicothin_space-1.1.1.xpi";
-    sha256 = "f148cb25908af1401075db75bf145751eb4b6fa05823126bea89a1a14da5ee54";
-    meta = {};
-  };
 in {
   programs.firefox = {
     enable = true;
@@ -39,11 +31,13 @@ in {
         wayback-machine
         youtube-recommended-videos
         zotero-connector
-        dark-space
+        bypass-paywalls-clean
+        unpaywall
+        sidebery
       ];
     in {
       default = {
-        inherit extensions;
+        inherit extensions userChrome;
       };
     };
   };
