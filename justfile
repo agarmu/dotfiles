@@ -1,5 +1,6 @@
 alias b := build
 alias u := update
+alias optimize := optimise
 
 build:
 	nix build .#darwinConfigurations.macbook-pro.system \
@@ -44,3 +45,8 @@ meta:
 clean:  
 	rm -rf result
 
+optimise:
+	nix-store --optimise --verbose
+
+garbage:
+	nix-collect-garbage -d
