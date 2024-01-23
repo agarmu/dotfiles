@@ -54,6 +54,7 @@
       "llvm"
       "gdb"
       "valgrind"
+      "soapysdr"
     ];
 
     casks = [
