@@ -13,8 +13,18 @@
         hostname = "github.com";
         user = "git";
       };
-      "aim" = {
+      "ee1" = {
+        hostname = "ee220clnx1.ecn.purdue.edu";
+        user = "agarw396";
+        forwardAgent = true;
+      };
+      "ee3" = {
         hostname = "ee220clnx3.ecn.purdue.edu";
+        user = "agarw396";
+        forwardAgent = true;
+      };
+      "ee4" = {
+        hostname = "ee230lnx04.ecn.purdue.edu";
         user = "agarw396";
         forwardAgent = true;
       };
