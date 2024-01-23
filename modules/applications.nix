@@ -58,7 +58,6 @@
     ];
 
     casks = [
-      "macfuse"
       "iina"
       "tor-browser"
       "anaconda"
