@@ -84,7 +84,6 @@
       "vscodium"
       "zoom"
       "zotero"
-      "sage"
       "calibre"
     ];
   };
