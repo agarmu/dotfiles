@@ -50,3 +50,7 @@ optimise:
 
 garbage:
 	nix-collect-garbage -d
+
+brew-cleanup:
+	brew cleanup --prune=all -s && rm -rv "$(brew --cache)"
+
