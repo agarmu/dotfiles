@@ -206,7 +206,7 @@ in {
         };
       };
     };
-    viAlias = true;
+    viAlias = false;
     vimAlias = true;
     vimdiffAlias = true;
   };
