@@ -48,6 +48,8 @@
       # <<< conda initialize <<<
       # Add Cargo, LLVM, and Brew Prefixes to path
       export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
+
+      source /Users/mukul/.ghcup/env
     '';
   };
 }
