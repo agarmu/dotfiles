@@ -54,10 +54,10 @@
       "llvm"
       "gdb"
       "valgrind"
-      "soapysdr"
     ];
 
     casks = [
+      "zed"
       "iina"
       "tor-browser"
       "anaconda"
