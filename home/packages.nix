@@ -28,7 +28,7 @@
     ##########################
     zellij # Rusty terminal multiplexer
     tmux # Need I say more?
-
+    
     ###############
     # Compression #
     ###############
@@ -63,7 +63,7 @@
     imagemagick # Tooling to work with images
     pdftk # PDF tool
     ffmpeg # Audio library/tool
-
+    
     #####################
     # Developer Tooling #
     #####################
@@ -75,7 +75,7 @@
     wasm-pack # Packages an application for WASM
     mold # Drop-in ld replacement
     ghidra # Reverse-engineering tool developed by the NSA
-
+    qemu # emulator & virtualizer
     #################
     # Build Systems #
     #################
