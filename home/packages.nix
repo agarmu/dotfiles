@@ -50,7 +50,7 @@
     nnn # Small file browser
     parallel # GNU Tool to execute commands in parallel
     qrencode # Works with qr codes
-
+    scc # Code Complexity analysis
     file # Gets file type
     which # Gets executable path
     gnused # GNU version of sed
