@@ -34,10 +34,16 @@ in {
         bypass-paywalls-clean
         unpaywall
         sidebery
+        profile-switcher
       ];
     in {
       default = {
         inherit extensions userChrome;
+        id = 0;
+      };
+      puhack = {
+        inherit extensions userChrome;
+        id = 1;
       };
     };
   };

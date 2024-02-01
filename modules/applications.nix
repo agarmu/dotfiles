@@ -39,6 +39,7 @@
       "homebrew/services"
       "homebrew/cask-versions"
       "oven-sh/bun"
+      "null-dev/firefox-profile-switcher"
     ];
 
     brews = [
@@ -54,6 +55,7 @@
       "llvm"
       "gdb"
       "valgrind"
+      "firefox-profile-switcher-connector"
       "soapysdr"
     ];
 
