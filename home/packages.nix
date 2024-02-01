@@ -5,6 +5,11 @@
 }: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    ##################
+    # Custom scripts #
+    ##################
+    (buildEnv { name = "scripts"; paths = [ ./scripts ]; })
+
     #############
     # Nix Tools #
     #############
