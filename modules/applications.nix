@@ -66,6 +66,7 @@
       "calibre"
       "coconutbattery"
       "cutter"
+      "chromium"
       "docker"
       "firefox"
       "free-gpgmail"
