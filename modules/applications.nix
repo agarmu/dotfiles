@@ -56,7 +56,6 @@
       "gdb"
       "valgrind"
       "firefox-profile-switcher-connector"
-      "soapysdr"
     ];
 
     casks = [
