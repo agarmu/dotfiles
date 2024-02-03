@@ -8,7 +8,10 @@
     ##################
     # Custom scripts #
     ##################
-    (buildEnv { name = "scripts"; paths = [ ./scripts ]; })
+    (buildEnv {
+      name = "scripts";
+      paths = [./scripts];
+    })
 
     #############
     # Nix Tools #
@@ -61,6 +64,7 @@
     gnused # GNU version of sed
     gnutar # GNU version of tar
     gawk # GNU version of AWK
+    zola # Static site generator
 
     #############
     # Utilities #
