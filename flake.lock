@@ -192,9 +192,26 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "ruby-build": "ruby-build",
         "vim-catppuccin-plug": "vim-catppuccin-plug",
         "vim-tree-plug": "vim-tree-plug",
         "vim-typst-plug": "vim-typst-plug"
+      }
+    },
+    "ruby-build": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705620173,
+        "narHash": "sha256-oJdMAURkjeKUXFRqPf39I1ipcELw5BYQqAZPR9/vTq8=",
+        "owner": "rbenv",
+        "repo": "ruby-build",
+        "rev": "e1b36a32fb87d61955ac38f1889b7e3cb3b2f407",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rbenv",
+        "repo": "ruby-build",
+        "type": "github"
       }
     },
     "rust-overlay": {
