@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     coreutils
+    binutils
     git
   ];
   environment.variables = {
