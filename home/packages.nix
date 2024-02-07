@@ -12,6 +12,11 @@
       name = "scripts";
       paths = [./scripts];
     })
+    
+    ############################
+    # Version Control Software #
+    ############################
+    git mercurial subversion darcs jujutsu
 
     #############
     # Nix Tools #
