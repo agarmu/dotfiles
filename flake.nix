@@ -55,6 +55,10 @@
       url = github:alacritty/alacritty-theme;
       flake = false;
     };
+    ruby-build = {
+      url = github:rbenv/ruby-build;
+      flake = false;
+    };
   };
   outputs = inputs @ {
     self,
