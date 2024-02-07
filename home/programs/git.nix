@@ -14,7 +14,7 @@
       s = "status";
       l = "log";
     };
-    difftastic.enable = false;
+    difftastic.enable = true;
     lfs = {
       enable = true;
       skipSmudge = false;
@@ -24,6 +24,6 @@
       signByDefault = true;
     };
     userEmail = "agarmukul23@gmail.com";
-    userName = "mukul";
+    userName = "Mukul Agarwal";
   };
 }
