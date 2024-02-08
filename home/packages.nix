@@ -12,11 +12,15 @@
       name = "scripts";
       paths = [./scripts];
     })
-    
+
     ############################
     # Version Control Software #
     ############################
-    git mercurial subversion darcs jujutsu
+    git
+    mercurial
+    subversion
+    darcs
+    jujutsu
 
     #############
     # Nix Tools #
@@ -104,7 +108,6 @@
     # Programming Languages/SDKs #
     ##############################
 
-    gcc13 # GNU Compiler Collection v13
     deno # Fast JS Runtime
     fnm # Fast Node Version Management
     opam # OCaml Version/Package Management
