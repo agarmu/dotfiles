@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  system,
   ...
 }: {
   # Packages that should be installed to the user profile.
@@ -75,7 +76,7 @@
     gnutar # GNU version of tar
     gawk # GNU version of AWK
     zola # Static site generator
-    inputs.datamine-scraper # Datamine Scraper (by me)
+    inputs.datamine-scraper.packages.${system}.default # Datamine Scraper (by me)
     #############
     # Utilities #
     #############
