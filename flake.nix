@@ -31,6 +31,10 @@
       url = github:helix-editor/helix;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    datamine-scraper = {
+      url = github:agarmu/datamine-scraper;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     bat-catppuccin-plug = {
       url = github:catppuccin/bat;
       flake = false;
