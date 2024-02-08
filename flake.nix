@@ -70,34 +70,37 @@
     darwin,
     home-manager,
     ...
-  }: let
-    specialArgs = {
-      inputs = inputs;
-    };
-  in {
-    darwinConfigurations."macbook-pro" = darwin.lib.darwinSystem {
+  }: {
+    darwinConfigurations."macbook-pro" = let
       system = "aarch64-darwin";
-      modules = [
-        ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/applications.nix
-        ./modules/programs.nix
-        ./modules/host-users.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.mukul = import ./home;
-        }
-        {
-          nix.nixPath = with inputs; [{inherit darwin;}];
-          nixpkgs.overlays = with inputs; [
-            nur.overlay
-          ];
-        }
-      ];
-    };
+      specialArgs = {
+        inherit inputs;
+        inherit system;
+      };
+    in
+      darwin.lib.darwinSystem {
+        system = system;
+        modules = [
+          ./modules/nix-core.nix
+          ./modules/system.nix
+          ./modules/applications.nix
+          ./modules/programs.nix
+          ./modules/host-users.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.users.mukul = import ./home;
+          }
+          {
+            nix.nixPath = with inputs; [{inherit darwin;}];
+            nixpkgs.overlays = with inputs; [
+              nur.overlay
+            ];
+          }
+        ];
+      };
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
     formatter.aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
