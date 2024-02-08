@@ -47,7 +47,6 @@
       "openjdk"
       "openssh"
       "bun"
-      "llvm"
       "exiftool"
       "meson"
       "pandoc"
