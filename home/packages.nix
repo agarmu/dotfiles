@@ -161,7 +161,7 @@
     hyfetch
     freshfetch # Pretty Terminals
     plantuml # Nice Diagramming
-
+    graphviz # Graph visualization
     #############
     # Databases #
     #############
