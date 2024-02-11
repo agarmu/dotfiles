@@ -33,12 +33,15 @@ in {
     ];
     extraConfig = ''
       filetype plugin indent on
+      set smartindent
       syntax enable
       setlocal spell
       set spelllang=en_us
       set number
       inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
       colorscheme catppuccin
+      set textwidth=80
+      set colorcolumn=+0 
     '';
     extraLuaConfig = ''
     '';
