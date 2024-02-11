@@ -24,6 +24,10 @@ in {
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     extraPython3Packages = ps: [
       ps.sympy
     ];
@@ -38,6 +42,17 @@ in {
     '';
     extraLuaConfig = ''
     '';
+    coc = {
+      enable = true;
+      settings = {
+        languageserver = {
+          typst = {
+            command = "typst-lsp";
+            filetypes = ["typst" "typ"];
+          };
+        };
+      };
+    };
     plugins = with plugins; [
       {
         plugin = catppuccin;
@@ -195,19 +210,5 @@ in {
         '';
       }
     ];
-    coc = {
-      enable = true;
-      settings = {
-        languageserver = {
-          typst = {
-            command = "typst-lsp";
-            filetypes = ["typst" "typ"];
-          };
-        };
-      };
-    };
-    viAlias = false;
-    vimAlias = true;
-    vimdiffAlias = true;
   };
 }

@@ -6,7 +6,7 @@
 }: {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
     package = inputs.helix.packages."aarch64-darwin".default;
   };
 }
