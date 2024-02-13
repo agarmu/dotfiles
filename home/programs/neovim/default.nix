@@ -121,7 +121,6 @@ in {
         '';
       }
       deoplete-nvim
-      nerdtree
       vim-commentary
       fzf-vim
       vim-wakatime

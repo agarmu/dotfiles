@@ -128,13 +128,7 @@
     ##############
     flyctl
     cloudflared
-    # TODO: fix this
-    # wrangler
-    heroku
-    nodePackages.vercel
     netlify-cli
-    awscli2
-    oci-cli
 
     ############
     # Security #
