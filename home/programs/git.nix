@@ -14,7 +14,7 @@
       s = "status";
       l = "log";
     };
-    difftastic.enable = true;
+    delta.enable = true;
     lfs = {
       enable = true;
       skipSmudge = false;
