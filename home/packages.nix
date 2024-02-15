@@ -7,6 +7,12 @@
 }: {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    ############
+    # Spelling #
+    ############
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
     ##################
     # Custom scripts #
     ##################
