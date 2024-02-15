@@ -39,7 +39,6 @@
         "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 0; # disable beep sound when pressing volume up/down key
 
-        # AppleInterfaceStyle = "Dark";  # TODO: enable switching mode
         AppleKeyboardUIMode = 3; # Mode 3 enables full keyboard control.
         ApplePressAndHoldEnabled = true; # enable press and hold
 
@@ -87,8 +86,8 @@
     montserrat
     material-design-icons
     font-awesome
-    # noto-fonts
-    # noto-fonts-emoji
+    noto-fonts
+    noto-fonts-emoji
     (
       nerdfonts.override
       {
