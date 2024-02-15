@@ -41,7 +41,7 @@ in {
       inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
       colorscheme catppuccin
       set textwidth=80
-      set colorcolumn=+0 
+      set colorcolumn=+0
     '';
     extraLuaConfig = ''
     '';

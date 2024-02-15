@@ -8,6 +8,9 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
-    direnv-nix.enable = true; /* faster implementation of use nix */
+    direnv-nix.enable = true;
+    /*
+    faster implementation of use nix
+    */
   };
 }
