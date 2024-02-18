@@ -81,7 +81,7 @@
     gnused # GNU version of sed
     gnutar # GNU version of tar
     gawk # GNU version of AWK
-    zola # Static site generator
+    zola hugo # Static site generator
     inputs.datamine-scraper.packages.${system}.default # Datamine Scraper (by me)
     #############
     # Utilities #
