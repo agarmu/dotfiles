@@ -162,6 +162,7 @@
     freshfetch # Pretty Terminals
     plantuml # Nice Diagramming
     graphviz # Graph visualization
+    octaveFull # Scientific Computing
     #############
     # Databases #
     #############
