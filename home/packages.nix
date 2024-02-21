@@ -44,14 +44,12 @@
     mosh # robust alternative to ssh
     aria # CLI download utility
     socat # Better netcat
-    wget
     wget2
-    curl # Of course, the generic networking utilities
+    curl 
 
     ##########################
     # Editors & Multiplexers #
     ##########################
-    zellij # Rusty terminal multiplexer
     tmux # Need I say more?
 
     ###############
@@ -73,7 +71,6 @@
     ripgrep # Grep alternative
     yt-dlp # Download media from YouTube and similar
     nnn # Small file browser
-    parallel # GNU Tool to execute commands in parallel
     qrencode # Works with qr codes
     scc # Code Complexity analysis
     file # Gets file type
@@ -81,7 +78,7 @@
     gnused # GNU version of sed
     gnutar # GNU version of tar
     gawk # GNU version of AWK
-    zola hugo # Static site generator
+    hugo # Static site generator
     inputs.datamine-scraper.packages.${system}.default # Datamine Scraper (by me)
     #############
     # Utilities #
@@ -129,22 +126,14 @@
     nodePackages.bash-language-server # bash lsp
     nodePackages.vscode-css-languageserver-bin # css lsp
 
-    ##############
-    # SaaS Tools #
-    ##############
-    flyctl
-    cloudflared
-    netlify-cli
-
     ############
     # Security #
     ############
     gnupg
 
     ##############
-    # Typsetting #
+    # Typesetting #
     ##############
-
     ## TeX
     texlive.combined.scheme-full # TeX/LaTeX Distribution
     texlab # TeX lsp
