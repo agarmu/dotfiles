@@ -166,14 +166,15 @@
     ##########
     # Octave #
     ##########
-    octaveFull
-    octavePackages.symbolic
-    octavePackages.statistics
-    octavePackages.signal
-    octavePackages.quaternion
-    octavePackages.parallel
-    octavePackages.optim
-    octavePackages.linear-algebra
+    (octaveFull.withPackages (
+      ps: with ps; [
+      symbolic
+      statistics
+      signal
+      quaternion
+      optim
+      linear-algebra
+      ]))
     #############
     # Databases #
     #############
