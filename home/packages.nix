@@ -45,7 +45,7 @@
     aria # CLI download utility
     socat # Better netcat
     wget2
-    curl 
+    curl
 
     ##########################
     # Editors & Multiplexers #
@@ -156,14 +156,16 @@
     # Octave #
     ##########
     (octaveFull.withPackages (
-      ps: with ps; [
-      symbolic
-      statistics
-      signal
-      quaternion
-      optim
-      linear-algebra
-      ]))
+      ps:
+        with ps; [
+          symbolic
+          statistics
+          signal
+          quaternion
+          optim
+          linear-algebra
+        ]
+    ))
     #############
     # Databases #
     #############
