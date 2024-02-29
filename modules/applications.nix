@@ -59,6 +59,7 @@
     ];
 
     casks = [
+      "parksb/x/collie"
       "iina"
       "tor-browser"
       "anaconda"
