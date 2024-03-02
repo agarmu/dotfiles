@@ -56,6 +56,7 @@
       "gdb"
       "valgrind"
       "firefox-profile-switcher-connector"
+      "julia"
     ];
 
     casks = [
