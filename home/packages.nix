@@ -25,10 +25,6 @@
     # Version Control Software #
     ############################
     git
-    mercurial
-    subversion
-    darcs
-    jujutsu
 
     #############
     # Nix Tools #
@@ -70,7 +66,6 @@
     htop # System monitor
     ripgrep # Grep alternative
     yt-dlp # Download media from YouTube and similar
-    nnn # Small file browser
     qrencode # Works with qr codes
     scc # Code Complexity analysis
     file # Gets file type
@@ -78,7 +73,6 @@
     gnused # GNU version of sed
     gnutar # GNU version of tar
     gawk # GNU version of AWK
-    hugo # Static site generator
     inputs.datamine-scraper.packages.${system}.default # Datamine Scraper (by me)
     #############
     # Utilities #
@@ -90,13 +84,10 @@
     #####################
     # Developer Tooling #
     #####################
-    commitizen # Formats commits
-    lazygit # Git UI for terminal
     # TODO Move Valgrind to Homebrew -- broken on nix for mac
     # valgrind # Memory Profiler
     hyperfine # Terminal benchmarking utility
     wasm-pack # Packages an application for WASM
-    mold # Drop-in ld replacement
     ghidra # Reverse-engineering tool developed by the NSA
     qemu # emulator & virtualizer
     #################
@@ -104,24 +95,15 @@
     #################
     cmake
     gnumake
-    ninja
-    meson
     just
-    bazel_7
 
     ##############################
     # Programming Languages/SDKs #
     ##############################
 
-    deno # Fast JS Runtime
     fnm # Fast Node Version Management
     rustup # Rust management software
     jdk21 # OpenJDK 21
-    maven # Maven
-    lean4 # Lean theorem prover
-    coq # Coq theorem prover
-    elixir # Elixir language
-    elixir-ls # LSP for elixir
     nodePackages.bash-language-server # bash lsp
     nodePackages.vscode-css-languageserver-bin # css lsp
 
@@ -134,8 +116,7 @@
     # Typesetting #
     ##############
     ## TeX
-    texlive.combined.scheme-full # TeX/LaTeX Distribution
-    texlab # TeX lsp
+    texlive.combined.scheme-small # TeX/LaTeX Distribution
 
     ## Typst
     typst
@@ -146,15 +127,11 @@
     ########
     fswatch # Watch filesystem for changes
     neofetch
-    hyfetch
-    freshfetch # Pretty Terminals
-    plantuml # Nice Diagramming
-    graphviz # Graph visualization
 
     ##########
     # Octave #
     ##########
-    (octaveFull.withPackages (
+    (octave.withPackages (
       ps:
         with ps; [
           symbolic
@@ -169,6 +146,5 @@
     # Databases #
     #############
     sqlite # Embedded SQL Database
-    postgresql # Postgres SQL database
   ];
 }
