@@ -57,6 +57,7 @@
       "valgrind"
       "firefox-profile-switcher-connector"
       "julia"
+      "opam"
     ];
 
     casks = [
