@@ -115,7 +115,6 @@
 
     deno # Fast JS Runtime
     fnm # Fast Node Version Management
-    opam # OCaml Version/Package Management
     rustup # Rust management software
     jdk21 # OpenJDK 21
     maven # Maven
