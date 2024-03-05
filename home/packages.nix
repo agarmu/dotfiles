@@ -112,9 +112,9 @@
     ############
     gnupg
 
-    ##############
+    ################
     # Typesetting #
-    ##############
+    ################
     ## TeX
     texlive.combined.scheme-small # TeX/LaTeX Distribution
 
@@ -128,23 +128,9 @@
     fswatch # Watch filesystem for changes
     neofetch
 
-    ##########
-    # Octave #
-    ##########
-    (octave.withPackages (
-      ps:
-        with ps; [
-          symbolic
-          statistics
-          signal
-          quaternion
-          optim
-          linear-algebra
-        ]
-    ))
     #############
-    # Databases #
+    # Databases # 
     #############
     sqlite # Embedded SQL Database
   ];
-}
+} 
