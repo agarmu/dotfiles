@@ -42,6 +42,7 @@ in {
       colorscheme catppuccin
       set textwidth=80
       set colorcolumn=+0
+      set rtp^="/Users/mukul/.opam/default/share/ocp-indent/vim"
     '';
     extraLuaConfig = ''
     '';
@@ -89,6 +90,7 @@ in {
       }
       yankring
       vim-nix
+      vim-localvimrc 
       nvim-tree
       {
         plugin = vimtex;
