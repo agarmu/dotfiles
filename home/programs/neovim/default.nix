@@ -206,7 +206,7 @@ in {
         config = ''
           require'lspconfig'.typst_lsp.setup{
             settings = {
-              exportPdf = "onType" -- Choose onType, onSave or never.
+              exportPdf = "onSave" -- Choose onType, onSave or never.
               -- serverPath = "" -- Normally, there is no need to uncomment it.
             },
             filetypes = { "typst", "typ" }
