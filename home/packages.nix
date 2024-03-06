@@ -88,7 +88,6 @@
     # valgrind # Memory Profiler
     hyperfine # Terminal benchmarking utility
     wasm-pack # Packages an application for WASM
-    ghidra # Reverse-engineering tool developed by the NSA
     rizin # Fork of radare2 reverse-engineering tooling
     qemu # emulator & virtualizer
     #################
