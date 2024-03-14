@@ -20,7 +20,6 @@
       "Microsoft Excel" = 462058435;
       "Microsoft Word" = 462054704;
       "Microsoft PowerPoint" = 462062816;
-      "Onedrive" = 823766827;
 
       # Apple Office
       "Pages" = 409201541;
