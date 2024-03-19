@@ -88,6 +88,8 @@
     font-awesome
     noto-fonts
     noto-fonts-emoji
+    cm_unicode # Computer Modern
+    lmmath # Latin Modern Math
     (
       nerdfonts.override
       {
