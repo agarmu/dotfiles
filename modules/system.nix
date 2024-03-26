@@ -88,9 +88,7 @@
     font-awesome
     noto-fonts
     noto-fonts-emoji
-    bakoma_ttf # TeX & AMS Fonts
-    lmodern lmmath # Latin Modern (+ Math)
-    (
+       (
       nerdfonts.override
       {
         fonts = [
