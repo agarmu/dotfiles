@@ -129,8 +129,8 @@
     neofetch
 
     #############
-    # Databases # 
+    # Databases #
     #############
     sqlite # Embedded SQL Database
   ];
-} 
+}
