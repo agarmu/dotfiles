@@ -90,7 +90,7 @@ in {
       }
       yankring
       vim-nix
-      vim-localvimrc 
+      vim-localvimrc
       nvim-tree
       {
         plugin = vimtex;

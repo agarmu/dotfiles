@@ -64,7 +64,8 @@
       "iina"
       "tor-browser"
       "anaconda"
-      "anki" "mochi" # spaced repetition
+      "anki"
+      "mochi" # spaced repetition
       "calibre"
       "coconutbattery"
       "cutter"
