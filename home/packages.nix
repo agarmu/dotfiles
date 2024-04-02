@@ -106,6 +106,7 @@
     jdk21 # OpenJDK 21
     nodePackages.bash-language-server # bash lsp
     nodePackages.vscode-css-languageserver-bin # css lsp
+    ciao # Ciao Prolog
 
     ############
     # Security #
