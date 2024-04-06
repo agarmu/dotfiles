@@ -64,6 +64,7 @@
     glow # CLI markdown previewer
     eza # Better ls (fork of exa, which is no longer maintained)
     htop # System monitor
+    btop # Better htop
     ripgrep # Grep alternative
     yt-dlp # Download media from YouTube and similar
     qrencode # Works with qr codes
