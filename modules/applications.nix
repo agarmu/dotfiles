@@ -90,6 +90,7 @@
       "zoom"
       "zotero"
       "calibre"
+      "neovide"
     ];
   };
 }
