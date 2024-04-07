@@ -137,25 +137,6 @@ in {
       vim-startuptime
       nvim-treesitter.withAllGrammars
       {
-        plugin = neorg;
-        type = "lua";
-        config = ''
-            require('neorg').setup {
-              load = {
-                  ["core.defaults"] = {},
-                  ["core.concealer"] = {},
-                  ["core.dirman"] = {
-                      config = {
-                          workspaces = {
-                              main = "~/notes",
-                          }
-                      }
-                  }
-              }
-          }
-        '';
-      }
-      {
         plugin = gitsigns-nvim;
         type = "lua";
         config = ''
