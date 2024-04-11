@@ -60,37 +60,37 @@
     ];
 
     casks = [
-      "parksb/x/collie"
-      "iina"
-      "tor-browser"
-      "anaconda"
-      "anki"
+      "parksb/x/collie" # RSS Reader
+      "vlc" # Video Player
+      "iina" # Video Player
+      "tor-browser" # Secure Browser
+      "anaconda" # Python Package/Environment Manager
+      "anki" # Spaced Repetition
       "mochi" # spaced repetition
-      "calibre"
-      "coconutbattery"
-      "cutter"
-      "chromium"
-      "docker"
-      "firefox"
-      "free-gpgmail"
-      "godot"
-      "hammerspoon"
-      "handbrake"
-      "inkscape"
-      "kitty"
-      "maccy"
-      "qbittorrent"
-      "gimp"
-      "signal"
-      "skim"
-      "spotify"
-      "thunderbird"
-      "vlc"
-      "vscodium"
-      "zoom"
-      "zotero"
-      "calibre"
-      "neovide"
+      "calibre" # E-Book Manager
+      "coconutbattery" # macOS Battery Health Checker
+      "cutter" # Reverse-Engineering/Decompiling Tool
+      "chromium" # Lite Chrome-based Web-browser
+      "docker" # Containerization
+      "firefox" # Main Browser
+      "free-gpgmail" # GPG tools for macOS
+      #"godot" # Gamedev toolchain
+      "hammerspoon" # Custom OS extensions/keybinds
+      "handbrake" # Nice frontend to ffmpeg
+      "inkscape" # Vector Graphics Editor
+      "kitty" # Terminal Emulator
+      "maccy" # Clipboard History
+      "qbittorrent" # Torrent Client
+      "gimp" # GNU Image Manipulation Program
+      "signal" # Secure E2E chat platform
+      "skim" # PDF Viewer with Hot Reload
+      "spotify" # Music Streaming
+      "thunderbird" # E-Mail Client
+      "vscodium" # FOSS version of VS Code
+      "zoom" # Video meeting tool
+      "zotero" # Reference management tool
+      "neovide" # Neovim client
+      "raycast" # Launcher
     ];
   };
 }
