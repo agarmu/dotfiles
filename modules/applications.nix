@@ -79,7 +79,6 @@
       "handbrake" # Nice frontend to ffmpeg
       "inkscape" # Vector Graphics Editor
       "kitty" # Terminal Emulator
-      "maccy" # Clipboard History
       "qbittorrent" # Torrent Client
       "gimp" # GNU Image Manipulation Program
       "signal" # Secure E2E chat platform
