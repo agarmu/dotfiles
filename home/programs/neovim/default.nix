@@ -45,6 +45,10 @@ in {
       set rtp^="/Users/mukul/.opam/default/share/ocp-indent/vim"
     '';
     extraLuaConfig = ''
+      if vim.g.neovide then
+          -- Put anything you want to happen only in Neovide here
+          vim.o.guifont = "FiraCode Nerd Font Mono:h12"
+      end
     '';
     coc = {
       enable = true;
