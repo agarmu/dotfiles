@@ -314,6 +314,7 @@
         "ruby-build": "ruby-build",
         "typst-lsp": "typst-lsp",
         "vim-catppuccin-plug": "vim-catppuccin-plug",
+        "vim-omnisharp-plug": "vim-omnisharp-plug",
         "vim-tree-plug": "vim-tree-plug",
         "vim-typst-plug": "vim-typst-plug"
       }
@@ -492,6 +493,22 @@
       "original": {
         "owner": "catppuccin",
         "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "vim-omnisharp-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697407911,
+        "narHash": "sha256-z3Dgrm9pNWkvfShPmB9O8TqpY592sk1W722zduOSing=",
+        "owner": "OmniSharp",
+        "repo": "omnisharp-vim",
+        "rev": "f9c5d3e3375e8b5688a4506e813cb21bdc7329b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OmniSharp",
+        "repo": "omnisharp-vim",
         "type": "github"
       }
     },
