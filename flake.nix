@@ -59,6 +59,10 @@
       url = github:nvim-tree/nvim-tree.lua;
       flake = false;
     };
+    vim-omnisharp-plug = {
+      url = github:OmniSharp/omnisharp-vim;
+      flake = false;
+    };
     alacritty-themes = {
       url = github:alacritty/alacritty-theme;
       flake = false;
@@ -67,6 +71,7 @@
       url = github:rbenv/ruby-build;
       flake = false;
     };
+
   };
   outputs = inputs @ {
     self,

@@ -17,7 +17,10 @@
     name = "nvim-tree";
     src = inputs.vim-tree-plug;
   };
-
+  omnisharp = pkgs.vimUtils.buildVimPlugin {
+    name = "omnisharp";
+    src = inputs.vim-omnisharp-plug;
+  };
   plugins = pkgs.vimPlugins;
 in {
   # Snippets!
@@ -28,6 +31,7 @@ in {
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+
     extraPython3Packages = ps: [
       ps.sympy
     ];
@@ -39,7 +43,7 @@ in {
       set spelllang=en_us
       set number
       inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-      colorscheme catppuccin
+      colorscheme catppuccin-mocha
       set textwidth=80
       set colorcolumn=+0
       set rtp^="/Users/mukul/.opam/default/share/ocp-indent/vim"

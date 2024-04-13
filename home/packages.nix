@@ -108,6 +108,8 @@
     nodePackages.bash-language-server # bash lsp
     nodePackages.vscode-css-languageserver-bin # css lsp
     gprolog # GNU Prolog
+    dotnet-sdk_8
+    omnisharp-roslyn # Roslyn OmniSharp LSP for .NET
 
     ############
     # Security #
