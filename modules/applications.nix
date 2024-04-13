@@ -56,6 +56,7 @@
       "valgrind"
       "firefox-profile-switcher-connector"
       "julia"
+      "dotnet"
       "opam"
     ];
 
