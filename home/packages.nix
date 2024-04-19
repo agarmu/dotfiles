@@ -120,7 +120,7 @@
     # Typesetting #
     ################
     ## TeX
-    texlive.combined.scheme-small # TeX/LaTeX Distribution
+    texlive.combined.scheme-full # TeX/LaTeX Distribution
 
     ## Typst
     typst
