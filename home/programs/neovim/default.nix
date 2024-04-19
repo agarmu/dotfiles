@@ -67,6 +67,9 @@ in {
     };
     plugins = with plugins; [
       {
+        plugin = omnisharp;
+      }
+      {
         plugin = catppuccin;
         type = "lua";
         config = ''
