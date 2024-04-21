@@ -71,7 +71,6 @@
       url = github:rbenv/ruby-build;
       flake = false;
     };
-
   };
   outputs = inputs @ {
     self,
