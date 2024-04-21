@@ -5,23 +5,24 @@
   inputs,
   ...
 }: let
-  catppuccin = pkgs.vimUtils.buildVimPlugin {
+  plugins = pkgs.vimPlugins;
+  builder = pkgs.vimUtils.buildVimPlugin;
+  catppuccin = builder {
     name = "catppuccin";
     src = inputs.vim-catppuccin-plug;
   };
-  typst-vim = pkgs.vimUtils.buildVimPlugin {
+  typst-vim = builder {
     name = "typst.vim";
     src = inputs.vim-typst-plug;
   };
-  nvim-tree = pkgs.vimUtils.buildVimPlugin {
+  nvim-tree = builder {
     name = "nvim-tree";
     src = inputs.vim-tree-plug;
   };
-  omnisharp = pkgs.vimUtils.buildVimPlugin {
+  omnisharp = builder {
     name = "omnisharp";
     src = inputs.vim-omnisharp-plug;
   };
-  plugins = pkgs.vimPlugins;
 in {
   # Snippets!
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
@@ -49,10 +50,16 @@ in {
       set rtp^="/Users/mukul/.opam/default/share/ocp-indent/vim"
     '';
     extraLuaConfig = ''
-      if vim.g.neovide then
-          -- Put anything you want to happen only in Neovide here
-          vim.o.guifont = "FiraCode Nerd Font Mono:h12"
-      end
+       if vim.g.neovide then
+           -- Put anything you want to happen only in Neovide here
+           vim.o.guifont = "FiraCode Nerd Font Mono:h12"
+       end
+      -- disable netrw at the very start of your init.lua
+       vim.g.loaded_netrw = 1
+       vim.g.loaded_netrwPlugin = 1
+
+       -- optionally enable 24-bit colour
+       vim.opt.termguicolors = true
     '';
     coc = {
       enable = true;
@@ -102,7 +109,14 @@ in {
       yankring
       vim-nix
       vim-localvimrc
-      nvim-tree
+      {
+        plugin = nvim-tree;
+        type = "lua";
+        config = ''
+          require("nvim-tree").setup()
+        '';
+      }
+      telescope-nvim
       {
         plugin = vimtex;
         config = ''
@@ -183,7 +197,12 @@ in {
           }
         '';
       }
-      typst-vim
+      {
+        plugin = typst-vim;
+        config = ''
+          let g:typst_conceal = 1;
+        '';
+      }
       {
         plugin = mason-nvim;
         type = "lua";
@@ -197,12 +216,48 @@ in {
         type = "lua";
         config = ''
           require'lspconfig'.typst_lsp.setup{
-            settings = {
-              exportPdf = "onSave" -- Choose onType, onSave or never.
-              -- serverPath = "" -- Normally, there is no need to uncomment it.
-            },
-            filetypes = { "typst", "typ" }
+          settings = {
+          exportPdf = "onSave" -- Choose onType, onSave or never.
+          -- serverPath = "" -- Normally, there is no need to uncomment it.
+          },
+          filetypes = { "typst", "typ" }
           }
+        '';
+      }
+      {
+        plugin = headlines-nvim;
+        type = "lua";
+        config = ''
+          require("headlines").setup()
+          local builtin = require('telescope.builtin')
+          vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+          vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+          vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+          vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+        '';
+      }
+      {
+        plugin = neorg;
+        type = "lua";
+        config = ''
+          require('neorg').setup {
+            load = {
+                ["core.defaults"] = {},
+                ["core.concealer"] = {},
+                ["core.dirman"] = {
+                  config = {
+                    workspaces = {
+                      notes = "~/notes",
+                    },
+                    default_workspace = "notes",
+                  },
+                },
+                ...
+                ["core.integrations.telescope"] = {}
+            },
+          }
+          vim.wo.foldlevel = 99
+          vim.wo.conceallevel = 2
         '';
       }
     ];
