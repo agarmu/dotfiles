@@ -23,6 +23,22 @@
     name = "omnisharp";
     src = inputs.vim-omnisharp-plug;
   };
+  lua-utils = builder {
+    name = "lua-utils";
+    src = inputs.vim-lua-utils-plug;
+  };
+  nvim-nio = builder {
+    name = "nvim-nio";
+    src = inputs.vim-nio-plug;
+  };
+  pathlib = builder {
+    name = "pathlib.nvim";
+    src = inputs.vim-pathlib;
+  };
+  neorg-telescope = builder {
+    name = "neorg-telescope";
+    src = inputs.vim-neorg-telescope-plug;
+  };
 in {
   # Snippets!
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
@@ -116,7 +132,18 @@ in {
           require("nvim-tree").setup()
         '';
       }
-      telescope-nvim
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = ''
+          require("telescope").setup()
+          local builtin = require('telescope.builtin')
+          vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+          vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+          vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+          vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+        '';
+      }
       {
         plugin = vimtex;
         config = ''
@@ -200,7 +227,7 @@ in {
       {
         plugin = typst-vim;
         config = ''
-          let g:typst_conceal = 1;
+          let g:typst_conceal = 1
         '';
       }
       {
@@ -236,6 +263,17 @@ in {
           vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
         '';
       }
+      /*
+        ┌────────────────────────┐
+        │ Dependencies for Neorg │
+        └────────────────────────┘
+        */
+
+        plenary-nvim
+        lua-utils
+        nvim-nio
+        pathlib
+        neorg-telescope
       {
         plugin = neorg;
         type = "lua";
