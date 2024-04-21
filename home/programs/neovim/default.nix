@@ -252,7 +252,6 @@ in {
                     default_workspace = "notes",
                   },
                 },
-                ...
                 ["core.integrations.telescope"] = {}
             },
           }
