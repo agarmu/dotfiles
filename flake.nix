@@ -55,6 +55,22 @@
       url = github:kaarmu/typst.vim;
       flake = false;
     };
+    vim-lua-utils-plug = {
+      url = github:nvim-neorg/lua-utils.nvim;
+      flake = false;
+    };
+    vim-nio-plug = {
+      url = github:nvim-neotest/nvim-nio;
+      flake = false;
+    };
+    vim-pathlib = {
+      url = github:pysan3/pathlib.nvim;
+      flake = false;
+    };
+    vim-neorg-telescope-plug = {
+      url = github:nvim-neorg/neorg-telescope;
+      flake = false;
+    };
     vim-tree-plug = {
       url = github:nvim-tree/nvim-tree.lua;
       flake = false;
