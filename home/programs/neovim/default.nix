@@ -27,22 +27,6 @@
     name = "omnisharp";
     src = inputs.vim-omnisharp-plug;
   };
-  lua-utils = builder {
-    name = "lua-utils";
-    src = inputs.vim-lua-utils-plug;
-  };
-  nvim-nio = builder {
-    name = "nvim-nio";
-    src = inputs.vim-nio-plug;
-  };
-  pathlib = builder {
-    name = "pathlib.nvim";
-    src = inputs.vim-pathlib;
-  };
-  neorg-telescope = builder {
-    name = "neorg-telescope";
-    src = inputs.vim-neorg-telescope-plug;
-  };
 in {
   # Snippets!
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
@@ -283,42 +267,6 @@ in {
           vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
           vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
           vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-        '';
-      }
-      /*
-      ┌────────────────────────┐
-      │ Dependencies for Reorg │
-      └────────────────────────┘
-      */
-
-      plenary-nvim
-      lua-utils
-      nvim-nio
-      pathlib
-      neorg-telescope
-      {
-        plugin = neorg;
-        type = "lua";
-        config = ''
-          require('neorg').setup {
-            load = {
-                ["core.defaults"] = {},
-                ["core.concealer"] = {},
-                ["core.summary"] = {},
-                ["core.concealer"] = {},
-                ["core.dirman"] = {
-                  config = {
-                    workspaces = {
-                      notes = "~/notes",
-                    },
-                    default_workspace = "notes",
-                  },
-                },
-                ["core.integrations.telescope"] = {}
-            },
-          }
-          vim.wo.foldlevel = 99
-          vim.wo.conceallevel = 2
         '';
       }
     ];
