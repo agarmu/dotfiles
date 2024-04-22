@@ -286,16 +286,16 @@ in {
         '';
       }
       /*
-        ┌────────────────────────┐
-        │ Dependencies for Reorg │
-        └────────────────────────┘
-        */
+      ┌────────────────────────┐
+      │ Dependencies for Reorg │
+      └────────────────────────┘
+      */
 
-        plenary-nvim
-        lua-utils
-        nvim-nio
-        pathlib
-        neorg-telescope
+      plenary-nvim
+      lua-utils
+      nvim-nio
+      pathlib
+      neorg-telescope
       {
         plugin = neorg;
         type = "lua";
