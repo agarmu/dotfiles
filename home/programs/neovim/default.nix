@@ -304,6 +304,8 @@ in {
             load = {
                 ["core.defaults"] = {},
                 ["core.concealer"] = {},
+                ["core.summary"] = {},
+                ["core.concealer"] = {},
                 ["core.dirman"] = {
                   config = {
                     workspaces = {
