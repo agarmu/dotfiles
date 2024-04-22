@@ -55,6 +55,10 @@
       url = github:kaarmu/typst.vim;
       flake = false;
     };
+    vim-typst-preview-plug = {
+      url = github:chomosuke/typst-preview.nvim;
+      flake = false;
+    };
     vim-lua-utils-plug = {
       url = github:nvim-neorg/lua-utils.nvim;
       flake = false;
