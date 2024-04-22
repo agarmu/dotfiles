@@ -320,7 +320,8 @@
         "vim-omnisharp-plug": "vim-omnisharp-plug",
         "vim-pathlib": "vim-pathlib",
         "vim-tree-plug": "vim-tree-plug",
-        "vim-typst-plug": "vim-typst-plug"
+        "vim-typst-plug": "vim-typst-plug",
+        "vim-typst-preview-plug": "vim-typst-preview-plug"
       }
     },
     "ruby-build": {
@@ -609,6 +610,22 @@
       "original": {
         "owner": "kaarmu",
         "repo": "typst.vim",
+        "type": "github"
+      }
+    },
+    "vim-typst-preview-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713423620,
+        "narHash": "sha256-Jxew9uOYzHUlFpqlhlSzHgOCx1kdJEuAWt1pI9aEZyk=",
+        "owner": "chomosuke",
+        "repo": "typst-preview.nvim",
+        "rev": "1394f5d16b4b3f771f5fc112fbb1eb4369f58cc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chomosuke",
+        "repo": "typst-preview.nvim",
         "type": "github"
       }
     }

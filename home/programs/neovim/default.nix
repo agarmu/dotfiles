@@ -15,6 +15,10 @@
     name = "typst.vim";
     src = inputs.vim-typst-plug;
   };
+  typst-preview = builder {
+    name = "typst-preview.nvim";
+    src = inputs.vim-typst-preview-plug;
+  };
   nvim-tree = builder {
     name = "nvim-tree";
     src = inputs.vim-tree-plug;
@@ -64,11 +68,22 @@ in {
       set textwidth=80
       set colorcolumn=+0
       set rtp^="/Users/mukul/.opam/default/share/ocp-indent/vim"
+
+      nmap <c-c> "+y
+      vmap <c-c> "+y
+      nmap <c-v> "+p
+      inoremap <c-v> <c-r>+
+      cnoremap <c-v> <c-r>+
+      " use <c-r> to insert original character without triggering things like auto-pairs
+      inoremap <c-r> <c-v>
     '';
     extraLuaConfig = ''
        if vim.g.neovide then
            -- Put anything you want to happen only in Neovide here
            vim.o.guifont = "FiraCode Nerd Font Mono:h12"
+
+           -- vim clipboard settings
+
        end
       -- disable netrw at the very start of your init.lua
        vim.g.loaded_netrw = 1
@@ -231,6 +246,13 @@ in {
         '';
       }
       {
+        plugin = typst-preview;
+        type = "lua";
+        config = ''
+          require('typst-preview').setup()
+        '';
+      }
+      {
         plugin = mason-nvim;
         type = "lua";
         config = ''
@@ -265,7 +287,7 @@ in {
       }
       /*
         ┌────────────────────────┐
-        │ Dependencies for Neorg │
+        │ Dependencies for Reorg │
         └────────────────────────┘
         */
 
