@@ -27,11 +27,13 @@ in {
       tral = "exa --tree -al";
       cat = "bat";
       nv = "neovide";
-      ".." = "cd ..";
-      "cl" = "clear";
-      "cls" = "clear";
-      "kitten" = "kitty +kitten";
-      "s" = "kitten ssh";
+      ping = "gping";
+      diff = "delta";
+      top = "btop";
+      cl = "clear";
+      cls = "clear";
+      kitten = "kitty +kitten";
+      s = "kitten ssh";
     };
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
