@@ -15,6 +15,7 @@
     history = {
       ignoreDups = true;
       extended = true;
+      size = 1000000000;
       ignorePatterns = [
         "ls *"
         "exa *"
@@ -29,6 +30,8 @@
       export PATH="/etc/profiles/per-user/mukul/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:"$PATH
       export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
       export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
+      HISTSIZE=1000000000
+      SAVEHIST=$HISTSIZE
       export HISTSIZE=1000000000
       export SAVEHIST=$HISTSIZE
       setopt EXTENDED_HISTORY
