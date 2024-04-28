@@ -116,16 +116,21 @@
     ############
     gnupg
 
-    ################
-    # Typesetting #
-    ################
-    ## TeX
+    /*
+    ┌─────────────────────┐
+    │ Typesetting/Writing │
+    └─────────────────────┘
+    */
+
+    # TeX
     texlive.combined.scheme-full # TeX/LaTeX Distribution
 
-    ## Typst
+    # Typst
     typst
     typst-lsp
 
+    # Writing LSP
+    ltex-ls
     ########
     # Misc #
     ########
