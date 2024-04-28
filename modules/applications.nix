@@ -90,7 +90,8 @@
       "zotero" # Reference management tool
       "neovide" # Neovim client
       "raycast" # Launcher
-      "obsidian" "logseq" # Zettelkasten Notetaking Mechanism
+      "obsidian"
+      "logseq" # Zettelkasten Notetaking Mechanism
     ];
   };
 }
