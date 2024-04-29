@@ -17,7 +17,7 @@
     version = "3.6.5.0";
     addonId = "bpc@bpc.bpc";
     url = "https://github.com/bpc-clone/bpc_updates/releases/download/latest/bypass_paywalls_clean-3.6.5.0.xpi";
-    sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+    sha256 = "8d03b968b11edd546fe128ff2ded1fdcd660f0f835e572df6170cf538d02b8c3";
     meta = {};
   };
 in {
