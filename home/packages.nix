@@ -127,7 +127,8 @@
 
     # Typst
     inputs.typst.packages.${system}.default
-    inputs.typst-lsp.packages.${system}.default
+    typst-lsp
+    #    inputs.typst-lsp.packages.${system}.default
 
     # Writing LSP
     ltex-ls
