@@ -88,6 +88,8 @@
     font-awesome
     noto-fonts
     noto-fonts-emoji
+    libertinus
+    iosevka
     (
       nerdfonts.override
       {
@@ -96,7 +98,6 @@
           "FiraCode"
           "JetBrainsMono"
           "Hack"
-          "Iosevka"
         ];
       }
     )
