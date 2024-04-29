@@ -2,11 +2,12 @@
   config,
   pkgs,
   inputs,
+  system,
   ...
 }: {
   programs.helix = {
     enable = true;
     defaultEditor = false;
-    package = inputs.helix.packages."aarch64-darwin".default;
+    package = inputs.helix.packages.${system}.default;
   };
 }

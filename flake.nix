@@ -35,6 +35,10 @@
       url = github:agarmu/datamine-scraper;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    typst = {
+      url = github:typst/typst;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     typst-lsp = {
       url = github:nvarner/typst-lsp;
       inputs.nixpkgs.follows = "nixpkgs";
