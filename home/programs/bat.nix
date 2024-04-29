@@ -4,7 +4,6 @@
   inputs,
   ...
 }: let
-  catppuccin-macchiato-file = "${inputs.bat-catppuccin-plug}/Catppuccin-macchiato.tmTheme";
 in {
   programs.bat = {
     enable = true;
@@ -20,7 +19,8 @@ in {
     };
     themes = {
       catppuccin-macchiato = {
-        src = catppuccin-macchiato-file;
+        src = inputs.bat-catppuccin-plug;
+        file = "Catppuccin-macchiato.tmTheme";
       };
     };
   };
