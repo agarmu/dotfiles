@@ -126,8 +126,8 @@
     texlive.combined.scheme-full # TeX/LaTeX Distribution
 
     # Typst
-    typst
-    typst-lsp
+    inputs.typst.packages.${system}.default
+    inputs.typst-lsp.packages.${system}.default
 
     # Writing LSP
     ltex-ls
