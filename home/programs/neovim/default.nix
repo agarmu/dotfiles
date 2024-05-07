@@ -140,8 +140,8 @@ in {
         plugin = vimtex;
         config = ''
           let g:tex_flavor='xelatex'
-                        let g:vimtex_view_method='skim'
-                        let g:vimtex_format_enabled=1
+          let g:vimtex_view_method='skim'
+          let g:vimtex_format_enabled=1
           let g:vimtex_quickfix_mode=0
           set conceallevel=1
           let g:vimtex_syntax_conceal = {
