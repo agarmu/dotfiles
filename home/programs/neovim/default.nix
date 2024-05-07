@@ -219,7 +219,6 @@ in {
       {
         plugin = typst-vim;
         config = ''
-          let g:typst_conceal = 1
         '';
       }
       {
