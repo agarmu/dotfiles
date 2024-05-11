@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   services = {
     spacebar = {
-      enable = true;
+      enable = false;
       package = pkgs.spacebar;
     };
     tailscale = {
       enable = true;
     };
     yabai = {
-      enable = true;
+      enable = false;
     };
   };
 }
