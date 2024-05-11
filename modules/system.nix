@@ -90,6 +90,7 @@
     noto-fonts-emoji
     libertinus
     iosevka
+    eb-garamond
     (
       nerdfonts.override
       {
