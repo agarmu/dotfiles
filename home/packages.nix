@@ -21,21 +21,26 @@
       paths = [./scripts];
     })
 
-    ############################
-    # Version Control Software #
-    ############################
+    /*
+    ┌─────────────────┐
+    │ Version Control │
+    └─────────────────┘
+    */
     git
 
-    #############
-    # Nix Tools #
-    #############
+    /*
+    ┌─────────────┐
+    │ Nix Tooling │
+    └─────────────┘
+    */
     alejandra # Formatter for Nix
     nil # LSP for nix
 
-    ##############
-    # Networking #
-    ##############
-
+    /*
+    ┌────────────┐
+    │ Networking │
+    └────────────┘
+    */
     openssh # SSH Agent
     mosh # robust alternative to ssh
     aria # CLI download utility
@@ -43,20 +48,27 @@
     wget2
     curl
 
-    ##########################
-    # Editors & Multiplexers #
-    ##########################
-    tmux # Need I say more?
+    /*
+    ┌──────────────┐
+    │ Multiplexers │
+    └──────────────┘
+    */
+    tmux
+    zellij
 
-    ###############
-    # Compression #
-    ###############
+    /*
+    ┌─────────────┐
+    │ Compression │
+    └─────────────┘
+    */
     zstd
     brotli
 
-    #############
-    # CLI Tools #
-    #############
+    /*
+    ┌─────────────────┐
+    │ Tools/Utilities │
+    └─────────────────┘
+   */ 
     delta # nice diff viewer
     fd # alternative to find utility
     jq # Tool to work with json
@@ -75,33 +87,34 @@
     gnutar # GNU version of tar
     gawk # GNU version of AWK
     inputs.datamine-scraper.packages.${system}.default # Datamine Scraper (by me)
-    #############
-    # Utilities #
-    #############
     imagemagick # Tooling to work with images
     pdftk # PDF tool
     ffmpeg # Audio library/tool
-
-    #####################
-    # Developer Tooling #
-    #####################
-    # TODO Move Valgrind to Homebrew -- broken on nix for mac
-    # valgrind # Memory Profiler
+  
+    /*
+    ┌─────────────────┐
+    │ Developer Tools │
+    └─────────────────┘
+    */
     hyperfine # Terminal benchmarking utility
     wasm-pack # Packages an application for WASM
     rizin # Fork of radare2 reverse-engineering tooling
     qemu # emulator & virtualizer
-    #################
-    # Build Systems #
-    #################
+
+    /*
+    ┌───────────────┐
+    │ Build Systems │
+    └───────────────┘
+    */
     cmake
     gnumake
     just
 
-    ##############################
-    # Programming Languages/SDKs #
-    ##############################
-
+    /*
+    ┌────────────────────────────┐
+    │ Programming Languages/SDKs │
+    └────────────────────────────┘
+    */
     fnm # Fast Node Version Management
     rustup # Rust management software
     jdk21 # OpenJDK 21
@@ -110,10 +123,20 @@
     gprolog # GNU Prolog
     dotnet-sdk_8
     omnisharp-roslyn # Roslyn OmniSharp LSP for .NET
+    
+    /*
+    ┌───────────────────────────┐
+    │ Formal Verification, etc. │
+    └───────────────────────────┘
+    */
+    coq
+    lean4
 
-    ############
-    # Security #
-    ############
+    /*
+    ┌──────────┐
+    │ Security │
+    └──────────┘
+    */
     gnupg
 
     /*
@@ -132,15 +155,21 @@
 
     # Writing LSP
     ltex-ls
-    ########
-    # Misc #
-    ########
+
+    /*
+    ┌───────┐
+    │ Misc. │
+    └───────┘
+    */
     fswatch # Watch filesystem for changes
     neofetch
 
-    #############
-    # Databases #
-    #############
+    /*
+    ┌───────────┐
+    │ Databases │
+    └───────────┘
+    
+    */
     sqlite # Embedded SQL Database
   ];
 }
