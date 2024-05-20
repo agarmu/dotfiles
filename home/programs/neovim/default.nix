@@ -77,6 +77,11 @@ in {
             command = "typst-lsp";
             filetypes = ["typst" "typ"];
           };
+          ocaml = {
+            command = "opam";
+            args = ["config" "exec" "--" "ocamllsp"];
+            filetypes = ["ocaml" "reason"];
+          };
         };
       };
     };
