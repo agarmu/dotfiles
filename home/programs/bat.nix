@@ -20,7 +20,7 @@ in {
     themes = {
       catppuccin-macchiato = {
         src = inputs.bat-catppuccin-plug;
-        file = "Catppuccin-macchiato.tmTheme";
+        file = "themes/Catppuccin Macchiato.tmTheme";
       };
     };
   };
