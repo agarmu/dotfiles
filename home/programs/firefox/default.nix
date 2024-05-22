@@ -49,9 +49,10 @@ in {
         inherit extensions userChrome;
         id = 0;
       };
-      puhack = {
-        inherit extensions userChrome;
-        id = 1;
+      personal-2 = {
+        extensions = [ onepassword-password-manager ublock-origin clearurls ];
+        inherit userChrome;
+        id = 2;
       };
     };
   };
