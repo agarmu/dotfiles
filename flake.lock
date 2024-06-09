@@ -371,6 +371,7 @@
         "typst": "typst",
         "typst-lsp": "typst-lsp",
         "vim-catppuccin-plug": "vim-catppuccin-plug",
+        "vim-coqtail-plug": "vim-coqtail-plug",
         "vim-omnisharp-plug": "vim-omnisharp-plug",
         "vim-tree-plug": "vim-tree-plug",
         "vim-typst-plug": "vim-typst-plug",
@@ -589,6 +590,22 @@
       "original": {
         "owner": "catppuccin",
         "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "vim-coqtail-plug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717338880,
+        "narHash": "sha256-P1/AkmranNu1CJIpdsBKymVkOnBhrxykGrMVrSooGA8=",
+        "owner": "whonore",
+        "repo": "Coqtail",
+        "rev": "d77080e17787afe9ad0366d86327658da36febbb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "whonore",
+        "repo": "Coqtail",
         "type": "github"
       }
     },

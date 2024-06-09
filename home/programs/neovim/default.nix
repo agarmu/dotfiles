@@ -27,6 +27,10 @@
     name = "omnisharp";
     src = inputs.vim-omnisharp-plug;
   };
+  coqtail = builder {
+    name = "coqtail";
+    src = inputs.vim-coqtail-plug;
+  };
 in {
   # Snippets!
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
@@ -266,6 +270,7 @@ in {
           vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
         '';
       }
+      coqtail
     ];
   };
 }

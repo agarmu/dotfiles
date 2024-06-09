@@ -79,6 +79,10 @@
       url = github:rbenv/ruby-build;
       flake = false;
     };
+    vim-coqtail-plug = {
+      url = github:whonore/Coqtail;
+      flake = false;
+    };
   };
   outputs = inputs @ {
     self,
