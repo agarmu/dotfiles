@@ -92,6 +92,7 @@
       "raycast" # Launcher
       "obsidian"
       "logseq" # Zettelkasten Notetaking Mechanism
+      "rstudio"
     ];
   };
 }
