@@ -57,6 +57,7 @@
       "firefox-profile-switcher-connector"
       "julia"
       "opam"
+      "r"
     ];
 
     casks = [
