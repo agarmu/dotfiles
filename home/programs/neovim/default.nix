@@ -271,6 +271,7 @@ in {
         '';
       }
       coqtail
+      zoxide-vim
     ];
   };
 }
