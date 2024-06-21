@@ -77,8 +77,7 @@
     eval "$(/opt/homebrew/bin/brew shellenv)"
   '';
 
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     dejavu_fonts
     lato
     liberation_ttf
