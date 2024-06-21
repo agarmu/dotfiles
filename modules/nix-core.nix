@@ -30,10 +30,6 @@
 
   nix.gc = {
     automatic = true;
-    interval = {
-      Hour = 24;
-      Minute = 0;
-    };
     options = lib.mkDefault "--delete-older-than 1w";
   };
   # Optimize Nix Store
