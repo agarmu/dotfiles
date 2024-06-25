@@ -189,6 +189,7 @@ in {
       }
       vim-startuptime
       nvim-treesitter.withAllGrammars
+      nvim-treesitter-parsers.typst
       {
         plugin = gitsigns-nvim;
         type = "lua";
