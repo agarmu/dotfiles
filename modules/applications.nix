@@ -94,6 +94,7 @@
       "obsidian"
       "logseq" # Zettelkasten Notetaking Mechanism
       "rstudio"
+      "zulip" # for UniMath
     ];
   };
 }
