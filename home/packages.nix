@@ -129,7 +129,6 @@
     │ Formal Verification, etc. │
     └───────────────────────────┘
     */
-    coq
     lean4
 
     /*
