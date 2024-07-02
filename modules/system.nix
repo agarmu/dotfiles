@@ -98,6 +98,7 @@
           "FiraCode"
           "JetBrainsMono"
           "Hack"
+          "Iosevka"
         ];
       }
     )
