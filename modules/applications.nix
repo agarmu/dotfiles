@@ -58,6 +58,7 @@
       "julia"
       "opam"
       "r"
+      "emacs"
     ];
 
     casks = [
