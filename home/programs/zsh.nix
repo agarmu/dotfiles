@@ -56,6 +56,7 @@
 
       source /Users/mukul/.ghcup/env
       [[ ! -r /Users/mukul/.opam/opam-init/init.zsh ]] || source /Users/mukul/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+      eval $(opam env)
     '';
   };
 }
