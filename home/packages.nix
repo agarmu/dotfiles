@@ -130,7 +130,8 @@
     └───────────────────────────┘
     */
     lean4
-
+    coq_8_18
+    coqPackages.vscoq-language-server
     /*
     ┌──────────┐
     │ Security │
