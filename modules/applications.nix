@@ -87,7 +87,7 @@
       "skim" # PDF Viewer with Hot Reload
       "spotify" # Music Streaming
       "thunderbird" # E-Mail Client
-      "vscodium" # FOSS version of VS Code
+      "visual-studio-code"
       "zoom" # Video meeting tool
       "zotero" # Reference management tool
       "neovide" # Neovim client
