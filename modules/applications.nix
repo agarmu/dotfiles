@@ -57,6 +57,9 @@
       "firefox-profile-switcher-connector"
       "julia"
       "opam"
+      "gtksourceview3"
+      "expat" "gtk+" "gtk+3" "gtksourceview" "gtksourceview3" "libxml2"
+      "pkg-config" # needed for UniMath
       "r"
       "emacs"
     ];
