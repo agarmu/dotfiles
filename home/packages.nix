@@ -118,8 +118,6 @@
     fnm # Fast Node Version Management
     rustup # Rust management software
     jdk21 # OpenJDK 21
-    nodePackages.bash-language-server # bash lsp
-    nodePackages.vscode-css-languageserver-bin # css lsp
     gprolog # GNU Prolog
     dotnet-sdk_8
     omnisharp-roslyn # Roslyn OmniSharp LSP for .NET
