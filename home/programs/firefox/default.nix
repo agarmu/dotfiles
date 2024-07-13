@@ -6,19 +6,18 @@
   buildFirefoxXpiAddon = pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon;
   zotero-connector = buildFirefoxXpiAddon {
     pname = "zotero-connector";
-    version = "5.0.114";
+    version = "5.0.140";
     addonId = "zotero@chnm.gmu.edu";
-    url = "https://download.zotero.org/connector/firefox/release/Zotero_Connector-5.0.114.xpi";
-    sha256 = "1c66d8fccbdc7096cfc5b4b5f250c4249fbe48395c1b944d2fd26d52434a2dbd";
+    url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=5.0.140";
+    sha256 = "357c808b16d80c4da7f406af221209f477f1e40a61046cec083d94f148c0d4a7";
     meta = {};
   };
   bpc = buildFirefoxXpiAddon {
     pname = "bypass-paywalls-clean";
     version = "3.6.5.0";
     addonId = "bpc@bpc.bpc";
-    url =
-      "https://github.com/bpc-clone/bpc_updates/releases/download/latest/bypass_paywalls_clean-3.7.1.0.xpi";
-    sha256 = "7173c80c3dcf59f81e7804da15452346f428a944fbeedecf64cdc9e927f5d940";
+    url = "https://github.com/bpc-clone/bpc_updates/releases/download/latest/bypass_paywalls_clean-3.7.4.0.xpi";
+    sha256 = "3c465ce33f11d6de5ede6f04e6ae46587d48f8c45be3c02dd8d339adbace2c50";
     meta = {};
   };
 in {
@@ -40,7 +39,7 @@ in {
         wayback-machine
         youtube-recommended-videos
         zotero-connector
-        bpc # TODO:bypass-paywalls-clean
+        bpc
         unpaywall
         sidebery
         profile-switcher
