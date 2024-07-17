@@ -75,6 +75,7 @@
       "cutter" # Reverse-Engineering/Decompiling Tool
       "chromium" # Lite Chrome-based Web-browser
       "docker" # Containerization
+      "emacs" # the text editor
       "firefox" # Main Browser
       "free-gpgmail" # GPG tools for macOS
       #"godot" # Gamedev toolchain
