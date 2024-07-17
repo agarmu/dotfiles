@@ -141,8 +141,6 @@
     │ Typesetting/Writing │
     └─────────────────────┘
     */
-    # emacs
-    emacs-macport
 
     # TeX
     texlive.combined.scheme-full # TeX/LaTeX Distribution

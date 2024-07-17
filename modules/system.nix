@@ -90,6 +90,7 @@
     libertinus
     iosevka
     eb-garamond
+    monaspace
     (
       nerdfonts.override
       {
