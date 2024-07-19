@@ -129,6 +129,7 @@
     */
     lean4
     coq
+    coqPackages.vscoq-language-server
     /*
     ┌──────────┐
     │ Security │
