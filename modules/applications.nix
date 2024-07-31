@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     coreutils
+    coreutils-prefixed
     binutils
     git
   ];
