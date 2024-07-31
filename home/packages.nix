@@ -100,6 +100,7 @@
     wasm-pack # Packages an application for WASM
     rizin # Fork of radare2 reverse-engineering tooling
     qemu # emulator & virtualizer
+    ledger
 
     /*
     ┌───────────────┐
@@ -130,6 +131,7 @@
     lean4
     coq
     coqPackages.vscoq-language-server
+    coqPackages.coq-lsp
     /*
     ┌──────────┐
     │ Security │
