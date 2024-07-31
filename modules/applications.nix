@@ -41,6 +41,7 @@
       "homebrew/cask-versions"
       "oven-sh/bun"
       "null-dev/firefox-profile-switcher"
+      "railwaycat/emacsmacport"
     ];
 
     brews = [
@@ -98,7 +99,6 @@
       "logseq" # Zettelkasten Notetaking Mechanism
       "rstudio"
       "zulip" # for UniMath
-      "emacs"
     ];
   };
 }
