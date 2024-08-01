@@ -90,7 +90,7 @@
     imagemagick # Tooling to work with images
     pdftk # PDF tool
     ffmpeg # Audio library/tool
-  
+    emacs  
     /*
     ┌─────────────────┐
     │ Developer Tools │
