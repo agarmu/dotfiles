@@ -41,7 +41,6 @@
       "homebrew/cask-versions"
       "oven-sh/bun"
       "null-dev/firefox-profile-switcher"
-      "railwaycat/emacsmacport"
     ];
 
     brews = [
