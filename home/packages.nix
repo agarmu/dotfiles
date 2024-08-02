@@ -166,6 +166,7 @@
     */
     fswatch # Watch filesystem for changes
     neofetch
+    hledger # Accounting Software
 
     /*
     ┌───────────┐
