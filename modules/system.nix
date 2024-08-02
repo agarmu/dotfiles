@@ -78,27 +78,22 @@
   '';
 
   fonts.packages = with pkgs; [
-    dejavu_fonts
     lato
     liberation_ttf
     libre-baskerville
     montserrat
-    material-design-icons
     font-awesome
     noto-fonts
     noto-fonts-emoji
     libertinus
     iosevka
     eb-garamond
-    monaspace
+    cascadia-code
     (
       nerdfonts.override
       {
         fonts = [
-          "DroidSansMono"
           "FiraCode"
-          "JetBrainsMono"
-          "Hack"
         ];
       }
     )
