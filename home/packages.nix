@@ -150,7 +150,7 @@
 
     # Typst
     inputs.typst.packages.${system}.default
-    typst-lsp
+    tinymist
     typstyle
     # inputs.typst-lsp.packages.${system}.default
 
