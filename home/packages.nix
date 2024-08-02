@@ -147,6 +147,7 @@
 
     # TeX
     texlive.combined.scheme-full # TeX/LaTeX Distribution
+    texlab # tex lsp
 
     # Typst
     inputs.typst.packages.${system}.default
@@ -156,6 +157,7 @@
 
     # Writing LSP
     ltex-ls
+    marksman
 
     /*
     ┌───────┐
