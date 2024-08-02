@@ -77,7 +77,7 @@ in {
       settings = {
         languageserver = {
           typst = {
-            command = "typst-lsp";
+            command = "tinymist";
             filetypes = ["typst" "typ"];
           };
           ocaml = {
