@@ -88,7 +88,6 @@
       "signal" # Secure E2E chat platform
       "skim" # PDF Viewer with Hot Reload
       "spotify" # Music Streaming
-      "thunderbird" # E-Mail Client
       "visual-studio-code"
       "zoom" # Video meeting tool
       "zotero" # Reference management tool
