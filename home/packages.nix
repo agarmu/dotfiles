@@ -146,6 +146,7 @@
     # TeX
     texlive.combined.scheme-full # TeX/LaTeX Distribution
     texlab # tex lsp
+    tectonic # TeX build tooling
 
     # Typst
     inputs.typst.packages.${system}.default
