@@ -50,8 +50,7 @@ in {
         id = 0;
       };
       personal-2 = {
-        extensions = with pkgs.nur.repos.rycee.firefox-addons;
-          [ onepassword-password-manager ublock-origin clearurls ];
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [onepassword-password-manager ublock-origin clearurls];
         inherit userChrome;
         id = 2;
       };
