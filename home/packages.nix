@@ -68,7 +68,7 @@
     ┌─────────────────┐
     │ Tools/Utilities │
     └─────────────────┘
-   */ 
+    */
     delta # nice diff viewer
     fd # alternative to find utility
     jq # Tool to work with json
@@ -90,7 +90,7 @@
     imagemagick # Tooling to work with images
     pdftk # PDF tool
     ffmpeg # Audio library/tool
-    emacs  
+    emacs
     /*
     ┌─────────────────┐
     │ Developer Tools │
@@ -121,8 +121,6 @@
     jdk21 # OpenJDK 21
     gprolog # GNU Prolog
     dotnet-sdk_8
-    omnisharp-roslyn # Roslyn OmniSharp LSP for .NET
-    
     /*
     ┌───────────────────────────┐
     │ Formal Verification, etc. │
@@ -172,7 +170,7 @@
     ┌───────────┐
     │ Databases │
     └───────────┘
-    
+
     */
     sqlite # Embedded SQL Database
   ];
