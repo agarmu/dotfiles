@@ -166,7 +166,7 @@
     fswatch # Watch filesystem for changes
     neofetch
     hledger # Accounting Software
-
+    gping # gnu ping
     /*
     ┌───────────┐
     │ Databases │
