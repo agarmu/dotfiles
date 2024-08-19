@@ -36,7 +36,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     typst = {
-      url = github:typst/typst/da8367e189b02918a8fe1a98fd3059fd11a82cd9;
+      url = github:typst/typst;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     bat-catppuccin-plug = {
