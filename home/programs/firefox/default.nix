@@ -4,14 +4,6 @@
   ...
 }: let
   buildFirefoxXpiAddon = pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon;
-  zotero-connector = buildFirefoxXpiAddon {
-    pname = "zotero-connector";
-    version = "5.0.140";
-    addonId = "zotero@chnm.gmu.edu";
-    url = "https://www.zotero.org/download/connector/dl?browser=firefox&version=5.0.140";
-    sha256 = "357c808b16d80c4da7f406af221209f477f1e40a61046cec083d94f148c0d4a7";
-    meta = {};
-  };
   bpc = buildFirefoxXpiAddon {
     pname = "bypass-paywalls-clean";
     version = "3.6.5.0";
@@ -22,7 +14,7 @@
   };
 in {
   programs.firefox = {
-    enable = true;
+    enable = false;
     package = pkgs.runCommand "firefox-0.0.0" {} "mkdir $out";
     profiles = let
       userChrome = builtins.readFile ./userChrome.css;
@@ -38,7 +30,6 @@ in {
         ublock-origin
         wayback-machine
         youtube-recommended-videos
-        zotero-connector
         bpc
         unpaywall
         sidebery
