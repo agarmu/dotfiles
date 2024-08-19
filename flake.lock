@@ -420,16 +420,17 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1723976543,
-        "narHash": "sha256-IirzRsGe4jbFt7hpcs6YOcVzuOsmTZFpPg1XJFLfLa8=",
+        "lastModified": 1715953754,
+        "narHash": "sha256-FagjVU8BJZStE/geexZERuV2P28iF/pPn2mTi1Gu9iU=",
         "owner": "typst",
         "repo": "typst",
-        "rev": "eb0e0fec00e08c497a428d138c47a1235c89295f",
+        "rev": "5011510270c2c23f0ab019af486b26db0d62261b",
         "type": "github"
       },
       "original": {
         "owner": "typst",
         "repo": "typst",
+        "rev": "5011510270c2c23f0ab019af486b26db0d62261b",
         "type": "github"
       }
     },

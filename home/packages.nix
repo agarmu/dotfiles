@@ -149,7 +149,7 @@
     tectonic # TeX build tooling
 
     # Typst
-    inputs.typst.packages.${system}.default
+    typst
     tinymist
     typstyle
     # inputs.typst-lsp.packages.${system}.default
