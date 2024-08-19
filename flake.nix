@@ -35,10 +35,6 @@
       url = github:agarmu/datamine-scraper;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    typst = {
-      url = github:typst/typst;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     bat-catppuccin-plug = {
       url = github:catppuccin/bat;
       flake = false;
