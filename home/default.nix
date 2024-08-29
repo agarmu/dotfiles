@@ -17,7 +17,6 @@ in {
       lg = "lazygit";
       gc = "git commit -v";
       kb = "git commit -m \"\$(curl -s https://whatthecommit.com/index.txt)\"";
-      gs = "git status";
       gsv = "git status -v";
       gfc = "git fetch && git checkout";
       gl = "git log --graph";
