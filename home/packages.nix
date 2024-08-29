@@ -101,7 +101,7 @@
     rizin # Fork of radare2 reverse-engineering tooling
     qemu # emulator & virtualizer
     ledger
-
+    ghostscript
     /*
     ┌───────────────┐
     │ Build Systems │
