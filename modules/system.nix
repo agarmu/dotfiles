@@ -54,6 +54,7 @@
         NSNavPanelExpandedStateForSaveMode2 = true;
       };
     };
+    stateVersion = 5;
   };
 
   # Add ability to used TouchID for sudo authentication
