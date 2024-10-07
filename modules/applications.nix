@@ -82,7 +82,6 @@
       "docker" # Containerization
       "firefox" # Main Browser
       "free-gpgmail" # GPG tools for macOS
-      #"godot" # Gamedev toolchain
       "hammerspoon" # Custom OS extensions/keybinds
       "handbrake" # Nice frontend to ffmpeg
       "inkscape" # Vector Graphics Editor
@@ -99,7 +98,6 @@
       "raycast" # Launcher
       "obsidian"
       "logseq" # Zettelkasten Notetaking Mechanism
-      "rstudio"
       "zulip" # for UniMath
     ];
   };
