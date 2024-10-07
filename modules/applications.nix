@@ -94,7 +94,6 @@
       "visual-studio-code"
       "zoom" # Video meeting tool
       "zotero" # Reference management tool
-      "neovide" # Neovim client
       "raycast" # Launcher
       "obsidian"
       "logseq" # Zettelkasten Notetaking Mechanism
