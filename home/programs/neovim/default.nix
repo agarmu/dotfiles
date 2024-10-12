@@ -35,7 +35,7 @@ in {
   # Snippets!
   xdg.configFile."nvim/UltiSnips".source = ./snippets;
   programs.neovim = {
-    enable = true;
+    enable = false;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
