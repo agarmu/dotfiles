@@ -22,6 +22,8 @@ in {
       gl = "git log --graph";
       ll = "eza -l --git";
       la = "eza -al --git";
+      vi = "nvim";
+      vim = "nvim";
       tree = "exa --tree";
       tral = "exa --tree -al";
       cat = "bat";
