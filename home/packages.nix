@@ -123,7 +123,7 @@
     jdk21 # OpenJDK 21
     gprolog # GNU Prolog
     dotnet-sdk_8
-    zig # Zig language
+    zig zls # Zig language
     /*
     ┌───────────────────────────┐
     │ Formal Verification, etc. │

@@ -11,7 +11,6 @@ in {
     username = username;
     homeDirectory = "/Users/${username}";
     shellAliases = {
-      vim = "nvim";
       gpl = "git pull";
       gp = "git push";
       lg = "lazygit";
