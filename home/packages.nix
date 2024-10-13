@@ -36,8 +36,7 @@
     └─────────────┘
     */
     alejandra # Formatter for Nix
-    nil # LSP for nix
-
+    nixd deadnix statix
     /*
     ┌────────────┐
     │ Networking │
