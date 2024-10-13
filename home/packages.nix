@@ -93,6 +93,7 @@
     pdftk # PDF tool
     ffmpeg # Audio library/tool
     emacs
+    tree-sitter
     /*
     ┌─────────────────┐
     │ Developer Tools │
