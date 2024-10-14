@@ -33,7 +33,7 @@
   };
 in {
   # Snippets!
-  xdg.configFile."nvim/UltiSnips".source = ./snippets;
+  # xdg.configFile."nvim/UltiSnips".source = ./snippets;
   programs.neovim = {
     enable = false;
     viAlias = true;
