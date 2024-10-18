@@ -21,6 +21,8 @@ in {
       gl = "git log --graph";
       ll = "eza -l --git";
       la = "eza -al --git";
+      vi = "nvim";
+      vim = "nvim";
       tree = "exa --tree";
       tral = "exa --tree -al";
       cat = "bat";
@@ -32,6 +34,9 @@ in {
       cls = "clear";
       kitten = "kitty +kitten";
       s = "kitten ssh";
+    };
+    sessionVariables = {
+      EDITOR = "nvim";
     };
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
