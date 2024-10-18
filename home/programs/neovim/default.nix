@@ -7,7 +7,7 @@
 }: let
   plugins = pkgs.vimPlugins;
   builder = pkgs.vimUtils.buildVimPlugin;
-  catppuccin = builder {
+  /*catppuccin = builder {
     name = "catppuccin";
     src = inputs.vim-catppuccin-plug;
   };
@@ -30,7 +30,7 @@
   coqtail = builder {
     name = "coqtail";
     src = inputs.vim-coqtail-plug;
-  };
+  };*/
 in {
   # Snippets!
   # xdg.configFile."nvim/UltiSnips".source = ./snippets;
