@@ -43,7 +43,6 @@
     └────────────┘
     */
     openssh # SSH Agent
-    mosh # robust alternative to ssh
     aria # CLI download utility
     socat # Better netcat
     wget2
@@ -55,7 +54,6 @@
     └──────────────┘
     */
     tmux
-    zellij
 
     /*
     ┌─────────────┐
@@ -87,7 +85,6 @@
     gnused # GNU version of sed
     gnutar # GNU version of tar
     gawk # GNU version of AWK
-    inputs.datamine-scraper.packages.${system}.default # Datamine Scraper (by me)
     imagemagick # Tooling to work with images
     pdftk # PDF tool
     ffmpeg # Audio library/tool
