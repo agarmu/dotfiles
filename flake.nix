@@ -27,10 +27,6 @@
       url = github:lnl7/nix-darwin;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    datamine-scraper = {
-      url = github:agarmu/datamine-scraper;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     bat-catppuccin-plug = {
       url = github:catppuccin/bat;
       flake = false;
@@ -39,36 +35,12 @@
       url = github:hyrious/typst-syntax-highlight;
       flake = false;
     };
-    vim-catppuccin-plug = {
-      url = github:catppuccin/nvim;
-      flake = false;
-    };
-    vim-typst-plug = {
-      url = github:kaarmu/typst.vim;
-      flake = false;
-    };
-    vim-typst-preview-plug = {
-      url = github:chomosuke/typst-preview.nvim;
-      flake = false;
-    };
-    vim-tree-plug = {
-      url = github:nvim-tree/nvim-tree.lua;
-      flake = false;
-    };
-    vim-omnisharp-plug = {
-      url = github:OmniSharp/omnisharp-vim;
-      flake = false;
-    };
     alacritty-themes = {
       url = github:alacritty/alacritty-theme;
       flake = false;
     };
     ruby-build = {
       url = github:rbenv/ruby-build;
-      flake = false;
-    };
-    vim-coqtail-plug = {
-      url = github:whonore/Coqtail;
       flake = false;
     };
   };
