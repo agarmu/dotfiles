@@ -35,11 +35,12 @@ in {
   # Snippets!
   # xdg.configFile."nvim/UltiSnips".source = ./snippets;
   programs.neovim = {
-    enable = false;
+    enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-
+    defaultEditor = true;
+    /*
     extraPython3Packages = ps: [
       ps.sympy
     ];
@@ -268,6 +269,6 @@ in {
       }
       coqtail
       zoxide-vim
-    ];
+    ];*/
   };
 }
