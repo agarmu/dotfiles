@@ -33,7 +33,9 @@
     options = lib.mkDefault "--delete-older-than 1w";
   };
   # Optimize Nix Store
-  nix.settings.auto-optimise-store = true;
+  # disabled due to: https://github.com/NixOS/nix/issues/7273
+  # TODO: FIX This
+  nix.settings.auto-optimise-store = false;
   # Optimize Nix build cores/jobs
   nix.settings.cores = 0;
   nix.settings.max-jobs = "auto";
