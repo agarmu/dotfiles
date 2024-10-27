@@ -88,8 +88,8 @@
     imagemagick # Tooling to work with images
     pdftk # PDF tool
     ffmpeg # Audio library/tool
-    emacs
     tree-sitter
+    tldr              # too-long; didn't read versions of `man' pages
     /*
     ┌─────────────────┐
     │ Developer Tools │
