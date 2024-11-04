@@ -23,8 +23,8 @@ in {
       la = "eza -al --git";
       vi = "nvim";
       vim = "nvim";
-      tree = "exa --tree";
-      tral = "exa --tree -al";
+      tree = "eza --tree";
+      tral = "eza --tree -al";
       cat = "bat";
       nv = "neovide";
       ping = "gping";
