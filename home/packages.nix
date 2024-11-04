@@ -96,7 +96,6 @@
     ffmpeg                      # Audio library/tool
     tree-sitter
     tldr                        # too-long; didn't read versions of `man' pages
-    numbat                      # calculator with units
     neovim                      # vim-derived editor
     peco                        # interactive filtering/reading etc
     /*
