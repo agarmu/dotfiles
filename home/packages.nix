@@ -49,6 +49,7 @@
     └────────────┘
     */
     openssh                     # SSH Agent
+    sshfs                       # Mount remote filesystems
     aria                        # CLI download utility
     socat                       # Better netcat
     wget2                       # Web Get (v2)
