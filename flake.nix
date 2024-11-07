@@ -17,30 +17,30 @@
     ];
   };
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
-    nur.url = github:nix-community/NUR;
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nur.url = "github:nix-community/NUR";
     home-manager = {
-      url = github:nix-community/home-manager/master;
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
-      url = github:lnl7/nix-darwin;
+      url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     bat-catppuccin-plug = {
-      url = github:catppuccin/bat;
+      url = "github:catppuccin/bat";
       flake = false;
     };
     bat-typst-syntax = {
-      url = github:hyrious/typst-syntax-highlight;
+      url = "github:hyrious/typst-syntax-highlight";
       flake = false;
     };
     alacritty-themes = {
-      url = github:alacritty/alacritty-theme;
+      url = "github:alacritty/alacritty-theme";
       flake = false;
     };
     ruby-build = {
-      url = github:rbenv/ruby-build;
+      url = "github:rbenv/ruby-build";
       flake = false;
     };
   };
