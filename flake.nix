@@ -27,20 +27,8 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    bat-catppuccin-plug = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
     bat-typst-syntax = {
       url = "github:hyrious/typst-syntax-highlight";
-      flake = false;
-    };
-    alacritty-themes = {
-      url = "github:alacritty/alacritty-theme";
-      flake = false;
-    };
-    ruby-build = {
-      url = "github:rbenv/ruby-build";
       flake = false;
     };
   };
