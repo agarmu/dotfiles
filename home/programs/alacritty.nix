@@ -1,17 +1,11 @@
 {
-  config,
-  pkgs,
-  inputs,
   ...
-}: let
-  draculatheme = builtins.readFile "${inputs.alacritty-theme}/themes/dracula.yaml";
-in {
+}: {
   programs.alacritty = {
-    enable = false;
+    enable = true;
     settings = {
       env.TERM = "alacritty";
       import = [
-        draculatheme
       ];
       window = {
         dimensions = {
@@ -33,19 +27,19 @@ in {
       };
       font = {
         normal = {
-          family = "Hack Nerd Font Mono";
+          family = "Fira Code Nerd Font Mono";
           style = "Regular";
         };
         bold = {
-          family = "Hack Nerd Font Mono";
+          family = "Fira Code Nerd Font Mono";
           style = "Bold";
         };
         italic = {
-          family = "Hack Nerd Font Mono";
+          family = "Fira Code Nerd Font Mono";
           style = "Italic";
         };
         bold_italic = {
-          family = "Hack Nerd Font Mono";
+          family = "Fira Code Nerd Font Mono";
           style = "Bold Italic";
         };
         size = 12.0;
