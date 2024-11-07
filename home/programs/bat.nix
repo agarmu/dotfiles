@@ -18,10 +18,6 @@ in {
       };
     };
     themes = {
-      catppuccin-macchiato = {
-        src = inputs.bat-catppuccin-plug;
-        file = "themes/Catppuccin Macchiato.tmTheme";
-      };
     };
   };
 }
