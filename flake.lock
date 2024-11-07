@@ -1,37 +1,5 @@
 {
   "nodes": {
-    "alacritty-themes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729779850,
-        "narHash": "sha256-KdjysVDs4oGU9gQwkW36aHmK30KiCdVNiREJOAETxNw=",
-        "owner": "alacritty",
-        "repo": "alacritty-theme",
-        "rev": "c424c57c8a2b6a62b6602d61ebfbc7e50f2c81d8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "alacritty",
-        "repo": "alacritty-theme",
-        "type": "github"
-      }
-    },
-    "bat-catppuccin-plug": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729267055,
-        "narHash": "sha256-x1yqPCWuoBSx/cI94eA+AWwhiSA42cLNUOFJl7qjhmw=",
-        "owner": "catppuccin",
-        "repo": "bat",
-        "rev": "d2bbee4f7e7d5bac63c054e4d8eca57954b31471",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "bat",
-        "type": "github"
-      }
-    },
     "bat-typst-syntax": {
       "flake": false,
       "locked": {
@@ -122,30 +90,11 @@
     },
     "root": {
       "inputs": {
-        "alacritty-themes": "alacritty-themes",
-        "bat-catppuccin-plug": "bat-catppuccin-plug",
         "bat-typst-syntax": "bat-typst-syntax",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nur": "nur",
-        "ruby-build": "ruby-build"
-      }
-    },
-    "ruby-build": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729184894,
-        "narHash": "sha256-7aQcPdWaYttwDVsxpJ89C9YBdcgqp43LfsD2WiuQKiE=",
-        "owner": "rbenv",
-        "repo": "ruby-build",
-        "rev": "aab1b8d0e7e814f200320749501ba57e2fae20d0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rbenv",
-        "repo": "ruby-build",
-        "type": "github"
+        "nur": "nur"
       }
     }
   },
