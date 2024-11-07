@@ -136,9 +136,6 @@
     └───────────────────────────┘
     */
     lean4
-    coq
-    coqPackages.vscoq-language-server
-    coqPackages.coq-lsp
     /*
     ┌──────────┐
     │ Security │
