@@ -110,6 +110,7 @@
     qemu                        # emulator & virtualizer
     ledger
     ghostscript
+    poppler_utils
     /*
     ┌───────────────┐
     │ Build Systems │
