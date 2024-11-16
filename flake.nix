@@ -63,7 +63,7 @@
             home-manager.users.mukul = import ./home;
           }
           {
-            nix.nixPath = with inputs; [{inherit darwin;}];
+            nix.nixPath = [{inherit darwin;}];
             nixpkgs.overlays = with inputs; [
               nur.overlay
             ];
