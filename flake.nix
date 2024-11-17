@@ -17,7 +17,9 @@
     ];
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # pinned due to issue
+    # https://github.com/LnL7/nix-darwin/issues/1176
+    nixpkgs.url = "github:nixos/nixpkgs/8809585e6937d0b07fc066792c8c9abf9c3fe5c4";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/master";
