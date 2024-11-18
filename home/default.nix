@@ -32,8 +32,7 @@ in {
       top = "btop";
       cl = "clear";
       cls = "clear";
-      kitten = "kitty +kitten";
-      s = "kitten ssh";
+      s = "wezterm ssh";
     };
     sessionVariables = {
       EDITOR = "nvim";
