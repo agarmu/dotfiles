@@ -32,7 +32,6 @@ in {
       top = "btop";
       cl = "clear";
       cls = "clear";
-      s = "wezterm ssh";
     };
     sessionVariables = {
       EDITOR = "nvim";
