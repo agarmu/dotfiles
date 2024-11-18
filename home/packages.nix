@@ -174,6 +174,7 @@
     */
     fswatch # Watch filesystem for changes
     neofetch # Pretty System info
+    fastfetch # fast neofetch, written in C
     hledger # Accounting Software
     gping # graph ping
     /*
