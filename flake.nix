@@ -57,6 +57,7 @@
           ./modules/programs.nix
           ./modules/host-users.nix
           ./modules/services.nix
+          ./modules/environment.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
