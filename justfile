@@ -13,7 +13,7 @@ darwin-debug:
 		-j 8
 
 update INPUT:
-	nix flake lock --update-input {{INPUT}}
+	nix flake update {{INPUT}}
 
 
 update-all:
