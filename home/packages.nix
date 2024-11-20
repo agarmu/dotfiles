@@ -130,7 +130,7 @@
     jdk21 # OpenJDK 21
     gprolog # GNU Prolog
     zig
-    zls # Zig language
+    lua
 
     /*
     ┌───────────────────────────┐
