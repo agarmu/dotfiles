@@ -1,5 +1,5 @@
 {...} : let
-  hostname = "Mukul's MacBook Pro";
+  hostname = "Mukul-MBP";
   username = "mukul";
 in {
   networking.hostName = hostname;
