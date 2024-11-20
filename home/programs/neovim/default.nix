@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   plugins = pkgs.vimPlugins;
   /*
     catppuccin = builder {

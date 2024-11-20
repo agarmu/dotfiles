@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   programs.noti = {
     enable = true;
   };
