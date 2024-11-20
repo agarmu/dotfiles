@@ -55,6 +55,10 @@
       export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
 
       source /Users/mukul/.ghcup/env
+      # set $TERM to wezterm...
+      if [[ -v WEZTERM_EXECUTABLE ]]; then
+        export TERM=wezterm
+      fi
     '';
   };
 }
