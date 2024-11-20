@@ -18,7 +18,7 @@
       size = 1000000000;
       ignorePatterns = [
         "ls *"
-        "exa *"
+        "eza *"
         "pkill *"
       ];
     };
