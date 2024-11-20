@@ -33,6 +33,10 @@
       url = "github:hyrious/typst-syntax-highlight";
       flake = false;
     };
+    bat-tokyonight-theme = {
+      url = "github:folke/tokyonight.nvim";
+      flake = false;
+    };
   };
   outputs = inputs @ {
     self,
