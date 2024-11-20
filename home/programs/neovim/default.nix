@@ -1,12 +1,8 @@
 {
-  config,
   pkgs,
-  lib,
-  inputs,
   ...
 }: let
   plugins = pkgs.vimPlugins;
-  builder = pkgs.vimUtils.buildVimPlugin;
   /*
     catppuccin = builder {
     name = "catppuccin";
