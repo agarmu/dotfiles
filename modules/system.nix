@@ -79,6 +79,7 @@
   '';
 
   fonts.packages = with pkgs; [
+    cm_unicode
     crimson-pro
     lato
     liberation_ttf
