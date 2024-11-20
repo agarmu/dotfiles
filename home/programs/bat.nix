@@ -1,15 +1,13 @@
 {
-  config,
   pkgs,
   inputs,
   ...
-}: let
-in {
+}: {
   programs.bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [batgrep batman batpipe batwatch batdiff prettybat];
     config = {
-      theme = "catppuccin-macchiato";
+      theme = "tokyonight_night";
     };
     syntaxes = {
       typst = {
@@ -18,6 +16,10 @@ in {
       };
     };
     themes = {
+      tokyonight_night = {
+        src = inputs.bat-tokyonight-theme;
+        file = "extras/sublime/tokyonight_night.tmTheme";
+      };
     };
   };
 }

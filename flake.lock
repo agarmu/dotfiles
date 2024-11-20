@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bat-tokyonight-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732026921,
+        "narHash": "sha256-vKXlFHzga9DihzDn+v+j3pMNDfvhYHcCT8GpPs0Uxgg=",
+        "owner": "folke",
+        "repo": "tokyonight.nvim",
+        "rev": "c2725eb6d086c8c9624456d734bd365194660017",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "tokyonight.nvim",
+        "type": "github"
+      }
+    },
     "bat-typst-syntax": {
       "flake": false,
       "locked": {
@@ -90,6 +106,7 @@
     },
     "root": {
       "inputs": {
+        "bat-tokyonight-theme": "bat-tokyonight-theme",
         "bat-typst-syntax": "bat-typst-syntax",
         "darwin": "darwin",
         "home-manager": "home-manager",
