@@ -79,6 +79,7 @@
   '';
 
   fonts.packages = with pkgs; [
+    crimson-pro
     lato
     liberation_ttf
     libre-baskerville
