@@ -27,7 +27,7 @@ config.tab_bar_at_bottom = true
 config.window_background_opacity = 1
 
 -- font & font shaping
-config.font = wezterm.font("FiraCode Nerd Font Mono")
+config.font = wezterm.font("VictorMono Nerd Font Mono")
 config.font_size = 13
 
 config.harfbuzz_features = {
