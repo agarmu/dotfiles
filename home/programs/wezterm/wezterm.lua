@@ -27,12 +27,11 @@ config.tab_bar_at_bottom = true
 config.window_background_opacity = 1
 
 -- font & font shaping
-config.font = wezterm.font("Cascadia Code")
+config.font = wezterm.font("0xProto")
 config.font_size = 13.5
 
 config.harfbuzz_features = {
-	"ss01", -- italics are cursive
-	"ss19", -- slashed zero
+	"ss01", -- script variant for italics
 }
 
 -- cursor configuration
