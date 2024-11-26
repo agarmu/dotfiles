@@ -27,18 +27,12 @@ config.tab_bar_at_bottom = true
 config.window_background_opacity = 1
 
 -- font & font shaping
-config.font = wezterm.font("VictorMono Nerd Font Mono")
-config.font_size = 13
+config.font = wezterm.font("Cascadia Code")
+config.font_size = 13.5
 
 config.harfbuzz_features = {
-	-- FiraCode-specific options
-	-- ref: https://github.com/tonsky/FiraCode/wiki/How-to-enable-stylistic-sets
-	"ss05", -- @ symbol curves around more
-	"cv31", -- more full () symbols
-	"cv29", -- better {} symbols
-	"ss02", -- make bottoms of <=, >= flat
-	"ss09", -- arrow forms for >>=, <<=, ||=, |=
-	"ss07", -- marks for =~, !~
+	"ss01", -- italics are cursive
+	"ss19", -- slashed zero
 }
 
 -- cursor configuration
