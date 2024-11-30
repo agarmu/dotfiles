@@ -21,10 +21,5 @@
     };
     userEmail = "agarmukul23@gmail.com";
     userName = "Mukul Agarwal";
-    extraConfig = {
-      core = {
-        pager = "bat";
-      };
-    };
   };
 }
