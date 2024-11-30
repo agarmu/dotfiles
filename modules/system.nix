@@ -92,13 +92,6 @@
     iosevka
     eb-garamond
     cascadia-code
-    (
-      nerdfonts.override
-      {
-        fonts = [
-          "FiraCode"
-        ];
-      }
-    )
+    nerd-fonts.fira-code
   ];
 }
