@@ -28,7 +28,7 @@ config.window_background_opacity = 1
 
 -- font & font shaping
 config.font = wezterm.font("Cascadia Code NF")
-config.font_size = 13
+config.font_size = 14
 
 config.harfbuzz_features = {
 	"calt",
