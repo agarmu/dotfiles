@@ -20,7 +20,7 @@ config.max_fps = 120
 config.animation_fps = 1
 
 -- colorscheme, tab bar
-config.color_scheme = "tokyonight_night"
+config.color_scheme = "Oxocarbon Dark (Gogh)"
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
