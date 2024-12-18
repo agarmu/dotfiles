@@ -20,7 +20,7 @@ config.max_fps = 120
 config.animation_fps = 1
 
 -- colorscheme, tab bar
-config.color_scheme = "carbonfox"
+config.color_scheme = "tokyonight"
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
@@ -28,7 +28,7 @@ config.window_background_opacity = 1
 
 -- font & font shaping
 config.font = wezterm.font("Cascadia Code NF")
-config.font_size = 14
+config.font_size = 14.5
 
 config.harfbuzz_features = {
 	"calt",
