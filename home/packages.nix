@@ -138,8 +138,6 @@
     └───────────────────────────┘
     */
     lean4 # Used often for mathematics, admits Axiom K, often used with LEM
-    coq # Used for program formal verification, HoTT, etc.
-    coqPackages.coq-lsp # Language server for coq
     /*
     ┌──────────┐
     │ Security │
@@ -154,7 +152,7 @@
     */
 
     # TeX
-    texlive.combined.scheme-full # TeX/LaTeX Distribution
+    texliveFull
     texlab # tex lsp
     tectonic # TeX build tooling
 
