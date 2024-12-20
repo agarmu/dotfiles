@@ -81,17 +81,6 @@
   fonts.packages = with pkgs; [
     cm_unicode
     crimson-pro
-    lato
-    liberation_ttf
-    libre-baskerville
-    montserrat
-    font-awesome
-    noto-fonts
-    noto-fonts-emoji
-    libertinus
-    iosevka
-    eb-garamond
     cascadia-code
-    nerd-fonts.fira-code
   ];
 }
