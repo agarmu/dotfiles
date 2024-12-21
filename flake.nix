@@ -31,8 +31,8 @@
       url = "github:hyrious/typst-syntax-highlight";
       flake = false;
     };
-    bat-tokyonight-theme = {
-      url = "github:folke/tokyonight.nvim";
+    everforest-themes = {
+      url = "github:neuromaancer/everforest_collection";
       flake = false;
     };
   };

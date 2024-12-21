@@ -7,7 +7,7 @@
     enable = true;
     extraPackages = with pkgs.bat-extras; [batgrep batman batpipe batwatch batdiff prettybat];
     config = {
-      theme = "tokyonight_night";
+      theme = "base16";
     };
     syntaxes = {
       typst = {
@@ -16,9 +16,9 @@
       };
     };
     themes = {
-      tokyonight_night = {
-        src = inputs.bat-tokyonight-theme;
-        file = "extras/sublime/tokyonight_night.tmTheme";
+      everforest_soft = {
+        src = inputs.everforest-themes;
+        file = "bat/everforest-soft.tmTheme";
       };
     };
   };

@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "bat-tokyonight-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734211493,
-        "narHash": "sha256-TJ/a6N6Cc1T0wdMxMopma1NtwL7rMYbZ6F0zFI1zaIA=",
-        "owner": "folke",
-        "repo": "tokyonight.nvim",
-        "rev": "45d22cf0e1b93476d3b6d362d720412b3d34465c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "tokyonight.nvim",
-        "type": "github"
-      }
-    },
     "bat-typst-syntax": {
       "flake": false,
       "locked": {
@@ -49,6 +33,22 @@
       "original": {
         "owner": "lnl7",
         "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "everforest-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733392147,
+        "narHash": "sha256-r+XlFuc0x5lVJy3qDHgxlvpZzaMccYDbLtA0ss2DAWs=",
+        "owner": "neuromaancer",
+        "repo": "everforest_collection",
+        "rev": "75d504065a5c9a5a041f5cb4e0dc26a4d6956e85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neuromaancer",
+        "repo": "everforest_collection",
         "type": "github"
       }
     },
@@ -147,9 +147,9 @@
     },
     "root": {
       "inputs": {
-        "bat-tokyonight-theme": "bat-tokyonight-theme",
         "bat-typst-syntax": "bat-typst-syntax",
         "darwin": "darwin",
+        "everforest-themes": "everforest-themes",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
