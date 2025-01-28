@@ -152,7 +152,7 @@
     */
 
     # TeX
-    texliveFull
+    # texliveFull
     texlab # tex lsp
     tectonic # TeX build tooling
 
