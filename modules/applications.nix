@@ -31,8 +31,6 @@
       "homebrew/cask-versions"
       "oven-sh/bun"
       "null-dev/firefox-profile-switcher"
-      "sioyek"
-      "teams"
     ];
 
     brews = [
@@ -90,6 +88,8 @@
       "obsidian"
       "logseq" # Zettelkasten Notetaking Mechanism
       "zulip" # for UniMath
+      "sioyek"
+      "teams"
     ];
   };
 }
