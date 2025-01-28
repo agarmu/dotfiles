@@ -49,7 +49,6 @@
       "valgrind"
       "firefox-profile-switcher-connector"
       "julia"
-      "opam"
       "expat"
       "gtk+"
       "gtk+3"
