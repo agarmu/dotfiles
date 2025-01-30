@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#
+# Prints the load averages for each server
+#
+
+set -eu
+set -o pipefail
+
+USERNAME=agarw396
+
+parallel \
+  -j 20 \
+  --bar \
+  --timeout 10s \
+  --line-buffer \
+  ssh -q "$USERNAME"@{}.cs.purdue.edu uptime '|' sed "'s/^/{} /'" \
+  ::: \
+  borg{01..24} mc{17..21} data |
+  sed 's/\(\w\+\) .*load average: /\1 /' |
+  sort -k 2 -n |
+  column -t -s ', '
