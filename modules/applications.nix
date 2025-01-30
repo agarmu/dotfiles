@@ -86,10 +86,9 @@
       "zotero" # Reference management tool
       "raycast" # Launcher
       "obsidian"
-      "logseq" # Zettelkasten Notetaking Mechanism
       "zulip" # for UniMath
       "sioyek"
-      "teams"
+      "microsoft-teams"
     ];
   };
 }
