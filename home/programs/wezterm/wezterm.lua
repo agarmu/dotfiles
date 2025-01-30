@@ -27,7 +27,7 @@ config.tab_bar_at_bottom = true
 config.window_background_opacity = 1
 
 -- font & font shaping
-config.font = wezterm.font("Cascadia Code NF")
+config.font = wezterm.font("Hack Nerd Font")
 config.font_size = 14.5
 
 config.harfbuzz_features = {
