@@ -175,6 +175,7 @@
     fastfetch # fast neofetch, written in C
     hledger # Accounting Software
     gping # graph ping
+    parallel # GNU Parallel
     /*
     ┌───────────┐
     │ Databases │
