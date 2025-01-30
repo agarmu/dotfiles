@@ -70,7 +70,7 @@
           {
             nix.nixPath = [{inherit darwin;}];
             nixpkgs.overlays = with inputs; [
-              nur.overlay
+              nur.overlays.default
             ];
           }
         ];
