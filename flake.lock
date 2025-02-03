@@ -36,22 +36,6 @@
         "type": "github"
       }
     },
-    "everforest-themes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733392147,
-        "narHash": "sha256-r+XlFuc0x5lVJy3qDHgxlvpZzaMccYDbLtA0ss2DAWs=",
-        "owner": "neuromaancer",
-        "repo": "everforest_collection",
-        "rev": "75d504065a5c9a5a041f5cb4e0dc26a4d6956e85",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neuromaancer",
-        "repo": "everforest_collection",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -149,7 +133,6 @@
       "inputs": {
         "bat-typst-syntax": "bat-typst-syntax",
         "darwin": "darwin",
-        "everforest-themes": "everforest-themes",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur"

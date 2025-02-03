@@ -31,10 +31,7 @@
       url = "github:hyrious/typst-syntax-highlight";
       flake = false;
     };
-    everforest-themes = {
-      url = "github:neuromaancer/everforest_collection";
-      flake = false;
-    };
+
   };
   outputs = inputs @ {
     self,
