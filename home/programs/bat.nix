@@ -15,11 +15,6 @@
         file = "Typst.sublime-syntax";
       };
     };
-    themes = {
-      everforest_soft = {
-        src = inputs.everforest-themes;
-        file = "bat/everforest-soft.tmTheme";
-      };
-    };
+    themes = {};
   };
 }
