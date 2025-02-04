@@ -86,9 +86,10 @@
       "zotero" # Reference management tool
       "raycast" # Launcher
       "obsidian"
-      "zulip" # for UniMath
+      "zulip"       # for UniMath
       "sioyek"
       "microsoft-teams"
+      "sage"      # Sagemath
     ];
   };
 }
