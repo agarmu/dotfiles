@@ -64,7 +64,7 @@
       [[ ! -r "$HOME/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
       # END opam configuration
       #
-      
+
       if ! [[ -v FETCH_DISP ]]; then
         export FETCH_DISP=1
         macchina

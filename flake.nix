@@ -31,7 +31,6 @@
       url = "github:hyrious/typst-syntax-highlight";
       flake = false;
     };
-
   };
   outputs = inputs @ {
     self,
