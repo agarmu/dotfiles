@@ -90,6 +90,7 @@
       "sioyek"
       "microsoft-teams"
       "sage" # Sagemath
+      "nikitabobko/tap/aerospace" # Window Manager!
     ];
   };
 }
