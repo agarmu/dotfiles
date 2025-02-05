@@ -181,5 +181,9 @@
 
     */
     sqlite # Embedded SQL Database
+
+
+    /* other */
+    php
   ];
 }
