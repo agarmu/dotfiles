@@ -182,8 +182,10 @@
     */
     sqlite # Embedded SQL Database
 
-
-    /* other */
+    /*
+    other
+    */
     php
+    hugo
   ];
 }
