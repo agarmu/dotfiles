@@ -1,6 +1,6 @@
 {...}: {
   programs.go = {
-    enable = false;
+    enable = true;
     packages = {
     };
   };
