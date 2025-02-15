@@ -18,6 +18,7 @@
     signing = {
       key = null;
       signByDefault = true;
+      format = "openpgp";
     };
     userEmail = "agarmukul23@gmail.com";
     userName = "Mukul Agarwal";
