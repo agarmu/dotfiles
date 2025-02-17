@@ -50,6 +50,7 @@
     */
     openssh # SSH Agent
     sshfs # Mount remote filesystems
+    mosh   # ssh alternative
     aria # CLI download utility
     socat # Better netcat
     wget2 # Web Get (v2)
