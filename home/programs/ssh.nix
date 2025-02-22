@@ -6,7 +6,6 @@
       hostname = "${sn}.cs.purdue.edu";
       user = purdueUsername;
       forwardAgent = true;
-      proxyJump = "${purdueUsername}@data.cs.purdue.edu";
     };
   };
   ServerMC = builtins.map (x: "mc${builtins.toString x}") (pkgs.lib.lists.range 17 21);
