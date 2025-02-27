@@ -58,7 +58,12 @@
   };
 
   # Add ability to used TouchID for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local = {
+    enable = true;
+    reattach = true;
+    touchIdAuth = true;
+  };
+
   # TODO: add certs to blacklist
   security.pki.caCertificateBlacklist = [];
   # Create /etc/zshrc that loads the nix-darwin environment.
