@@ -155,6 +155,7 @@
     texliveFull
     texlab # tex lsp
     tectonic # TeX build tooling
+    texpresso
 
     # Typst
     typst
