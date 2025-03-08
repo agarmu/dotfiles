@@ -189,7 +189,7 @@
     */
     php
     hugo
-
+    zola ## ssg
     /*
     ┌────────┐
     │ Backup │
