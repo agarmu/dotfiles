@@ -156,7 +156,7 @@
     texlab # tex lsp
     tectonic # TeX build tooling
     texpresso
-
+    tex-fmt
     # Typst
     typst
     tinymist
