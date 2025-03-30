@@ -91,6 +91,7 @@
       "microsoft-teams"
       "sage" # Sagemath
       "nikitabobko/tap/aerospace" # Window Manager!
+      "zen-browser"
     ];
   };
 }
