@@ -198,5 +198,9 @@
     
     restic
 
+    /* misc. */
+    flex
+    bison
+
   ];
 }
