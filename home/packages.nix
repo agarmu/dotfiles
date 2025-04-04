@@ -138,6 +138,7 @@
     └───────────────────────────┘
     */
     lean4 # Used often for mathematics, admits Axiom K, often used with LEM
+    z3    # The Z3 theorem prover/SMT Solver/Formal Verification Software
     /*
     ┌──────────┐
     │ Security │
