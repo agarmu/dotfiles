@@ -56,6 +56,7 @@
     wget2 # Web Get (v2)
     curl # client for URL
     rsync # fast remote sync
+    inetutils
 
     /*
     ┌──────────────┐
