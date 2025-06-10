@@ -92,6 +92,7 @@
       "sage" # Sagemath
       "nikitabobko/tap/aerospace" # Window Manager!
       "zen-browser"
+      "bitwarden"
     ];
   };
 }
