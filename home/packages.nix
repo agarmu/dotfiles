@@ -50,7 +50,7 @@
     */
     openssh # SSH Agent
     sshfs # Mount remote filesystems
-    mosh   # ssh alternative
+    mosh # ssh alternative
     aria # CLI download utility
     socat # Better netcat
     wget2 # Web Get (v2)
@@ -86,6 +86,7 @@
     eza # Better ls (fork of exa, which is no longer maintained)
     htop # System monitor
     ripgrep # Grep alternative
+    youtube-dl
     yt-dlp # Download media from YouTube and similar
     qrencode # Works with qr codes
     scc # Code Complexity analysis
@@ -139,7 +140,7 @@
     └───────────────────────────┘
     */
     lean4 # Used often for mathematics, admits Axiom K, often used with LEM
-    z3    # The Z3 theorem prover/SMT Solver/Formal Verification Software
+    z3 # The Z3 theorem prover/SMT Solver/Formal Verification Software
     /*
     ┌──────────┐
     │ Security │
@@ -197,12 +198,13 @@
     │ Backup │
     └────────┘
     */
-    
+
     restic
 
-    /* misc. */
+    /*
+    misc.
+    */
     flex
     bison
-
   ];
 }
