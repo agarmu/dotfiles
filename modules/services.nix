@@ -5,7 +5,7 @@
       package = pkgs.spacebar;
     };
     tailscale = {
-      enable = true;
+      enable = false;
     };
     yabai = {
       enable = false;
