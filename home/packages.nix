@@ -86,7 +86,6 @@
     eza # Better ls (fork of exa, which is no longer maintained)
     htop # System monitor
     ripgrep # Grep alternative
-    youtube-dl
     yt-dlp # Download media from YouTube and similar
     qrencode # Works with qr codes
     scc # Code Complexity analysis
