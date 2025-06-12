@@ -2,26 +2,14 @@
   homebrew = {
     enable = true;
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
       cleanup = "zap";
     };
 
     masApps = {
-      # Microsoft Office
-      "Microsoft Excel" = 462058435;
-      "Microsoft Word" = 462054704;
-      "Microsoft PowerPoint" = 462062816;
-
       # Apple Office
       "Pages" = 409201541;
       "Keynote" = 409183694;
-      # Communications
-      "Slack" = 803453959;
-      "WhatsApp" = 1147396723;
-
-      # Miscellaneous
-      "GeoGebra Calculator Suite" = 1504416652;
-      "Tailscale" = 1475387142;
     };
 
     taps = [
@@ -30,7 +18,6 @@
       "homebrew/services"
       "homebrew/cask-versions"
       "oven-sh/bun"
-      "null-dev/firefox-profile-switcher"
     ];
 
     brews = [
@@ -54,6 +41,7 @@
       "libxml2"
       "pkg-config" # needed for UniMath
       "r"
+      "tailscale"
     ];
 
     casks = [
@@ -92,6 +80,8 @@
       "sage" # Sagemath
       "nikitabobko/tap/aerospace" # Window Manager!
       "bitwarden"
+      "whatsapp"
+      "slack"
     ];
   };
 }
