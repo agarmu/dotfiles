@@ -82,6 +82,7 @@
       "bitwarden"
       "whatsapp"
       "slack"
+      "cursor"
     ];
   };
 }
