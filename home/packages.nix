@@ -127,6 +127,8 @@
     └────────────────────────────┘
     */
     fnm # Fast Node Version Management
+    deno # js runtime
+    bun  # js runtime
     rustup # Rust management software
     jdk21 # OpenJDK 21
     gprolog # GNU Prolog
