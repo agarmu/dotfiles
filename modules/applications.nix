@@ -76,13 +76,16 @@
       "obsidian"
       "zulip" # for UniMath
       "sioyek"
-      "microsoft-teams"
       "sage" # Sagemath
       "nikitabobko/tap/aerospace" # Window Manager!
       "bitwarden"
       "whatsapp"
       "slack"
       "cursor"
+      "microsoft-teams"
+      "microsoft-word"
+      "microsoft-excel"
+      "microsoft-powerpoint"
     ];
   };
 }
