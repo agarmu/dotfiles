@@ -195,11 +195,14 @@
     hugo
     zola ## ssg
     /*
-    ┌────────┐
-    │ Backup │
-    └────────┘
+    ┌─────────────────┐
+    │ Backup + Devops │
+    └─────────────────┘
     */
-
+    terraform
+    opentofu
+    ansible
+    google-cloud-sdk
     restic
 
     /*
