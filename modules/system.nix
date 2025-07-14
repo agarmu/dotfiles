@@ -89,5 +89,6 @@
     cm_unicode
     crimson-pro
     cascadia-code
+    libre-franklin
   ];
 }

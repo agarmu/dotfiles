@@ -87,6 +87,9 @@
       "microsoft-word"
       "microsoft-excel"
       "microsoft-powerpoint"
+
+      # fonts
+      "font-cormorant-garamond"
     ];
   };
 }
