@@ -13,10 +13,6 @@
     };
 
     taps = [
-      "homebrew/cask"
-      "homebrew/cask-fonts"
-      "homebrew/services"
-      "homebrew/cask-versions"
       "oven-sh/bun"
       "nikitabobko/tap"
     ];
