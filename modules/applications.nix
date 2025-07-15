@@ -29,7 +29,6 @@
       "llvm" "lld" # llvm linker
       # "gdb"
       # "valgrind"
-      "firefox-profile-switcher-connector"
       "julia"
       "expat"
       "gtk+"
