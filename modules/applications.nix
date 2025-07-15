@@ -15,6 +15,7 @@
     taps = [
       "oven-sh/bun"
       "nikitabobko/tap"
+      "parksb/x"        # for collie
     ];
 
     brews = [
