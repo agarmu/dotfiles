@@ -108,7 +108,6 @@
     */
     hyperfine # Terminal benchmarking utility
     wasm-pack # Packages an application for WASM
-    rizin # Fork of radare2 reverse-engineering tooling
     qemu # emulator & virtualizer
     ghostscript # PDF Maniuplation
     poppler_utils # PDF Manipulation (Poppler)
@@ -131,8 +130,7 @@
     deno # js runtime
     bun  # js runtime
     rustup # Rust management software
-    jdk21 # OpenJDK 21
-    gprolog # GNU Prolog
+    jdk24 # OpenJDK 24 -- figure out how to set to latest...
     zig
     lua
 
@@ -159,17 +157,11 @@
     # TeX
     texliveFull
     texlab # tex lsp
-    tectonic # TeX build tooling
-    texpresso
     tex-fmt
     # Typst
     typst
-    tinymist
     typstyle
 
-    # Writing LSP
-    ltex-ls
-    marksman
 
     /*
     ┌───────┐
@@ -178,7 +170,6 @@
     */
     fswatch # Watch filesystem for changes
     macchina # Fetch
-    hledger # Accounting Software
     gping # graph ping
     parallel # GNU Parallel
     /*
@@ -194,7 +185,6 @@
     */
     php
     hugo
-    zola ## ssg
     /*
     ┌─────────────────┐
     │ Backup + Devops │
