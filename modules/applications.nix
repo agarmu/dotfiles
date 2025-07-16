@@ -13,47 +13,29 @@
     };
 
     taps = [
-      "oven-sh/bun"
-      "nikitabobko/tap"
+      "nikitabobko/tap" # for aerospace
       "parksb/x"        # for collie
     ];
 
     brews = [
       "openjdk"
-      "openssh"
-      "bun"
-      "exiftool"
-      "meson"
-      "pandoc"
       "ykman"
-      "libiconv"
       "llvm" "lld" # llvm linker
       # "gdb"
       # "valgrind"
       "julia"
-      "expat"
-      "gtk+"
-      "gtk+3"
-      "gtksourceview3"
-      "libxml2"
       "pkg-config" # needed for UniMath
-      "r"
       "tailscale"
     ];
 
     casks = [
-      "parksb/x/collie" # RSS Reader
+      "collie" # RSS Reader
       "vlc" # Video Player
-      "iina" # Video Player
-      "tor-browser" # Secure Browser
       "anaconda" # Python Package/Environment Manager
       "anki" # Spaced Repetition
-      "mochi" # spaced repetition
       "calibre" # E-Book Manager
       "coconutbattery" # macOS Battery Health Checker
-      "cutter" # Reverse-Engineering/Decompiling Tool
       "chromium" # Lite Chrome-based Web-browser
-      "docker" # Containerization
       "firefox" # Main Browser
       "free-gpgmail" # GPG tools for macOS
       "hammerspoon" # Custom OS extensions/keybinds
@@ -63,7 +45,6 @@
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
       "gimp" # GNU Image Manipulation Program
-      "signal" # Secure E2E chat platform
       "skim" # PDF Viewer with Hot Reload
       "spotify" # Music Streaming
       "visual-studio-code"
@@ -72,9 +53,8 @@
       "raycast" # Launcher
       "obsidian"
       "zulip" # for UniMath
-      "sioyek"
       "sage" # Sagemath
-      "nikitabobko/tap/aerospace" # Window Manager!
+      "aerospace" # Window Manager!
       "bitwarden"
       "whatsapp"
       "slack"
@@ -83,9 +63,6 @@
       "microsoft-word"
       "microsoft-excel"
       "microsoft-powerpoint"
-
-      # fonts
-      "font-cormorant-garamond"
     ];
   };
 }
