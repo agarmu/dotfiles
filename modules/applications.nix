@@ -18,7 +18,6 @@
     ];
 
     brews = [
-      "openjdk"
       "ykman"
       "llvm" "lld" # llvm linker
       # "gdb"
