@@ -35,6 +35,11 @@ gc:
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
 
+
+collect-garbage: gc 
+    nix-collect-garbage -d
+    sudo nix-collect-garbage -d
+
 fmt:
 	# format the nix files in this repo
 	nix fmt
@@ -42,15 +47,15 @@ fmt:
 meta:
 	nix flake metadata
 
-clean:  
+clean:
 	rm -rf result
 
 optimise:
 	nix-store --optimise --verbose
 
-garbage:
-	nix-collect-garbage -d
 
 brew-cleanup:
 	brew cleanup --prune=all -s && rm -rv "$(brew --cache)"
 
+
+maintenance: optimise collect-garbage brew-cleanup clean
