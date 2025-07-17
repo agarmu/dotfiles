@@ -62,6 +62,8 @@
       "microsoft-word"
       "microsoft-excel"
       "microsoft-powerpoint"
+
+      "mos" # for mouse
     ];
   };
 }
