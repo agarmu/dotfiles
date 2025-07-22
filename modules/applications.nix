@@ -41,7 +41,6 @@
       "hammerspoon" # Custom OS extensions/keybinds
       "handbrake" # Nice frontend to ffmpeg
       "inkscape" # Vector Graphics Editor
-      "wezterm" # Wez's Terminal Emulator
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
       "gimp" # GNU Image Manipulation Program
