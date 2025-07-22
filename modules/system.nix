@@ -90,5 +90,7 @@
     crimson-pro
     cascadia-code
     libre-franklin
+    open-sans
+    jost
   ];
 }
