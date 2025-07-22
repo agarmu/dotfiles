@@ -14,12 +14,13 @@
 
     taps = [
       "nikitabobko/tap" # for aerospace
-      "parksb/x"        # for collie
+      "parksb/x" # for collie
     ];
 
     brews = [
       "ykman"
-      "llvm" "lld" # llvm linker
+      "llvm"
+      "lld" # llvm linker
       # "gdb"
       # "valgrind"
       "julia"
