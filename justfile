@@ -28,17 +28,11 @@ switch:
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
 
+
 gc:
-	# remove all generations older than 7 days
-	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
-
-	# garbage collect all unused nix store entries
-	sudo nix store gc --debug
-
-
-collect-garbage: gc 
     nix-collect-garbage -d
     sudo nix-collect-garbage -d
+    nix-store --optimise
 
 fmt:
 	# format the nix files in this repo
@@ -47,15 +41,11 @@ fmt:
 meta:
 	nix flake metadata
 
-clean:
-	rm -rf result
-
 optimise:
-	nix-store --optimise --verbose
-
+	nix-store --optimise
 
 brew-cleanup:
 	brew cleanup --prune=all -s && rm -rv "$(brew --cache)"
 
 
-maintenance: optimise collect-garbage brew-cleanup clean
+clean: gc brew-cleanup
