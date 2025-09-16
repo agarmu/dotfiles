@@ -39,7 +39,6 @@
       "firefox" # Main Browser
       "free-gpgmail" # GPG tools for macOS
       "hammerspoon" # Custom OS extensions/keybinds
-      "handbrake" # Nice frontend to ffmpeg
       "inkscape" # Vector Graphics Editor
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
