@@ -32,6 +32,7 @@ in {
       top = "btop";
       cl = "clear";
       cls = "clear";
+      emacs = "emacs -nw";
     };
     sessionVariables = {
       EDITOR = "nvim";
