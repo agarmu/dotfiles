@@ -6,6 +6,7 @@
       hostname = "${sn}.cs.purdue.edu";
       user = purdueUsername;
       forwardAgent = true;
+      proxyJump = "data.cs.purdue.edu";
     };
   };
   ServerMC = builtins.map (x: "mc${builtins.toString x}") (pkgs.lib.lists.range 17 21);
@@ -16,11 +17,24 @@
 in {
   programs.ssh = {
     enable = true;
-    compression = true;
-    hashKnownHosts = true;
-    serverAliveCountMax = 5;
+    enableDefaultConfig = false;
     matchBlocks =
       {
+        "*" = {
+          /* safety */
+          forwardAgent = false;
+          addKeysToAgent = "no";
+          hashKnownHosts = true;
+          /* speed/latency */
+          compression = true;
+          serverAliveInterval = 0;
+          serverAliveCountMax = 5;
+          /* other config */ 
+          userKnownHostsFile = "~/.ssh/known_hosts";
+          controlMaster  = "no";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "no";
+        };
         "gh-test" = {
           hostname = "github.com";
           user = "git";
@@ -34,3 +48,4 @@ in {
       // servers;
   };
 }
+
