@@ -1,4 +1,6 @@
 {pkgs, ...}: let
+  pad = k: s: if (builtins.stringLength s) >= k then s else "0${pad (k - 1) s}";
+  padn = k: n: pad k (builtins.toString n);
   purdueUsername = "agarw396";
   purdueCSSystem = sn: {
     name = "${sn}";
@@ -6,13 +8,11 @@
       hostname = "${sn}.cs.purdue.edu";
       user = purdueUsername;
       forwardAgent = true;
-      proxyJump = "data.cs.purdue.edu";
+      proxyJump = "data";
     };
   };
-  ServerMC = builtins.map (x: "mc${builtins.toString x}") (pkgs.lib.lists.range 17 21);
-  ServerBORGA = builtins.map (x: "borg0${builtins.toString x}") (pkgs.lib.lists.range 1 9);
-  ServerBORGB = builtins.map (x: "borg${builtins.toString x}") (pkgs.lib.lists.range 10 24);
-  serverNames = ServerMC ++ ServerBORGA ++ ServerBORGB;
+  serverrange = pfx: lb: ub: builtins.map (x: "${pfx}${padn 2 x}") (pkgs.lib.lists.range lb ub);
+  serverNames = (serverrange "mc" 18 21) ++ (serverrange "borg" 1 24)  ++ (serverrange "xinu" 1 21);
   servers = builtins.listToAttrs (builtins.map purdueCSSystem serverNames);
 in {
   programs.ssh = {
