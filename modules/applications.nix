@@ -63,6 +63,7 @@
       "microsoft-powerpoint"
 
       "mos" # for mouse
+      "fontforge-app"
     ];
   };
 }
