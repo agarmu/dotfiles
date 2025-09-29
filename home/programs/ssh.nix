@@ -39,6 +39,12 @@ in {
           hostname = "github.com";
           user = "git";
         };
+        "scholar" = {
+          hostname = "scholar.rcac.purdue.edu";
+          user = "agarw396";
+          forwardAgent = true;
+          proxyJump = "data";
+        };
         "data" = {
           hostname = "data.cs.purdue.edu";
           user = "agarw396";
