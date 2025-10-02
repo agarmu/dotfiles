@@ -26,12 +26,12 @@
       "julia"
       "pkg-config" # needed for UniMath
       "tailscale"
+      "miniforge" # conda/mamba
     ];
 
     casks = [
       "collie" # RSS Reader
       "vlc" # Video Player
-      "anaconda" # Python Package/Environment Manager
       "anki" # Spaced Repetition
       "calibre" # E-Book Manager
       "coconutbattery" # macOS Battery Health Checker
