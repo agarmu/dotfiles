@@ -26,7 +26,6 @@
       "julia"
       "pkg-config" # needed for UniMath
       "tailscale"
-      "miniforge" # conda/mamba
     ];
 
     casks = [
@@ -62,6 +61,7 @@
       "microsoft-excel"
       "microsoft-powerpoint"
 
+      "miniforge" # conda/mamba
       "mos" # for mouse
       "fontforge-app"
     ];
