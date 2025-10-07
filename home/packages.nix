@@ -131,7 +131,7 @@
     deno # js runtime
     bun # js runtime
     rustup # Rust management software
-    jdk24 # OpenJDK 24 -- figure out how to set to latest...
+    jdk # use lts jdk
     zig
     lua
 
