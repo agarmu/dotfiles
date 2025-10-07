@@ -35,6 +35,7 @@
 
       source "$HOME/miniforge3/etc/profile.d/conda.sh"
       source "$HOME/miniforge3/etc/profile.d/mamba.sh"
+      eval "$(mamba shell hook --shell zsh)"
 
            # Add Cargo, LLVM, and Brew Prefixes to path
       export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
@@ -58,6 +59,7 @@
         export FETCH_DISP=1
         macchina
       fi
+
     '';
   };
 }
