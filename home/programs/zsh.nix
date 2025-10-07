@@ -33,8 +33,6 @@
       setopt EXTENDED_HISTORY
       eval "$(fnm env --use-on-cd)"
 
-      source "$HOME/miniforge3/etc/profile.d/conda.sh"
-      source "$HOME/miniforge3/etc/profile.d/mamba.sh"
       eval "$(mamba shell hook --shell zsh)"
 
            # Add Cargo, LLVM, and Brew Prefixes to path
