@@ -51,7 +51,7 @@
     openssh # SSH Agent
     sshfs # Mount remote filesystems
     mosh # ssh alternative
-    aria # CLI download utility
+    aria2 # CLI download utility
     socat # Better netcat
     wget2 # Web Get (v2)
     curl # client for URL
@@ -111,7 +111,7 @@
     wasm-pack # Packages an application for WASM
     qemu # emulator & virtualizer
     ghostscript # PDF Maniuplation
-    poppler_utils # PDF Manipulation (Poppler)
+    poppler-utils # PDF Manipulation (Poppler)
     /*
     ┌───────────────┐
     │ Build Systems │
