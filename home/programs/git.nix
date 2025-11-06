@@ -1,16 +1,21 @@
 {...}: {
   programs.git = {
     enable = true;
-    aliases = {
-      c = "commit";
-      cl = "clone";
-      co = "checkout";
-      d = "diff";
-      ds = "diff --staged";
-      s = "status";
-      l = "log";
+    settings = {
+      alias = {
+        c = "commit";
+        cl = "clone";
+        co = "checkout";
+        d = "diff";
+        ds = "diff --staged";
+        s = "status";
+        l = "log";
+      };
+      user = {
+        email = "agarmukul23@gmail.com";
+        name = "Mukul Agarwal";
+      };
     };
-    delta.enable = true;
     lfs = {
       enable = true;
       skipSmudge = false;
@@ -20,7 +25,5 @@
       signByDefault = true;
       format = "openpgp";
     };
-    userEmail = "agarmukul23@gmail.com";
-    userName = "Mukul Agarwal";
   };
 }
