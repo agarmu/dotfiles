@@ -23,7 +23,6 @@
       "lld" # llvm linker
       # "gdb"
       # "valgrind"
-      "julia"
       "pkg-config" # needed for UniMath
       "tailscale"
     ];
@@ -39,6 +38,7 @@
       "free-gpgmail" # GPG tools for macOS
       "hammerspoon" # Custom OS extensions/keybinds
       "inkscape" # Vector Graphics Editor
+      "julia-app"
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
       "gimp" # GNU Image Manipulation Program
