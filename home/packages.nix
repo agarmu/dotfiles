@@ -100,7 +100,7 @@
     tree-sitter
     tldr # too-long; didn't read versions of `man' pages
     neovim # vim-derived editor
-    emacs  # emacs!
+    emacs # emacs!
     peco # interactive filtering/reading etc
     /*
     ┌─────────────────┐
