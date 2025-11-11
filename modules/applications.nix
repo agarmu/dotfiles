@@ -60,6 +60,7 @@
       "microsoft-word"
       "microsoft-excel"
       "microsoft-powerpoint"
+      "microsoft-onenote"
 
       "miniforge" # conda/mamba
       "mos" # for mouse
