@@ -64,7 +64,6 @@
 
       "miniforge" # conda/mamba
       "mos" # for mouse
-      "fontforge-app"
     ];
   };
 }
