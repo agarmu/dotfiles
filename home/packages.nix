@@ -33,7 +33,7 @@
     */
     git # most popular vcs
     lazygit # nicer ui for git
-    jj # jujutsu
+    jujutsu 
 
     /*
     ┌─────────────┐
