@@ -42,7 +42,7 @@
       "julia-app"
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
-      "gimp" # GNU Image Manipulation Program
+      "affinity" # Affinity Photo Designer
       "skim" # PDF Viewer with Hot Reload
       "spotify" # Music Streaming
       "visual-studio-code"
