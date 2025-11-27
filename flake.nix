@@ -61,6 +61,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = specialArgs;
+            home-manager.backupFileExtension = "bak";
             home-manager.users.mukul = import ./home;
           }
           {
