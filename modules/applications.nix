@@ -25,6 +25,7 @@
       # "valgrind"
       "pkg-config" # needed for UniMath
       "tailscale"
+      "pinentry-mac" # gpg pinentry
     ];
 
     casks = [
@@ -36,7 +37,6 @@
       "chromium" # Lite Chrome-based Web-browser
       "firefox" # Main Browser
       "free-gpgmail" # GPG tools for macOS
-      "pinentry-mac" # gpg pinentry
       "hammerspoon" # Custom OS extensions/keybinds
       "inkscape" # Vector Graphics Editor
       "julia-app"
