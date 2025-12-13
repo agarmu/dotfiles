@@ -46,6 +46,7 @@
       "skim" # PDF Viewer with Hot Reload
       "spotify" # Music Streaming
       "visual-studio-code"
+      "zed" # yippee editor
       "zoom" # Video meeting tool
       "zotero" # Reference management tool
       "raycast" # Launcher
