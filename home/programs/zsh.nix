@@ -23,7 +23,7 @@
       autoload -Uz compinit
       eval "$(/usr/libexec/path_helper)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      export PATH="/etc/profiles/per-user/mukul/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:~/Library/Application Support/Coursier/bin:"$PATH
+      export PATH="/etc/profiles/per-user/mukul/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$HOME/Library/Application Support/Coursier/bin:"$PATH
       export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
       export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
       HISTSIZE=1000000000
