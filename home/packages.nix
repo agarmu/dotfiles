@@ -133,6 +133,7 @@
     bun # js runtime
     rustup # Rust management software
     jdk # use lts jdk
+    coursier # coursier! for scala!
     zig
     lua
 
