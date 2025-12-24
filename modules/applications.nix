@@ -35,7 +35,7 @@
       "calibre" # E-Book Manager
       "coconutbattery" # macOS Battery Health Checker
       "chromium" # Lite Chrome-based Web-browser
-      "firefox" # Main Browser
+      "zen-browser" # Main Browser
       "free-gpgmail" # GPG tools for macOS
       "hammerspoon" # Custom OS extensions/keybinds
       "inkscape" # Vector Graphics Editor
