@@ -199,7 +199,6 @@
     /*
     misc.
     */
-    flex
-    bison
+    pv # progressbar
   ];
 }
