@@ -39,10 +39,10 @@
       "free-gpgmail" # GPG tools for macOS
       "hammerspoon" # Custom OS extensions/keybinds
       "inkscape" # Vector Graphics Editor
+      "darktable" "rawtherapee" # image editing
       "julia-app"
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
-      "affinity" # Affinity Photo Designer
       "skim" # PDF Viewer with Hot Reload
       "spotify" # Music Streaming
       "visual-studio-code"
