@@ -96,6 +96,7 @@
     gnutar # GNU version of tar
     gawk # GNU version of AWK
     imagemagick # Tooling to work with images
+    exiftool # image exif data
     pdftk # PDF tool
     ffmpeg # Audio library/tool
     tree-sitter
