@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  buildFirefoxXpiAddon = pkgs.nur.repos.rycee.firefox-addons.buildFirefoxXpiAddon;
+  inherit (pkgs.nur.repos.rycee.firefox-addons) buildFirefoxXpiAddon;
   bpc = buildFirefoxXpiAddon {
     pname = "bypass-paywalls-clean";
     version = "3.6.5.0";
