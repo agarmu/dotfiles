@@ -1,10 +1,12 @@
-{...}: {
-  programs.bash.enable = true;
-  programs.zsh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+_: {
+  programs = {
+    bash.enable = true;
+    zsh.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    info.enable = true;
+    man.enable = true;
   };
-  programs.info.enable = true;
-  programs.man.enable = true;
 }

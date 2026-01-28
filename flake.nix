@@ -46,7 +46,7 @@
       };
     in
       darwin.lib.darwinSystem {
-        system = system;
+        inherit system;
         modules = [
           ./modules/nix-core.nix
           ./modules/system.nix
@@ -57,11 +57,13 @@
           ./modules/environment.nix
           home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.backupFileExtension = "bak";
-            home-manager.users.mukul = import ./home;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = specialArgs;
+              backupFileExtension = "bak";
+              users.mukul = import ./home;
+            };
           }
           {
             nix.nixPath = [{inherit darwin;}];
@@ -71,8 +73,11 @@
           }
         ];
       };
-    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-    formatter.aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    # TODO: fix with flake-utils
+    formatter = {
+      aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+      aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
+      x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    };
   };
 }

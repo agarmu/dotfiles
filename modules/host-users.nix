@@ -1,10 +1,12 @@
-{...}: let
+_: let
   hostname = "Mukul-MBP";
   username = "mukul";
 in {
-  networking.hostName = hostname;
-  networking.computerName = hostname;
-  networking.localHostName = hostname;
+  networking = {
+    hostName = hostname;
+    computerName = hostname;
+    localHostName = hostname;
+  };
   system.defaults.smb.NetBIOSName = hostname;
 
   users.users."${username}" = {

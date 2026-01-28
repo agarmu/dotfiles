@@ -1,4 +1,4 @@
-{ ...}: let
+_: let
   username = "mukul";
   programs = map (n: "${./programs}/${n}") (builtins.attrNames (builtins.readDir ./programs));
   #services = map (n: "${./services}/${n}") (builtins.attrNames (builtins.readDir ./services));
@@ -8,7 +8,7 @@ in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    username = username;
+    inherit username;
     homeDirectory = "/Users/${username}";
     shellAliases = {
       gpl = "git pull";
