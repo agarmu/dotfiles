@@ -44,6 +44,7 @@
     nixd # lsp
     deadnix # dead code detection
     statix # static analysis
+    nix-search-cli
     /*
     ┌────────────┐
     │ Networking │
