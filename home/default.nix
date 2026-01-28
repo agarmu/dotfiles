@@ -1,7 +1,7 @@
-{inputs, ...}: let
+{ ...}: let
   username = "mukul";
   programs = map (n: "${./programs}/${n}") (builtins.attrNames (builtins.readDir ./programs));
-  services = map (n: "${./services}/${n}") (builtins.attrNames (builtins.readDir ./services));
+  #services = map (n: "${./services}/${n}") (builtins.attrNames (builtins.readDir ./services));
 in {
   # import sub modules
   imports = [./packages.nix] ++ programs; #++ services;

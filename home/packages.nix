@@ -1,8 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
-  system,
   ...
 }: {
   # Packages that should be installed to the user profile.
