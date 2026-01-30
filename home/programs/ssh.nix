@@ -21,6 +21,7 @@
       hostname = "localhost";
       user = "cs426";
       port = 4235;
+      proxyJump = "mc20";
     };
   };
 in {
