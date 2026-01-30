@@ -16,14 +16,16 @@
   };
   serverrange = pfx: lb: ub: builtins.map (x: "${pfx}${padn 2 x}") (pkgs.lib.lists.range lb ub);
   serverNames = (serverrange "mc" 18 21) ++ (serverrange "borg" 1 24) ++ (serverrange "xinu" 1 21);
-  servers = builtins.listToAttrs (builtins.map purdueCSSystem serverNames) // {
-    "cs426" = {
-      hostname = "localhost";
-      user = "cs426";
-      port = 4235;
-      proxyJump = "mc20";
+  servers =
+    builtins.listToAttrs (builtins.map purdueCSSystem serverNames)
+    // {
+      "cs426" = {
+        hostname = "localhost";
+        user = "cs426";
+        port = 4235;
+        proxyJump = "mc20";
+      };
     };
-  };
 in {
   programs.ssh = {
     enable = true;
