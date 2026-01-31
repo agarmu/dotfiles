@@ -26,6 +26,7 @@ _: {
       "pkg-config" # needed for UniMath
       "tailscale"
       "pinentry-mac" # gpg pinentry
+      "uv" # python
     ];
 
     casks = [
@@ -64,8 +65,6 @@ _: {
       "microsoft-excel"
       "microsoft-powerpoint"
       "microsoft-onenote"
-
-      "miniforge" # conda/mamba
       "mos" # for mouse
     ];
   };
