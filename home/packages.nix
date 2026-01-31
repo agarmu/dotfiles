@@ -188,6 +188,7 @@
     */
     terraform
     opentofu
+    tofu-ls
     ansible
     google-cloud-sdk
     restic

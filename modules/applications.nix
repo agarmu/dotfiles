@@ -27,6 +27,7 @@ _: {
       "tailscale"
       "pinentry-mac" # gpg pinentry
       "uv" # python
+      "oci-cli"
     ];
 
     casks = [
