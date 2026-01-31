@@ -35,7 +35,7 @@ _: {
 
 
            # Add Cargo, LLVM, and Brew Prefixes to path
-      export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
+      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
 
       source /Users/mukul/.ghcup/env
       # set $TERM to wezterm...
