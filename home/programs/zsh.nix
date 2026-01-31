@@ -33,7 +33,6 @@ _: {
       setopt EXTENDED_HISTORY
       eval "$(fnm env --use-on-cd)"
 
-      eval "$(mamba shell hook --shell zsh)"
 
            # Add Cargo, LLVM, and Brew Prefixes to path
       export PATH="$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
