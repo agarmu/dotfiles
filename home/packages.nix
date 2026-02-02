@@ -132,6 +132,7 @@
     coursier # coursier! for scala!
     zig
     lua
+    asm-lsp
 
     /*
     ┌───────────────────────────┐
