@@ -24,8 +24,6 @@ _: {
       eval "$(/usr/libexec/path_helper)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH="/etc/profiles/per-user/mukul/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$HOME/Library/Application Support/Coursier/bin:"$PATH
-      export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
-      export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
       HISTSIZE=1000000000
       SAVEHIST=$HISTSIZE
       export HISTSIZE=1000000000
@@ -35,7 +33,7 @@ _: {
 
 
            # Add Cargo, LLVM, and Brew Prefixes to path
-      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$(brew --prefix)/opt/libiconv/bin:$PATH"
+      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$(brew --prefix)/opt/llvm/bin:$PATH"
 
       source /Users/mukul/.ghcup/env
       # set $TERM to wezterm...
