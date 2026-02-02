@@ -39,6 +39,7 @@
     deadnix # dead code detection
     statix # static analysis
     nix-search-cli
+    nix-tree # browse nix dependency tree
     /*
     ┌────────────┐
     │ Networking │
