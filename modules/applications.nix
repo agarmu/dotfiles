@@ -28,6 +28,7 @@ _: {
       "pinentry-mac" # gpg pinentry
       "uv" # python
       "oci-cli"
+      "elan-init" # lean
     ];
 
     casks = [
