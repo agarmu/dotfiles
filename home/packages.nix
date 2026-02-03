@@ -47,6 +47,7 @@
     */
     openssh # SSH Agent
     sshfs # Mount remote filesystems
+    sshuttle # evil vpn over ssh
     mosh # ssh alternative
     aria2 # CLI download utility
     socat # Better netcat
