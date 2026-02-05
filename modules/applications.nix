@@ -43,7 +43,6 @@ _: {
       "inkscape" # Vector Graphics Editor
       "darktable"
       "rawtherapee" # image editing
-      "julia-app"
       "ghostty" # New Terminal Emulator
       "qbittorrent" # Torrent Client
       "skim" # PDF Viewer with Hot Reload
