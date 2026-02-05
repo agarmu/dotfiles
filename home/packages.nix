@@ -200,5 +200,9 @@
     misc.
     */
     pv # progressbar
+
+
+    /* pdf viewer */
+    sioyek
   ];
 }
