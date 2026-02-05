@@ -27,7 +27,6 @@ _: {
       "tailscale"
       "pinentry-mac" # gpg pinentry
       "uv" # python
-      "oci-cli"
       "elan-init" # lean
     ];
 
@@ -56,7 +55,6 @@ _: {
       "raycast" # Launcher
       "obsidian"
       "zulip" # for UniMath
-      "sage" # Sagemath
       "aerospace" # Window Manager!
       "bitwarden"
       "whatsapp"
