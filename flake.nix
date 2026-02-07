@@ -56,14 +56,14 @@
       nixpkgs,
       ...
     }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "aarch64-linux" ];
-      imports = [
-      ];
-      perSystem =
-        { pkgs, ... }:
-        {
-          formatter = pkgs.nixfmt;
-        };
-    };
+    flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  # {
+  # systems = [ "aarch64-linux" ];
+  # ];
+  # perSystem =
+  # { pkgs, ... }:
+  # {
+  # formatter = pkgs.nixfmt;
+  # };
+  # };
 }
