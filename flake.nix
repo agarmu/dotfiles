@@ -8,7 +8,7 @@
     extra-experimental-features = [
       "nix-command"
       "flakes"
-      "pipe-operator"
+      "pipe-operators"
     ];
   };
   inputs = {
@@ -29,6 +29,7 @@
     darwin.url = "github:nix-darwin/nix-darwin";
     home-manager.url = "github:nix-community/home-manager";
     nix-index-database.url = "github:nix-community/nix-index-database";
+    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 
     ### follows...
     # lix (from infinidoge config)
@@ -46,6 +47,7 @@
     # components
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -56,14 +58,8 @@
       nixpkgs,
       ...
     }:
-    flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
-  # {
-  # systems = [ "aarch64-linux" ];
-  # ];
-  # perSystem =
-  # { pkgs, ... }:
-  # {
-  # formatter = pkgs.nixfmt;
-  # };
-  # };
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      _module.args.rootPath = ./.;
+      imports = [ (inputs.import-tree ./modules) ];
+    };
 }
