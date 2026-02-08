@@ -31,6 +31,9 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 
+    # software...
+    niri.url = "github:sodiboo/niri-flake";
+
     ### follows...
     # lix (from infinidoge config)
     lix-module.inputs.lix.follows = "lix";
@@ -48,6 +51,9 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+
+    # software packages
+    niri.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
