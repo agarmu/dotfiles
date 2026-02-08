@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, withSystem, ... }:
 {
   perSystem =
     { system, ... }:
@@ -14,4 +14,10 @@
         };
       };
     };
+  flake.modules.nixos.base = nixosArgs: {
+    nixpkgs = {
+      pkgs = withSystem "aarch64-linux" (psArgs: psArgs.pkgs);
+      hostPlatform = "aarch64-linux";
+    };
+  };
 }
