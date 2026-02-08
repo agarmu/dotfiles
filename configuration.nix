@@ -148,7 +148,7 @@
   programs.niri.enable = true;
   services.seatd.enable = true;
   services.greetd = {
-    enable = true;
+    enable = false;
     settings.default_session = {
       user = "greeter";
       command = ''
