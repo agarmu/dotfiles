@@ -59,11 +59,7 @@ _: {
       "whatsapp"
       "slack"
       "cursor"
-      "microsoft-teams"
-      "microsoft-word"
-      "microsoft-excel"
-      "microsoft-powerpoint"
-      "microsoft-onenote"
+
       "mos" # for mouse
     ];
   };
