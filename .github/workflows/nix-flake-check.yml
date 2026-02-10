@@ -1,0 +1,33 @@
+name: nix flake check
+
+on:
+  pull_request:
+  push: {}
+
+jobs:
+  flake-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            accept-flake-config = true
+
+      - name: Cache Nix downloads/eval
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/nix
+            ~/.cache/nix-eval-cache
+            ~/.cache/nix-index
+          key: ${{ runner.os }}-nix-${{ hashFiles('flake.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nix-
+
+      - name: Flake check (eval only)
+        run: nix flake check --no-build --all-systems -L
