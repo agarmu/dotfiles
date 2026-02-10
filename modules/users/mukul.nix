@@ -27,7 +27,7 @@ in
       programs.zsh.enable = true;
     };
 
-  darwin.${userName} =
+  flake.modules.darwin.base =
     { pkgs, ... }:
     {
       users.users.${userName} = {
