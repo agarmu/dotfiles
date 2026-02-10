@@ -11,4 +11,6 @@
     system.stateVersion = "26.05";
     networking.hostName = "wheat";
   };
+
+  flake.nixosConfigurations = inputs.self.lib.mkNixos "aarch64-linux" "wheat";
 }
