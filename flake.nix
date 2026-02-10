@@ -25,12 +25,12 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
     };
     import-tree.url = "github:vic/import-tree";
     nix-darwin = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
