@@ -4,7 +4,7 @@
     services.avahi = {
       enable = true;
       nssmdns4 = true;
-      openFirewall = true;
+      openFirewall = false; # don't do this willy-nilly...
     };
   };
 }
