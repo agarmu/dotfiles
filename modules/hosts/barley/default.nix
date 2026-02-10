@@ -6,6 +6,7 @@
   flake.modules.darwin.barley = {
     imports = with inputs.self.modules.darwin; [
       base
+      homebrew
     ];
     system.stateVersion = 6;
     networking.hostName = "barley";

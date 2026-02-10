@@ -53,6 +53,7 @@ This flake defines custom modules under `flake.modules.*` that can be imported i
 | `nixos.asahi` | NixOS | Apple Silicon (Asahi Linux) support with specialized boot loader configuration |
 | `nixos.home-manager` | NixOS | Enables home-manager integration for NixOS with user package management |
 | `darwin.home-manager` | Darwin | Enables home-manager integration for nix-darwin with user package management |
+| `darwin.homebrew` | Darwin | Enables management of `homebrew` |
 | `nixos.sshServer` / `darwin.sshServer` | Both | OpenSSH server configuration (NixOS: with password auth and root login; Darwin: basic setup) |
 | `darwin.homebrew` | Darwin | Homebrew integration via brew-nix for managing macOS-specific applications |
 | `nixos.printing` | NixOS | Printing support via CUPS with Avahi for network printer discovery |
