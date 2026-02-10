@@ -30,6 +30,10 @@
       url = "github:nix-darwin/nix-darwin";
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-index-database = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nix-index-database";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
