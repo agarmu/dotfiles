@@ -5,6 +5,6 @@
     programs.gpg.enable = true;
   };
   flake.modules.darwin.gui = {
-    homebrew.brews = [ "gpg-suite-pinentry" ];
+    homebrew.casks = [ "gpg-suite-pinentry" ];
   };
 }
