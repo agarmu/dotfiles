@@ -15,30 +15,34 @@
       flake = false;
     };
   };
-  flake.modules.darwin.homebrew = {
-    imports = [
-      inputs.nix-homebrew.darwinModules.nix-homebrew
-    ];
-    nix-homebrew = {
-      enable = true;
-      user = "mukul";
+  flake.modules.darwin.homebrew =
+    let
       taps = {
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
       };
-      mutableTaps = false;
-    };
-    homebrew = {
-      enable = true;
-      taps = builtins.attrNames config.flake.modules.darwin.homebrew.nix-homebrew.taps;
-      onActivation = {
-        autoUpdate = false;
-        cleanup = "zap";
+    in
+    {
+      imports = [
+        inputs.nix-homebrew.darwinModules.nix-homebrew
+      ];
+      nix-homebrew = {
+        inherit taps;
+        enable = true;
+        user = "mukul";
+        mutableTaps = false;
+      };
+      homebrew = {
+        enable = true;
+        taps = builtins.attrNames taps;
+        onActivation = {
+          autoUpdate = false;
+          cleanup = "zap";
+        };
+      };
+      # analytics !
+      environment.variables = {
+        HOMEBREW_NO_ANALYTICS = "1";
       };
     };
-    # analytics !
-    environment.variables = {
-      HOMEBREW_NO_ANALYTICS = "1";
-    };
-  };
 }
