@@ -5,7 +5,10 @@ let
       environment.systemPackages = with pkgs; [
         git
         tmux
-        nano
+        neovim
+        wget
+        rsync
+        nix-search
       ];
     };
   # todo: please fix...
@@ -13,14 +16,11 @@ let
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
-        acpi
         kbd
         alacritty
         wl-clipboard
         xwayland
         nix-search
-        wget
-        rsync
         fuzzel # launcher - wayland
         brightnessctl
         mako
@@ -31,23 +31,18 @@ let
         bitwarden-cli
         waybar
       ];
-      fonts.packages = with pkgs; [
-        inconsolata
-        cascadia-code
-        cm_unicode
-        lmodern
-      ];
+
     };
 in
 {
-  flake.modules.nixos.cli-tools = {
+  flake.modules.nixos.base = {
     imports = [
       genericPackages
       nixosPackages
     ];
   };
 
-  flake.modules.darwin.cli-tools = {
+  flake.modules.darwin.base = {
     imports = [
       genericPackages
     ];

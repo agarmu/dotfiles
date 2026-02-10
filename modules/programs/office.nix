@@ -2,20 +2,19 @@
   flake.modules.homeManager.office =
     {
       pkgs,
-      lib,
-      config,
       ...
     }:
-    lib.mkMerge [
-      {
-        home.packages = with pkgs; [
-          # TODO... add something else?
-          pdfarranger
-          #notesnook
-        ];
-        # settings for all systems
-      }
-      (lib.mkIf (pkgs.stdenv.isLinux) {
+    # lib.mkMerge [
+    {
+      home.packages = with pkgs; [
+        # TODO... add something else?
+        pdfarranger
+        #notesnook
+      ];
+      # settings for all systems
+    }
+  /*
+    (lib.mkIf (pkgs.stdenv.isLinux) {
         home.packages = with pkgs; [
           # libreoffice-qt6
           # gimp3-with-plugins
@@ -30,5 +29,7 @@
         ];
         # Nix-Darwin settings
       })
-    ];
+    ]
+  */
+  ;
 }
