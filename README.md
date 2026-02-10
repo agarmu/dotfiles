@@ -41,7 +41,7 @@ This flake defines custom modules under `flake.modules.*` that can be imported i
 | Module | Platform | Description |
 |--------|----------|-------------|
 | `nixos.wheat` | NixOS | Complete host configuration for the "wheat" machine (includes base, gui, asahi modules) |
-| `darwin.barley` | Darwin | Complete host configuration for the "barley" machine (macOS system) |
+| `darwin.sorghum` | Darwin | Complete host configuration for the "sorghum" machine (macOS system) |
 
 ### System Modules
 
