@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.ssh = {
+  flake.modules.nixos.sshClient = {
     services.openssh = {
       enable = true;
       openFirewall = true;
