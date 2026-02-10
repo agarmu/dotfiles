@@ -1,83 +1,66 @@
 {
-  description = "Nix for macOS configuration";
-
+  description = "Nix for machine configuration";
   nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
-    trusted-users = ["root" "mukul" "admin"];
-    substituters = [
-      "https://cache.nixos.org"
-      "https://cachix.org/api/v1/cache/nix-community"
-    ];
-    trusted-substituters = [
-      "https://cache.nixos.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    /*
+      TODO: enable if needed.
+      allow-import-from-derivation = true;
+    */
+    extra-experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
     ];
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
-    nur.url = "github:nix-community/NUR";
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    bat-typst-syntax = {
-      url = "github:hyrious/typst-syntax-highlight";
-      flake = false;
-    };
+    # base
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
+    # important: configuration tools
+    blank.url = "github:divnix/blank";
+    import-tree.url = "github:vic/import-tree";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    git-hooks.url = "github:cachix/git-hooks.nix";
+
+    # replace nix with lix
+    lix.url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+
+    # components
+    darwin.url = "github:nix-darwin/nix-darwin";
+    home-manager.url = "github:nix-community/home-manager";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+
+    # software...
+    niri.url = "github:sodiboo/niri-flake";
+
+    ### follows...
+    # lix (from infinidoge config)
+    lix-module.inputs.lix.follows = "lix";
+    lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    lix.inputs.flake-compat.follows = "blank";
+    lix.inputs.nixpkgs.follows = "nixpkgs"; # TODO: ?
+    lix.inputs.pre-commit-hooks.follows = "git-hooks"; # TODO: ?
+
+    # basic
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    git-hooks.inputs.flake-compat.follows = "blank";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
+
+    # components
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+
+    # software packages
+    niri.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs @ {
-    nixpkgs,
-    darwin,
-    home-manager,
-    ...
-  }: {
-    darwinConfigurations."macbook-pro" = let
-      system = "aarch64-darwin";
-      specialArgs = {
-        inherit inputs;
-        inherit system;
-      };
-    in
-      darwin.lib.darwinSystem {
-        inherit system;
-        modules = [
-          ./modules/nix-core.nix
-          ./modules/system.nix
-          ./modules/applications.nix
-          ./modules/programs.nix
-          ./modules/host-users.nix
-          ./modules/services.nix
-          ./modules/environment.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = specialArgs;
-              backupFileExtension = "bak";
-              users.mukul = import ./home;
-            };
-          }
-          {
-            nix.nixPath = [{inherit darwin;}];
-            nixpkgs.overlays = with inputs; [
-              nur.overlays.default
-            ];
-          }
-        ];
-      };
-    # TODO: fix with flake-utils
-    formatter = {
-      aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-      aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
-      x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    };
-  };
+
+  outputs =
+    inputs@{
+      flake-parts,
+      import-tree,
+      ...
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
 }
