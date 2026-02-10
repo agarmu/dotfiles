@@ -12,7 +12,6 @@
         with inputs.self.factory;
         [
           mukul
-
         ];
 
       # ...
