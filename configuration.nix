@@ -185,6 +185,12 @@
     waybar
   ];
 
+  fonts.packages = with pkgs; [
+    inconsolata
+    cascadia-code
+    cm_unicode
+    lmodern
+  ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
