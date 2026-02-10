@@ -6,11 +6,9 @@
     }:
     {
       homebrew.casks = [
-        "microsoft-teams"
         "microsoft-word"
         "microsoft-excel"
         "microsoft-powerpoint"
-        "microsoft-onenote"
       ];
     };
 
