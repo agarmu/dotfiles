@@ -9,18 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixos-apple-silicon";
     };
-    brew-api = {
-      flake = false;
-      url = "github:BatteredBunny/brew-api";
-    };
-    brew-nix = {
-      inputs = {
-        brew-api.follows = "brew-api";
-        nix-darwin.follows = "nix-darwin";
-        nixpkgs.follows = "nixpkgs";
-      };
-      url = "github:BatteredBunny/brew-nix";
-    };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -28,11 +16,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
     };
+    homebrew-cask = {
+      flake = false;
+      url = "github:homebrew/homebrew-cask";
+    };
+    homebrew-core = {
+      flake = false;
+      url = "github:homebrew/homebrew-core";
+    };
     import-tree.url = "github:vic/import-tree";
     nix-darwin = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-darwin/nix-darwin";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
