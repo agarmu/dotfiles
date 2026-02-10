@@ -18,6 +18,9 @@
       imports = [ inputs.apple-silicon.nixosModules.default ];
       # asahi has weird efi system
       boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
+
+      # TODO: figure out how to fix
+      # ref: https://github.com/nix-community/nixos-apple-silicon/blob/main/docs/uefi-standalone.md#nixos-configuration
       hardware.asahi.peripheralFirmwareDirectory = rootPath + "/firmware";
     };
   };
