@@ -1,66 +1,34 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "Nix for machine configuration";
-  nixConfig = {
-    /*
-      TODO: enable if needed.
-      allow-import-from-derivation = true;
-    */
-    extra-experimental-features = [
-      "nix-command"
-      "flakes"
-      "pipe-operators"
-    ];
-  };
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+
   inputs = {
-    # base
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    # important: configuration tools
-    blank.url = "github:divnix/blank";
-    import-tree.url = "github:vic/import-tree";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    git-hooks.url = "github:cachix/git-hooks.nix";
-
-    # replace nix with lix
-    lix.url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-
-    # components
-    darwin.url = "github:nix-darwin/nix-darwin";
-    home-manager.url = "github:nix-community/home-manager";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
-
-    # software...
-    niri.url = "github:sodiboo/niri-flake";
-
-    ### follows...
-    # lix (from infinidoge config)
-    lix-module.inputs.lix.follows = "lix";
-    lix-module.inputs.nixpkgs.follows = "nixpkgs";
-    lix.inputs.flake-compat.follows = "blank";
-    lix.inputs.nixpkgs.follows = "nixpkgs"; # TODO: ?
-    lix.inputs.pre-commit-hooks.follows = "git-hooks"; # TODO: ?
-
-    # basic
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    git-hooks.inputs.flake-compat.follows = "blank";
-    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
-
-    # components
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+    brew-api = {
+      flake = false;
+      url = "github:BatteredBunny/brew-api";
+    };
+    brew-nix = {
+      inputs = {
+        brew-api.follows = "brew-api";
+        nix-darwin.follows = "nix-darwin";
+        nixpkgs.follows = "nixpkgs";
+      };
+      url = "github:BatteredBunny/brew-nix";
+    };
     flake-file.url = "github:vic/flake-file";
-    # software packages
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+    };
+    import-tree.url = "github:vic/import-tree";
+    nix-darwin = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LnL7/nix-darwin";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs";
   };
 
-  outputs =
-    inputs@{
-      flake-parts,
-      import-tree,
-      ...
-    }:
-    flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
 }
