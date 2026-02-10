@@ -66,6 +66,7 @@
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       _module.args.rootPath = ./.;
+      _module.args.mainUser = "mukul";
       imports = [ (inputs.import-tree ./modules) ];
     };
 }
