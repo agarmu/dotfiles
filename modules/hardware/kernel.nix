@@ -2,8 +2,7 @@
 {
   flake.modules.nixos.asahi = {
     boot.kernelPatches = [
-      /*
-        TODO: {
+      {
         name = "fix-asahi-build";
         patch = pkgs.writeText "fix-asahi-build.diff" ''
           diff --git a/rust/kernel/iio/common/mod.rs b/rust/kernel/iio/common/mod.rs
@@ -23,8 +22,7 @@
           +#[cfg(any(CONFIG_IIO_AOP_SENSOR_LAS, CONFIG_IIO_AOP_SENSOR_ALS,))]
            pub mod aop_sensors;
         '';
-        }
-      */
+      }
     ];
   };
 }
