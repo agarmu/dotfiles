@@ -44,5 +44,10 @@ let
 in
 {
   flake.modules.nixos.base = { inherit nix; };
-  flake.modules.darwin.base = { inherit nix; };
+  flake.modules.darwin.base = {
+    /*
+      TODO: Is determinate... worth it?
+      inherit nix;
+    */
+  };
 }
