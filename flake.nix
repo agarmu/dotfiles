@@ -32,7 +32,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:LnL7/nix-darwin";
     };
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
 }
