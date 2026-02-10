@@ -71,6 +71,21 @@
         "type": "github"
       }
     },
+    "flake-file": {
+      "locked": {
+        "lastModified": 1770413673,
+        "narHash": "sha256-JYX/J8vyb8GGV3HSl5AkDpct5eUGkDKP0HWjONYcZ+U=",
+        "owner": "vic",
+        "repo": "flake-file",
+        "rev": "3911266a6536c155864c8e4d26588170ac33f468",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "flake-file",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -475,6 +490,7 @@
         "apple-silicon": "apple-silicon",
         "blank": "blank",
         "darwin": "darwin",
+        "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",

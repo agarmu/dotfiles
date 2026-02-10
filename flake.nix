@@ -51,7 +51,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
-
+    flake-file.url = "github:vic/flake-file";
     # software packages
     niri.inputs.nixpkgs.follows = "nixpkgs";
   };
