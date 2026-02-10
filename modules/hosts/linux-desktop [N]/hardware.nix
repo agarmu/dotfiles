@@ -1,6 +1,14 @@
+{ inputs, ... }:
 {
+  flake-file.inputs.apple-silicon = {
+    url = "github:nix-community/nixos-apple-silicon";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   flake.modules.nixos.linux-desktop = {
-    nixpkgs.hostPlatform = "x86_64-linux";
-    hardware.cpu.intel.updateMicrocode = true;
+    imports = [
+      inputs.apple-silicon.nixosModules.default
+    ]
+    ++ [ ./_hardware-configuration.nix ];
+    # nixpkgs.hostPlatform = "aarch64-linux";
   };
 }

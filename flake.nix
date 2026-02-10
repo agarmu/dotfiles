@@ -5,6 +5,10 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
+    apple-silicon = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixos-apple-silicon";
+    };
     brew-api = {
       flake = false;
       url = "github:BatteredBunny/brew-api";

@@ -17,16 +17,16 @@
       }
       (lib.mkIf (pkgs.stdenv.isLinux) {
         home.packages = with pkgs; [
-          libreoffice-qt6
-          gimp3-with-plugins
+          # libreoffice-qt6
+          # gimp3-with-plugins
         ];
         # NixOS settings
       })
       (lib.mkIf (pkgs.stdenv.isDarwin) {
         home.packages = with pkgs; [
           # TODO: msft office...
-          libreoffice-bin
-          brewCasks.gimp
+          # libreoffice-bin
+          # brewCasks.gimp
         ];
         # Nix-Darwin settings
       })

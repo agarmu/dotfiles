@@ -3,5 +3,5 @@
   ...
 }:
 {
-  flake.nixosConfigurations = inputs.self.lib.mkNixos "x86_64-linux" "linux-desktop";
+  flake.nixosConfigurations = inputs.self.lib.mkNixos "aarch64-linux" "linux-desktop";
 }
