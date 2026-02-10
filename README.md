@@ -38,31 +38,31 @@ This flake defines custom modules under `flake.modules.*` that can be imported i
 
 ### Machine Configurations
 
-| Module | Platform | Description |
-|--------|----------|-------------|
-| `nixos.wheat` | NixOS | Complete host configuration for the "wheat" machine (includes base, gui, asahi modules) |
-| `darwin.sorghum` | Darwin | Complete host configuration for the "sorghum" machine (macOS system) |
+| Module | Platform |
+|--------|----------|
+| `nixos.wheat` | NixOS |
+| `darwin.sorghum` | Darwin |
 
 ### System Modules
 
-| Module | Platform | Description |
-|--------|----------|-------------|
-| `nixos.base` | NixOS | Base NixOS configuration with essential packages (git, tmux, neovim, etc.), GUI tools (alacritty, waybar, etc.), systemd-boot loader, IWD wireless networking, fonts, power management (TLP), timezone settings, user configuration, iperf3, and libinput/seatd services |
-| `darwin.base` | Darwin | Base macOS configuration with essential packages (git, tmux, neovim, etc.), Determinate Nix installer, and user configuration |
-| `nixos.gui` | NixOS | GUI-specific configuration enabling Firefox browser |
-| `nixos.asahi` | NixOS | Apple Silicon (Asahi Linux) support with specialized boot loader configuration |
-| `nixos.home-manager` | NixOS | Enables home-manager integration for NixOS with user package management |
-| `darwin.home-manager` | Darwin | Enables home-manager integration for nix-darwin with user package management |
-| `darwin.homebrew` | Darwin | Enables management of `homebrew` |
-| `nixos.sshServer` / `darwin.sshServer` | Both | OpenSSH server configuration (NixOS: with password auth and root login; Darwin: basic setup) |
-| `darwin.homebrew` | Darwin | Homebrew integration via brew-nix for managing macOS-specific applications |
-| `nixos.printing` | NixOS | Printing support via CUPS with Avahi for network printer discovery |
-| `nixos.bluetooth` | NixOS | Bluetooth hardware support with auto-power on boot |
-| `nixos.office` | NixOS | Office-oriented configuration enabling printing services |
+| Module | Platform |
+|--------|----------|
+| `nixos.base` | NixOS |
+| `darwin.base` | Darwin |
+| `nixos.gui` / `darwin.gui` | Both |
+| `nixos.asahi` | NixOS |
+| `nixos.home-manager` | NixOS |
+| `darwin.home-manager` | Darwin |
+| `nixos.sshServer` / `darwin.sshServer` | Both |
+| `darwin.homebrew` | Darwin |
+| `nixos.printing` | NixOS |
+| `nixos.bluetooth` | NixOS |
+| `nixos.office` | NixOS |
 
 ### Home Manager Modules
 
-| Module | Description |
-|--------|-------------|
-| `homeManager.base` | Base home-manager configuration with shell setup (zsh, bash, starship prompt) |
-| `homeManager.office` | Office productivity packages including PDF tools (pdfarranger) |
+| Module |
+|--------|
+| `homeManager.base` |
+| `homeManager.dev` |
+| `homeManager.gui` |
