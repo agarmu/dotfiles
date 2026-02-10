@@ -10,13 +10,13 @@ let
     };
 in
 {
-  flake.modules.nixos.base = {
+  flake.modules.nixos.cli-tools = {
     imports = [
       genericPackages
     ];
   };
 
-  flake.modules.darwin.base = {
+  flake.modules.darwin.cli-tools = {
     imports = [
       genericPackages
     ];
