@@ -1,8 +1,16 @@
-{ lib, config, ... }:
 {
-  config.flake = {
+  inputs,
+  lib,
+  config,
+  ...
+}:
+{
+  flake = {
     nixosConfigurations."mbp-asahi" = lib.nixosSystem {
-      modules = [ ../configuration.nix ];
+      modules = [
+        ../configuration.nix
+        inputs.apple-silicon.nixosModules.default
+      ];
     };
   };
 }
