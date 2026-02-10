@@ -3,7 +3,7 @@
   ...
 }:
 let
-  host = "barley";
+  host = "sorghum";
 in
 {
   flake.modules.darwin.${host} = {
