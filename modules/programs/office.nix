@@ -6,9 +6,9 @@
     }:
     {
       homebrew.casks = [
-        #"microsoft-word"
+        "microsoft-word"
         "microsoft-excel"
-        #"microsoft-powerpoint"
+        "microsoft-powerpoint"
       ];
     };
 
