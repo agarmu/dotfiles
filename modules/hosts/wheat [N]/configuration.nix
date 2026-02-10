@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.nixos.linux-desktop = {
+  flake.modules.nixos.wheat = {
     imports = with inputs.self.modules.nixos; [
       system-desktop
       systemd-boot
