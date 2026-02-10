@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.sshClient = {
+  flake.modules.nixos.sshServer = {
     services.openssh = {
       enable = true;
       openFirewall = true;
@@ -10,7 +10,7 @@
     };
   };
 
-  flake.modules.darwin.ssh = {
+  flake.modules.darwin.sshServer = {
     services.openssh = {
       enable = true;
     };
