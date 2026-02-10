@@ -8,6 +8,7 @@
       system-desktop
       systemd-boot
       bluetooth
+      ./_hardware-configuration.nix
     ];
   };
 }

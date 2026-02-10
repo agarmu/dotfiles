@@ -8,8 +8,7 @@
   flake.modules.nixos.linux-desktop = {
     imports = [
       inputs.apple-silicon.nixosModules.default
-    ]
-    ++ [ ./_hardware-configuration.nix ];
+    ];
 
     # TODO: figure out how to fix
     # ref: https://github.com/nix-community/nixos-apple-silicon/blob/main/docs/uefi-standalone.md#nixos-configuration
