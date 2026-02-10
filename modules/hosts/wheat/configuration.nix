@@ -8,5 +8,6 @@
       base
       ./_hardware-configuration.nix
     ];
+    networking.hostName = "wheat";
   };
 }
