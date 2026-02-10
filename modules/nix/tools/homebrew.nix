@@ -21,7 +21,7 @@
     ];
     nix-homebrew = {
       enable = true;
-      user = "agarmu";
+      user = "mukul";
       taps = {
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
