@@ -43,7 +43,6 @@ let
   };
 in
 {
-  inherit nix;
   flake.modules.nixos.base = { inherit nix; };
   flake.modules.darwin.base = { inherit nix; };
 }
