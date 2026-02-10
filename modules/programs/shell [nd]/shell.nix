@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.shell =
+  flake.modules.homeManager.base =
     {
       config,
       ...
@@ -14,6 +14,10 @@
       programs.bash = {
         enable = true;
         enableCompletion = true;
+      };
+
+      programs.starship = {
+        enable = true;
       };
     };
 

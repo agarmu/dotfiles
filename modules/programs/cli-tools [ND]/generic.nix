@@ -5,19 +5,18 @@ let
       environment.systemPackages = with pkgs; [
         git
         tmux
-        home-manager
-        local.cowsay
+        nano
       ];
     };
 in
 {
-  flake.modules.nixos.cli-tools = {
+  flake.modules.nixos.base = {
     imports = [
       genericPackages
     ];
   };
 
-  flake.modules.darwin.cli-tools = {
+  flake.modules.darwin.base = {
     imports = [
       genericPackages
     ];

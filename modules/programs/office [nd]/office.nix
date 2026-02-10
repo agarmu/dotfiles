@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.office =
+  flake.modules.homeManager.gui =
     {
       pkgs,
       lib,
@@ -9,8 +9,9 @@
     lib.mkMerge [
       {
         home.packages = with pkgs; [
+          # TODO... add something else?
           pdfarranger
-          notesnook
+          #notesnook
         ];
         # settings for all systems
       }
@@ -23,6 +24,7 @@
       })
       (lib.mkIf (pkgs.stdenv.isDarwin) {
         home.packages = with pkgs; [
+          # TODO: msft office...
           libreoffice-bin
           brewCasks.gimp
         ];
