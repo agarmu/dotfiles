@@ -11,11 +11,11 @@
       [
         system-minimal
         home-manager
-        secrets
+        # TODO secrets
       ]
       ++ (with inputs.self.modules.generic; [
         systemConstants
-        pkgs-by-name
+        # TODO pkgs-by-name
       ]);
   };
 
@@ -27,11 +27,11 @@
         determinate
         home-manager
         homebrew
-        secrets
+        # TODO secrets
       ]
       ++ (with inputs.self.modules.generic; [
         systemConstants
-        pkgs-by-name
+        # TODO pkgs-by-name
       ]);
   };
 
@@ -43,7 +43,7 @@
       with inputs.self.modules.homeManager;
       [
         system-minimal
-        secrets
+        # TODO secrets
       ]
       ++ [ inputs.self.modules.generic.systemConstants ];
   };

@@ -7,7 +7,7 @@
     imports = with inputs.self.modules.nixos; [
       system-cli
       systemd-boot
-      impermanence
+      # TODO impermanence
     ];
   };
   ###
