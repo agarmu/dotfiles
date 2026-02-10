@@ -28,7 +28,14 @@
       };
       mutableTaps = false;
     };
-    homebrew.taps = builtins.attrNames config.flake.modules.darwin.homebrew.nix-homebrew.taps;
+    homebrew = {
+      enable = true;
+      taps = builtins.attrNames config.flake.modules.darwin.homebrew.nix-homebrew.taps;
+      onActivation = {
+        autoUpdate = false;
+        cleanup = "zap";
+      };
+    };
     # analytics !
     environment.variables = {
       HOMEBREW_NO_ANALYTICS = "1";
