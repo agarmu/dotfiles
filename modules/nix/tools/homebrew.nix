@@ -29,5 +29,9 @@
       mutableTaps = false;
     };
     homebrew.taps = builtins.attrNames config.flake.modules.darwin.homebrew.nix-homebrew.taps;
+    # analytics !
+    environment.variables = {
+      HOMEBREW_NO_ANALYTICS = "1";
+    };
   };
 }

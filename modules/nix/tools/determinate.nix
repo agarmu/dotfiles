@@ -16,5 +16,8 @@
     determinateNix = {
       enable = true;
     };
+    environment.variables = {
+      DETSYS_IDS_TELEMETRY = "disabled";
+    };
   };
 }
