@@ -5,25 +5,30 @@
 }:
 {
   flake.modules = lib.mkMerge [
-    (self.factory.user "bob" true)
+    (self.factory.user "mukul" true)
     {
-      nixos.bob = {
+      nixos.mukul = {
         imports = with self.modules.nixos; [
           # developmentEnvironment
         ];
-        users.users.bob = {
-          group = "audio";
+        users.users.mukul = {
+          isNormalUser = true;
+          extraGroups = [
+            "audio"
+            "seat"
+            "video"
+          ];
         };
       };
 
-      darwin.bob = {
+      darwin.mukul = {
         imports = with self.modules.darwin; [
           # drawingApps
           # developmentEnvironment
         ];
       };
 
-      homeManager.bob =
+      homeManager.mukul =
         { pkgs, ... }:
         {
           imports = with self.modules.homeManager; [
