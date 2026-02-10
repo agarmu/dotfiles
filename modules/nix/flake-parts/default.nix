@@ -3,7 +3,6 @@
   ...
 }:
 {
-  # setup of tools for dendritic pattern
 
   # Simplify Nix Flakes with the module system
   # https://github.com/hercules-ci/flake-parts

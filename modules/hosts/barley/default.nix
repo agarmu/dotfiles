@@ -3,10 +3,11 @@
   ...
 }:
 {
-  flake.modules.darwin.macbook = {
+  flake.modules.darwin.barley = {
     imports = with inputs.self.modules.darwin; [
       base
     ];
+    system.stateVersion = 6;
     networking.hostName = "barley";
 
     # homebrew = {
@@ -20,5 +21,5 @@
     # };
   };
 
-  flake.darwinConfigurations = inputs.self.lib.mkDarwin "aarch64-darwin" "macbook";
+  flake.darwinConfigurations = inputs.self.lib.mkDarwin "aarch64-darwin" "barley";
 }
