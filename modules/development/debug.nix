@@ -9,7 +9,7 @@
           [
             lldb
           ]
-          ++ (lib.mkIf (pkgs.stdenv.isLinux) [
+          ++ (lib.optionals pkgs.stdenv.isLinux [
             gdb
             valgrind
           ])
