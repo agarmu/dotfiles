@@ -12,7 +12,7 @@ in
     {
       users.users.${userName} = {
         isNormalUser = true;
-        home = "home/${userName}";
+        home = "/home/${userName}";
         # TODO: separate these out
         extraGroups = [
           "wheel"
