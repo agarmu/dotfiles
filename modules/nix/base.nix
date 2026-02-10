@@ -7,4 +7,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+  # using determinate nix!
+  flake.modules.darwin.base.nix.enable = false;
 }
