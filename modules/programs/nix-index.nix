@@ -5,7 +5,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.homeModules.base = {
+  flake.modules.homeManager.base = {
     imports = [
       inputs.nix-index-database.homeModules.default
     ];
