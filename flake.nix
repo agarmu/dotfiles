@@ -58,15 +58,9 @@
 
   outputs =
     inputs@{
-      self,
       flake-parts,
       import-tree,
-      nixpkgs,
       ...
     }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      _module.args.rootPath = ./.;
-      _module.args.mainUser = "mukul";
-      imports = [ (inputs.import-tree ./modules) ];
-    };
+    flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
 }
