@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, ... }:
 let
   pad = k: s: if (builtins.stringLength s) >= k then s else "0${pad (k - 1) s}";
   padn = k: n: pad k (builtins.toString n);
@@ -14,7 +14,7 @@ let
   };
   serverrange =
     pfx: lb: ub:
-    builtins.map (x: "${pfx}${padn 2 x}") (pkgs.lib.lists.range lb ub);
+    builtins.map (x: "${pfx}${padn 2 x}") (lib.lists.range lb ub);
   serverNames = (serverrange "mc" 18 21) ++ (serverrange "borg" 1 24) ++ (serverrange "xinu" 1 21);
   servers = builtins.listToAttrs (builtins.map purdueCSSystem serverNames) // {
     "cs426" = {

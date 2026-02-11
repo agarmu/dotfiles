@@ -9,7 +9,7 @@
         enable = true;
         dotDir = "${config.xdg.configHome}/zsh";
         enableCompletion = true;
-        autosuggestions.enable = true;
+        autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         enableVteIntegration = true;
         autocd = true;
