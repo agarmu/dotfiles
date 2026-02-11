@@ -6,32 +6,7 @@ _: {
       cleanup = "zap";
     };
 
-    masApps = {
-      # Apple Office
-      "Pages" = 409201541;
-      "Keynote" = 409183694;
-    };
-
-    taps = [
-      "nikitabobko/tap" # for aerospace
-      "parksb/x" # for collie
-    ];
-
-    brews = [
-      "ykman"
-      "llvm"
-      "lld" # llvm linker
-      # "gdb"
-      # "valgrind"
-      "pkg-config" # needed for UniMath
-      "tailscale"
-      "pinentry-mac" # gpg pinentry
-      "uv" # python
-      "elan-init" # lean
-    ];
-
     casks = [
-      "collie" # RSS Reader
       "vlc" # Video Player
       "anki" # Spaced Repetition
       "calibre" # E-Book Manager

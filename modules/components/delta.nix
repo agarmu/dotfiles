@@ -1,10 +1,10 @@
 _: {
-  flake.modules.homeManager.dev =
+  flake.modules.homeManager.base =
     { pkgs, ... }:
     {
       programs.delta = {
         enable = true;
-        enableGitIntegration = true;
+        home.shellAliases.diff = "${pkgs.btop}/bin/delta";
       };
     };
 }

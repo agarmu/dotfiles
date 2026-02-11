@@ -19,7 +19,9 @@
         ghostscript
         pdftk
         qpdf
+        poppler-utils
       ];
+      programs.sioyek.enable = true;
     };
 
   flake.modules.homeManager.gui =

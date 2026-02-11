@@ -12,4 +12,5 @@ in
 {
   # always have neovim
   flake.modules.nixos.base = nvimConfig;
+  flake.modules.homeManager.base = nvimConfig;
 }

@@ -1,5 +1,6 @@
-_: {
-  flake.modules.homeManager.base =
+{ lib, ... }:
+{
+  flake.modules.home.base =
     { pkgs, ... }:
     {
       programs.fzf = {
@@ -8,5 +9,7 @@ _: {
         enableFishIntegration = true;
         enableZshIntegration = true;
       };
+      programs.fd.enable = true;
+      programs.ripgrep.enable = true;
     };
 }
