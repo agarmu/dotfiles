@@ -43,6 +43,10 @@
       url = "github:nix-community/nix-index-database";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    treefmt-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/treefmt-nix";
+    };
     zen-browser = {
       inputs = {
         home-manager.follows = "home-manager";
