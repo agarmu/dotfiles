@@ -28,7 +28,7 @@
           darwinDefaultsId = lib.mkDefault "org.mozilla.firefox.plist";
           profiles."*".extensions.packages =
             with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-              ublock-origin dearrow bitwarden bypass-paywalls-clean zotero-connector
+              ublock-origin dearrow bitwarden /* bypass-paywalls-clean */ zotero-connector
             ];
         };
       };
