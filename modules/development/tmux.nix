@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.modules.homeManager.dev = {
+  flake.modules.homeManager.dev = {
     programs.tmux.enable = true;
   };
 }
