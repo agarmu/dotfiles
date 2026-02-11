@@ -30,7 +30,8 @@
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [
           inputs.self.modules.darwin.${name}
-          { nixpkgs.hostPlatform = lib.mkDefault system;
+          {
+            nixpkgs.hostPlatform = lib.mkDefault system;
             nixpkgs.config.allowUnfree = true;
           }
         ];

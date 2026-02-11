@@ -1,9 +1,12 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   /*
-  TODO
-  pending: zotero 8 in nixpkgs
+    TODO
+    pending: zotero 8 in nixpkgs
   */
-  flake.modules.homeManager.gui = {pkgs, ...}: {
-    home.packages = (lib.optional pkgs.stdenv.isDarwin [pkgs.zotero]);
-  };
+  flake.modules.homeManager.gui =
+    { pkgs, ... }:
+    {
+      home.packages = (lib.optional pkgs.stdenv.isDarwin [ pkgs.zotero ]);
+    };
 }

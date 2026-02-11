@@ -4,13 +4,14 @@
     { pkgs, ... }:
     {
       programs.texlive = {
-         enable = true;
+        enable = true;
         extraPackages = t: {
           inherit (t)
-          scheme-medium
-          latexmk
-          collection-bibtexextra
-          collection-latexextra;
+            scheme-medium
+            latexmk
+            collection-bibtexextra
+            collection-latexextra
+            ;
         };
       };
       home.packages = with pkgs; [

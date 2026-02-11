@@ -19,15 +19,16 @@
     system.stateVersion = "26.05";
     networking.hostName = "wheat";
     home-manager.users.mukul = {
-        imports = with inputs.self.modules.homeManager; [
-          base
-          dev
-          gui nixosGui
-          mobile
-          image
-        ];
-        home.stateVersion = "26.05";
-      };
+      imports = with inputs.self.modules.homeManager; [
+        base
+        dev
+        gui
+        nixosGui
+        mobile
+        image
+      ];
+      home.stateVersion = "26.05";
+    };
   };
 
   flake.nixosConfigurations = inputs.self.lib.mkNixos "aarch64-linux" "wheat";

@@ -1,4 +1,5 @@
-{inputs, lib, ...}: {
+{ inputs, lib, ... }:
+{
   flake-file.inputs = {
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -16,20 +17,20 @@
       programs.firefox.enable = true;
     };
 
-    flake.modules.homeManager.gui =
-      { pkgs, ... }:
-      {
-        imports = [
-          inputs.zen-browser.homeModules.beta
-        ];
+  flake.modules.homeManager.gui =
+    { pkgs, ... }:
+    {
+      imports = [
+        inputs.zen-browser.homeModules.beta
+      ];
 
-        programs.zen-browser = {
-          enable = true;
-          darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
-          # profiles.default.extensions.packages =
-          #   with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-          #     ublock-origin dearrow bitwarden /* bypass-paywalls-clean */ zotero-connector
-          #   ];
-        };
+      programs.zen-browser = {
+        enable = true;
+        darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
+        # profiles.default.extensions.packages =
+        #   with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        #     ublock-origin dearrow bitwarden /* bypass-paywalls-clean */ zotero-connector
+        #   ];
       };
+    };
 }

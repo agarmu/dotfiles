@@ -5,27 +5,30 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.gui = {pkgs, ...}: {
-    imports = [
-      inputs.niri.nixosModules.niri
-    ];
-    environment.systemPackages = with pkgs; [
-      kbd
-      wl-clipboard
-      xwayland
-      fuzzel # launcher - wayland
-      brightnessctl
-      mako
-      swaylock
-      waybar
-    ];
-    programs.niri = {
-      enable = true;
-      package = pkgs.niri-unstable;
+  flake.modules.nixos.gui =
+    { pkgs, ... }:
+    {
+      imports = [
+        inputs.niri.nixosModules.niri
+      ];
+      environment.systemPackages = with pkgs; [
+        kbd
+        wl-clipboard
+        xwayland
+        fuzzel # launcher - wayland
+        brightnessctl
+        mako
+        swaylock
+        waybar
+      ];
+      programs.niri = {
+        enable = true;
+        package = pkgs.niri-unstable;
+      };
     };
-  };
 
-  flake.modules.homeManager.gui = {pkgs, ...}:
+  flake.modules.homeManager.gui =
+    { pkgs, ... }:
     lib.mkIf (pkgs.stdenv.isLinux) {
 
     };
