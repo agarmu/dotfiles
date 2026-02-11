@@ -22,6 +22,12 @@
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;
+      settings = {
+        xwayland-satelite = {
+          enable = true;
+          path = lib.getExe pkgs.xwayland-satellite-unstable;
+        };
+      };
     };
   };
   flake.modules.darwin.gui = {
