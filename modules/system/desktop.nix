@@ -1,5 +1,10 @@
 { lib, ... }:
 {
+  flake-file.inputs.niri = {
+    url = "github:sodiboo/niri-flake";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs-stable.follows = "nixpkgs";
+  };
   flake.modules.nixos.gui = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       kbd
