@@ -4,8 +4,14 @@
     { pkgs, ... }:
     {
       programs.texlive = {
-        enable = true;
-        package = pkgs.texliveFull;
+         enable = true;
+        extraPackages = t: {
+          inherit (t)
+          scheme-medium
+          latexmk
+          collection-bibtexextra
+          collection-latexextra;
+        };
       };
       home.packages = with pkgs; [
         texlab
