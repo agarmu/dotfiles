@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.home.dev =
+  flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.home.base =
+  flake.modules.homeManager.base =
     { pkgs, ... }:
     {
       programs.fzf = {
