@@ -26,7 +26,7 @@
 
       programs.zen-browser = {
         enable = true;
-        # darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
+        darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
         profiles.default.extensions.packages =
           with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             ublock-origin dearrow bitwarden zotero-connector
