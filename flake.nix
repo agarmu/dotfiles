@@ -30,10 +30,7 @@
     };
     import-tree.url = "github:vic/import-tree";
     niri = {
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
     };
     nix-darwin = {

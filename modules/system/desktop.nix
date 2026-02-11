@@ -3,7 +3,6 @@
   flake-file.inputs.niri = {
     url = "github:sodiboo/niri-flake";
     inputs.nixpkgs.follows = "nixpkgs";
-    inputs.nixpkgs-stable.follows = "nixpkgs";
   };
 
   flake.modules.nixos.gui = {pkgs, ...}: {
@@ -22,7 +21,7 @@
     ];
     programs.niri = {
       enable = true;
-      package = pkgs.niri-stable;
+      package = pkgs.niri-unstable;
     };
   };
   flake.modules.darwin.gui = {
