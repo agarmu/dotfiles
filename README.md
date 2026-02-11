@@ -9,6 +9,7 @@ My dotfiles are inspired by those of:
 - [Calum Macrae (cmacrae)](https://github.com/cmacrae/config)
 - [Mihai Fufezan (fufexan)](https://github.com/fufexan/dotfiles)
 - [Felix Breuer (breuerfelix)](https://github.com/breuerfelix/dotfiles)
+- [Infinidoge](https://github.com/infinidoge/universe)
 
 ## License
 
@@ -16,21 +17,20 @@ This repository is licensed under the [*MIT License*](./LICENSE).
 
 ## Organization
 
-This repository is generally organized into the following:
-
-- [`./home`](./home): Files/configurations related to home-manager. In theory,
-  these should be mostly cross-platform.
-
-- [`./modules`](./modules): Files/configurations related to system management.
-  Very platform-specific.
+The `flake.nix` file is basically a layer of thin glue; inside the directory
+`modules`, every `.nix` file (excluding those beginning with an underscore, or a
+child of some directory with an underscore) are taken to be a `flake-parts`
+module. This way, we are able to compose a (mostly) modular configuration.
 
 
 ## Goals
 
 Some of my goals for the future are:
 
-- Make configuration more platform-independent
 - Configure Optiplex Server computer using NixOS and add to configuration.
+- Configure `aarch64-linux` build serves.
+- Use `facter` to manage hardware configuration (instead of
+  `nixos-generate-config`)
 
 ## Module Reference
 
