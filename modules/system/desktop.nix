@@ -22,14 +22,17 @@
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;
-      settings = {
-        xwayland-satelite = {
-          enable = true;
-          path = lib.getExe pkgs.xwayland-satellite-unstable;
+    };
+  };
+  flake.modules.homeManager.gui = {pkgs, ...}:
+    lib.mkIf (pkgs.stdenv.isLinux) {
+      programs.niri = {
+        settings = {
+          xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
         };
       };
     };
-  };
+
   flake.modules.darwin.gui = {
     system.defaults = {
       menuExtraClock.Show24Hour = true; # show 24 hour clock
