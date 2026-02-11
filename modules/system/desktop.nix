@@ -1,7 +1,16 @@
 { lib, ... }:
 {
-  flake.modules.nixos.gui = {
-    # TODO
+  flake.modules.nixos.gui = {pkgs, ...}: {
+    environment.systemPackages = with pkgs; [
+      kbd
+      wl-clipboard
+      xwayland
+      fuzzel # launcher - wayland
+      brightnessctl
+      mako
+      swaylock
+      waybar
+    ];
   };
   flake.modules.darwin.gui = {
     system.defaults = {
