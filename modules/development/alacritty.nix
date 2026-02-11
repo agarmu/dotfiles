@@ -2,19 +2,19 @@
 {
   flake.modules.homeManager.dev =
     { pkgs, ... }:
-    let
-      package = pkgs.alacritty-graphics;
-    in
     {
       programs.alacritty = {
-        inherit package;
         enable = true;
+        package = pkgs.alacritty-graphics;
         theme = "catppuccin_mocha";
         settings = {
           env.TERM = "alacritty";
-          window.opacity = 0.6;
+          window.opacity = 0.85;
         };
       };
-      home.packages = [ package ];
+      home.packages = with pkgs; [
+        alacritty
+        ncurses
+      ];
     };
 }
