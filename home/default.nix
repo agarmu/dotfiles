@@ -1,10 +1,12 @@
-_: let
+_:
+let
   username = "mukul";
   programs = map (n: "${./programs}/${n}") (builtins.attrNames (builtins.readDir ./programs));
   #services = map (n: "${./services}/${n}") (builtins.attrNames (builtins.readDir ./services));
-in {
+in
+{
   # import sub modules
-  imports = [./packages.nix] ++ programs; #++ services;
+  imports = [ ./packages.nix ] ++ programs; # ++ services;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
