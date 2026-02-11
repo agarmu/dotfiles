@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       programs.texlive = {
-        enabe = true;
+        enable = true;
         package = pkgs.texliveFull;
       };
       home.packages = with pkgs; [

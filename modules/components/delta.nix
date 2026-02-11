@@ -4,7 +4,8 @@ _: {
     {
       programs.delta = {
         enable = true;
-        home.shellAliases.diff = "${pkgs.btop}/bin/delta";
       };
+
+      home.shellAliases.diff = "${pkgs.btop}/bin/delta";
     };
 }
