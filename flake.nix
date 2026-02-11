@@ -1,83 +1,59 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "Nix for macOS configuration";
 
-  nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
-    trusted-users = ["root" "mukul" "admin"];
-    substituters = [
-      "https://cache.nixos.org"
-      "https://cachix.org/api/v1/cache/nix-community"
-    ];
-    trusted-substituters = [
-      "https://cache.nixos.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
-    nur.url = "github:nix-community/NUR";
+    apple-silicon = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixos-apple-silicon";
+    };
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    firefox-addons = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    };
+    flake-file.url = "github:vic/flake-file";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    bat-typst-syntax = {
-      url = "github:hyrious/typst-syntax-highlight";
+    homebrew-cask = {
       flake = false;
+      url = "github:homebrew/homebrew-cask";
+    };
+    homebrew-core = {
+      flake = false;
+      url = "github:homebrew/homebrew-core";
+    };
+    import-tree.url = "github:vic/import-tree";
+    niri = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sodiboo/niri-flake";
+    };
+    nix-darwin = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-darwin/nix-darwin";
+    };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-index-database = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nix-index-database";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    treefmt-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/treefmt-nix";
+    };
+    zen-browser = {
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+      url = "github:0xc000022070/zen-browser-flake";
     };
   };
-  outputs = inputs @ {
-    nixpkgs,
-    darwin,
-    home-manager,
-    ...
-  }: {
-    darwinConfigurations."macbook-pro" = let
-      system = "aarch64-darwin";
-      specialArgs = {
-        inherit inputs;
-        inherit system;
-      };
-    in
-      darwin.lib.darwinSystem {
-        inherit system;
-        modules = [
-          ./modules/nix-core.nix
-          ./modules/system.nix
-          ./modules/applications.nix
-          ./modules/programs.nix
-          ./modules/host-users.nix
-          ./modules/services.nix
-          ./modules/environment.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = specialArgs;
-              backupFileExtension = "bak";
-              users.mukul = import ./home;
-            };
-          }
-          {
-            nix.nixPath = [{inherit darwin;}];
-            nixpkgs.overlays = with inputs; [
-              nur.overlays.default
-            ];
-          }
-        ];
-      };
-    # TODO: fix with flake-utils
-    formatter = {
-      aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-      aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
-      x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    };
-  };
+
 }
