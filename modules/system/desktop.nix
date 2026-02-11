@@ -1,11 +1,15 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake-file.inputs.niri = {
     url = "github:sodiboo/niri-flake";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.nixpkgs-stable.follows = "nixpkgs";
   };
+
   flake.modules.nixos.gui = {pkgs, ...}: {
+    imports = [
+      inputs.niri.nixosModules.niri
+    ];
     environment.systemPackages = with pkgs; [
       kbd
       wl-clipboard
@@ -16,6 +20,10 @@
       swaylock
       waybar
     ];
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri-stable;
+    };
   };
   flake.modules.darwin.gui = {
     system.defaults = {

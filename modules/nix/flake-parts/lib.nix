@@ -17,7 +17,9 @@
       ${name} = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           inputs.self.modules.nixos.${name}
-          { nixpkgs.hostPlatform = lib.mkDefault system;
+          {
+            nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+            nixpkgs.hostPlatform = lib.mkDefault system;
             nixpkgs.config.allowUnfree = true;
           }
         ];
