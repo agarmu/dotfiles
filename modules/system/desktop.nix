@@ -24,13 +24,10 @@
       package = pkgs.niri-unstable;
     };
   };
+
   flake.modules.homeManager.gui = {pkgs, ...}:
     lib.mkIf (pkgs.stdenv.isLinux) {
-      programs.niri = {
-        settings = {
-          xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
-        };
-      };
+
     };
 
   flake.modules.darwin.gui = {
