@@ -4,7 +4,7 @@
 # At the top of the config is a list of nodes. Each node has:
 # - exactly one name, which is a string
 # - zero or more ordered arguments, which are scalars
-# - zero or more unordered properties, which are attrsets of scalars
+# - zero or more unordered properties, which are attrsets of mscalars
 # - zero or more ordered children, which are nodes
 #
 # KDL also permits "type names", but niri does not use them.
@@ -36,15 +36,10 @@
 #
 # With that out of the way, here's the nixfied default config for niri.
 
-inputs: # This is your flake inputs. It contains the `niri` flake (github:sodiboo/niri)
-
-# This is a home-manager module.
+{inputs, lib, ...}:
 {
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+  flake.modules.homeManager.nixosGui = {pkgs, ...}:
+let
   inherit (inputs.niri.lib.kdl) node plain leaf flag;
 in {
   programs.niri.config = [
@@ -55,7 +50,7 @@ in {
           # For more information, see xkeyboard-config(7).
 
           # For example:
-          # (leaf "layout" "us,ru")
+          (leaf "layout" "us")
           # (leaf "options" "grp:win_space_toggle,compose:ralt,ctrl:nocaps")
         ])
 
@@ -74,10 +69,10 @@ in {
       # Omitting settings disables them, or leaves them at their default values.
       (plain "touchpad" [
         (flag "tap")
-        # (flag "dwt")
+        (flag "dwt")
         # (flag "dwtp")
         (flag "natural-scroll")
-        # (leaf "accel-speed" 0.2)
+        (leaf "accel-speed" 0.2)
         # (leaf "accel-profile" "flat")
         # (leaf "tap-button-map" "left-middle-right")
       ])
@@ -85,7 +80,7 @@ in {
       (plain "mouse" [
         # (flag "natural-scroll")
         # (leaf "accel-speed" 0.2)
-        # (leaf "accel-profile" "flat")
+        (leaf "accel-profile" "flat")
       ])
 
       (plain "trackpoint" [
@@ -645,4 +640,5 @@ in {
       # (flag "emulate-zero-presentation-time")
     ])
   ];
+};
 }

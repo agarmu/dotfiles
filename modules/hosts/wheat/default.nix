@@ -22,7 +22,7 @@
         imports = with inputs.self.modules.homeManager; [
           base
           dev
-          gui
+          gui nixosGui
           mobile
           image
         ];
