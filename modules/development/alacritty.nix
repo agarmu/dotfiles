@@ -13,7 +13,7 @@
         };
       };
       home.packages = with pkgs; [
-        alacritty
+        alacritty-graphics
         ncurses
       ];
     };
