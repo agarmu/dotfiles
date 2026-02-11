@@ -24,6 +24,7 @@
           dev
           gui
           mobile
+          image
         ];
         home.stateVersion = "26.05";
       };
