@@ -35,6 +35,10 @@
       url = "github:nix-community/nix-index-database";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    zen-browser = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:youwen5/zen-browser-flake";
+    };
   };
 
 }
