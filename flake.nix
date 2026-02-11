@@ -10,6 +10,10 @@
       url = "github:nix-community/nixos-apple-silicon";
     };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    firefox-addons = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    };
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
@@ -36,8 +40,11 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     zen-browser = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:youwen5/zen-browser-flake";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+      url = "github:0xc000022070/zen-browser-flake";
     };
   };
 

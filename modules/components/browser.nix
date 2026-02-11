@@ -1,7 +1,14 @@
-{inputs, ...}: {
-  flake-file.inputs.zen-browser = {
-    url = "github:youwen5/zen-browser-flake";
-    inputs.nixpkgs.follows = "nixpkgs";
+{inputs, lib, ...}: {
+  flake-file.inputs = {
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   flake.modules.nixos.gui =
     { pkgs, ... }:
@@ -12,9 +19,14 @@
     flake.modules.homeManager.gui =
       { pkgs, ... }:
       {
-        # use zen
-        home.packages = [
-          inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+        imports = [
+          inputs.zen-browser.homeModules.beta
         ];
+
+        programs.zen-browser = {
+          enable = true;
+          darwinDefaultsId = lib.mkDefault "org.mozilla.firefox.plist";
+          #profiles.*.extensions.packages = [];
+        };
       };
 }
