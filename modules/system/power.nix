@@ -14,6 +14,6 @@
   };
   flake.modules.homeManager.mobile = {pkgs, ...}:
   {
-    home.packages = [pkgs.coconutbattery];
+    home.packages = (lib.optionals pkgs.stdenv.isDarwin [pkgs.coconutbattery]);
   };
 }
