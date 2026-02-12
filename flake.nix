@@ -62,6 +62,10 @@
       };
       url = "github:0xc000022070/zen-browser-flake";
     };
+    zen-catppuccin = {
+      flake = false;
+      url = "github:catppuccin/zen-browser";
+    };
   };
 
 }
