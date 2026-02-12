@@ -30,6 +30,7 @@
         enable = true;
         background = "${inputs.nix-wallpaper}";
         font = "IBM Plex Sans";
+        fontSize = "20";
       };
       programs.niri = {
         enable = true;
