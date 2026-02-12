@@ -1,5 +1,9 @@
-{ lib, ... }:
+{ inputs, ... }:
 {
+  flake-file.inputs.gdb-dashboard = {
+    url = "github:cyrus-and/gdb-dashboard";
+    flake = false;
+  };
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
@@ -19,5 +23,9 @@
         gdb
         valgrind
       ];
+      xdg.configFile."gdb/gdbinit" = {
+        enable = true;
+        source = "${inputs.gdb-dashboard}/.gdbinit";
+      };
     };
 }
