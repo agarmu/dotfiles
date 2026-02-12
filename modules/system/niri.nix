@@ -134,7 +134,10 @@
           "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
           "Mod+T".action.spawn = [ "alacritty" ];
-          "Mod+D".action.spawn = [ "vicinae" "open" ];
+          "Mod+D".action.spawn = [
+            "vicinae"
+            "open"
+          ];
           "Super+Alt+L".action.spawn = [ "hyprlock" ];
 
           "XF86AudioRaiseVolume".action.spawn = [
