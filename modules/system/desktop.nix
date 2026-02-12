@@ -20,9 +20,16 @@
         swaylock
         waybar
       ];
-      services.displayManager.sddm = {
+      services.displayManager = {
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+      };
+      catppuccin.sddm = {
         enable = true;
-        wayland.enable = true;
+        background = "${inputs.nix-wallpaper}";
+        font = "IBM Plex Sans";
       };
       programs.niri = {
         enable = true;

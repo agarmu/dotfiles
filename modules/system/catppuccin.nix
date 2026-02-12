@@ -11,6 +11,10 @@ in
     imports = [
       catppuccin.nixosModules.catppuccin
     ];
+    catppuccin = {
+      flavor = "mocha";
+      tty.enable = true;
+    };
   };
   flake.modules.homeManager.base = {
     imports = [
