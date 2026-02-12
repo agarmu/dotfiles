@@ -14,12 +14,10 @@
         kbd
         wl-clipboard
         xwayland
-        fuzzel # launcher - wayland
         brightnessctl
         mako
-        swaylock
-        waybar
       ];
+
       services.displayManager = {
         sddm = {
           enable = true;
@@ -38,10 +36,18 @@
       };
     };
 
-  flake.modules.homeManager.gui =
+  flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
-    lib.mkIf (pkgs.stdenv.isLinux) {
+    {
+      services.mako.enable = true;
+      programs.fuzzel.enable = true;
+      catppuccin.mako.enable = true;
+      catppuccin.fuzzel.enable = true;
 
+      programs.hyprlock.enable = true;
+      catppuccin.hyprlock.enable = true;
+      programs.waybar.enable = true;
+      #catppuccin.waybar.enable = true;
     };
 
   flake.modules.darwin.gui = {
