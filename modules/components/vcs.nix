@@ -49,10 +49,13 @@ in
       programs.jjui.enable = true;
 
       # configure delta to work with these!
-      programs.delta = {
+      programs.difftastic = {
         enable = lib.mkDefault true;
-        enableGitIntegration = true;
-        enableJujutsuIntegration = true;
+        git = {
+          enable = true;
+          diffToolMode = true;
+        };
+        jujutsu.enable = true;
       };
     };
 }
