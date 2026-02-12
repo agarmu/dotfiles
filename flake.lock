@@ -433,6 +433,18 @@
         "type": "github"
       }
     },
+    "nix-wallpaper": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-gHsDPmi/g4TA5FufA0tCTe0ShFUYINfnSo0lDnqxfCI=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/nixos/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-catppuccin-macchiato.png"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/nixos/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-catppuccin-macchiato.png"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1761597516,
@@ -555,6 +567,7 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nix-index-database": "nix-index-database",
+        "nix-wallpaper": "nix-wallpaper",
         "nixpkgs": "nixpkgs_3",
         "treefmt-nix": "treefmt-nix",
         "zen-browser": "zen-browser"
