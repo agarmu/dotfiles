@@ -37,5 +37,6 @@
     boot.loader.systemd-boot.enable = lib.mkForce true;
     boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
     boot.plymouth.enable = true;
+    catppuccin.plymouth.enable = true;
   };
 }
