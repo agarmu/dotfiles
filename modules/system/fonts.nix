@@ -8,6 +8,7 @@
         cascadia-code
         cm_unicode
         lmodern
+        ibm-plex
       ];
     };
 }
