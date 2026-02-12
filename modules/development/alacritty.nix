@@ -9,7 +9,7 @@
         theme = "catppuccin_mocha";
         settings = {
           env.TERM = "alacritty";
-          window.opacity = 0.93;
+          window.opacity = 0.75;
         };
       };
       home.packages = with pkgs; [
