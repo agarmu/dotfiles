@@ -4,6 +4,20 @@
     # Use the systemd-boot EFI boot loader.
     boot.loader.systemd-boot.enable = lib.mkDefault true;
     boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
+
+    /* enable silent booting + systemd logs */
+    boot = {
+      initrd = {
+        systemd = {
+          enable = true;
+        };
+        verbose = false;
+      };
+      consoleLogLevel = 0;
+      kernelParams = [
+        "quiet"
+      ];
+    };
   };
 
   # asahi needs apple silicon
