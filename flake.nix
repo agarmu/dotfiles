@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixos-apple-silicon";
     };
+    betterfox = {
+      flake = false;
+      url = "github:yokoffing/Betterfox";
+    };
     catppuccin = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:catppuccin/nix";

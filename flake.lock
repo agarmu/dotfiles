@@ -21,6 +21,22 @@
         "type": "github"
       }
     },
+    "betterfox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769104536,
+        "narHash": "sha256-D2MIFdYMS3xrfO2vDYjCmC3Ah96jg5XUzvwMX3xJQBo=",
+        "owner": "yokoffing",
+        "repo": "Betterfox",
+        "rev": "310cbdee6ca20eb881749a559cb572ce9272a981",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yokoffing",
+        "repo": "Betterfox",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -575,6 +591,7 @@
     "root": {
       "inputs": {
         "apple-silicon": "apple-silicon",
+        "betterfox": "betterfox",
         "catppuccin": "catppuccin",
         "determinate": "determinate",
         "firefox-addons": "firefox-addons",
