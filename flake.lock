@@ -591,7 +591,8 @@
         "nix-wallpaper": "nix-wallpaper",
         "nixpkgs": "nixpkgs_3",
         "treefmt-nix": "treefmt-nix",
-        "zen-browser": "zen-browser"
+        "zen-browser": "zen-browser",
+        "zen-catppuccin": "zen-catppuccin"
       }
     },
     "treefmt-nix": {
@@ -667,6 +668,22 @@
       "original": {
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
+        "type": "github"
+      }
+    },
+    "zen-catppuccin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759018582,
+        "narHash": "sha256-5A57Lyctq497SSph7B+ucuEyF1gGVTsuI3zuBItGfg4=",
+        "owner": "catppuccin",
+        "repo": "zen-browser",
+        "rev": "c855685442c6040c4dda9c8d3ddc7b708de1cbaa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zen-browser",
         "type": "github"
       }
     }
