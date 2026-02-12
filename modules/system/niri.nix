@@ -1,6 +1,13 @@
 { inputs, lib, ... }:
 {
+  flake-file.inputs.nix-wallpaper = {
+    url = "https://raw.githubusercontent.com/nixos/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-catppuccin-macchiato.png";
+    flake = false;
+  };
   flake.modules.homeManager.nixosGui =
+  let
+    wallpaper = "${inputs.nix-wallpaper}";
+  in
     { pkgs, ... }:
     {
       programs.niri.settings = {
@@ -9,6 +16,16 @@
           enable = true;
           path = lib.getExe pkgs.xwayland-satellite-unstable;
         };
+        spawn-at-startup = [
+          { argv = [ (lib.getExe pkgs.waybar)]; }
+          {
+            argv = [
+              (lib.getExe pkgs.swaybg)
+              "--image" wallpaper
+              "--mode" "fill"
+            ];
+          }
+        ];
         input = {
           keyboard.xkb.layout = "us";
 
