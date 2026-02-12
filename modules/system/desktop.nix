@@ -40,9 +40,15 @@
     { pkgs, ... }:
     {
       services.mako.enable = true;
-      programs.fuzzel.enable = true;
+      programs.vicinae = {
+        enable = true;
+        systemd = {
+          enable = true;
+          autoStart = true;
+        };
+      };
       catppuccin.mako.enable = true;
-      catppuccin.fuzzel.enable = true;
+      catppuccin.vicinae.enable = true;
 
       programs.hyprlock.enable = true;
       catppuccin.hyprlock.enable = true;
