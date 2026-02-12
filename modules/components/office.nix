@@ -21,17 +21,19 @@
         qpdf
         poppler-utils
       ];
-      programs.sioyek.enable = true;
     };
 
+  flake.modules.homeManager.nixosGui =
+    { pkgs, ... }:
+    {
+
+      home.packages = with pkgs; [ libreoffice-qt6 ];
+    };
   flake.modules.homeManager.gui =
     { pkgs, ... }:
-    lib.mkMerge [
-      {
-        home.packages = with pkgs; [ pdfarranger ];
-      }
-      (lib.mkIf (pkgs.stdenv.isLinux) {
-        home.packages = with pkgs; [ libreoffice-qt6 ];
-      })
-    ];
+    {
+      home.packages = with pkgs; [ pdfarranger ];
+      programs.sioyek.enable = true;
+      catppuccin.sioyek.enable = true;
+    };
 }

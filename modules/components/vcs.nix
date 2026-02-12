@@ -45,6 +45,7 @@ in
       };
 
       programs.lazygit.enable = true;
+      catppuccin.lazygit.enable = true;
       programs.jjui.enable = true;
 
       # configure delta to work with these!

@@ -3,10 +3,10 @@
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
+      catppuccin.alacritty.enable = true;
       programs.alacritty = {
         enable = true;
         package = pkgs.alacritty-graphics;
-        theme = "catppuccin_mocha";
         settings = {
           env.TERM = "alacritty";
           window = {
