@@ -4,6 +4,9 @@
     url = "https://raw.githubusercontent.com/nixos/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-catppuccin-macchiato.png";
     flake = false;
   };
+  flake.modules.nixos.asahi = {
+    boot.kernelParams = [ "appledrm.show_notch=1" ];
+  };
   flake.modules.homeManager.nixosGui =
   let
     wallpaper = "${inputs.nix-wallpaper}";
