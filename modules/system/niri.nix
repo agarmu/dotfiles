@@ -8,9 +8,9 @@
     boot.kernelParams = [ "appledrm.show_notch=1" ];
   };
   flake.modules.homeManager.nixosGui =
-  let
-    wallpaper = "${inputs.nix-wallpaper}";
-  in
+    let
+      wallpaper = "${inputs.nix-wallpaper}";
+    in
     { pkgs, ... }:
     {
       programs.niri.settings = {
@@ -20,12 +20,14 @@
           path = lib.getExe pkgs.xwayland-satellite-unstable;
         };
         spawn-at-startup = [
-          { argv = [ (lib.getExe pkgs.waybar)]; }
+          { argv = [ (lib.getExe pkgs.waybar) ]; }
           {
             argv = [
               (lib.getExe pkgs.swaybg)
-              "--image" wallpaper
-              "--mode" "fill"
+              "--image"
+              wallpaper
+              "--mode"
+              "fill"
             ];
           }
         ];
