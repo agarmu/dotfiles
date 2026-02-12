@@ -18,6 +18,10 @@
         "quiet"
       ];
     };
+    catppuccin = {
+      tty.enable = true;
+      grub.enable = true;
+    };
   };
 
   # asahi needs apple silicon
