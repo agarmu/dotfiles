@@ -238,6 +238,22 @@
         "type": "github"
       }
     },
+    "gdb-dashboard": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762445591,
+        "narHash": "sha256-i02U8SJR3JoOv3ukO6WUaK9iQF4ty0YZS+Qn8fne/LM=",
+        "owner": "cyrus-and",
+        "repo": "gdb-dashboard",
+        "rev": "c429e144eabf7a2c4c33ffbd617f54f752a7e614",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cyrus-and",
+        "repo": "gdb-dashboard",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -597,6 +613,7 @@
         "firefox-addons": "firefox-addons",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts_2",
+        "gdb-dashboard": "gdb-dashboard",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
