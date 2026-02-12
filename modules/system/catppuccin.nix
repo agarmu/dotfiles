@@ -13,8 +13,6 @@ in
     ];
     catppuccin = {
       flavor = "mocha";
-      tty.enable = true;
-      grub.enable = true;
     };
   };
   flake.modules.homeManager.base = {
