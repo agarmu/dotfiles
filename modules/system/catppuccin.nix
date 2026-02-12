@@ -1,6 +1,9 @@
 { lib, inputs, ... }:
 let
-  catppuccin = inputs.catppuccin;
+  inp = inputs.catppuccin;
+  catppuccin = {
+    flavor = "mocha";
+  };
 in
 {
   flake-file.inputs.catppuccin = {
@@ -8,16 +11,15 @@ in
     inputs.nixpkgs.follows = "nixpkgs";
   };
   flake.modules.nixos.base = {
+    inherit catppuccin;
     imports = [
-      catppuccin.nixosModules.catppuccin
+      inp.nixosModules.catppuccin
     ];
-    catppuccin = {
-      flavor = "mocha";
-    };
   };
   flake.modules.homeManager.base = {
+    inherit catppuccin;
     imports = [
-      catppuccin.homeModules.catppuccin
+      inp.homeModules.catppuccin
     ];
   };
 }
