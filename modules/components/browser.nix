@@ -14,6 +14,10 @@
       url = "github:catppuccin/zen-browser";
       flake = false;
     };
+    betterfox = {
+      url = "github:yokoffing/Betterfox";
+      flake = false;
+    };
   };
   flake.modules.nixos.gui =
     { pkgs, ... }:
@@ -36,8 +40,13 @@
           enable = true;
           darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
           profiles.default = {
+            id = 0;
             userChrome = builtins.readFile "${themeDir}/userChrome.css";
             userContent = builtins.readFile "${themeDir}/userContent.css";
+            extraConfig = ''
+              ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
+              ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
+            '';
             settings = {
               "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             };
