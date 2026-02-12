@@ -24,6 +24,10 @@
     };
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    gdb-dashboard = {
+      flake = false;
+      url = "github:cyrus-and/gdb-dashboard";
+    };
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
