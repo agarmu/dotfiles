@@ -10,6 +10,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-catppuccin = {
+      url = "github:catppuccin/zen-browser";
+      flake = false;
+    };
   };
   flake.modules.nixos.gui =
     { pkgs, ... }:
@@ -24,16 +28,26 @@
         inputs.zen-browser.homeModules.beta
       ];
 
-      programs.zen-browser = {
-        enable = true;
-        darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
-        profiles.default.extensions.packages =
-          with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-            ublock-origin
-            dearrow
-            bitwarden
-            zotero-connector
-          ];
-      };
+      programs.zen-browser =
+        let
+          themeDir = "${inputs.zen-catppuccin}/themes/Mocha/Mauve";
+        in
+        {
+          enable = true;
+          darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
+          profiles.default = {
+            userChrome = builtins.readFile "${themeDir}/userChrome.css";
+            userContent = builtins.readFile "${themeDir}/userContent.css";
+            settings = {
+              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            };
+            extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+              ublock-origin
+              dearrow
+              bitwarden
+              zotero-connector
+            ];
+          };
+        };
     };
 }
