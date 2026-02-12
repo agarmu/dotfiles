@@ -4,7 +4,6 @@
     url = "github:sodiboo/niri-flake";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-
   flake.modules.nixos.gui =
     { pkgs, ... }:
     {
@@ -21,6 +20,10 @@
         swaylock
         waybar
       ];
+      services.displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
       programs.niri = {
         enable = true;
         package = pkgs.niri-unstable;
