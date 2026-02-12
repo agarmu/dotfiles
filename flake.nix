@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixos-apple-silicon";
     };
+    catppuccin = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:catppuccin/nix";
+    };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     firefox-addons = {
       inputs.nixpkgs.follows = "nixpkgs";

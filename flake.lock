@@ -38,6 +38,26 @@
         "type": "github"
       }
     },
+    "catppuccin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770551880,
+        "narHash": "sha256-+cS5yXWsSLiK36+PP/+dcQdxpXSclx2d65p7l6Dis+A=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "db4dfe3f2a80e9c33492d839accd49f75c7324c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "determinate": {
       "inputs": {
         "determinate-nixd-aarch64-darwin": "determinate-nixd-aarch64-darwin",
@@ -555,6 +575,7 @@
     "root": {
       "inputs": {
         "apple-silicon": "apple-silicon",
+        "catppuccin": "catppuccin",
         "determinate": "determinate",
         "firefox-addons": "firefox-addons",
         "flake-file": "flake-file",
