@@ -11,7 +11,7 @@
     { pkgs, ... }:
     {
       treefmt = {
-        programs.nixfmt.enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
+        programs.nixfmt.enable = true;
         programs.nixfmt.package = pkgs.nixfmt;
       };
     };

@@ -97,7 +97,7 @@
           center-focused-column = "never";
         };
 
-        screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+        screenshot-path = "~/Downloads/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
         window-rules = [
           {
@@ -135,7 +135,7 @@
 
           "Mod+T".action.spawn = [ "alacritty" ];
           "Mod+D".action.spawn = [ "fuzzel" ];
-          "Super+Alt+L".action.spawn = [ "swaylock" ];
+          "Super+Alt+L".action.spawn = [ "hyprlock" ];
 
           "XF86AudioRaiseVolume".action.spawn = [
             "wpctl"
