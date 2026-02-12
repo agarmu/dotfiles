@@ -3,16 +3,21 @@
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
-      home.packages =
-        with pkgs;
-        (
-          [
-            lldb
+      home.packages = with pkgs; [
+        lldb
+        (rizin.withPlugins (
+          ps: with ps; [
+            rz-ghidra
           ]
-          ++ (lib.optionals pkgs.stdenv.isLinux [
-            gdb
-            valgrind
-          ])
-        );
+        ))
+      ];
+    };
+  flake.modules.homeManager.nixosDev =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        gdb
+        valgrind
+      ];
     };
 }
