@@ -18,21 +18,25 @@
             };
             dynamic_padding = true;
           };
-          font = {
-            normal = {
-              family = "Cascadia Code";
-              style = "Regular";
+          font =
+            let
+              fontName = "Cascadia Code NF";
+            in
+            {
+              normal = {
+                family = fontName;
+                style = "Regular";
+              };
+              bold = {
+                family = fontName;
+                style = "Bold";
+              };
+              italic = {
+                family = fontName;
+                style = "Italic";
+              };
+              size = 12.0;
             };
-            bold = {
-              family = "Cascadia Code";
-              style = "Bold";
-            };
-            italic = {
-              family = "Cascadia Code";
-              style = "Italic";
-            };
-            size = 12.0;
-          };
         };
       };
       home.packages = with pkgs; [
