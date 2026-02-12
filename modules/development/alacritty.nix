@@ -9,7 +9,25 @@
         theme = "catppuccin_mocha";
         settings = {
           env.TERM = "alacritty";
-          window.opacity = 0.75;
+          window = {
+            opacity = 0.75;
+            decorations = "none";
+          };
+          font = {
+            normal = {
+              family = "Cascadia Code";
+              style = "Regular";
+            };
+            bold = {
+              family = "Cascadia Code";
+              style = "Bold";
+            };
+            italic = {
+              family = "Cascadia Code";
+              style = "Italic";
+            };
+            size = 12.0;
+          };
         };
       };
       home.packages = with pkgs; [
