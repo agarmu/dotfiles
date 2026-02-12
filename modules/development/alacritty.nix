@@ -12,6 +12,11 @@
           window = {
             opacity = 0.75;
             decorations = "none";
+            padding = {
+              x = 10;
+              y = 10;
+            };
+            dynamic_padding = true;
           };
           font = {
             normal = {
