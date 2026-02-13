@@ -8,6 +8,7 @@
         profile = "default";
       };
       programs.thunderbird = {
+        enable = true;
         profiles.default = {
           isDefault = true;
           name = "default";
