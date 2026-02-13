@@ -29,7 +29,7 @@ let
         trusted-users = [
           "root"
           "@wheel"
-          "@admin" /* for macOS */
+          "@admin" # for macOS
         ];
         /*
           should be fixed by the following issue... check
