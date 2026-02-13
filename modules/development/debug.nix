@@ -17,8 +17,11 @@
       ];
     };
   flake.modules.homeManager.nixosDev =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
+      home.sessionVariables = {
+        GDBHISTFILE = "${config.xdg.dataHome}/gdb/history";
+      };
       home.packages = with pkgs; [
         gdb
         valgrind
