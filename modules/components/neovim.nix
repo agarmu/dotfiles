@@ -12,5 +12,13 @@ in
 {
   # always have neovim
   flake.modules.nixos.base = nvimConfig;
-  flake.modules.homeManager.base = nvimConfig;
+  flake.modules.homeManager.base = {
+    inherit (nvimConfig) programs;
+    catppuccin.nvim = {
+      enable = true;
+      settings = {
+        transparent_background = true;
+      };
+    };
+  };
 }
