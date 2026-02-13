@@ -21,7 +21,8 @@
     home-manager.users.mukul = {
       imports = with inputs.self.modules.homeManager; [
         base
-        dev nixosDev
+        dev
+        nixosDev
         gui
         nixosGui
         mobile
