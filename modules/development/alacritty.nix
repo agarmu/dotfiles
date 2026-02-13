@@ -20,7 +20,7 @@
           };
           font =
             let
-              fontName = "Cascadia Code NF";
+              fontName = "IosevkaTerm Nerd Font";
             in
             {
               normal = {
