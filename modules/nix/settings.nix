@@ -14,6 +14,7 @@ let
         ];
       in
       {
+        use-xdg-base-directories = true;
         experimental-features = [
           "nix-command"
           "flakes"
@@ -28,6 +29,7 @@ let
         trusted-users = [
           "root"
           "@wheel"
+          "@admin" /* for macOS */
         ];
         /*
           should be fixed by the following issue... check
