@@ -59,6 +59,10 @@
       url = "https://raw.githubusercontent.com/nixos/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-catppuccin-macchiato.png";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nur = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/NUR";
+    };
     treefmt-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
