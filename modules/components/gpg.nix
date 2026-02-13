@@ -12,7 +12,7 @@
         # todo --- better way ?
         enableBashIntegration = true;
         enableZshIntegration = true;
-        package = lib.mkDefault pkgs.pinentry-curses;
+        pinentry.package = lib.mkDefault pkgs.pinentry-curses;
       };
     };
   flake.modules.homeManager.nixosGui =
@@ -22,7 +22,7 @@
         enable = true;
         components = [ "secrets" ];
       };
-      programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
+      services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
     };
   flake.modules.darwin.gui = {
     homebrew.casks = [ "gpg-suite-pinentry" ];
