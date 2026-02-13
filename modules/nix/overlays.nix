@@ -3,6 +3,7 @@ let
   overlays = [
     inputs.niri.overlays.niri
     inputs.nur.overlays.default
+    inputs.ioskeley.overlays.default
   ];
 in
 {

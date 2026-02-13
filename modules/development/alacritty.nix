@@ -20,7 +20,7 @@
           };
           font =
             let
-              fontName = "IosevkaTerm Nerd Font";
+              fontName = "IoskeleyMono Nerd Font";
             in
             {
               normal = {
