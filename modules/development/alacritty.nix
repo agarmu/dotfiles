@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.homeManager.dev =
+  flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
       catppuccin.alacritty.enable = true;
