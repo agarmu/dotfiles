@@ -42,6 +42,26 @@ let
         cores = 0;
         max-jobs = "auto";
       };
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "vulcan.moe";
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+        supportedFeatures = [
+          "nixos-test"
+          "benchmark"
+          "big-parallel"
+          "kvm"
+        ];
+        protocol = "ssh-ng";
+        maxJobs = 32;
+        speedFactor = 16;
+        sshUser = "mukul";
+      }
+    ];
   };
 in
 {
