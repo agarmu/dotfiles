@@ -41,10 +41,6 @@
       url = "github:homebrew/homebrew-core";
     };
     import-tree.url = "github:vic/import-tree";
-    ioskeley = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:agarmu/ioskeley-flake";
-    };
     niri = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
