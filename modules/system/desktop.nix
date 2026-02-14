@@ -52,8 +52,6 @@
 
       programs.hyprlock.enable = true;
       catppuccin.hyprlock.enable = true;
-      programs.waybar.enable = true;
-      #catppuccin.waybar.enable = true;
     };
 
   flake.modules.darwin.gui = {

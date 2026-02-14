@@ -20,7 +20,6 @@
           path = lib.getExe pkgs.xwayland-satellite-unstable;
         };
         spawn-at-startup = [
-          { argv = [ (lib.getExe pkgs.waybar) ]; }
           {
             argv = [
               (lib.getExe pkgs.swaybg)
