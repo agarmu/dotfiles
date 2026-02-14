@@ -8,6 +8,8 @@ let
         cm_unicode
         lmodern
         ibm-plex
+        lilex
+        nerd-fonts.lilex
         noto-fonts-color-emoji
         ioskeley-mono
         ioskeley-mono-nerd
