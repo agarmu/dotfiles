@@ -18,7 +18,7 @@ let
         experimental-features = [
           "nix-command"
           "flakes"
-          "pipe-operators"
+          "pipe-operator"
         ];
         substituters = subs;
         trusted-substituters = subs;
@@ -56,7 +56,7 @@ let
           "big-parallel"
           "kvm"
         ];
-        protocol = "ssh-ng";
+        # protocol = "ssh-ng";
         maxJobs = 32;
         speedFactor = 16;
         sshUser = "mukul";
@@ -65,7 +65,14 @@ let
   };
 in
 {
-  flake.modules.nixos.base = { inherit nix; };
+  flake.modules.nixos.base =
+    { pkgs, ... }:
+    {
+      nix = {
+        package = pkgs.lix;
+      }
+      // nix;
+    };
   flake.modules.darwin.base = {
     /*
       TODO: Is determinate... worth it?
