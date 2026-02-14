@@ -369,40 +369,6 @@
         "type": "github"
       }
     },
-    "ioskeley": {
-      "inputs": {
-        "ioskeley-src": "ioskeley-src",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1770967746,
-        "narHash": "sha256-c/UMx4k7unvnTGC3qykjgI8gwuXLgEaET3ARCxOodVI=",
-        "owner": "agarmu",
-        "repo": "ioskeley-flake",
-        "rev": "2d389541f7f77a279d7a14b64a7b42d458f47c2b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "agarmu",
-        "repo": "ioskeley-flake",
-        "type": "github"
-      }
-    },
-    "ioskeley-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759973951,
-        "narHash": "sha256-SkAMyGa9Nb01tGzaTGheTkCMT87NKbCKKu1WN7AcREo=",
-        "type": "tarball",
-        "url": "https://github.com/ahatem/IoskeleyMono/releases/latest/download/IoskeleyMono-TTF-Unhinted.zip"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/ahatem/IoskeleyMono/releases/latest/download/IoskeleyMono-TTF-Unhinted.zip"
-      }
-    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -694,7 +660,6 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "import-tree": "import-tree",
-        "ioskeley": "ioskeley",
         "niri": "niri",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",

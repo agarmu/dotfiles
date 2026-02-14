@@ -11,16 +11,10 @@ let
         lilex
         nerd-fonts.lilex
         noto-fonts-color-emoji
-        ioskeley-mono
-        ioskeley-mono-nerd
       ];
     };
 in
 {
-  flake-file.inputs.ioskeley = {
-    url = "github:agarmu/ioskeley-flake";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
   flake.modules.nixos.base = {
     imports = [ fonts ];
   };
@@ -33,7 +27,7 @@ in
       defaultFonts = {
         serif = [ "IBM Plex Serif" ];
         sansSerif = [ "IBM Plex Sans" ];
-        monospace = [ "IoskeleyMono Nerd Font" ];
+        monospace = [ "Lilex Nerd Font" ];
         emoji = [ "Noto Color Emoji" ];
       };
     };
