@@ -10,11 +10,11 @@
       environment.systemPackages = with pkgs; [ cacert ];
       security.sudo.extraRules = [
         {
-          users = ["mukul"];
+          users = [ "mukul" ];
           commands = [
             {
               command = "ALL";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
           ];
         }
