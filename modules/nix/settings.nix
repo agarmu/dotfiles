@@ -44,23 +44,25 @@ let
       };
     distributedBuilds = true;
     buildMachines = [
-      /*{
-        hostName = "vulcan";
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-        ];
-        supportedFeatures = [
-          "nixos-test"
-          "benchmark"
-          "big-parallel"
-          "kvm"
-        ];
-        # protocol = "ssh-ng";
-        maxJobs = 32;
-        speedFactor = 16;
-        sshUser = "mukul";
-      }*/
+      /*
+        {
+          hostName = "vulcan";
+          systems = [
+            "x86_64-linux"
+            "aarch64-linux"
+          ];
+          supportedFeatures = [
+            "nixos-test"
+            "benchmark"
+            "big-parallel"
+            "kvm"
+          ];
+          # protocol = "ssh-ng";
+          maxJobs = 32;
+          speedFactor = 16;
+          sshUser = "mukul";
+        }
+      */
     ];
   };
 in
