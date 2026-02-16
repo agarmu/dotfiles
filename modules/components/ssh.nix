@@ -29,9 +29,9 @@ let
       port = 4225;
     };
     "millet" = {
-	hostname = "millet.agarmu.com";
-	user = "mukul";
-	forwardAgent = true;
+      hostname = "millet.agarmu.com";
+      user = "mukul";
+      forwardAgent = true;
     };
     "gh-test" = {
       hostname = "github.com";
