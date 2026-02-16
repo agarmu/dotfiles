@@ -40,7 +40,7 @@ let
         deviceUri = "smb://print.science.purdue.edu/${ident}?encryption=no";
         model = "drv:///sample.drv/generic.ppd";
         ppdOptions = {
-          "print-color-mode" = if isColor then "color" else "monochrome";
+          "ColorMode" = if isColor then "color" else "monochrome";
         };
       };
 in
@@ -52,7 +52,8 @@ in
     #   openFirewall = true;
     # };
   };
-  flake.modules.nixos.office = {
+  flake.modules.nixos.office = {pkgs, ...}: {
+    environment.systemPackages = [ pkgs.samba4Full ];
     services.printing = {
       enable = true;
     };
