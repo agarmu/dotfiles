@@ -39,6 +39,9 @@ let
         location = "Purdue University";
         deviceUri = "smb://print.science.purdue.edu/${ident}?encryption=no";
         model = "drv:///sample.drv/generic.ppd";
+        ppdOptions = {
+          "print-color-mode" = if isColor then "color" else "monochrome";
+        };
       };
 in
 {
