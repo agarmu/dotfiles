@@ -18,6 +18,10 @@
       url = "github:catppuccin/nix";
     };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    disko = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko";
+    };
     firefox-addons = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
