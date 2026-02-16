@@ -43,35 +43,31 @@ let
         max-jobs = "auto";
       };
     distributedBuilds = true;
-    buildMachines = [
-      /*
-        {
-          hostName = "vulcan";
-          systems = [
-            "x86_64-linux"
-            "aarch64-linux"
-          ];
-          supportedFeatures = [
-            "nixos-test"
-            "benchmark"
-            "big-parallel"
-            "kvm"
-          ];
-          # protocol = "ssh-ng";
-          maxJobs = 32;
-          speedFactor = 16;
-          sshUser = "mukul";
-        }
-      */
-    ];
   };
 in
 {
   flake.modules.nixos.base =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       nix = {
         package = pkgs.lix;
+        buildMachines = lib.mkIf (config.networking.hostName != "millet") [
+          {
+            hostName = "millet";
+            systems = [ "aarch64-linux" ];
+            supportedFeatures = [
+              "nixos-test"
+              "benchmark"
+              "big-parallel"
+              "kvm"
+            ];
+            # protocol = "ssh-ng";
+            maxJobs = 32;
+            speedFactor = 16;
+            sshUser = "mukul";
+
+          }
+        ];
       }
       // nix;
     };
