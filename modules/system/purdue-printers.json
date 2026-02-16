@@ -1,0 +1,2348 @@
+[
+  {
+    "id": "yong629bw",
+    "building": "YONG",
+    "building-desc": "Ernest C. Young Hall",
+    "room": "629"
+  },
+  {
+    "id": "yong624co",
+    "building": "YONG",
+    "building-desc": "Ernest C. Young Hall",
+    "room": "624"
+  },
+  {
+    "id": "math427mfpbw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "427"
+  },
+  {
+    "id": "chas4074bw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "4074"
+  },
+  {
+    "id": "yong614mfp",
+    "building": "YONG",
+    "building-desc": "Ernest C. Young Hall",
+    "room": "614"
+  },
+  {
+    "id": "bind294mfp",
+    "building": "BIND",
+    "building-desc": "Bindley Bioscience Center",
+    "room": "294"
+  },
+  {
+    "id": "chas2065mfp",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "2065"
+  },
+  {
+    "id": "wthr157mfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "157"
+  },
+  {
+    "id": "math231mfp",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "231"
+  },
+  {
+    "id": "math228bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "228"
+  },
+  {
+    "id": "math222co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "222"
+  },
+  {
+    "id": "wthr413mfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "413"
+  },
+  {
+    "id": "lily1230co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1230"
+  },
+  {
+    "id": "haas273mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "273"
+  },
+  {
+    "id": "brwn5159co3",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3"
+  },
+  {
+    "id": "brwn5172mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5172"
+  },
+  {
+    "id": "wthr225bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "225"
+  },
+  {
+    "id": "brwn2170mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2170"
+  },
+  {
+    "id": "lily2225bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "2225"
+  },
+  {
+    "id": "lily2237co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "2237"
+  },
+  {
+    "id": "math626bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "626"
+  },
+  {
+    "id": "lilyG234mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "234"
+  },
+  {
+    "id": "hamp2169mfp",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "2169"
+  },
+  {
+    "id": "lily1123amfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1123"
+  },
+  {
+    "id": "brwn3107bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3107"
+  },
+  {
+    "id": "chas4060abw2",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "4060"
+  },
+  {
+    "id": "lily2305co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "2305"
+  },
+  {
+    "id": "hock246co",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "246"
+  },
+  {
+    "id": "chas4076mfp",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "4076"
+  },
+  {
+    "id": "haas102bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "102"
+  },
+  {
+    "id": "phys217Emfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "217"
+  },
+  {
+    "id": "lilyb213amfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "213"
+  },
+  {
+    "id": "lwsn3144co1",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "3144"
+  },
+  {
+    "id": "hock246bw",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "246"
+  },
+  {
+    "id": "brwn3131dco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3131"
+  },
+  {
+    "id": "dsai1025mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "1025"
+  },
+  {
+    "id": "haas156mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "156"
+  },
+  {
+    "id": "dsaib071mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "071"
+  },
+  {
+    "id": "dsaib069mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "069"
+  },
+  {
+    "id": "dsaib033mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "033"
+  },
+  {
+    "id": "dsaib031mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "031"
+  },
+  {
+    "id": "dsai3048mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "3048"
+  },
+  {
+    "id": "dsai2048mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "2048"
+  },
+  {
+    "id": "dsaib039mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "039"
+  },
+  {
+    "id": "math919mfpbw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "919"
+  },
+  {
+    "id": "dsai2116mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "2116"
+  },
+  {
+    "id": "haas204mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "204"
+  },
+  {
+    "id": "dsai1139mfp",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "1139"
+  },
+  {
+    "id": "haas142bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "142"
+  },
+  {
+    "id": "lilyb406dmfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "406"
+  },
+  {
+    "id": "haas266mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "266"
+  },
+  {
+    "id": "dsai2048co",
+    "building": "DSAI",
+    "building-desc": "",
+    "room": "2048"
+  },
+  {
+    "id": "hamp2169amfp",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "2169"
+  },
+  {
+    "id": "wthr63Amfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "63"
+  },
+  {
+    "id": "wthr63Aco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "63"
+  },
+  {
+    "id": "wthr465bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "465"
+  },
+  {
+    "id": "wthr465Aco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "465"
+  },
+  {
+    "id": "wthr454co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "454"
+  },
+  {
+    "id": "wthr450co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "450"
+  },
+  {
+    "id": "wthr442Abw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "442"
+  },
+  {
+    "id": "wthr430Amfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "430"
+  },
+  {
+    "id": "wthr413bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "413"
+  },
+  {
+    "id": "wthr402co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "402"
+  },
+  {
+    "id": "wthr402bw2",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "402"
+  },
+  {
+    "id": "wthr402bw1",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "402"
+  },
+  {
+    "id": "wthr402bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "402"
+  },
+  {
+    "id": "wthr373bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "373"
+  },
+  {
+    "id": "wthr361Aco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "361"
+  },
+  {
+    "id": "wthr352bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "352"
+  },
+  {
+    "id": "wthr331Bco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "331"
+  },
+  {
+    "id": "wthr327mfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "327"
+  },
+  {
+    "id": "wthr265Dbw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "265"
+  },
+  {
+    "id": "wthr260bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "260"
+  },
+  {
+    "id": "wthr231bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "231"
+  },
+  {
+    "id": "wthr230Bco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "230"
+  },
+  {
+    "id": "wthr227temp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "227"
+  },
+  {
+    "id": "wthr227bw2",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "227"
+  },
+  {
+    "id": "wthr225col",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "225"
+  },
+  {
+    "id": "wthr221co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "221"
+  },
+  {
+    "id": "wthr216Fco2",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "216"
+  },
+  {
+    "id": "wthr216Fco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "216"
+  },
+  {
+    "id": "wthr216Fbw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "216"
+  },
+  {
+    "id": "wthr210Abw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "210"
+  },
+  {
+    "id": "wthr2107Aco",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "2107"
+  },
+  {
+    "id": "wthr165bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "165"
+  },
+  {
+    "id": "wthr327bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "327"
+  },
+  {
+    "id": "wthr155bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "155"
+  },
+  {
+    "id": "wthr236bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "236"
+  },
+  {
+    "id": "wthr14Abw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "14"
+  },
+  {
+    "id": "wthr146co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "146"
+  },
+  {
+    "id": "wthr145bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "145"
+  },
+  {
+    "id": "wthr141mfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "141"
+  },
+  {
+    "id": "wthr127bw1",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "127"
+  },
+  {
+    "id": "wthr121co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "121"
+  },
+  {
+    "id": "wthr117Bbw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "117"
+  },
+  {
+    "id": "wthr107Cbw2",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "107"
+  },
+  {
+    "id": "wthr107Cbw1",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "107"
+  },
+  {
+    "id": "wave",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "stampa",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "riverside",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "rhone",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "radium",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "physS153bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "153"
+  },
+  {
+    "id": "phys94poster",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "94"
+  },
+  {
+    "id": "phys94mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "94"
+  },
+  {
+    "id": "phys94bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "94"
+  },
+  {
+    "id": "haas170bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "170"
+  },
+  {
+    "id": "phys394bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "394"
+  },
+  {
+    "id": "phys368mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "368"
+  },
+  {
+    "id": "phys34mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "34"
+  },
+  {
+    "id": "phys346bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "346"
+  },
+  {
+    "id": "phys310co",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "310"
+  },
+  {
+    "id": "haas164cbw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "164"
+  },
+  {
+    "id": "phys275mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "275"
+  },
+  {
+    "id": "phys252mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "252"
+  },
+  {
+    "id": "phys220bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "220"
+  },
+  {
+    "id": "phys217Eco",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "217"
+  },
+  {
+    "id": "phys217Cbw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "217"
+  },
+  {
+    "id": "phys19bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "19"
+  },
+  {
+    "id": "phys162mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "162"
+  },
+  {
+    "id": "phys154bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "154"
+  },
+  {
+    "id": "phys152co",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "152"
+  },
+  {
+    "id": "phys150bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "150"
+  },
+  {
+    "id": "phys144mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "144"
+  },
+  {
+    "id": "phys144co",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "144"
+  },
+  {
+    "id": "phys144bw",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "144"
+  },
+  {
+    "id": "phys130mfp",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "130"
+  },
+  {
+    "id": "phys114co",
+    "building": "PHYS",
+    "building-desc": "Physics building",
+    "room": "114"
+  },
+  {
+    "id": "mathG167co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "167"
+  },
+  {
+    "id": "mathG167bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "167"
+  },
+  {
+    "id": "math940bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "940"
+  },
+  {
+    "id": "math931co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "931"
+  },
+  {
+    "id": "math919mfpco-ps",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "919"
+  },
+  {
+    "id": "math915bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "915"
+  },
+  {
+    "id": "squirt",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "math913lbw1",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "913"
+  },
+  {
+    "id": "math904bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "904"
+  },
+  {
+    "id": "math848bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "848"
+  },
+  {
+    "id": "math836bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "836"
+  },
+  {
+    "id": "math835mfpco",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "835"
+  },
+  {
+    "id": "lily2131co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "2131"
+  },
+  {
+    "id": "math832co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "832"
+  },
+  {
+    "id": "math822bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "822"
+  },
+  {
+    "id": "math808co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "808"
+  },
+  {
+    "id": "math803co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "803"
+  },
+  {
+    "id": "math718bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "718"
+  },
+  {
+    "id": "math706bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "706"
+  },
+  {
+    "id": "haas156co",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "156"
+  },
+  {
+    "id": "math635bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "635"
+  },
+  {
+    "id": "math631mfp",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "631"
+  },
+  {
+    "id": "math628bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "628"
+  },
+  {
+    "id": "math543co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "543"
+  },
+  {
+    "id": "math543bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "543"
+  },
+  {
+    "id": "math533mfp",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "533"
+  },
+  {
+    "id": "math522bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "522"
+  },
+  {
+    "id": "math519bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "519"
+  },
+  {
+    "id": "math516bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "516"
+  },
+  {
+    "id": "math513bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "513"
+  },
+  {
+    "id": "brwn4151co1",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4151"
+  },
+  {
+    "id": "math414bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "414"
+  },
+  {
+    "id": "math250bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "250"
+  },
+  {
+    "id": "math245bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "245"
+  },
+  {
+    "id": "math244bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "244"
+  },
+  {
+    "id": "math242bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "242"
+  },
+  {
+    "id": "math240bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "240"
+  },
+  {
+    "id": "math238bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "238"
+  },
+  {
+    "id": "math236bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "236"
+  },
+  {
+    "id": "math234bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "234"
+  },
+  {
+    "id": "math232lbw1",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "232"
+  },
+  {
+    "id": "math232bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "232"
+  },
+  {
+    "id": "math230bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "230"
+  },
+  {
+    "id": "math228co",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "228"
+  },
+  {
+    "id": "math223lco",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "223"
+  },
+  {
+    "id": "math202bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "202"
+  },
+  {
+    "id": "math1042bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "1042"
+  },
+  {
+    "id": "marcus0",
+    "building": "",
+    "building-desc": "",
+    "room": "0"
+  },
+  {
+    "id": "lwsnB160bw",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "160"
+  },
+  {
+    "id": "lwsnB158bw",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "158"
+  },
+  {
+    "id": "lwsnB148bw",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "148"
+  },
+  {
+    "id": "lwsnB146bw",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "146"
+  },
+  {
+    "id": "lwsnB131co",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "131"
+  },
+  {
+    "id": "lwsn3154Mmfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "3154"
+  },
+  {
+    "id": "lwsn3154mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "3154"
+  },
+  {
+    "id": "shore",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "lwsn3133mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "3133"
+  },
+  {
+    "id": "lwsn2142co",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "2142"
+  },
+  {
+    "id": "lwsn2116mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "2116"
+  },
+  {
+    "id": "lwsn1179mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "1179"
+  },
+  {
+    "id": "lwsn1175mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "1175"
+  },
+  {
+    "id": "lwsn1154mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "1154"
+  },
+  {
+    "id": "lwsn1154co",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "1154"
+  },
+  {
+    "id": "lwsn1137mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "1137"
+  },
+  {
+    "id": "lwsn1123mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "1123"
+  },
+  {
+    "id": "lipikara",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "lilyG463bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "463"
+  },
+  {
+    "id": "lilyG366co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "366"
+  },
+  {
+    "id": "lilyG364co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "364"
+  },
+  {
+    "id": "lilyG356bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "356"
+  },
+  {
+    "id": "lilyG330co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "330"
+  },
+  {
+    "id": "lilyG327co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "327"
+  },
+  {
+    "id": "lilyG327bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "327"
+  },
+  {
+    "id": "lilyG236co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "236"
+  },
+  {
+    "id": "lilyG233bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "233"
+  },
+  {
+    "id": "lilyG224co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "224"
+  },
+  {
+    "id": "lilyG132bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "132"
+  },
+  {
+    "id": "lilyG130bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "130"
+  },
+  {
+    "id": "lilyG110mfp1",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "110"
+  },
+  {
+    "id": "lilyG110bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "110"
+  },
+  {
+    "id": "lilyG108mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "108"
+  },
+  {
+    "id": "lilyB404co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "404"
+  },
+  {
+    "id": "lilyB404bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "404"
+  },
+  {
+    "id": "lilyB402bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "402"
+  },
+  {
+    "id": "lilyB120Amfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "120"
+  },
+  {
+    "id": "lilyb120aco",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "120"
+  },
+  {
+    "id": "lily3219mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "3219"
+  },
+  {
+    "id": "lily2232co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "2232"
+  },
+  {
+    "id": "lily2221bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "2221"
+  },
+  {
+    "id": "lily1413Abw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1413"
+  },
+  {
+    "id": "lily1412mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1412"
+  },
+  {
+    "id": "lily1233bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1233"
+  },
+  {
+    "id": "lily1229co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1229"
+  },
+  {
+    "id": "lily1228co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1228"
+  },
+  {
+    "id": "lily1226bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1226"
+  },
+  {
+    "id": "lily1223bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1223"
+  },
+  {
+    "id": "lily1135bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1135"
+  },
+  {
+    "id": "lily1134co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1134"
+  },
+  {
+    "id": "lily1128co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1128"
+  },
+  {
+    "id": "lily1127poster",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1127"
+  },
+  {
+    "id": "lily1123co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1123"
+  },
+  {
+    "id": "brwn1159bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "1159"
+  },
+  {
+    "id": "lily1120mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1120"
+  },
+  {
+    "id": "lily1119mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1119"
+  },
+  {
+    "id": "lily1118mfp2",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1118"
+  },
+  {
+    "id": "lily1118mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1118"
+  },
+  {
+    "id": "lily1118co2",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1118"
+  },
+  {
+    "id": "lily1118co",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1118"
+  },
+  {
+    "id": "lily1118bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1118"
+  },
+  {
+    "id": "lily1109mfp",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "1109"
+  },
+  {
+    "id": "icdslp",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "hocklobbybw",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": ""
+  },
+  {
+    "id": "hock323co",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "323"
+  },
+  {
+    "id": "hock318mfp",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "318"
+  },
+  {
+    "id": "hock267co",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "267"
+  },
+  {
+    "id": "hock233co",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "233"
+  },
+  {
+    "id": "lilyB220bw",
+    "building": "LILY",
+    "building-desc": "Lilly Hall Of Life Sciences",
+    "room": "220"
+  },
+  {
+    "id": "hock233bw",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "233"
+  },
+  {
+    "id": "hock229bw",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "229"
+  },
+  {
+    "id": "hock223co",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "223"
+  },
+  {
+    "id": "hock218mfp",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "218"
+  },
+  {
+    "id": "hock194mfp",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "194"
+  },
+  {
+    "id": "hock118mfp",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "118"
+  },
+  {
+    "id": "hillC102Aco",
+    "building": "HILL",
+    "building-desc": "Hillenbrand Residence Hall",
+    "room": "102"
+  },
+  {
+    "id": "hans326mfp",
+    "building": "HANS",
+    "building-desc": "Arthur G. Hansen Life Sciences Research building",
+    "room": "326"
+  },
+  {
+    "id": "hans313Abw",
+    "building": "HANS",
+    "building-desc": "Arthur G. Hansen Life Sciences Research building",
+    "room": "313"
+  },
+  {
+    "id": "hans301bw",
+    "building": "HANS",
+    "building-desc": "Arthur G. Hansen Life Sciences Research building",
+    "room": "301"
+  },
+  {
+    "id": "hans219co",
+    "building": "HANS",
+    "building-desc": "Arthur G. Hansen Life Sciences Research building",
+    "room": "219"
+  },
+  {
+    "id": "hans215co",
+    "building": "HANS",
+    "building-desc": "Arthur G. Hansen Life Sciences Research building",
+    "room": "215"
+  },
+  {
+    "id": "hamp4277co1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "4277"
+  },
+  {
+    "id": "hamp4267lco1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "4267"
+  },
+  {
+    "id": "hamp4257lbw1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "4257"
+  },
+  {
+    "id": "hamp4247lco",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "4247"
+  },
+  {
+    "id": "hamp3277lco1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "3277"
+  },
+  {
+    "id": "hamp3277lbw2",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "3277"
+  },
+  {
+    "id": "hamp2295lco1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "2295"
+  },
+  {
+    "id": "wthr261co",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "261"
+  },
+  {
+    "id": "hamp2285lco",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "2285"
+  },
+  {
+    "id": "hamp2261lco",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "2261"
+  },
+  {
+    "id": "hamp2169Mlco1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "2169"
+  },
+  {
+    "id": "haasG56bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "56"
+  },
+  {
+    "id": "haasG50bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "50"
+  },
+  {
+    "id": "haasG40bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "40"
+  },
+  {
+    "id": "haas274mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "274"
+  },
+  {
+    "id": "haas232hp1",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "232"
+  },
+  {
+    "id": "haas232bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "232"
+  },
+  {
+    "id": "lwsnB116mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "116"
+  },
+  {
+    "id": "haas202mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "202"
+  },
+  {
+    "id": "haas176bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "176"
+  },
+  {
+    "id": "haas257bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "257"
+  },
+  {
+    "id": "haas175bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "175"
+  },
+  {
+    "id": "haas164Abw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "164"
+  },
+  {
+    "id": "haas150bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "150"
+  },
+  {
+    "id": "haas145mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "145"
+  },
+  {
+    "id": "wthr168bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "168"
+  },
+  {
+    "id": "haas140mfp",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "140"
+  },
+  {
+    "id": "haas120bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "120"
+  },
+  {
+    "id": "haas110co",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "110"
+  },
+  {
+    "id": "haas110bw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "110"
+  },
+  {
+    "id": "fasty",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "drug349co",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "349"
+  },
+  {
+    "id": "drug323co",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "323"
+  },
+  {
+    "id": "lwsn3144mfp",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "3144"
+  },
+  {
+    "id": "drug321bw",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "321"
+  },
+  {
+    "id": "drug313bw",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "313"
+  },
+  {
+    "id": "drug249co",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "249"
+  },
+  {
+    "id": "drug247co",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "247"
+  },
+  {
+    "id": "drug149co",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "149"
+  },
+  {
+    "id": "drug145co",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "145"
+  },
+  {
+    "id": "dlrc404co",
+    "building": "",
+    "building-desc": "",
+    "room": "404"
+  },
+  {
+    "id": "CS_Lab_Printers",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "CS_Lab_Color_Printers",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "chroma",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "chasB041mfp",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "041"
+  },
+  {
+    "id": "chasB041co",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "041"
+  },
+  {
+    "id": "chas4069Abw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "4069"
+  },
+  {
+    "id": "chas4060Abw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "4060"
+  },
+  {
+    "id": "wthr227mfp",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "227"
+  },
+  {
+    "id": "chas4034Abw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "4034"
+  },
+  {
+    "id": "hamp3261lco1",
+    "building": "HAMP",
+    "building-desc": "Delon and Elizabeth Hampton Hall of Civil Engineering",
+    "room": "3261"
+  },
+  {
+    "id": "chas3076bw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "3076"
+  },
+  {
+    "id": "chas3074bw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "3074"
+  },
+  {
+    "id": "chas3064co",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "3064"
+  },
+  {
+    "id": "chas3035bw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "3035"
+  },
+  {
+    "id": "chas3011Abw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "3011"
+  },
+  {
+    "id": "math737bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "737"
+  },
+  {
+    "id": "chas3005Abw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "3005"
+  },
+  {
+    "id": "chas2071co",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "2071"
+  },
+  {
+    "id": "chasB041mfp2",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "041"
+  },
+  {
+    "id": "chas1069bw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "1069"
+  },
+  {
+    "id": "chas1005bw",
+    "building": "CHAS",
+    "building-desc": "Chaney-Hale Hall of Science",
+    "room": "1005"
+  },
+  {
+    "id": "brwnB165Bmfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "165"
+  },
+  {
+    "id": "brwnB165Bco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "165"
+  },
+  {
+    "id": "brwnB155mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "155"
+  },
+  {
+    "id": "brwnB151bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "151"
+  },
+  {
+    "id": "brwnB147mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "147"
+  },
+  {
+    "id": "brwnB137Abw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "137"
+  },
+  {
+    "id": "wthr227bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "227"
+  },
+  {
+    "id": "brwnB135Bbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "135"
+  },
+  {
+    "id": "wthr127bw",
+    "building": "WTHR",
+    "building-desc": "Richard Benbridge Wetherill Lab Of Chemistry",
+    "room": "127"
+  },
+  {
+    "id": "brwn5174bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5174"
+  },
+  {
+    "id": "brwn5171Bbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5171"
+  },
+  {
+    "id": "brwn5170co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5170"
+  },
+  {
+    "id": "hans339co",
+    "building": "HANS",
+    "building-desc": "Arthur G. Hansen Life Sciences Research building",
+    "room": "339"
+  },
+  {
+    "id": "brwn5170Aco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5170"
+  },
+  {
+    "id": "brwn5168co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5168"
+  },
+  {
+    "id": "brwn5159co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5159"
+  },
+  {
+    "id": "brwn5131Bco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5131"
+  },
+  {
+    "id": "brwn5129co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5129"
+  },
+  {
+    "id": "brwn5128bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "5128"
+  },
+  {
+    "id": "drug361bw",
+    "building": "DRUG",
+    "building-desc": "Drug Discovery Facility",
+    "room": "361"
+  },
+  {
+    "id": "brwn4185co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4185"
+  },
+  {
+    "id": "brwn4185bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4185"
+  },
+  {
+    "id": "brwn4184co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4184"
+  },
+  {
+    "id": "brwn4175bw2",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4175"
+  },
+  {
+    "id": "brwn4175bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4175"
+  },
+  {
+    "id": "brwn4171Dbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4171"
+  },
+  {
+    "id": "brwn4171bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4171"
+  },
+  {
+    "id": "brwn4170Dco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4170"
+  },
+  {
+    "id": "brwn4164Abw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4164"
+  },
+  {
+    "id": "brwn4150co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4150"
+  },
+  {
+    "id": "brwn4132comfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4132"
+  },
+  {
+    "id": "brwn4132bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4132"
+  },
+  {
+    "id": "brwn4131Dco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4131"
+  },
+  {
+    "id": "brwn4131Bco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4131"
+  },
+  {
+    "id": "brwn4131Bbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4131"
+  },
+  {
+    "id": "brwn4130mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4130"
+  },
+  {
+    "id": "brwn4130Dbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4130"
+  },
+  {
+    "id": "brwn4128co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4128"
+  },
+  {
+    "id": "hock384bw",
+    "building": "HOCK",
+    "building-desc": "Hockmeyer Hall of Structural Biology",
+    "room": "384"
+  },
+  {
+    "id": "brwn4103Dco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4103"
+  },
+  {
+    "id": "brwn4103bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4103"
+  },
+  {
+    "id": "lwsn2142Nbw",
+    "building": "LWSN",
+    "building-desc": "Richard and Patricia Lawson Computer Science building",
+    "room": "2142"
+  },
+  {
+    "id": "brwn4103Bco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4103"
+  },
+  {
+    "id": "brwn3174bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3174"
+  },
+  {
+    "id": "brwn3171bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3171"
+  },
+  {
+    "id": "brwn3170bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3170"
+  },
+  {
+    "id": "brwn3154bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3154"
+  },
+  {
+    "id": "brwn3151mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3151"
+  },
+  {
+    "id": "brwn3151bw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3151"
+  },
+  {
+    "id": "brwn3125co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "3125"
+  },
+  {
+    "id": "brwn2154",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2154"
+  },
+  {
+    "id": "brwn2151co2",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2151"
+  },
+  {
+    "id": "brwn2144",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2144"
+  },
+  {
+    "id": "brwn2107mfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2107"
+  },
+  {
+    "id": "brwn2107Bbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2107"
+  },
+  {
+    "id": "brwn2105co1",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2105"
+  },
+  {
+    "id": "brwn2105co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2105"
+  },
+  {
+    "id": "brwn2100co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "2100"
+  },
+  {
+    "id": "brwn1153co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "1153"
+  },
+  {
+    "id": "brwn1152Aco",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "1152"
+  },
+  {
+    "id": "brwn1149co",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "1149"
+  },
+  {
+    "id": "brwn1144Lmfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "1144"
+  },
+  {
+    "id": "brwn1144Lbw",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "1144"
+  },
+  {
+    "id": "brett",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "math200bw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "200"
+  },
+  {
+    "id": "BRC_Release",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "bindb094bw",
+    "building": "BIND",
+    "building-desc": "Bindley Bioscience Center",
+    "room": "094"
+  },
+  {
+    "id": "brwn4170Dmfp",
+    "building": "BRWN",
+    "building-desc": "Herbert C. Brown Laboratory Of Chemistry",
+    "room": "4170"
+  },
+  {
+    "id": "bind294co",
+    "building": "BIND",
+    "building-desc": "Bindley Bioscience Center",
+    "room": "294"
+  },
+  {
+    "id": "gilgad",
+    "building": "",
+    "building-desc": "",
+    "room": ""
+  },
+  {
+    "id": "haas164bbw",
+    "building": "HAAS",
+    "building-desc": "Felix Haas Hall",
+    "room": "164"
+  },
+  {
+    "id": "math835mfpbw",
+    "building": "MATH",
+    "building-desc": "Mathematical Sciences building",
+    "room": "835"
+  }
+]
