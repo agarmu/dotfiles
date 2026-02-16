@@ -12,7 +12,7 @@
         profile = "default";
       };
       home.packages = [
-        inputs.mio19.packages."${pkgs.stdenv.hostPlatform.system}".betterbird
+      # inputs.mio19.packages."${pkgs.stdenv.hostPlatform.system}".betterbird
       ];
       programs.thunderbird = {
         enable = true;
