@@ -37,7 +37,7 @@ let
       {
         name = desc;
         location = "Purdue University";
-        deviceUri = "smb://print.science.purdue.edu/${ident}?encryption=no";
+        deviceUri = "lpd://print.science.purdue.edu/${ident}";
         model = "drv:///sample.drv/generic.ppd";
         ppdOptions = {
           "ColorMode" = if isColor then "color" else "monochrome";
