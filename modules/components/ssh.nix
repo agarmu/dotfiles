@@ -26,7 +26,7 @@ let
     "vulcan" = {
       hostname = "vulcan.moe";
       user = "mukul";
-      addressFamily = "inet";
+      port = 4225;
     };
   };
 in

@@ -42,7 +42,7 @@ let
         cores = 0;
         max-jobs = "auto";
       };
-    # distributedBuilds = true;
+    distributedBuilds = true;
     buildMachines = [
       {
         hostName = "vulcan";
