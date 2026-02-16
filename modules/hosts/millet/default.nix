@@ -9,7 +9,7 @@
     url = "github:nix-community/disko";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  flake.modules.nixos.millet = {
+  flake.modules.nixos.host-millet = {
     imports = with inputs.self.modules.nixos; [
       base
       home-manager
@@ -21,8 +21,6 @@
       canTouchEfiVariables = lib.mkForce true;
       efiSysMountPoint = "/boot";
     };
-    system.stateVersion = "26.05";
-    networking.hostName = "millet";
     home-manager.users.mukul = {
       imports = with inputs.self.modules.homeManager; [
         base
@@ -45,5 +43,4 @@
     # Open ports in the firewall.
     networking.firewall.allowedTCPPorts = [ 22 ];
   };
-  flake.nixosConfigurations = inputs.self.lib.mkNixos "aarch64-linux" "millet";
 }
