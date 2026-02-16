@@ -62,7 +62,7 @@ in
               "kvm"
             ];
             # protocol = "ssh-ng";
-            maxJobs = 32;
+            maxJobs = 4;
             speedFactor = 16;
             sshUser = "mukul";
 
