@@ -18,6 +18,7 @@
         "quiet"
       ];
     };
+    systemd.targets.multi-user.enable = true;
     catppuccin = {
       tty.enable = true;
       grub.enable = true;
