@@ -28,6 +28,26 @@ let
       user = "mukul";
       port = 4225;
     };
+    "millet" = {
+	hostname = "millet.agarmu.com";
+	user = "mukul";
+	forwardAgent = true;
+    };
+    "gh-test" = {
+      hostname = "github.com";
+      user = "git";
+    };
+    "scholar" = {
+      hostname = "scholar.rcac.purdue.edu";
+      user = "agarw396";
+      forwardAgent = true;
+      proxyJump = "data";
+    };
+    "data" = {
+      hostname = "data.cs.purdue.edu";
+      user = "agarw396";
+      forwardAgent = true;
+    };
   };
 in
 {
@@ -57,21 +77,6 @@ in
             controlMaster = "no";
             controlPath = "~/.ssh/master-%r@%n:%p";
             controlPersist = "no";
-          };
-          "gh-test" = {
-            hostname = "github.com";
-            user = "git";
-          };
-          "scholar" = {
-            hostname = "scholar.rcac.purdue.edu";
-            user = "agarw396";
-            forwardAgent = true;
-            proxyJump = "data";
-          };
-          "data" = {
-            hostname = "data.cs.purdue.edu";
-            user = "agarw396";
-            forwardAgent = true;
           };
         }
         // servers;
