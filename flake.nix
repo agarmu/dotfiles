@@ -41,6 +41,10 @@
       url = "github:homebrew/homebrew-core";
     };
     import-tree.url = "github:vic/import-tree";
+    mio19 = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:mio-19/nurpkgs";
+    };
     niri = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
