@@ -53,7 +53,9 @@ in
     # };
   };
   flake.modules.nixos.office = {pkgs, ...}: {
-    environment.systemPackages = [ pkgs.samba4Full ];
+    services.samba = {
+      enable = true;
+    };
     services.printing = {
       enable = true;
     };
