@@ -23,9 +23,19 @@ let
       port = 4235;
       proxyJump = "mc20";
     };
+    "vulcan" = {
+      hostname = "vulcan.moe";
+      user = "mukul";
+      addressFamily = "inet";
+    };
   };
 in
 {
+  flake.modules.nixos.base =
+    { pkgs, ... }:
+    {
+
+    };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
