@@ -44,7 +44,7 @@ let
       };
     distributedBuilds = true;
     buildMachines = [
-      {
+      /*{
         hostName = "vulcan";
         systems = [
           "x86_64-linux"
@@ -60,7 +60,7 @@ let
         maxJobs = 32;
         speedFactor = 16;
         sshUser = "mukul";
-      }
+      }*/
     ];
   };
 in
