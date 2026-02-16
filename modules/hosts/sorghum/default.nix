@@ -6,7 +6,7 @@ let
   host = "sorghum";
 in
 {
-  flake.modules.darwin.${host} = {
+  flake.modules.darwin.host-sorghum = {
     imports = with inputs.self.modules.darwin; [
       base
       gui
@@ -14,9 +14,6 @@ in
       home-manager
     ];
     system.stateVersion = 6;
-    networking.hostName = host;
-    system.defaults.smb.NetBIOSName = host;
-
     home-manager.users.mukul = {
       imports = with inputs.self.modules.homeManager; [
         base
@@ -27,5 +24,4 @@ in
       home.stateVersion = "26.05";
     };
   };
-  flake.darwinConfigurations = inputs.self.lib.mkDarwin "aarch64-darwin" host;
 }
