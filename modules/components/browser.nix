@@ -39,7 +39,7 @@
         {
           enable = true;
           darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
-          profiles.default = {
+          profiles."Default Profile" = {
             id = 0;
             userChrome = builtins.readFile "${themeDir}/userChrome.css";
             userContent = builtins.readFile "${themeDir}/userContent.css";
