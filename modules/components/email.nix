@@ -16,6 +16,10 @@
       ];
       programs.thunderbird = {
         enable = true;
+<<<<<<< Updated upstream
+=======
+        # package = inputs.mio19.outputs.packages.${pkgs.stdenv.system}.betterbird;
+>>>>>>> Stashed changes
         profiles.default = {
           isDefault = true;
         };
