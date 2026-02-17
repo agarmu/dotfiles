@@ -14,6 +14,11 @@
       networking.networkmanager = {
         enable = true;
         wifi.backend = "iwd";
+	dns = "systemd-resolved";
+      };
+
+      services.resolved = {
+        enable = true;
       };
 
       networking.nftables.enable = true;
@@ -25,8 +30,5 @@
         allowedUDPPorts = [ config.services.tailscale.port ];
       };
 
-      # Configure network proxy if necessary
-      # networking.proxy.default = "http://user:password@proxy:port/";
-      # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
     };
 }
