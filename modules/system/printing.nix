@@ -39,11 +39,7 @@ let
     {
       name = desc;
       location = "Purdue University";
-      deviceUri = "lpd://localhost:8631/${ident}";
-      model = "drv:///sample.drv/generic.ppd";
-      ppdOptions = {
-        "ColorMode" = if isColor then "color" else "monochrome";
-      };
+      deviceUri = "lpd://data.tail7434b.ts.net/${ident}";
     };
 in
 {
