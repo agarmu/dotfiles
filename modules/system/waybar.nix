@@ -10,7 +10,7 @@
           mainBar = {
             layer = "top";
             position = "top";
-            height = 40;
+            height = 32;
             output = [
               "eDP-1"
             ];
