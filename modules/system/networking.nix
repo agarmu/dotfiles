@@ -19,6 +19,8 @@
 
       services.resolved = {
         enable = true;
+        /* we trust cloudflare and quad9 dns */
+        fallbackDns = [ "1.1.1.1" "1.0.0.1" "9.9.9.9" ];
       };
 
       networking.nftables.enable = true;
