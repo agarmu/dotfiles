@@ -15,9 +15,10 @@
       };
       services.printing = {
         enable = true;
-	drivers = with pkgs; [
-	  hplip postscript-lexmark
-	];
+        drivers = with pkgs; [
+          hplip
+          postscript-lexmark
+        ];
       };
       # hardware.printers.ensurePrinters =
       #   (builtins.readFile ./purdue-printers.json)
