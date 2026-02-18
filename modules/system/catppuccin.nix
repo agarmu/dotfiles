@@ -18,12 +18,16 @@ in
   flake.modules.nixos.base = {
     inherit catppuccin;
     imports = [
+      stylix.nixosModules.stylix
       cat.nixosModules.catppuccin
     ];
+    stylix.enable = false;
+    # stylix.targets.niri.enable = false;
   };
   flake.modules.homeManager.base = {
     inherit catppuccin;
     imports = [
+      stylix.homeModules.stylix
       cat.homeModules.catppuccin
     ];
   };
