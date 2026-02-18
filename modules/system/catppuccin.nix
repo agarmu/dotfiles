@@ -21,8 +21,11 @@ in
       stylix.nixosModules.stylix
       cat.nixosModules.catppuccin
     ];
-    stylix.enable = false;
-    # stylix.targets.niri.enable = false;
+    stylix = {
+      enable = false;
+      /* breaks niri */
+      homeManagerIntegration.autoImport = false;
+    };
   };
   flake.modules.homeManager.base = {
     inherit catppuccin;
