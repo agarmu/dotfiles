@@ -7,8 +7,10 @@ _: {
       certs."millet.agarmu.com" = {
         # default is HTTP-01; nginx integration below serves the challenge
         webroot = "/var/lib/acme/acme-challenge";
+        group = "acme";
       };
     };
+    users.users.nginx.extraGroups = [ "acme" ];
     services.nginx = {
       enable = true;
       virtualHosts."millet.agarmu.com" = {

@@ -14,7 +14,13 @@ _: {
           tlsCertificate = "${tlsDir}/fullchain.pem";
           tlsCertificateKey = "${tlsDir}/key.pem";
         };
-      users.users.soju.extraGroups = [ "acme" ];
       networking.firewall.allowedTCPPorts = [ 6697 ];
+
+      users.groups.soju = { };
+      users.users.soju = {
+        isSystemUser = true;
+        group = "soju";
+        extraGroups = [ "acme" ];
+      };
     };
 }
