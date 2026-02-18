@@ -52,12 +52,12 @@ let
 in
 {
   flake.modules.nixos.base =
-    { pkgs, ... }:
+    { ... }:
     {
 
     };
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    { ... }:
     {
       programs.ssh = {
         enable = true;

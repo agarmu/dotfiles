@@ -7,7 +7,7 @@
     };
 
   flake.modules.nixos.mobile =
-    { pkgs, ... }:
+    { ... }:
     {
       services.tlp.enable = true;
     };
