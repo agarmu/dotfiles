@@ -4,7 +4,8 @@
     {
       stylix.cursor = {
         package = pkgs.mint-cursor-themes;
-        name = "Bibata-Modern-Ice";
+        name = "Bibata-Modern-Classic";
+        size = 21;
       };
     };
 }
