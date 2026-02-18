@@ -1,6 +1,7 @@
 { lib, inputs, ... }:
 let
-  inp = inputs.catppuccin;
+  cat = inputs.catppuccin;
+  stylix = inputs.stylix;
   catppuccin = {
     flavor = "mocha";
   };
@@ -10,16 +11,21 @@ in
     url = "github:catppuccin/nix";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  flake-file.inputs.stylix = {
+    url = "github:nix-community/stylix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   flake.modules.nixos.base = {
     inherit catppuccin;
     imports = [
-      inp.nixosModules.catppuccin
+      stylix.darwinModules.stylix
+      cat.nixosModules.catppuccin
     ];
   };
   flake.modules.homeManager.base = {
     inherit catppuccin;
     imports = [
-      inp.homeModules.catppuccin
+      cat.homeModules.catppuccin
     ];
   };
 }
