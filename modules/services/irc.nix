@@ -5,8 +5,13 @@ _: {
     {
       services.thelounge = {
         enable = true;
-        public = true;
+        dataDir = "/srv/thelounge";
         port = 9000;
+        extraConfig = {
+          reverseProxy = true;
+          prefetch = true;
+          fileUpload.enable = true;
+        };
       };
     };
 }
