@@ -1,19 +1,20 @@
 _: {
   # enable only on host millet
-  flake.modules.nixos.host-millet = {
-    services.soju = {
-      enable = true;
-      hostName = "millet.agarmu.com";
-      listen = [ ":6697" ];
-      tlsCertificate = "%d/fullchain.pem";
-      tlsCertificateKey = "%d/key.pem";
+  flake.modules.nixos.host-millet =
+    { config, ... }:
+    {
+      services.soju =
+        let
+          tlsDir = config.security.acme.certs."millet.agarmu.com".directory;
+        in
+        {
+          enable = true;
+          hostName = "millet.agarmu.com";
+          listen = [ ":6697" ];
+          tlsCertificate = "${tlsDir}/fullchain.pem";
+          tlsCertificateKey = "${tlsDir}/key.pem";
+        };
+      users.users.soju.extraGroups = [ "acme" ];
+      networking.firewall.allowedTCPPorts = [ 6697 ];
     };
-    systemd.services.soju.serviceConfig = {
-      LoadCredential = [
-        "fullchain.pem:/var/lib/acme/millet.agarmu.com/fullchain.pem"
-        "key.pem:/var/lib/acme/millet.agarmu.com/key.pem"
-      ];
-    };
-    networking.firewall.allowedTCPPorts = [ 6697 ];
-  };
 }
