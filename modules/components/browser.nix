@@ -10,10 +10,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-catppuccin = {
-      url = "github:catppuccin/zen-browser";
-      flake = false;
-    };
     betterfox = {
       url = "github:yokoffing/Betterfox";
       flake = false;
@@ -32,31 +28,25 @@
         inputs.zen-browser.homeModules.beta
       ];
 
-      programs.zen-browser =
-        let
-          themeDir = "${inputs.zen-catppuccin}/themes/Mocha/Mauve";
-        in
-        {
-          enable = true;
-          darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
-          profiles."Default Profile" = {
-            id = 0;
-            userChrome = builtins.readFile "${themeDir}/userChrome.css";
-            userContent = builtins.readFile "${themeDir}/userContent.css";
-            extraConfig = ''
-              ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
-              ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
-            '';
-            settings = {
-              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-            };
-            extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-              ublock-origin
-              dearrow
-              bitwarden
-              zotero-connector
-            ];
+      programs.zen-browser = {
+        enable = true;
+        darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
+        profiles."Default Profile" = {
+          id = 0;
+          extraConfig = ''
+            ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
+            ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
+          '';
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
+          extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+            ublock-origin
+            dearrow
+            bitwarden
+            zotero-connector
+          ];
         };
+      };
     };
 }

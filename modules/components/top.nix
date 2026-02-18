@@ -5,7 +5,6 @@
     {
       programs.htop.enable = true;
       programs.btop.enable = true;
-      catppuccin.btop.enable = true;
       home.shellAliases.top = "${pkgs.btop}/bin/btop";
     };
 }

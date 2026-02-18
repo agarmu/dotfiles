@@ -7,10 +7,6 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      catppuccin.thunderbird = {
-        enable = true;
-        profile = "default";
-      };
       home.packages = [
         # inputs.mio19.packages."${pkgs.stdenv.hostPlatform.system}".betterbird
       ];

@@ -4,7 +4,6 @@
     { pkgs, ... }:
     {
       programs.eza.enable = true;
-      catppuccin.eza.enable = true;
       home.shellAliases =
         let
           exec = "${pkgs.eza}/bin/eza";
