@@ -1,7 +1,7 @@
-{ lib, ... }:
+{ ... }:
 {
   flake.modules.homeManager.nixosGui =
-    { pkgs, ... }:
+    { ... }:
     {
       programs.waybar = {
         enable = true;

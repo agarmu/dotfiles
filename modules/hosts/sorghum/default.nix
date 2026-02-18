@@ -2,9 +2,6 @@
   inputs,
   ...
 }:
-let
-  host = "sorghum";
-in
 {
   flake.modules.darwin.host-sorghum = {
     imports = with inputs.self.modules.darwin; [

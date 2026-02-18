@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   flake.modules.homeManager.gui =
     { pkgs, ... }:

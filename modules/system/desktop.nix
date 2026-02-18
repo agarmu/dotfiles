@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 {
   flake-file.inputs.niri = {
     url = "github:sodiboo/niri-flake";
@@ -31,7 +31,7 @@
     };
 
   flake.modules.homeManager.nixosGui =
-    { pkgs, ... }:
+    { ... }:
     {
       services.mako.enable = true;
       programs.vicinae = {

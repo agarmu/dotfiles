@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ ... }:
 {
   flake.modules.nixos.base =
-    { pkgs, config, ... }:
+    { config, ... }:
     {
       networking.wireless.iwd = {
         enable = true;
