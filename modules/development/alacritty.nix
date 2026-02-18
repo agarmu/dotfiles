@@ -9,7 +9,6 @@
         settings = {
           env.TERM = "alacritty";
           window = {
-            opacity = 0.75;
             decorations = "none";
             padding = {
               x = 10;
@@ -17,25 +16,6 @@
             };
             dynamic_padding = true;
           };
-          font =
-            let
-              fontName = "Lilex Nerd Font";
-            in
-            {
-              normal = {
-                family = fontName;
-                style = "Regular";
-              };
-              bold = {
-                family = fontName;
-                style = "Bold";
-              };
-              italic = {
-                family = fontName;
-                style = "Italic";
-              };
-              size = 12.0;
-            };
         };
       };
       home.packages = with pkgs; [
