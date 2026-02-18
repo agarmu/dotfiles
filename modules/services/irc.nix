@@ -5,7 +5,6 @@ _: {
     {
       services.thelounge = {
         enable = true;
-        dataDir = "/srv/thelounge";
         port = 9000;
         extraConfig = {
           reverseProxy = true;
