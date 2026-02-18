@@ -3,18 +3,16 @@
   ...
 }:
 let
-  home-manager-config =
-    { ... }:
-    {
-      home-manager = {
-        verbose = true;
-        useUserPackages = true;
-        useGlobalPkgs = true;
-        backupFileExtension = "backup";
-        backupCommand = "rm";
-        overwriteBackup = true;
-      };
+  home-manager-config = _: {
+    home-manager = {
+      verbose = true;
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      backupFileExtension = "backup";
+      backupCommand = "rm";
+      overwriteBackup = true;
     };
+  };
 in
 {
 
@@ -37,9 +35,7 @@ in
       home-manager-config
     ];
   };
-  flake.modules.homeManager.base =
-    { ... }:
-    {
-      programs.home-manager.enable = true;
-    };
+  flake.modules.homeManager.base = _: {
+    programs.home-manager.enable = true;
+  };
 }

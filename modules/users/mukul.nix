@@ -1,6 +1,4 @@
-{
-  ...
-}:
+_:
 let
   userName = "mukul";
 in

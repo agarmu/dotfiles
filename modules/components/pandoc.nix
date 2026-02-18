@@ -1,9 +1,7 @@
 _: {
-  flake.modules.homeManager.base =
-    { ... }:
-    {
-      programs.pandoc = {
-        enable = true;
-      };
+  flake.modules.homeManager.base = _: {
+    programs.pandoc = {
+      enable = true;
     };
+  };
 }

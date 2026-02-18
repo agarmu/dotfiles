@@ -7,6 +7,6 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      home.packages = (lib.optional pkgs.stdenv.isDarwin [ pkgs.zotero ]);
+      home.packages = lib.optional pkgs.stdenv.isDarwin [ pkgs.zotero ];
     };
 }

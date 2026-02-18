@@ -1,9 +1,7 @@
 _: {
-  flake.modules.homeManager.base =
-    { ... }:
-    {
-      programs.difftastic = {
-        enable = true;
-      };
+  flake.modules.homeManager.base = _: {
+    programs.difftastic = {
+      enable = true;
     };
+  };
 }
