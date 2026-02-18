@@ -6,14 +6,12 @@
       environment.systemPackages = with pkgs; [ acpi ];
     };
 
-  flake.modules.nixos.mobile =
-    { ... }:
-    {
-      services.tlp.enable = true;
-    };
+  flake.modules.nixos.mobile = _: {
+    services.tlp.enable = true;
+  };
   flake.modules.homeManager.mobile =
     { pkgs, ... }:
     {
-      home.packages = (lib.optionals pkgs.stdenv.isDarwin [ pkgs.coconutbattery ]);
+      home.packages = lib.optionals pkgs.stdenv.isDarwin [ pkgs.coconutbattery ];
     };
 }

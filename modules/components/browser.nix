@@ -15,11 +15,9 @@
       flake = false;
     };
   };
-  flake.modules.nixos.gui =
-    { ... }:
-    {
-      programs.firefox.enable = true;
-    };
+  flake.modules.nixos.gui = _: {
+    programs.firefox.enable = true;
+  };
 
   flake.modules.homeManager.gui =
     { pkgs, ... }:

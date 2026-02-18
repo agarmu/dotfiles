@@ -1,6 +1,6 @@
 { lib, inputs, ... }:
 let
-  modules = inputs.self.modules;
+  inherit (inputs.self) modules;
   stateVersion = "26.05";
   mkNixos =
     moduleName:
