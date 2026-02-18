@@ -19,10 +19,6 @@
       ];
     };
     systemd.targets.multi-user.enable = true;
-    catppuccin = {
-      tty.enable = true;
-      grub.enable = true;
-    };
   };
 
   # asahi needs apple silicon
@@ -38,6 +34,5 @@
     boot.loader.systemd-boot.enable = lib.mkForce true;
     boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
     boot.plymouth.enable = true;
-    catppuccin.plymouth.enable = true;
   };
 }

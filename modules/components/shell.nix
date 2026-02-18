@@ -24,14 +24,11 @@
           ];
         };
       };
-      catppuccin.zsh-syntax-highlighting.enable = true;
-
       programs.bash = {
         enable = true;
         enableCompletion = true;
       };
 
-      catppuccin.starship.enable = true;
       programs.starship = {
         enable = true;
       };

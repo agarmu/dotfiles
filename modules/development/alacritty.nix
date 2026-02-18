@@ -3,7 +3,6 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      catppuccin.alacritty.enable = true;
       programs.alacritty = {
         enable = true;
         package = pkgs.alacritty-graphics;
