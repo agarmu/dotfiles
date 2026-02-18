@@ -14,7 +14,6 @@
     { pkgs, ... }:
     {
       programs.niri.settings = {
-        # enable xwayland
         xwayland-satellite = {
           enable = true;
           path = lib.getExe pkgs.xwayland-satellite-unstable;
@@ -252,5 +251,5 @@
           "Mod+Shift+P".action.power-off-monitors = [ ];
         };
       };
-    };
+      };
 }
