@@ -3,8 +3,12 @@
   flake.modules.homeManager.nixosGui =
     { ... }:
     {
-      programs.waybar = {
+      programs.ashell = {
         enable = true;
+        systemd.enable = true;
+      };
+      programs.waybar = {
+        enable = false;
         systemd.enable = true;
         settings = {
           mainBar = {
