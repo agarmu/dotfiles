@@ -14,7 +14,7 @@
       networking.networkmanager = {
         enable = true;
         wifi.backend = "iwd";
-	dns = "systemd-resolved";
+        dns = "systemd-resolved";
       };
 
       services.resolved = {
