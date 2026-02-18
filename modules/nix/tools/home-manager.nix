@@ -1,11 +1,10 @@
 {
   inputs,
-  config,
   ...
 }:
 let
   home-manager-config =
-    { lib, ... }:
+    { ... }:
     {
       home-manager = {
         verbose = true;
@@ -39,7 +38,7 @@ in
     ];
   };
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    { ... }:
     {
       programs.home-manager.enable = true;
     };

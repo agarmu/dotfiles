@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   flake.modules.nixos.base = {
     # services.pulseaudio.enable = true;

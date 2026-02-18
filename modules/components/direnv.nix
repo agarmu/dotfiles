@@ -1,6 +1,6 @@
 _: {
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    { ... }:
     {
       programs.direnv = {
         enable = true;

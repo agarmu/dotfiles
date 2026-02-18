@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 let
   nvimConfig = {
     programs.neovim = {

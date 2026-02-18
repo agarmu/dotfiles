@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   flake.modules.homeManager.image =
     { pkgs, ... }:

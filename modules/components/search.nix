@@ -1,7 +1,7 @@
-{ lib, ... }:
+{ ... }:
 {
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    { ... }:
     {
       programs.fzf = {
         enable = true;
