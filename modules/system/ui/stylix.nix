@@ -10,7 +10,7 @@
       imports = [
         inputs.stylix.nixosModules.stylix
       ];
-      stylix = pkgs: {
+      stylix = {
         enable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       };
