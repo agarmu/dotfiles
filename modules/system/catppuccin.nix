@@ -18,7 +18,6 @@ in
   flake.modules.nixos.base = {
     inherit catppuccin;
     imports = [
-      stylix.darwinModules.stylix
       cat.nixosModules.catppuccin
     ];
   };
