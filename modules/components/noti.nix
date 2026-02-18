@@ -1,9 +1,7 @@
 _: {
-  flake.modules.homeManager.base =
-    { ... }:
-    {
-      programs.noti = {
-        enable = true;
-      };
+  flake.modules.homeManager.base = _: {
+    programs.noti = {
+      enable = true;
     };
+  };
 }

@@ -1,16 +1,11 @@
-{ ... }:
-{
-  flake.modules.darwin.gui =
-    {
-      ...
-    }:
-    {
-      homebrew.casks = [
-        "microsoft-word"
-        "microsoft-excel"
-        "microsoft-powerpoint"
-      ];
-    };
+_: {
+  flake.modules.darwin.gui = _: {
+    homebrew.casks = [
+      "microsoft-word"
+      "microsoft-excel"
+      "microsoft-powerpoint"
+    ];
+  };
 
   flake.modules.homeManager.base =
     { pkgs, ... }:

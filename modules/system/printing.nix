@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   flake.modules.nixos.mobile = {
     # services.avahi = {
     #   enable = true;

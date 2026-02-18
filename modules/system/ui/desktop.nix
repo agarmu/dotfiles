@@ -30,20 +30,18 @@
       };
     };
 
-  flake.modules.homeManager.nixosGui =
-    { ... }:
-    {
-      services.mako.enable = true;
-      programs.vicinae = {
+  flake.modules.homeManager.nixosGui = _: {
+    services.mako.enable = true;
+    programs.vicinae = {
+      enable = true;
+      systemd = {
         enable = true;
-        systemd = {
-          enable = true;
-          autoStart = true;
-        };
+        autoStart = true;
       };
-
-      programs.hyprlock.enable = true;
     };
+
+    programs.hyprlock.enable = true;
+  };
 
   flake.modules.darwin.gui = {
     system.defaults = {
