@@ -13,10 +13,6 @@
       flake = false;
       url = "github:yokoffing/Betterfox";
     };
-    catppuccin = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:catppuccin/nix";
-    };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,10 +58,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nix-index-database";
     };
-    nix-wallpaper = {
-      flake = false;
-      url = "https://raw.githubusercontent.com/nixos/nixos-artwork/master/wallpapers/nix-wallpaper-nineish-catppuccin-macchiato.png";
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nur = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -85,10 +77,6 @@
         nixpkgs.follows = "nixpkgs";
       };
       url = "github:0xc000022070/zen-browser-flake";
-    };
-    zen-catppuccin = {
-      flake = false;
-      url = "github:catppuccin/zen-browser";
     };
   };
 

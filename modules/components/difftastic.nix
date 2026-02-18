@@ -5,6 +5,5 @@ _: {
       programs.difftastic = {
         enable = true;
       };
-      catppuccin.delta.enable = true;
     };
 }

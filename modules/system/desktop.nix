@@ -24,12 +24,6 @@
           wayland.enable = true;
         };
       };
-      catppuccin.sddm = {
-        enable = true;
-        background = "${inputs.nix-wallpaper}";
-        font = "IBM Plex Sans";
-        fontSize = "20";
-      };
       programs.niri = {
         enable = true;
         package = pkgs.niri-unstable;
@@ -47,11 +41,8 @@
           autoStart = true;
         };
       };
-      catppuccin.mako.enable = true;
-      catppuccin.vicinae.enable = true;
 
       programs.hyprlock.enable = true;
-      catppuccin.hyprlock.enable = true;
     };
 
   flake.modules.darwin.gui = {

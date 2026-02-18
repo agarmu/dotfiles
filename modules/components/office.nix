@@ -34,6 +34,5 @@
     {
       home.packages = with pkgs; [ pdfarranger ];
       programs.sioyek.enable = true;
-      catppuccin.sioyek.enable = true;
     };
 }

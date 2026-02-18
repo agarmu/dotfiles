@@ -13,6 +13,5 @@
           gh-dash
         ];
       };
-      catppuccin.gh-dash.enable = true;
     };
 }
