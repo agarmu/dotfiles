@@ -28,6 +28,7 @@
         inputs.zen-browser.homeModules.beta
       ];
 
+      stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
       programs.zen-browser = {
         enable = true;
         darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
