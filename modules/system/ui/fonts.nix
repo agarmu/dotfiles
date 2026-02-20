@@ -11,6 +11,7 @@ let
         lilex
         nerd-fonts.lilex
         noto-fonts-color-emoji
+        libertinus
       ];
     };
 in
