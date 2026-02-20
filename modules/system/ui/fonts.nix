@@ -17,8 +17,6 @@ let
           nerd-fonts.lilex
           noto-fonts-color-emoji
           libertinus
-          tex-gyre
-          tex-gyre-math
         ]
         ++ (toDrvList tex-gyre)
         ++ (toDrvList tex-gyre-math);
