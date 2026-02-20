@@ -10,17 +10,18 @@
       flake = false;
     };
   };
-  flake.modules.nixos.gui = _: {
-    programs.firefox.enable = true;
-  };
 
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      stylix.targets.firefox.profileNames = [ "default" ];
+      stylix.targets.firefox = {
+        enable = true;
+        firefoxGnomeTheme.enable = true;
+        profileNames = [ "default" ];
+      };
       programs.firefox = {
         enable = true;
-        profiles."default" = {
+        profiles.default = {
           id = 0;
           extraConfig = ''
             ${builtins.readFile "${inputs.betterfox}/user.js"}
@@ -28,6 +29,7 @@
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
+          extensions.force = true;
           extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             ublock-origin
             bitwarden
