@@ -23,8 +23,7 @@
         profiles."default" = {
           id = 0;
           extraConfig = ''
-            ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
-            ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
+            ${builtins.readFile "${inputs.betterfox}/user.js"}
           '';
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
