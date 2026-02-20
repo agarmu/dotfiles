@@ -842,8 +842,7 @@
         "nur": "nur",
         "statix": "statix",
         "stylix": "stylix",
-        "treefmt-nix": "treefmt-nix",
-        "zen-browser": "zen-browser"
+        "treefmt-nix": "treefmt-nix"
       }
     },
     "statix": {
@@ -1066,29 +1065,6 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1771206413,
-        "narHash": "sha256-Xb9C9FOhOsKzE0CeJjkDcnrkZxuakL8R1jO1Y6DK4KI=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "5829bfc09897aa4a3a88bef548eadac0430c60ab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

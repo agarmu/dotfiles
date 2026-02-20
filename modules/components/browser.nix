@@ -1,11 +1,6 @@
 { inputs, lib, ... }:
 {
   flake-file.inputs = {
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,15 +17,10 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      imports = [
-        inputs.zen-browser.homeModules.beta
-      ];
-
-      stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
-      programs.zen-browser = {
+      stylix.targets.firefox.profileNames = [ "default" ];
+      programs.firefox = {
         enable = true;
-        darwinDefaultsId = lib.mkDefault "org.browser-zen.plist";
-        profiles."Default Profile" = {
+        profiles."default" = {
           id = 0;
           extraConfig = ''
             ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
@@ -41,7 +31,6 @@
           };
           extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
             ublock-origin
-            dearrow
             bitwarden
             zotero-connector
           ];
