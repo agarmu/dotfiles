@@ -78,13 +78,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
     };
-    zen-browser = {
-      inputs = {
-        home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
-      };
-      url = "github:0xc000022070/zen-browser-flake";
-    };
   };
 
 }
