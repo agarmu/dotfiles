@@ -12,7 +12,7 @@
       ];
       stylix = {
         enable = true;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
       };
     };
 }
