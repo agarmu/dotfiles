@@ -12,6 +12,7 @@
   flake.modules.nixos.host-millet = {
     imports = with inputs.self.modules.nixos; [
       base
+      server
       home-manager
       ./_hardware-configuration.nix
       inputs.disko.nixosModules.disko
@@ -27,20 +28,5 @@
       ];
       home.stateVersion = "26.05";
     };
-
-    # specific config... refactor into server module or something...
-    services.openssh = {
-      enable = true;
-      settings = {
-        # PermitRootLogin = "no";
-        # PasswordAuthentication = false;
-      };
-    };
-
-    # Disable autologin.
-    services.getty.autologinUser = null;
-    documentation.enable = false;
-    # Open ports in the firewall.
-    networking.firewall.allowedTCPPorts = [ 22 ];
   };
 }
