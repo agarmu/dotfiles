@@ -1,18 +1,27 @@
-_:
+{ lib, ... }:
 let
   fonts =
     { pkgs, ... }:
+    let
+      toDrvList = attrs: lib.filter lib.isDerivation (lib.attrValues attrs);
+    in
     {
-      fonts.packages = with pkgs; [
-        inconsolata
-        cm_unicode
-        lmodern
-        ibm-plex
-        lilex
-        nerd-fonts.lilex
-        noto-fonts-color-emoji
-        libertinus
-      ];
+      fonts.packages =
+        with pkgs;
+        [
+          inconsolata
+          cm_unicode
+          lmodern
+          ibm-plex
+          lilex
+          nerd-fonts.lilex
+          noto-fonts-color-emoji
+          libertinus
+          tex-gyre
+          tex-gyre-math
+        ]
+        ++ (toDrvList tex-gyre)
+        ++ (toDrvList tex-gyre-math);
     };
 in
 {
