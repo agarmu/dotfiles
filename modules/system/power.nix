@@ -7,7 +7,7 @@
     };
 
   flake.modules.nixos.mobile = _: {
-    services.tlp.enable = true;
+    services.auto-cpufreq.enable = true;
   };
   flake.modules.homeManager.mobile =
     { pkgs, ... }:

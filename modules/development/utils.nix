@@ -2,13 +2,16 @@ _: {
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
+      programs.tealdeer = {
+        enable = true;
+        settings.updates.auto_update = true;
+      };
       home.packages = with pkgs; [
         coreutils-full
         hyperfine
         scc
         fswatch
         peco # interactive filtering/reading etc
-        tldr # too-long; didn't read versions of `man' pages
         file # Gets file type
         which # Gets executable path
         gnused # GNU version of sed

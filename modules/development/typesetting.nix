@@ -5,12 +5,7 @@ _: {
       programs.texlive = {
         enable = true;
         extraPackages = t: {
-          inherit (t)
-            scheme-medium
-            latexmk
-            collection-bibtexextra
-            collection-latexextra
-            ;
+          inherit (t) scheme-full;
         };
       };
       home.packages = with pkgs; [
