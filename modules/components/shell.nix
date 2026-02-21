@@ -29,8 +29,16 @@
         enableCompletion = true;
       };
 
+      programs.fish = {
+        enable = true;
+      };
+      programs.nushell = {
+        enable = true;
+      };
       programs.starship = {
         enable = true;
+        enableFishIntegration = true;
+        enableNushellIntegration = true;
       };
     };
 
