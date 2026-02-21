@@ -18,6 +18,7 @@
         "quiet"
       ];
     };
+    boot.tmp.useTmpfs = true;
     systemd.targets.multi-user.enable = true;
   };
 
