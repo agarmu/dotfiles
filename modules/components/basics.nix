@@ -5,5 +5,9 @@ _: {
       generateCaches = true;
     };
     programs.info.enable = true;
+    programs.tealdeer = {
+      enable = true;
+      settings.updates.auto_update = true;
+    };
   };
 }
