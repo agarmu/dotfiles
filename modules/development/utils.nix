@@ -9,9 +9,14 @@ _: {
       home.packages = with pkgs; [
         coreutils-full
         hyperfine
-        scc
+        tokei # code statistics
         fswatch
         peco # interactive filtering/reading etc
+        duf # better df
+        dust # better du
+        procs # better ps
+        grex # regex generator
+        xh # HTTP client
         file # Gets file type
         which # Gets executable path
         gnused # GNU version of sed

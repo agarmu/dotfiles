@@ -1,10 +1,10 @@
 _: {
   flake.modules.homeManager.base = _: {
-    programs.direnv = {
+    programs.yazi = {
       enable = true;
-      nix-direnv.enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+      enableNushellIntegration = true;
       enableZshIntegration = true;
     };
   };
