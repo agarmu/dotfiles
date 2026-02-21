@@ -25,6 +25,11 @@
       home.packages = with pkgs; [
         gdb
         valgrind
+        strace
+        ltrace
+        perf
+        bpftrace
+        flamegraph
       ];
       xdg.configFile."gdb/gdbinit" = {
         enable = true;

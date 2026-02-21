@@ -13,6 +13,8 @@ _: {
         rsync # fast remote sync
         net
         nmap # Network Discovery tool
+        lsof # list open files/ports
+        rclone # cloud storage CLI (S3, GDrive, B2, etc.)
       ];
     };
 }
