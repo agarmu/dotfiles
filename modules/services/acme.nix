@@ -12,8 +12,11 @@ _: {
         };
       };
       certs."agarmu.com" = {
-        domain = "*.agarmu.com";
-        extraDomainNames = [ "agarmu.com" ];
+        domain = "agarmu.com";
+        extraDomainNames = [
+          "irc.agarmu.com"
+          "dash.agarmu.com"
+        ];
         group = "nginx";
       };
     };
