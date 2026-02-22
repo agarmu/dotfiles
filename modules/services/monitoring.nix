@@ -26,15 +26,19 @@ _: {
         scrapeConfigs = [
           {
             job_name = "node";
-            static_configs = [{
-              targets = [ "127.0.0.1:${toString nodePort}" ];
-            }];
+            static_configs = [
+              {
+                targets = [ "127.0.0.1:${toString nodePort}" ];
+              }
+            ];
           }
           {
             job_name = "nginx";
-            static_configs = [{
-              targets = [ "127.0.0.1:${toString nginxPort}" ];
-            }];
+            static_configs = [
+              {
+                targets = [ "127.0.0.1:${toString nginxPort}" ];
+              }
+            ];
           }
         ];
       };
