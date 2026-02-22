@@ -46,6 +46,10 @@ _: {
             http_addr = "0.0.0.0"; # Listen on all interfaces (accessible via Tailscale IP)
             http_port = 3000;
           };
+          security = {
+            # TODO: Move to sops-nix for proper secret management
+            secret_key = "1234";
+          };
           analytics.reporting_enabled = false;
         };
         provision = {
