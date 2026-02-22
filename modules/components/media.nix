@@ -1,4 +1,7 @@
 _: {
+  flake.modules.homeManager.base = _: {
+    programs.yt-dlp.enable = true;
+  };
   flake.modules.homeManager.gui = {
     programs.mpv.enable = true;
     xdg.mimeApps.defaultApplications = {
@@ -11,5 +14,8 @@ _: {
       "audio/ogg" = [ "mpv.desktop" ];
       "audio/wav" = [ "mpv.desktop" ];
     };
+  };
+  flake.modules.homeManager.nixosGui = {
+    programs.freetube.enable = true;
   };
 }
