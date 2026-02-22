@@ -3,10 +3,14 @@ _: {
     services.openssh = {
       enable = true;
       settings = {
-        # PermitRootLogin = "no";
-        # PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
       };
     };
+
+    users.users.mukul.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIg0QnqdlIbqa03vuqds4mN95fi5tR1tBCAUhbAIpMF8 mukul@wheat"
+    ];
 
     # Disable autologin.
     services.getty.autologinUser = null;
