@@ -51,8 +51,7 @@ _: {
             http_port = 3000;
           };
           security = {
-            # TODO: Move to sops-nix for proper secret management
-            secret_key = "1234";
+            secret_key = "$__file{${config.sops.secrets."grafana-secret-key".path}}";
           };
           analytics.reporting_enabled = false;
         };
