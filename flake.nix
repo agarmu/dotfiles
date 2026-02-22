@@ -67,6 +67,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/NUR";
     };
+    sops-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Mic92/sops-nix";
+    };
     statix = {
       inputs = {
         flake-parts.follows = "flake-parts";

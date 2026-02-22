@@ -1,14 +1,15 @@
 _: {
   # enable only on host millet
-  flake.modules.nixos.host-millet = {
+  flake.modules.nixos.host-millet =
+    { config, ... }:
+    {
     security.acme = {
       acceptTerms = true;
       defaults = {
         email = "acme@agarmu.com";
         dnsProvider = "cloudflare";
-        # TODO: Move to sops-nix for secret management
         credentialFiles = {
-          "CLOUDFLARE_DNS_API_TOKEN_FILE" = "/var/lib/acme/cloudflare.env";
+          "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.sops.secrets."cloudflare-dns-token".path;
         };
       };
       certs."agarmu.com" = {
