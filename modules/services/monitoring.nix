@@ -74,23 +74,5 @@ _: {
       # Grafana and Prometheus are NOT exposed publicly - only accessible via Tailscale
       # Access at http://millet:3000 (Grafana) and http://millet:9090 (Prometheus) from any tailnet device
 
-      services.homepage-dashboard.services = [
-        {
-          "Monitoring (Tailscale only)" = [
-            {
-              "Grafana" = {
-                href = "http://millet:3000";
-                description = "Metrics & Dashboards";
-              };
-            }
-            {
-              "Prometheus" = {
-                href = "http://millet:9090";
-                description = "Raw Metrics";
-              };
-            }
-          ];
-        }
-      ];
     };
 }
