@@ -17,7 +17,7 @@ _: {
       };
 
       services.nginx.virtualHosts."irc.agarmu.com" = {
-        enableACME = true;
+        useACMEHost = "agarmu.com";
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://127.0.0.1:${toString ircPort}";
