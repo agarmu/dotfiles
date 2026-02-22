@@ -16,6 +16,15 @@ _: {
         lsof # list open files/ports
         rclone # cloud storage CLI (S3, GDrive, B2, etc.)
         xh # HTTP client
+        gping # graphical ping
       ];
+      home.shellAliases.ping = "${pkgs.gping}/bin/gping";
     };
+  flake.modules.nixos.base = {
+    programs.mtr.enable = true;
+    services.iperf3 = {
+      enable = true;
+      openFirewall = true;
+    };
+  };
 }

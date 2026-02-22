@@ -9,5 +9,11 @@ _: {
       enable = true;
       settings.updates.auto_update = true;
     };
+    programs.navi = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+    };
   };
 }
