@@ -1,0 +1,7 @@
+keys:
+  - &millet age176hlf76w77ruq4d638336l9kz82n34zxjc57wgcsggxz8jlel3rs3ruj0w
+creation_rules:
+  - path_regex: secrets/secrets\.yaml$
+    key_groups:
+      - age:
+          - *millet
