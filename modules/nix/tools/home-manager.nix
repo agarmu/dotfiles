@@ -27,12 +27,18 @@ in
       inputs.home-manager.nixosModules.home-manager
       home-manager-config
     ];
+    home-manager.sharedModules = [
+      inputs.nixvim.homeModules.nixvim
+    ];
   };
 
   flake.modules.darwin.home-manager = {
     imports = [
       inputs.home-manager.darwinModules.home-manager
       home-manager-config
+    ];
+    home-manager.sharedModules = [
+      inputs.nixvim.homeModules.nixvim
     ];
   };
   flake.modules.homeManager.base = _: {

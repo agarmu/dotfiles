@@ -1,9 +1,5 @@
 _: {
-  flake.modules.homeManager.dev =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [
-        asm-lsp
-      ];
-    };
+  flake.modules.homeManager.dev = _: {
+    programs.nixvim.plugins.lsp.servers.asm_lsp.enable = true;
+  };
 }
