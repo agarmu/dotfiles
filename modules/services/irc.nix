@@ -25,17 +25,5 @@ _: {
         };
       };
 
-      services.homepage-dashboard.services = [
-        {
-          "Services" = [
-            {
-              "The Lounge" = {
-                href = "https://irc.agarmu.com";
-                description = "IRC Client";
-              };
-            }
-          ];
-        }
-      ];
     };
 }
