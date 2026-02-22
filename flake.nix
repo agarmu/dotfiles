@@ -59,6 +59,10 @@
       url = "github:nix-community/nix-index-database";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixvim = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+    };
     nur = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/NUR";
