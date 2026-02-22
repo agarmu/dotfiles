@@ -13,6 +13,7 @@
         settings = {
           title = "Millet Services";
           headerStyle = "boxed";
+          allowedHosts = [ "dash.agarmu.com" ];
         };
 
         services = lib.mkMerge [
