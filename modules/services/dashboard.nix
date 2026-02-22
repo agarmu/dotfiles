@@ -19,30 +19,54 @@ _: {
                 {
                   size = "small";
                   widgets = [
-{
+                    {
                       type = "bookmarks";
                       groups = [
                         {
                           title = "Services";
                           links = [
-                            { title = "IRC"; url = "https://irc.agarmu.com"; }
-                            { title = "Grafana"; url = "http://millet:3000"; }
-                            { title = "Prometheus"; url = "http://millet:9090"; }
+                            {
+                              title = "IRC";
+                              url = "https://irc.agarmu.com";
+                            }
+                            {
+                              title = "Grafana";
+                              url = "http://millet:3000";
+                            }
+                            {
+                              title = "Prometheus";
+                              url = "http://millet:9090";
+                            }
                           ];
                         }
                         {
                           title = "Purdue";
                           links = [
-                            { title = "myPurdue"; url = "https://mypurdue.purdue.edu"; }
-                            { title = "Gradescope"; url = "https://gradescope.com"; }
-                            { title = "Brightspace"; url = "https://purdue.brightspace.com"; }
+                            {
+                              title = "myPurdue";
+                              url = "https://mypurdue.purdue.edu";
+                            }
+                            {
+                              title = "Gradescope";
+                              url = "https://gradescope.com";
+                            }
+                            {
+                              title = "Brightspace";
+                              url = "https://purdue.brightspace.com";
+                            }
                           ];
                         }
                         {
                           title = "General";
                           links = [
-                            { title = "Google Drive"; url = "https://drive.google.com"; }
-                            { title = "GitHub"; url = "https://github.com"; }
+                            {
+                              title = "Google Drive";
+                              url = "https://drive.google.com";
+                            }
+                            {
+                              title = "GitHub";
+                              url = "https://github.com";
+                            }
                           ];
                         }
                       ];
