@@ -17,6 +17,7 @@ _: {
           extraDomainNames = [
             "irc.agarmu.com"
             "dash.agarmu.com"
+            "grafana.agarmu.com"
           ];
           group = "nginx";
         };

@@ -31,7 +31,7 @@ _: {
                             }
                             {
                               title = "Grafana";
-                              url = "http://millet:3000";
+                              url = "https://grafana.agarmu.com";
                             }
                             {
                               title = "Prometheus";
