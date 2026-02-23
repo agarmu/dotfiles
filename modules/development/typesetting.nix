@@ -19,6 +19,7 @@ _: {
         "typst"
       ];
       home.packages = with pkgs; [
+        texlab
         ltex-ls # grammar/spell checking LSP (LanguageTool)
         tex-fmt # LaTeX formatter
         tectonic # self-contained LaTeX engine
