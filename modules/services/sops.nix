@@ -13,7 +13,5 @@ _: {
     sops.secrets."grafana-admin-password" = {
       owner = "grafana";
     };
-    sops.secrets."prometheus-web-config" = { };
-    sops.secrets."loki-auth-token" = { };
   };
 }
