@@ -7,23 +7,7 @@
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
         "Mod+T".action.spawn = [ "alacritty" ];
-        "Mod+Space".action.spawn-sh = [
-          "pkill sherlock || sherlock"
-        ];
-        "Super+Alt+L".action.spawn = [ "hyprlock" ];
 
-        "XF86AudioRaiseVolume".action.spawn = [
-          "wpctl"
-          "set-volume"
-          "@DEFAULT_AUDIO_SINK@"
-          "0.1+"
-        ];
-        "XF86AudioLowerVolume".action.spawn = [
-          "wpctl"
-          "set-volume"
-          "@DEFAULT_AUDIO_SINK@"
-          "0.1-"
-        ];
 
         "Mod+Q".action.close-window = [ ];
 
@@ -103,7 +87,6 @@
         "Mod+Ctrl+8".action.move-column-to-workspace = 8;
         "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
-        "Mod+Comma".action.consume-window-into-column = [ ];
         "Mod+Period".action.expel-window-from-column = [ ];
 
         "Mod+R".action.switch-preset-column-width = [ ];
