@@ -27,7 +27,7 @@
           enableSpawn = false;
         };
         enableDynamicTheming = false;
-        enableSystemMonitoring = true;
+        enableSystemMonitoring = false;
         enableAudioWavelength = true;
         enableClipboardPaste = true;
         settings = {
