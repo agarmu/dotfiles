@@ -32,6 +32,36 @@
         enableClipboardPaste = true;
         settings = {
           wallpaper = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
+          showLauncherButton = false;
+          showClipboard = false;
+          showCpuUsage = false;
+          showMemUsage = false;
+          showCpuTemp = false;
+          showGpuTemp = false;
+          showWorkspaceSwitcher = false;
+          showFocusedWindow = false;
+          showSystemTray = false;
+          barConfigs = [
+            {
+              id = "default";
+              name = "Main Bar";
+              enabled = true;
+              position = 0;
+              screenPreferences = [ "all" ];
+              showOnLastDisplay = true;
+              leftWidgets = [
+                "music"
+                "clock"
+                "weather"
+              ];
+              centerWidgets = [ ];
+              rightWidgets = [
+                "notificationButton"
+                "battery"
+                "controlCenterButton"
+              ];
+            }
+          ];
         };
       };
     };
