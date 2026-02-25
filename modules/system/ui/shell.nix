@@ -24,7 +24,7 @@
         };
         niri = {
           enableKeybinds = true;
-          enableSpawn = true;
+          enableSpawn = false;
         };
         enableDynamicTheming = false;
         enableSystemMonitoring = true;
