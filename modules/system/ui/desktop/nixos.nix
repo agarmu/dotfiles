@@ -18,11 +18,10 @@
         mako
       ];
 
-      services.displayManager = {
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
+      services.displayManager.dms-greeter = {
+      	enable = true;
+	compositor.name = "niri";
+	package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
       };
       programs.niri = {
         enable = true;
