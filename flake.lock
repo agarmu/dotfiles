@@ -530,26 +530,6 @@
         "type": "github"
       }
     },
-    "mio19": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1771648123,
-        "narHash": "sha256-8GQmRqFthLU7MlaPxi9xepbEPTsmEVI6URB1A8YOkxQ=",
-        "owner": "mio-19",
-        "repo": "nurpkgs",
-        "rev": "7ebb3dd37f41d7ace6b33f1ce68f9e40947af33f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mio-19",
-        "repo": "nurpkgs",
-        "type": "github"
-      }
-    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -876,7 +856,6 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "import-tree": "import-tree",
-        "mio19": "mio19",
         "niri": "niri",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
