@@ -30,8 +30,10 @@
         enableSystemMonitoring = false;
         enableAudioWavelength = true;
         enableClipboardPaste = true;
+        session = {
+          wallpaperPath = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
+        };
         settings = {
-          wallpaper = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
           showLauncherButton = false;
           showClipboard = false;
           showCpuUsage = false;
