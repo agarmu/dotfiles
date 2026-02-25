@@ -11,7 +11,9 @@
     };
   };
 
-  flake.modules.homeManager.gui = _: {
+  flake.modules.homeManager.gui =
+    { pkgs, config, ... }:
+    {
     xdg.mimeApps.defaultApplications = {
       "text/html" = [ "firefox.desktop" ];
       "x-scheme-handler/http" = [ "firefox.desktop" ];
@@ -23,6 +25,8 @@
       enable = true;
       firefoxGnomeTheme.enable = true;
       profileNames = [ "default" ];
+      colors.override =
+        (config.stylix.base16.mkSchemeAttrs "${pkgs.base16-schemes}/share/themes/gruvbox-light-medium.yaml");
     };
     programs.firefox = {
       enable = true;
