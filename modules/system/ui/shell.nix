@@ -59,7 +59,6 @@
               centerWidgets = [ ];
               rightWidgets = [
                 "notificationButton"
-                "battery"
                 "controlCenterButton"
               ];
             }
