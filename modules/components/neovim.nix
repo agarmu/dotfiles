@@ -25,4 +25,11 @@
       plugins.lsp.enable = true;
     };
   };
+
+  # neovide in the gui
+  flake.modules.homeManager.gui = _: {
+    programs.neovide = {
+      enable = true;
+    };
+  };
 }
