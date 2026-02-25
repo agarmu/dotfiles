@@ -8,7 +8,6 @@
 
         "Mod+T".action.spawn = [ "alacritty" ];
 
-
         "Mod+Q".action.close-window = [ ];
 
         "Mod+Left".action.focus-column-left = [ ];
