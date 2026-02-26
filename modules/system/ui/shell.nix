@@ -31,7 +31,10 @@
         enableAudioWavelength = true;
         enableClipboardPaste = true;
         session = {
-          wallpaperPath = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
+          wallpaperPath = builtins.fetchurl {
+            url = "https://cs.purdue.edu/homes/agarw396/wallpaper.jpg";
+            sha256 = "sha256-5oIsLcUSZmrloIIRior+bZS4w64Rga5RWc6HbJ7vmM8=";
+          };
         };
         settings = {
           showLauncherButton = false;
