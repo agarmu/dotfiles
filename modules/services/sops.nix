@@ -13,5 +13,8 @@ _: {
     sops.secrets."grafana-admin-password" = {
       owner = "grafana";
     };
+    sops.secrets."paperless-admin-password" = {
+      owner = "paperless";
+    };
   };
 }
