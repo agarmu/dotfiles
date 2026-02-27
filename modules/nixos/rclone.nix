@@ -32,17 +32,16 @@ _: {
               type = b2
               account = $(cat ${m.accountIdFile})
               key = $(cat ${m.appKeyFile})
-              bucket = $(cat ${m.bucketFile})
               hard_delete = false
               EOF
 
-              exec ${pkgs.rclone}/bin/rclone mount remote: ${m.mountPoint} \
+              exec ${pkgs.rclone}/bin/rclone mount "remote:$(cat ${m.bucketFile})" ${m.mountPoint} \
                 --config /run/rclone/${name}.conf \
                 --allow-other \
+                --default-permissions \
                 --gid ${toString group.gid} \
                 --vfs-cache-mode writes \
                 --dir-cache-time 12h \
-                --poll-interval 1m \
                 --cache-dir /var/cache/rclone/${name} \
                 --umask 0007 \
                 --log-level INFO
@@ -52,6 +51,7 @@ _: {
               Type = "notify";
               User = "rclone";
               Group = "rclone";
+              AmbientCapabilities = [ "CAP_SYS_ADMIN" ];
               ExecStop = "${pkgs.fuse3}/bin/fusermount3 -u ${m.mountPoint}";
               Restart = "on-failure";
               RestartSec = "5s";
