@@ -24,8 +24,8 @@ _: {
 
       services.rclone.mounts.paperless = {
         enable = true;
-        accountIdFile = config.sops.secrets."rclone/paperless/account_id".path;
-        appKeyFile = config.sops.secrets."rclone/paperless/app_key".path;
+        accountIdFile = config.sops.secrets."rclone/paperless/account".path;
+        appKeyFile = config.sops.secrets."rclone/paperless/key".path;
         bucketFile = config.sops.secrets."rclone/paperless/remote".path;
         mountPoint = "/mnt/paperless";
         group = "paperless";
