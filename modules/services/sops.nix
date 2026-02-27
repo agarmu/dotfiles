@@ -16,5 +16,8 @@ _: {
     sops.secrets."paperless-admin-password" = {
       owner = "paperless";
     };
+    sops.secrets."rclone/paperless/remote" = { };
+    sops.secrets."rclone/paperless/account_id" = { };
+    sops.secrets."rclone/paperless/app_key" = { };
   };
 }

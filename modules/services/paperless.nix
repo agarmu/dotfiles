@@ -19,6 +19,28 @@ _: {
           };
         };
       };
+
+      # file store for paperless
+
+      services.rclone.mounts.paperless = {
+        enable = true;
+        accountIdFile = config.sops.secrets."rclone/paperless/account_id".path;
+        appKeyFile = config.sops.secrets."rclone/paperless/app_key".path;
+        bucketFile = config.sops.secrets."rclone/paperless/remote".path;
+        mountPoint = "/mnt/paperless";
+        group = "paperless";
+      };
+
+      # allow rclone service user to write with paperless group perms
+      users.users.rclone.extraGroups = [ "paperless" ];
+
+      # make paperless wait for mount (adjust unit name to your setup)
+      systemd.services.paperless = {
+        requires = [ "rclone-mount-paperless.service" ];
+        after = [ "rclone-mount-paperless.service" ];
+      };
+
+      # setup dns for paperless service
       services.nginx.virtualHosts."paperless.agarmu.com" =
         let
           port = config.services.paperless.port;
