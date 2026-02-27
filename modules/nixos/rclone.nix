@@ -57,15 +57,6 @@ _: {
               Restart = "on-failure";
               RestartSec = "5s";
               LimitNOFILE = 1048576;
-              PrivateTmp = true;
-              ProtectSystem = "strict";
-              ProtectHome = true;
-              NoNewPrivileges = true;
-              ReadWritePaths = [
-                m.mountPoint
-                "/var/cache/rclone/${name}"
-                "/run/rclone"
-              ];
             };
           };
         };
