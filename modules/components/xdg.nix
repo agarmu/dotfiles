@@ -22,5 +22,8 @@ _: {
           videos = "${config.home.homeDirectory}/Videos";
         };
       };
+      home.shellAliases = {
+        "open" = "xdg-open";
+      };
     };
 }
