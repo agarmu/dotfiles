@@ -27,7 +27,6 @@ _: {
             wantedBy = [ "multi-user.target" ];
 
             script = ''
-              install -d -m0700 /run/rclone
               cat > /run/rclone/${name}.conf <<EOF
               [remote]
               type = b2
@@ -88,12 +87,16 @@ _: {
           group = "rclone";
         };
 
-        systemd.tmpfiles.rules =
+        systemd.tmpfiles.rules = [
+          "d /run/rclone 0700 rclone rclone - -"
+        ]
+        ++ (
           lib.mapAttrsToList (name: m: [
             "d ${m.mountPoint} 0770 root ${m.group} - -"
             "d /var/cache/rclone/${name} 0700 rclone rclone - -"
           ]) enabled
-          |> lib.concatLists;
+          |> lib.concatLists
+        );
 
         systemd.services = lib.mapAttrsToList mkService enabled |> lib.mkMerge;
       };
