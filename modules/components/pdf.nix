@@ -21,6 +21,7 @@ _: {
           should_launch_new_window = "1";
           page_separator_width = "5";
           page_separator_color = "0.9 0.9 0.9";
+          new-instance = "1";
         };
       };
       xdg.mimeApps.defaultApplications = {
