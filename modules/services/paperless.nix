@@ -4,6 +4,7 @@ _: {
     {
       services.paperless = {
         enable = true;
+        mediaDir = "/mnt/paperless";
         consumptionDirIsPublic = true;
         passwordFile = config.sops.secrets."paperless-admin-password".path;
         settings = {
