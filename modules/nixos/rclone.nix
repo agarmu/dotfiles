@@ -13,9 +13,6 @@ _: {
 
       mkService =
         name: m:
-        let
-          group = config.users.groups.${m.group};
-        in
         {
           "rclone-mount-${name}" = {
             description = "rclone mount ${name}";
@@ -39,7 +36,7 @@ _: {
                 --config /run/rclone/${name}.conf \
                 --allow-other \
                 --default-permissions \
-                --gid ${toString group.gid} \
+                --gid "$(${pkgs.coreutils}/bin/id -g ${m.group})" \
                 --vfs-cache-mode writes \
                 --dir-cache-time 12h \
                 --cache-dir /var/cache/rclone/${name} \
