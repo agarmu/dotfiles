@@ -22,7 +22,18 @@ _: {
       };
 
       # file store for paperless
-
+      sops.secrets."rclone/paperless/remote" = {
+        owner = "rclone";
+        group = "rclone";
+      };
+      sops.secrets."rclone/paperless/account" = {
+        owner = "rclone";
+        group = "rclone";
+      };
+      sops.secrets."rclone/paperless/key" = {
+        owner = "rclone";
+        group = "rclone";
+      };
       services.rclone.mounts.paperless = {
         enable = true;
         accountIdFile = config.sops.secrets."rclone/paperless/account".path;
