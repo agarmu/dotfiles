@@ -16,17 +16,5 @@ _: {
     sops.secrets."paperless-admin-password" = {
       owner = "paperless";
     };
-    sops.secrets."rclone/paperless/remote" = {
-      owner = "rclone";
-      group = "rclone";
-    };
-    sops.secrets."rclone/paperless/account" = {
-      owner = "rclone";
-      group = "rclone";
-    };
-    sops.secrets."rclone/paperless/key" = {
-      owner = "rclone";
-      group = "rclone";
-    };
   };
 }
