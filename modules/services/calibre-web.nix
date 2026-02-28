@@ -6,6 +6,10 @@ _:
   {
     services.calibre-web = {
       enable = true;
+      listen= {
+        ip = "127.0.0.1";
+        port = 23456;
+      };
     };
     services.nginx.virtualHosts."calibre.agarmu.com" = {
       useACMEHost = "agarmu.com";
