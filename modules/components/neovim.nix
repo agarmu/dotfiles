@@ -4,7 +4,6 @@
     url = "github:nix-community/nixvim";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-
   # system-level neovim for root/recovery
   flake.modules.nixos.base = {
     programs.neovim = {
@@ -23,6 +22,9 @@
       vimAlias = true;
       defaultEditor = true;
       plugins.lsp.enable = true;
+      plugins.lualine = {
+        enable = true;
+      };
     };
   };
 
