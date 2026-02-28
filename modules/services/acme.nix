@@ -19,6 +19,7 @@ _: {
             "dash.agarmu.com"
             "grafana.agarmu.com"
             "paperless.agarmu.com"
+            "calibre.agarmu.com"
           ];
           group = "nginx";
         };
