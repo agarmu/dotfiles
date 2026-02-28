@@ -2,6 +2,9 @@ _: {
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
+      home.packages = with pkgs; [
+        difftastic
+      ];
       programs.git = {
         enable = true;
         package = pkgs.gitFull;
