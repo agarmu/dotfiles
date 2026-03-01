@@ -20,6 +20,7 @@ _: {
             "sops-nix.service"
           ];
           wantedBy = [ "multi-user.target" ];
+          before = m.dependents;
 
           script = ''
             cat > /run/rclone/${name}.conf <<EOF
@@ -55,6 +56,13 @@ _: {
         };
       };
 
+      mkDependentServices =
+        name: m:
+        lib.genAttrs m.dependents (svc: {
+          after = [ "rclone-mount-${name}.service" ];
+          bindsTo = [ "rclone-mount-${name}.service" ];
+        });
+
     in
     {
       options.services.rclone.mounts = lib.mkOption {
@@ -67,6 +75,15 @@ _: {
               bucketFile = lib.mkOption { type = lib.types.path; };
               mountPoint = lib.mkOption { type = lib.types.str; };
               group = lib.mkOption { type = lib.types.str; };
+              dependents = lib.mkOption {
+                type = lib.types.listOf lib.types.str;
+                default = [ ];
+                example = [
+                  "immich-server.service"
+                  "paperless.service"
+                ];
+                description = "Services that depend on this mount";
+              };
             };
           }
         );
@@ -93,7 +110,9 @@ _: {
           |> lib.concatLists
         );
 
-        systemd.services = lib.mapAttrsToList mkService enabled |> lib.mkMerge;
+        systemd.services =
+          (lib.mapAttrsToList mkService enabled |> lib.mkMerge)
+          // (lib.mapAttrsToList mkDependentServices enabled |> lib.mkMerge);
       };
     };
 }
