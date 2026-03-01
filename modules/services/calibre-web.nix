@@ -37,6 +37,7 @@ _: {
         bucketFile = config.sops.secrets."rclone/calibre/remote".path;
         mountPoint = "/mnt/calibre";
         group = "calibre-web";
+        dependents = [ "calibre-web.service" ];
       };
       services.nginx.virtualHosts."calibre.agarmu.com" = {
         useACMEHost = "agarmu.com";

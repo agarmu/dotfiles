@@ -33,6 +33,10 @@ _: {
         bucketFile = config.sops.secrets."rclone/immich/remote".path;
         mountPoint = "/mnt/immich";
         group = "immich";
+        dependents = [
+          "immich-server.service"
+          "immich-machine-learning.service"
+        ];
       };
       services.nginx.virtualHosts."immich.agarmu.com" = {
         useACMEHost = "agarmu.com";

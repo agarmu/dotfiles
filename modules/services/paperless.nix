@@ -44,6 +44,14 @@ _: {
         bucketFile = config.sops.secrets."rclone/paperless/remote".path;
         mountPoint = "/mnt/paperless";
         group = "paperless";
+        dependents =
+          [
+            "consumer"
+            "scheduler"
+            "task-queue"
+            "web"
+          ]
+          |> map (x: "paperless-${x}.service");
       };
 
       # allow rclone service user to write with paperless group perms
