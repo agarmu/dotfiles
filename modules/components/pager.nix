@@ -1,7 +1,7 @@
 _: {
   flake.modules.homeManager.base = _: {
     home.sessionVariables = {
-      LESS = "-LSRci -x4 --mouse";
+      LESS = "-FLRi -x2 --mouse";
       PAGER = "less";
     };
   };
