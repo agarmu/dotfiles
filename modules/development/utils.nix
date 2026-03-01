@@ -4,7 +4,7 @@ _: {
     {
       home.packages = with pkgs; [
         coreutils-full
-	moreutils # more utilities
+        moreutils # more utilities
         file # Gets file type
         which # Gets executable path
         gnused # GNU version of sed
@@ -18,7 +18,7 @@ _: {
         tokei # code statistics
         fswatch # file system watcher
         grex # regex generator
-	xxd # hex editing
+        xxd # hex editing
       ];
     };
 }
