@@ -7,14 +7,5 @@ _: {
     sops.secrets."cloudflare-dns-token" = {
       owner = "acme";
     };
-    sops.secrets."grafana-secret-key" = {
-      owner = "grafana";
-    };
-    sops.secrets."grafana-admin-password" = {
-      owner = "grafana";
-    };
-    sops.secrets."paperless-admin-password" = {
-      owner = "paperless";
-    };
   };
 }
