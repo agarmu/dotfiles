@@ -6,7 +6,7 @@
       programs.niri.settings.binds = {
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
-        "Mod+T".action.spawn = [ "alacritty" ];
+        "Mod+T".action.spawn = [ "ghostty" ];
 
         "Mod+Q".action.close-window = [ ];
 
