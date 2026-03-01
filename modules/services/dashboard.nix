@@ -23,23 +23,6 @@ _: {
                       type = "bookmarks";
                       groups = [
                         {
-                          title = "Services";
-                          links = [
-                            {
-                              title = "IRC";
-                              url = "https://irc.agarmu.com";
-                            }
-                            {
-                              title = "Grafana";
-                              url = "https://grafana.agarmu.com";
-                            }
-                            {
-                              title = "Prometheus";
-                              url = "http://millet:9090";
-                            }
-                          ];
-                        }
-                        {
                           title = "Purdue";
                           links = [
                             {

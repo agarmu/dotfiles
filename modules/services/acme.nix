@@ -17,7 +17,6 @@ _: {
           extraDomainNames = [
             "irc.agarmu.com"
             "dash.agarmu.com"
-            "grafana.agarmu.com"
             "paperless.agarmu.com"
             "calibre.agarmu.com"
           ];
