@@ -1,5 +1,5 @@
 _: {
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {pkgs, ...}: {
     programs.man = {
       enable = true;
       generateCaches = true;
@@ -15,5 +15,8 @@ _: {
       enableFishIntegration = true;
       enableZshIntegration = true;
     };
+    home.packages = with pkgs; [
+	killall bc 
+    ];
   };
 }
