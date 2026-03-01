@@ -8,7 +8,8 @@ _: {
       home.packages = with pkgs; [
         aria2 # CLI download utility
         socat # Better netcat
-        wget2 # Web Get (v2)
+	wget # Web Get (v1)
+        wget2 # Web Get (rewritten)
         curl # client for URL
         rsync # fast remote sync
         net
@@ -18,6 +19,7 @@ _: {
         dnsutils # dig, nslookup, etc.
         xh # HTTP client
         gping # graphical ping
+	whois
       ];
       home.shellAliases.ping = "${pkgs.gping}/bin/gping";
     };
