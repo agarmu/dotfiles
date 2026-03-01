@@ -11,51 +11,49 @@ _: {
       cfg = config.services.rclone;
       enabled = lib.filterAttrs (_: m: m.enable) cfg.mounts;
 
-      mkService =
-        name: m:
-        {
-          "rclone-mount-${name}" = {
-            description = "rclone mount ${name}";
-            wants = [ "network-online.target" ];
-            after = [
-              "network-online.target"
-              "sops-nix.service"
-            ];
-            wantedBy = [ "multi-user.target" ];
+      mkService = name: m: {
+        "rclone-mount-${name}" = {
+          description = "rclone mount ${name}";
+          wants = [ "network-online.target" ];
+          after = [
+            "network-online.target"
+            "sops-nix.service"
+          ];
+          wantedBy = [ "multi-user.target" ];
 
-            script = ''
-              cat > /run/rclone/${name}.conf <<EOF
-              [remote]
-              type = b2
-              account = $(cat ${m.accountIdFile})
-              key = $(cat ${m.appKeyFile})
-              hard_delete = false
-              EOF
+          script = ''
+            cat > /run/rclone/${name}.conf <<EOF
+            [remote]
+            type = b2
+            account = $(cat ${m.accountIdFile})
+            key = $(cat ${m.appKeyFile})
+            hard_delete = false
+            EOF
 
-              exec ${pkgs.rclone}/bin/rclone mount "remote:$(cat ${m.bucketFile})" ${m.mountPoint} \
-                --config /run/rclone/${name}.conf \
-                --allow-other \
-                --default-permissions \
-                --gid "$(${pkgs.coreutils}/bin/id -g ${m.group})" \
-                --vfs-cache-mode writes \
-                --dir-cache-time 12h \
-                --cache-dir /var/cache/rclone/${name} \
-                --umask 0007 \
-                --log-level INFO
-            '';
+            exec ${pkgs.rclone}/bin/rclone mount "remote:$(cat ${m.bucketFile})" ${m.mountPoint} \
+              --config /run/rclone/${name}.conf \
+              --allow-other \
+              --default-permissions \
+              --gid "$(${pkgs.coreutils}/bin/id -g ${m.group})" \
+              --vfs-cache-mode writes \
+              --dir-cache-time 12h \
+              --cache-dir /var/cache/rclone/${name} \
+              --umask 0007 \
+              --log-level INFO
+          '';
 
-            serviceConfig = {
-              Type = "notify";
-              User = "rclone";
-              Group = "rclone";
-              AmbientCapabilities = [ "CAP_SYS_ADMIN" ];
-              ExecStop = "${pkgs.fuse3}/bin/fusermount3 -u ${m.mountPoint}";
-              Restart = "on-failure";
-              RestartSec = "5s";
-              LimitNOFILE = 1048576;
-            };
+          serviceConfig = {
+            Type = "notify";
+            User = "rclone";
+            Group = "rclone";
+            AmbientCapabilities = [ "CAP_SYS_ADMIN" ];
+            ExecStop = "${pkgs.fuse3}/bin/fusermount3 -u ${m.mountPoint}";
+            Restart = "on-failure";
+            RestartSec = "5s";
+            LimitNOFILE = 1048576;
           };
         };
+      };
 
     in
     {
