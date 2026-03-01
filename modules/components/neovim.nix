@@ -16,6 +16,10 @@
 
   # user-level nixvim
   flake.modules.homeManager.base = _: {
+    stylix.targets = {
+      neovim.enable = false;
+      nixvim.enable = false;
+    };
     programs.nixvim = {
       enable = true;
       viAlias = true;
@@ -24,14 +28,18 @@
       plugins.lsp.enable = true;
       plugins.lualine = {
         enable = true;
+        settings.options.theme = "catppuccin";
+      };
+      colorschemes.catppuccin = {
+        enable = true;
+        settings = {
+          flavour = "macchiato";
+          transparent_background = true;
+        };
       };
     };
   };
-
-  # neovide in the gui
-  flake.modules.homeManager.gui = _: {
-    programs.neovide = {
-      enable = true;
-    };
+  flake.modules.homeManager.nixosGui = _: {
+    programs.nixvim.plugins.smear-cursor.enable = true;
   };
 }
