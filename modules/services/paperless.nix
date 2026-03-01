@@ -34,6 +34,9 @@ _: {
         owner = "rclone";
         group = "rclone";
       };
+      sops.secrets.paperless-admin-password = {
+        owner = "paperless";
+      };
       services.rclone.mounts.paperless = {
         enable = true;
         accountIdFile = config.sops.secrets."rclone/paperless/account".path;
