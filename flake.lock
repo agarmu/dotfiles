@@ -911,7 +911,8 @@
         "sops-nix": "sops-nix",
         "statix": "statix",
         "stylix": "stylix",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix",
+        "wheat-firmware": "wheat-firmware"
       }
     },
     "sops-nix": {
@@ -1137,6 +1138,22 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "wheat-firmware": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772335202,
+        "narHash": "sha256-G6HZarvbMfttg+v3hVxu8robpTJYkn7VMQEmA4Nff0A=",
+        "ref": "refs/heads/main",
+        "rev": "e92d24a308b9a67481031ef74beece32e4c019d6",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/agarmu/asahi-firmware.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/agarmu/asahi-firmware.git"
       }
     },
     "xwayland-satellite-stable": {
