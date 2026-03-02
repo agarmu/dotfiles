@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ lib, inputs, ... }:
 let
   overlays = [
     inputs.niri.overlays.niri
@@ -8,7 +8,11 @@ in
 {
   flake.modules.nixos.base.nixpkgs = {
     inherit overlays;
-    config.allowUnfree = true;
+    config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "widevine-cdm"
+      ];
   };
   flake.modules.darwin.base.nixpkgs = {
     inherit overlays;
