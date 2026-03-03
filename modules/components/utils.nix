@@ -1,5 +1,5 @@
 _: {
-  flake.modules.homeManager.dev =
+  flake.modules.homeManager.base =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
@@ -19,6 +19,8 @@ _: {
         fswatch # file system watcher
         grex # regex generator
         xxd # hex editing
+        killall # kill processes by nae
+        bc # calculator
       ];
     };
 }
