@@ -13,7 +13,6 @@
       flake = false;
       url = "github:yokoffing/Betterfox";
     };
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     disko = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
