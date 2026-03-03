@@ -23,7 +23,7 @@
       inputs.disko.nixosModules.disko
       inputs.sops-nix.nixosModules.sops
       ./_disk-config.nix
-      rclone
+      b2
     ];
     boot.loader.efi = {
       canTouchEfiVariables = lib.mkForce true;
