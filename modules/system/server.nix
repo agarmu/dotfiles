@@ -14,7 +14,6 @@ _: {
 
     # Disable autologin.
     services.getty.autologinUser = null;
-    documentation.enable = false;
     services.fail2ban = {
       enable = true;
       maxretry = 5;
