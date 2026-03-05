@@ -7,9 +7,7 @@
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
         "Mod+T".action.spawn = [ "ghostty" ];
-        "Mod+Space".action.spawn-sh = [
-          "pkill sherlock || sherlock"
-        ];
+        "Mod+Space".action.spawn = [ "fuzzel" ];
         "Super+Alt+L".action.spawn = [ "hyprlock" ];
 
         "XF86AudioRaiseVolume".action.spawn = [
@@ -23,6 +21,29 @@
           "set-volume"
           "@DEFAULT_AUDIO_SINK@"
           "0.1-"
+        ];
+        "XF86AudioMute".action.spawn = [
+          "wpctl"
+          "set-mute"
+          "@DEFAULT_AUDIO_SINK@"
+          "toggle"
+        ];
+        "XF86AudioMicMute".action.spawn = [
+          "wpctl"
+          "set-mute"
+          "@DEFAULT_AUDIO_SOURCE@"
+          "toggle"
+        ];
+
+        "XF86MonBrightnessUp".action.spawn = [
+          "brightnessctl"
+          "set"
+          "10%+"
+        ];
+        "XF86MonBrightnessDown".action.spawn = [
+          "brightnessctl"
+          "set"
+          "10%-"
         ];
 
         "Mod+Q".action.close-window = [ ];
