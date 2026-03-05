@@ -11,6 +11,18 @@
           enable = true;
           path = lib.getExe pkgs.xwayland-satellite-unstable;
         };
+        spawn-at-startup = [
+          {
+            argv = [
+              (lib.getExe pkgs.swaybg)
+              "--image"
+              "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg"
+              "--mode"
+              "fill"
+            ];
+          }
+        ];
+
         screenshot-path = "~/Downloads/Screenshot from %Y-%m-%d %H-%M-%S.png";
       };
     };
