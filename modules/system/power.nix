@@ -7,7 +7,7 @@
     };
 
   flake.modules.nixos.mobile = _: {
-    services.auto-cpufreq.enable = true;
+    services.power-profiles-daemon.enable = true;
   };
   flake.modules.homeManager.mobile =
     { pkgs, ... }:

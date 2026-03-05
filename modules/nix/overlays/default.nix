@@ -1,7 +1,6 @@
 { lib, inputs, ... }:
 let
   overlays = [
-    inputs.niri.overlays.niri
     inputs.nur.overlays.default
   ];
 in

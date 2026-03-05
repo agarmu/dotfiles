@@ -17,10 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
     };
-    dms = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-    };
     firefox-addons = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -44,10 +40,6 @@
       url = "github:homebrew/homebrew-core";
     };
     import-tree.url = "github:vic/import-tree";
-    niri = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:sodiboo/niri-flake";
-    };
     nix-darwin = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-darwin/nix-darwin";
