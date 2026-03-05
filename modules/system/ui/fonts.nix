@@ -13,6 +13,8 @@ let
           cm_unicode
           lmodern
           ibm-plex
+          source-sans
+          source-serif
           lilex
           nerd-fonts.lilex
           noto-fonts-color-emoji
@@ -29,12 +31,12 @@ in
       imports = [ fonts ];
       stylix.fonts = {
         serif = {
-          package = pkgs.ibm-plex;
-          name = "IBM Plex Serif";
+          package = pkgs.source-serif;
+          name = "Source Serif 4";
         };
         sansSerif = {
-          package = pkgs.ibm-plex;
-          name = "IBM Plex Sans";
+          package = pkgs.source-sans;
+          name = "Source Sans 3";
         };
         monospace = {
           package = pkgs.nerd-fonts.lilex;
