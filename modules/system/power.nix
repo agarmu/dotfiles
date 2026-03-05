@@ -4,6 +4,7 @@
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [ acpi ];
+      services.upower.enable = true;
     };
 
   flake.modules.nixos.mobile = _: {
