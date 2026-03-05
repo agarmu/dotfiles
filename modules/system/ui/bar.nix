@@ -1,28 +1,21 @@
 _: {
   flake.modules.homeManager.nixosGui = _: {
-    programs.ashell = {
+    programs.waybar = {
       enable = true;
       systemd.enable = true;
-      settings = {
-        modules = {
-          center = [
-          ];
-          left = [
-            "Workspaces"
-            "WindowTitle"
-          ];
-          right = [
-            "SystemInfo"
-            [
-              "Clock"
-              "Privacy"
-              "Settings"
-            ]
-          ];
-        };
-        visibility_mode = {
-          visibility_mode = "MonitorSpecific";
-        };
+      settings.mainBar = {
+        layer = "top";
+        position = "top";
+        modules-left = [
+          "niri/workspaces"
+          "niri/window"
+        ];
+        modules-right = [
+          "pulseaudio"
+          "backlight"
+          "battery"
+          "clock"
+        ];
       };
     };
   };

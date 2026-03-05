@@ -4,6 +4,9 @@ _: {
     {
       programs.ghostty = {
         enable = true;
+        settings = {
+          window-decoration = false;
+        };
       };
     };
   flake.modules.nixos.base =
