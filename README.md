@@ -55,7 +55,6 @@ This flake defines custom modules under `flake.modules.*` that can be imported i
 | `darwin.home-manager` | Darwin |
 | `nixos.sshServer` / `darwin.sshServer` | Both |
 | `darwin.homebrew` | Darwin |
-| `nixos.printing` | NixOS |
 | `nixos.bluetooth` | NixOS |
 | `nixos.office` | NixOS |
 
