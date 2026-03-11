@@ -15,7 +15,6 @@
         wl-clipboard
         xwayland
         brightnessctl
-        mako
       ];
       services.displayManager = {
         sddm = {

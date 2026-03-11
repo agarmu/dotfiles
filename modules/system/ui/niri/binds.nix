@@ -7,7 +7,11 @@
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
         "Mod+T".action.spawn = [ "ghostty" ];
-        "Mod+Space".action.spawn = [ "fuzzel" ];
+        "Mod+Space".action.spawn = [ "walker" ];
+        "Mod+N".action.spawn = [
+          "swaync-client"
+          "-t"
+        ];
         "Super+Alt+L".action.spawn = [ "hyprlock" ];
 
         "XF86AudioRaiseVolume".action.spawn = [

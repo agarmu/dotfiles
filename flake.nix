@@ -81,6 +81,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
     };
+    walker = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:abenz1267/walker";
+    };
     wheat-firmware = {
       flake = false;
       url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
