@@ -16,6 +16,7 @@
       mobile
       office
       home-manager
+      nmap-container
       ./_hardware-configuration.nix
     ];
     hardware.asahi.peripheralFirmwareDirectory = "${inputs.wheat-firmware}";
