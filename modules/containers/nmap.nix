@@ -13,7 +13,7 @@ _: {
         config =
           { pkgs, ... }:
           {
-            environment.systemPackages = with pkgs; [ nmap iputils zsh ];
+            environment.systemPackages = with pkgs; [ nmap iputils bash python3 ];
             networking.nameservers = [ "1.1.1.1" ];
 	    networking.useHostResolvConf = false;
             system.stateVersion = "26.05";
