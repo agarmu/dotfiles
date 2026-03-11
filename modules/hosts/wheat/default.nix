@@ -15,7 +15,6 @@
       bluetooth
       mobile
       office
-      printing
       home-manager
       ./_hardware-configuration.nix
     ];
