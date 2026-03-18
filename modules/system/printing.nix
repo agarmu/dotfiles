@@ -1,10 +1,10 @@
 _: {
   flake.modules.nixos.mobile = {
-    # services.avahi = {
-    #   enable = true;
-    #   nssmdns4 = true;
-    #   openFirewall = true;
-    # };
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
   };
   flake.modules.nixos.office =
     { pkgs, ... }:
