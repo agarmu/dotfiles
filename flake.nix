@@ -28,7 +28,7 @@
     };
     import-tree.url = "github:vic/import-tree";
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:sodiboo/niri-flake/5336c8d137d1a3ad055e83fa08dcb17c1f2b9444";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
