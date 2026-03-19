@@ -1,11 +1,9 @@
 _: {
-  flake.modules.homeManager.base = _: {
-    # better client for bitwarden
-    programs.rbw.enable = true;
-  };
-  flake.modules.homeManager.gui =
+  flake.modules.homeManager.base =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.bitwarden-desktop ];
+      # better client for bitwarden
+      programs.rbw.enable = true;
+      home.packages = [ pkgs.bitwarden-cli ];
     };
 }
