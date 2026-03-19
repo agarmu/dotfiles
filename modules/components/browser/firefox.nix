@@ -5,23 +5,19 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    betterfox = {
-      url = "github:yokoffing/Betterfox";
-      flake = false;
-    };
   };
 
   flake.modules.homeManager.gui =
     { pkgs, config, ... }:
     {
       xdg.mimeApps.defaultApplications = {
-        "text/html" = [ "firefox.desktop" ];
-        "x-scheme-handler/http" = [ "firefox.desktop" ];
-        "x-scheme-handler/https" = [ "firefox.desktop" ];
-        "x-scheme-handler/about" = [ "firefox.desktop" ];
-        "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+        "text/html" = [ "librewolf.desktop" ];
+        "x-scheme-handler/http" = [ "librewolf.desktop" ];
+        "x-scheme-handler/https" = [ "librewolf.desktop" ];
+        "x-scheme-handler/about" = [ "librewolf.desktop" ];
+        "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
       };
-      stylix.targets.firefox = {
+      stylix.targets.librewolf = {
         enable = true;
         firefoxGnomeTheme.enable = true;
         profileNames = [ "default" ];
@@ -29,13 +25,10 @@
           config.stylix.base16.mkSchemeAttrs "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml"
         );
       };
-      programs.firefox = {
+      programs.librewolf = {
         enable = true;
         profiles.default = {
           id = 0;
-          extraConfig = ''
-            ${builtins.readFile "${inputs.betterfox}/user.js"}
-          '';
           extensions = {
             force = true;
             packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [

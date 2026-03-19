@@ -1,94 +1,88 @@
 # DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
     apple-silicon = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixos-apple-silicon";
-    };
-    betterfox = {
-      flake = false;
-      url = "github:yokoffing/Betterfox";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
     gdb-dashboard = {
-      flake = false;
       url = "github:cyrus-and/gdb-dashboard";
+      flake = false;
     };
     home-manager = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     homebrew-cask = {
-      flake = false;
       url = "github:homebrew/homebrew-cask";
+      flake = false;
     };
     homebrew-core = {
-      flake = false;
       url = "github:homebrew/homebrew-core";
+      flake = false;
     };
     import-tree.url = "github:vic/import-tree";
     niri = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-index-database = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     statix = {
+      url = "github:oppiliappan/statix";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
       };
-      url = "github:oppiliappan/statix";
     };
     stylix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     walker = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:abenz1267/walker";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wheat-firmware = {
-      flake = false;
       url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
+      flake = false;
     };
   };
-
 }
