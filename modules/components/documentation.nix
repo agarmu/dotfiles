@@ -2,16 +2,7 @@ _: {
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
-      documentation = {
-        enable = true;
-        man = {
-          enable = true;
-          cache.enable = true;
-        };
-        info.enable = true;
-        doc.enable = true;
-        dev.enable = true;
-      };
+      documentation.man.enable = true;
     };
   flake.modules.homeManager.base =
     { pkgs, ... }:
