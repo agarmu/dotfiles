@@ -36,8 +36,36 @@
           extraConfig = ''
             ${builtins.readFile "${inputs.betterfox}/user.js"}
           '';
+          extensions = {
+            force = true;
+            packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+              ublock-origin
+              bitwarden
+              zotero-connector
+            ];
+          };
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          };
+        };
+        policies = {
+          NewTabPage = {
+            URL = "https://dash.agarmu.com";
+            Enabled = true;
+          };
+          Homepage = {
+            URL = "https://dash.agarmu.com";
+            StartPage = "homepage";
+          };
+          PasswordManagerEnabled = false;
+          OfferToSaveLogins = false;
+
+          # optional hard-disable bits
+          CredentialsEnableService = false;
+          Preferences = {
+            "signon.rememberSignons" = false;
+            "signon.autofillForms" = false;
+            "signon.generation.enabled" = false;
           };
         };
       };
