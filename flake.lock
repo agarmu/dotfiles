@@ -134,28 +134,6 @@
         "type": "github"
       }
     },
-    "firefox-addons": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "dir": "pkgs/firefox-addons",
-        "lastModified": 1773115390,
-        "narHash": "sha256-nl1kcyM1locj//JnzC43hZIjY4z5opcTPqv1RnMZqPU=",
-        "owner": "rycee",
-        "repo": "nur-expressions",
-        "rev": "aecb1fc3e18c3cdcbdd96485b392ffa4584467e8",
-        "type": "gitlab"
-      },
-      "original": {
-        "dir": "pkgs/firefox-addons",
-        "owner": "rycee",
-        "repo": "nur-expressions",
-        "type": "gitlab"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -568,7 +546,6 @@
       "inputs": {
         "apple-silicon": "apple-silicon",
         "disko": "disko",
-        "firefox-addons": "firefox-addons",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "gdb-dashboard": "gdb-dashboard",

@@ -1,11 +1,5 @@
 { inputs, ... }:
 {
-  flake-file.inputs = {
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
 
   flake.modules.homeManager.gui =
     { pkgs, config, ... }:
@@ -31,7 +25,7 @@
           id = 0;
           extensions = {
             force = true;
-            packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+            packages = with pkgs.nur.repos.rycee.firefox-addons; [
               ublock-origin
               bitwarden
               zotero-connector
