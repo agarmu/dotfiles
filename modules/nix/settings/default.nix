@@ -2,10 +2,6 @@
 let
   nix = {
     enable = lib.mkDefault true;
-    gc = {
-      automatic = true;
-      options = lib.mkDefault "--delete-older-than 1w";
-    };
     settings =
       let
         subs = [
@@ -53,9 +49,37 @@ in
     {
       nix = {
         package = pkgs.lix;
+        optimise.automatic = true;
       }
       // nix;
+
+      programs.nh.clean = {
+        enable = true;
+        extraArgs = "--keep 3 --keep-since 7d";
+      };
     };
+
+  # Mobile systems: clean twice-weekly (Wed/Sun)
+  flake.modules.nixos.mobile = {
+    programs.nh.clean.dates = "Wed,Sun 03:00:00";
+  };
+
+  # Server systems: clean daily
+  flake.modules.nixos.server = {
+    programs.nh.clean.dates = "*-*-* 03:00:00";
+
+    nix.optimise.dates = [ "*-*-* 03:30:00" ];
+
+    systemd.timers.nh-clean.timerConfig = {
+      Persistent = lib.mkForce false;
+      RandomizedDelaySec = lib.mkForce 0;
+    };
+    systemd.timers.nix-optimise.timerConfig = {
+      Persistent = lib.mkForce false;
+      RandomizedDelaySec = lib.mkForce 0;
+    };
+  };
+
   flake.modules.darwin.base = {
     /*
       TODO: Is determinate... worth it?
