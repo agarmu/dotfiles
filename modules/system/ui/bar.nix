@@ -1,6 +1,49 @@
-_: {
+{ lib, ... }:
+let
+  icons = rec {
+    calendar = "󰃭 ";
+    clock = " ";
+    battery.charging = "󱐋";
+    battery.vertical = [
+      "󰁺"
+      "󰁻"
+      "󰁼"
+      "󰁽"
+      "󰁾"
+      "󰁿"
+      "󰂀"
+      "󰂁"
+      "󰂂"
+      "󰁹"
+    ];
+    battery.levels = battery.vertical;
+    network.disconnected = "󰤮 ";
+    network.ethernet = "󰈀 ";
+    network.strength = [
+      "󰤟 "
+      "󰤢 "
+      "󰤥 "
+      "󰤨 "
+    ];
+    bluetooth.on = "󰂯";
+    bluetooth.off = "󰂲";
+    bluetooth.battery = "󰥉";
+    volume.source = "󱄠";
+    volume.muted = "󰝟";
+    volume.levels = [
+      "󰕿"
+      "󰖀"
+      "󰕾"
+    ];
+    idle.on = "󰈈 ";
+    idle.off = "󰈉 ";
+    notification.bell = "󰂚";
+    notification.bell-outline = "󰂜";
+  };
+in
+{
   flake.modules.homeManager.nixosGui =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       stylix.targets.waybar.enable = false;
 
@@ -10,62 +53,111 @@ _: {
         settings.mainBar = {
           layer = "top";
           position = "top";
-          margin-top = 6;
-          margin-left = 8;
-          margin-right = 8;
-          spacing = 4;
+          spacing = 0;
 
           modules-left = [
-            "niri/workspaces"
-            "niri/window"
+            "wireplumber"
+            "idle_inhibitor"
+          ];
+          modules-center = [
           ];
           modules-right = [
+            "network"
+            "bluetooth"
+            "bluetooth#battery"
+            "battery"
+            "clock#date"
             "clock"
-            "custom/notification"
-            "group/system"
+            "custom/swaync"
           ];
 
-          "niri/workspaces" = {
-            format = "";
-            current-only = false;
+          wireplumber = {
+            format = "{icon} {volume}%";
+            format-muted = "${icons.volume.muted} muted";
+            format-icons = icons.volume.levels;
+            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
+            on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
+            tooltip-format = "{node_name}";
           };
 
-          "niri/window" = {
-            format = "{}";
-            max-length = 40;
-            rewrite = {
-              "" = " ";
+          "wireplumber#source" = {
+            format = "${icons.volume.source} {volume}%";
+            format-muted = "${icons.volume.source} muted";
+            tooltip-format = "{node_name}";
+          };
+
+          idle_inhibitor = {
+            format = "{icon}";
+            format-icons = {
+              activated = icons.idle.on;
+              deactivated = icons.idle.off;
             };
+            tooltip-format-activated = "Idle inhibitor: on";
+            tooltip-format-deactivated = "Idle inhibitor: off";
           };
 
-          clock = {
-            format = "{:%H:%M}";
-            format-alt = "{:%A, %B %d %Y}";
+          "clock#date" = {
+            format = "${icons.calendar}{:%a %b %d}";
             tooltip-format = "<tt><small>{calendar}</small></tt>";
             calendar = {
               mode = "month";
               weeks-pos = "left";
               on-scroll = 1;
-              format = {
-                months = "<span color='#cad3f5'><b>{}</b></span>";
-                days = "<span color='#a5adcb'>{}</span>";
-                weeks = "<span color='#6e738d'>W{}</span>";
-                weekdays = "<span color='#8aadf4'><b>{}</b></span>";
-                today = "<span color='#eed49f'><b><u>{}</u></b></span>";
-              };
             };
           };
 
-          "custom/notification" = {
+          clock = {
+            format = "${icons.clock}{:%H:%M}";
+            tooltip-format = "{:%A, %B %d %Y %H:%M:%S}";
+          };
+
+          network = {
+            format-wifi = "{icon} {essid}";
+            format-ethernet = "${icons.network.ethernet}{ifname}";
+            format-disconnected = icons.network.disconnected;
+            format-icons = icons.network.strength;
+            tooltip-format = "{ipaddr}/{cidr}";
+          };
+
+          bluetooth = {
+            format = "${icons.bluetooth.on}";
+            format-disabled = "${icons.bluetooth.off}";
+            format-connected = "${icons.bluetooth.on} {num_connections}";
+            tooltip-format = "{controller_alias}\n{num_connections} connected";
+            tooltip-format-connected = "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}";
+            tooltip-format-enumerate-connected = "{device_alias}";
+          };
+
+          "bluetooth#battery" = {
+            format = "${icons.bluetooth.battery} {device_battery_percentage}%";
+            format-disabled = "";
+            format-connected = "${icons.bluetooth.battery} {device_battery_percentage}%";
+            tooltip-format = "{device_alias}: {device_battery_percentage}%";
+          };
+
+          battery = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+            format = "{icon} {capacity}%";
+            format-charging = "${icons.battery.charging}{icon} {capacity}%";
+            format-plugged = "${icons.battery.charging}{icon} {capacity}%";
+            format-icons = icons.battery.levels;
+            tooltip-format = "{timeTo}";
+          };
+
+          "custom/swaync" = {
             tooltip = false;
-            format = "{icon} {}";
+            format = "{icon} {text}";
             format-icons = {
-              notification = "󰂚";
-              none = "󰂜";
+              notification = icons.notification.bell;
+              none = icons.notification.bell-outline;
               dnd-notification = "󰂛";
               dnd-none = "󰪑";
-              inhibited-notification = "󰂚";
-              inhibited-none = "󰂜";
+              inhibited-notification = icons.notification.bell;
+              inhibited-none = icons.notification.bell-outline;
               dnd-inhibited-notification = "󰂛";
               dnd-inhibited-none = "󰪑";
             };
@@ -76,260 +168,61 @@ _: {
             on-click-right = "swaync-client -d -sw";
             escape = true;
           };
-
-          "group/system" = {
-            orientation = "inherit";
-            drawer = {
-              transition-duration = 300;
-              transition-left-to-right = false;
-              children-class = "system-drawer";
-            };
-            modules = [
-              "custom/system-icon"
-              "pulseaudio"
-              "backlight"
-              "battery"
-              "custom/network"
-              "custom/bluetooth"
-              "custom/airplane"
-            ];
-          };
-
-          "custom/system-icon" = {
-            format = "󰒓";
-            tooltip = false;
-          };
-
-          pulseaudio = {
-            format = "{icon} {volume}%";
-            format-muted = "󰝟 muted";
-            format-icons = {
-              default = [
-                "󰕿"
-                "󰖀"
-                "󰕾"
-              ];
-            };
-            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-            on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
-            on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
-            tooltip-format = "{desc}";
-          };
-
-          backlight = {
-            format = "󰃠 {percent}%";
-            on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
-            on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
-            tooltip = false;
-          };
-
-          battery = {
-            states = {
-              warning = 30;
-              critical = 15;
-            };
-            format = "{icon} {capacity}%";
-            format-charging = "󰂄 {capacity}%";
-            format-plugged = "󰚥 {capacity}%";
-            format-icons = [
-              "󰁺"
-              "󰁻"
-              "󰁼"
-              "󰁽"
-              "󰁾"
-              "󰁿"
-              "󰂀"
-              "󰂁"
-              "󰂂"
-              "󰁹"
-            ];
-            tooltip-format = "{timeTo}";
-          };
-
-          "custom/network" = {
-            format = "{}";
-            exec = pkgs.writeShellScript "waybar-network" ''
-              wifi_status=$(${pkgs.networkmanager}/bin/nmcli radio wifi)
-              if [ "$wifi_status" = "enabled" ]; then
-                ssid=$(${pkgs.networkmanager}/bin/nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
-                if [ -n "$ssid" ]; then
-                  echo "󰤨 $ssid"
-                else
-                  echo "󰤭 none"
-                fi
-              else
-                echo "󰤮 off"
-              fi
-            '';
-            interval = 10;
-            on-click = "${pkgs.networkmanager}/bin/nmcli radio wifi $(${pkgs.networkmanager}/bin/nmcli radio wifi | grep -q enabled && echo off || echo on)";
-            tooltip = false;
-          };
-
-          "custom/bluetooth" = {
-            format = "{}";
-            exec = pkgs.writeShellScript "waybar-bluetooth" ''
-              status=$(${pkgs.bluez}/bin/bluetoothctl show 2>/dev/null | grep 'Powered:' | awk '{print $2}')
-              if [ "$status" = "yes" ]; then
-                echo "󰂯 on"
-              else
-                echo "󰂲 off"
-              fi
-            '';
-            interval = 10;
-            on-click = pkgs.writeShellScript "waybar-bluetooth-toggle" ''
-              status=$(${pkgs.bluez}/bin/bluetoothctl show 2>/dev/null | grep 'Powered:' | awk '{print $2}')
-              if [ "$status" = "yes" ]; then
-                ${pkgs.bluez}/bin/bluetoothctl power off
-              else
-                ${pkgs.bluez}/bin/bluetoothctl power on
-              fi
-            '';
-            tooltip = false;
-          };
-
-          "custom/airplane" = {
-            format = "{}";
-            exec = pkgs.writeShellScript "waybar-airplane" ''
-              blocked=$(${pkgs.util-linux}/bin/rfkill list all 2>/dev/null | grep -c 'Soft blocked: yes')
-              if [ "$blocked" -gt 0 ]; then
-                echo "󰀝 on"
-              else
-                echo "󰀞 off"
-              fi
-            '';
-            interval = 10;
-            on-click = pkgs.writeShellScript "waybar-airplane-toggle" ''
-              blocked=$(${pkgs.util-linux}/bin/rfkill list all 2>/dev/null | grep -c 'Soft blocked: yes')
-              if [ "$blocked" -gt 0 ]; then
-                ${pkgs.util-linux}/bin/rfkill unblock all
-              else
-                ${pkgs.util-linux}/bin/rfkill block all
-              fi
-            '';
-            tooltip = false;
-          };
         };
 
-        style = ''
-          * {
-            font-family: "Lilex Nerd Font", "Source Sans 3", monospace;
-            font-size: 14px;
-            min-height: 0;
-          }
-
-          window#waybar {
-            background: rgba(36, 39, 58, 0.85);
-            border-radius: 12px;
-            color: #cad3f5;
-          }
-
-          tooltip {
-            background: #363a4f;
-            border: 1px solid #494d64;
-            border-radius: 8px;
-            color: #cad3f5;
-          }
-
-          #workspaces {
-            margin: 4px 4px 4px 8px;
-          }
-
-          #workspaces button {
-            color: #6e738d;
-            padding: 0 6px;
-            border-radius: 50%;
-            min-width: 12px;
-            min-height: 12px;
-            margin: 4px 2px;
-            background: #494d64;
-          }
-
-          #workspaces button.active {
-            background: #8aadf4;
-            color: #24273a;
-          }
-
-          #workspaces button:hover {
-            background: #5b6078;
-          }
-
-          #window {
-            color: #a5adcb;
-            padding: 0 8px;
-          }
-
-          #clock {
-            color: #cad3f5;
-            font-weight: bold;
-            padding: 0 12px;
-          }
-
-          #custom-notification {
-            color: #8aadf4;
-            padding: 0 12px;
-          }
-
-          #custom-system-icon {
-            color: #cad3f5;
-            padding: 0 8px 0 12px;
-            font-size: 16px;
-          }
-
-          .system-drawer {
-            padding: 0 4px;
-            transition: all 300ms ease;
-          }
-
-          #pulseaudio {
-            color: #8aadf4;
-            padding: 0 8px;
-          }
-
-          #pulseaudio.muted {
-            color: #6e738d;
-          }
-
-          #backlight {
-            color: #eed49f;
-            padding: 0 8px;
-          }
-
-          #battery {
-            color: #a6da95;
-            padding: 0 8px;
-          }
-
-          #battery.warning {
-            color: #f5a97f;
-          }
-
-          #battery.critical {
-            color: #ed8796;
-            animation: blink 1s linear infinite;
-          }
-
-          @keyframes blink {
-            to {
-              color: transparent;
+        style =
+          let
+            colors = config.lib.stylix.colors;
+            modules = s: "${s ".modules-left"}, ${s ".modules-center"}, ${s ".modules-right"}";
+            module = s: modules (m: "${m} > ${s} > *");
+          in
+          ''
+            * {
+              border: none;
+              font-family: "${config.stylix.fonts.sansSerif.name}";
+              font-size: ${toString config.stylix.fonts.sizes.desktop}px;
+              color: #${colors.base07};
             }
-          }
-
-          #custom-network {
-            color: #8bd5ca;
-            padding: 0 8px;
-          }
-
-          #custom-bluetooth {
-            color: #8aadf4;
-            padding: 0 8px;
-          }
-
-          #custom-airplane {
-            color: #f5a97f;
-            padding: 0 8px 0 4px;
-          }
-        '';
+            window#waybar {
+              background: transparent;
+              font-size: 2em;
+            }
+            ${modules lib.id} {
+              background: transparent;
+              margin: 3px 10px;
+            }
+            ${module "*"} {
+              margin: 3px 1px;
+              padding: 5px 7px;
+              background: #${colors.base00};
+            }
+            ${module ":first-child"} {
+              padding-left: 10px;
+              border-top-left-radius: 20px;
+              border-bottom-left-radius: 20px;
+            }
+            ${module ":last-child"} {
+              padding-right: 10px;
+              border-top-right-radius: 20px;
+              border-bottom-right-radius: 20px;
+            }
+            ${module ":not(:first-child)"} {
+              border-top-left-radius: 3px;
+              border-bottom-left-radius: 3px;
+            }
+            ${module ":not(:last-child)"} {
+              border-top-right-radius: 3px;
+              border-bottom-right-radius: 3px;
+            }
+            #wireplumber:not(.source).muted { color: #${colors.base0A}; }
+            #idle_inhibitor.activated { color: #${colors.base0A}; }
+            #battery.charging { color: #${colors.base0B}; }
+            #battery.warning:not(.charging) { color: #${colors.base0A}; }
+            #battery.critical:not(.charging) {
+              animation: critical-blink steps(8) 1s infinite alternate;
+            }
+            @keyframes critical-blink { to { color: #${colors.base08}; } }
+          '';
       };
     };
 }
