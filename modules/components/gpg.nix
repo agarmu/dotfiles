@@ -19,8 +19,8 @@
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
+      home.packages = [ pkgs.seahorse ];
       services.gnome-keyring = {
-        enable = true;
         components = [ "secrets" ];
       };
       services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
