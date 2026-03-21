@@ -13,6 +13,7 @@ _: {
             email = "vcs@agarmu.com";
             name = "Mukul Agarwal";
           };
+          init.defaultBranch = "main";
           alias = {
             c = "commit";
             cl = "clone";
