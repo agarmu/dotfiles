@@ -3,9 +3,9 @@ _: {
     { pkgs, ... }:
     {
       stylix.cursor = {
-        package = pkgs.mint-cursor-themes;
-        name = "Bibata-Modern-Classic";
-        size = 21;
+        package = pkgs.phinger-cursors;
+        name = "phinger-cursors-dark";
+        size = 24;
       };
     };
 }
