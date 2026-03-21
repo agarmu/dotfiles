@@ -46,6 +46,10 @@ in
           package = pkgs.noto-fonts-color-emoji;
           name = "Noto Color Emoji";
         };
+        sizes = {
+          applications = 12;
+          desktop = 14;
+        };
       };
     };
   flake.modules.darwin.base = {
