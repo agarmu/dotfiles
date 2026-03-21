@@ -3,7 +3,9 @@ _: {
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        coreutils-full
+        uutils-coreutils-noprefix
+        uutils-findutils
+        uutils-diffutils
         moreutils # more utilities
         file # Gets file type
         which # Gets executable path
@@ -21,6 +23,7 @@ _: {
         xxd # hex editing
         killall # kill processes by nae
         bc # calculator
+        chase # resolve symlinks
       ];
     };
 }
