@@ -1,17 +1,15 @@
-{ inputs, ... }:
-{
-
+_: {
   flake.modules.homeManager.gui =
     { pkgs, config, ... }:
     {
       xdg.mimeApps.defaultApplications = {
-        "text/html" = [ "librewolf.desktop" ];
-        "x-scheme-handler/http" = [ "librewolf.desktop" ];
-        "x-scheme-handler/https" = [ "librewolf.desktop" ];
-        "x-scheme-handler/about" = [ "librewolf.desktop" ];
-        "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
+        "text/html" = [ "floorp.desktop" ];
+        "x-scheme-handler/http" = [ "floorp.desktop" ];
+        "x-scheme-handler/https" = [ "floorp.desktop" ];
+        "x-scheme-handler/about" = [ "floorp.desktop" ];
+        "x-scheme-handler/unknown" = [ "floorp.desktop" ];
       };
-      stylix.targets.librewolf = {
+      stylix.targets.floorp = {
         enable = true;
         firefoxGnomeTheme.enable = true;
         profileNames = [ "default" ];
@@ -19,7 +17,7 @@
           config.stylix.base16.mkSchemeAttrs "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml"
         );
       };
-      programs.librewolf = {
+      programs.floorp = {
         enable = true;
         profiles.default = {
           id = 0;
@@ -28,6 +26,10 @@
             packages = with pkgs.nur.repos.rycee.firefox-addons; [
               ublock-origin
               bitwarden
+              darkreader
+              libredirect
+              consent-o-matic
+              web-archives
               zotero-connector
             ];
           };
@@ -44,10 +46,12 @@
             URL = "https://dash.agarmu.com";
             StartPage = "homepage";
           };
+          FirefoxHome = {
+            SponsoredTopSites = false;
+            SponsoredPocket = false;
+          };
           PasswordManagerEnabled = false;
           OfferToSaveLogins = false;
-
-          # optional hard-disable bits
           CredentialsEnableService = false;
           Preferences = {
             "signon.rememberSignons" = false;
