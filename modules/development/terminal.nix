@@ -2,6 +2,10 @@ _: {
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
+      home.shellAliases = {
+        "@" = "kitten ssh";
+        ssh = "kitten ssh";
+      };
       programs.kitty = {
         enable = true;
         settings = {
