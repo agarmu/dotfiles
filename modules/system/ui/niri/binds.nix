@@ -6,7 +6,7 @@
       programs.niri.settings.binds = {
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
-        "Mod+T".action.spawn = [ "ghostty" ];
+        "Mod+T".action.spawn = [ "kitty" ];
         "Mod+Space".action.spawn = [ "walker" ];
         "Mod+N".action.spawn = [
           "swaync-client"

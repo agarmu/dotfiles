@@ -39,7 +39,4 @@
       };
     };
   };
-  flake.modules.homeManager.nixosGui = _: {
-    programs.nixvim.plugins.smear-cursor.enable = true;
-  };
 }
