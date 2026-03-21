@@ -13,21 +13,25 @@
         '';
 
         blurred-locker = final.writeShellScript "blurred-locker" ''
-          TMPDIR=$(mktemp -d /tmp/locker-XXXXXX)
-          trap 'rm -rf "$TMPDIR"' EXIT
+          # Skip if already locked
+          ${final.procps}/bin/pgrep -x swaylock && exit 0
 
+          LOCK_DIR=$(mktemp -d /tmp/locker-XXXXXX)
           SWAYLOCK_ARGS=""
 
           for output in $(${lib.getExe final.niri-unstable} msg --json outputs | ${lib.getExe final.jq} -r '.[].name'); do
-            SCREENSHOT="$TMPDIR/$output.png"
-            BLURRED="$TMPDIR/$output-blurred.png"
+            SCREENSHOT="$LOCK_DIR/$output.png"
+            BLURRED="$LOCK_DIR/$output-blurred.png"
             ${lib.getExe final.grim} -o "$output" "$SCREENSHOT"
             ${blur-image} "$SCREENSHOT" "$BLURRED"
             SWAYLOCK_ARGS="$SWAYLOCK_ARGS -i $output:$BLURRED"
           done
 
           ${lib.getExe final.niri-unstable} msg action do-screen-transition 2>/dev/null || true
-          exec ${lib.getExe final.swaylock} $SWAYLOCK_ARGS
+
+          # Run swaylock in foreground (no --daemonize), clean up after unlock
+          ${lib.getExe final.swaylock} --no-daemonize $SWAYLOCK_ARGS
+          rm -rf "$LOCK_DIR"
         '';
       in
       {

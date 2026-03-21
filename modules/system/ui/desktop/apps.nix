@@ -1,18 +1,45 @@
-{ inputs, ... }:
+{ lib, inputs, ... }:
 {
   flake-file.inputs.walker = {
     url = "github:abenz1267/walker";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   flake.modules.homeManager.nixosGui =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       imports = [
         inputs.walker.homeManagerModules.default
       ];
 
       services.cliphist.enable = true;
-      programs.hyprlock.enable = true;
+
+      # swaylock
+      programs.swaylock = {
+        enable = true;
+        settings = {
+          show-failed-attempts = true;
+          daemonize = true;
+          scaling = "fill";
+        };
+      };
+
+      # swayidle: lock at 30s idle, power off monitors at 90s
+      services.swayidle = {
+        enable = true;
+        events = {
+          before-sleep = "${pkgs.bgutils}/bin/bgutils lock";
+        };
+        timeouts = [
+          {
+            timeout = 30;
+            command = "${pkgs.bgutils}/bin/bgutils lock";
+          }
+          {
+            timeout = 90;
+            command = "${lib.getExe config.programs.niri.package} msg action power-off-monitors";
+          }
+        ];
+      };
 
       programs.walker = {
         enable = true;

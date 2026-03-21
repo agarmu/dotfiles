@@ -1,7 +1,6 @@
-{ lib, ... }:
-{
+_: {
   flake.modules.homeManager.nixosGui =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
       programs.niri.settings.binds = {
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
@@ -12,7 +11,13 @@
           "swaync-client"
           "-t"
         ];
-        "Super+Alt+L".action.spawn = [ "hyprlock" ];
+        "Mod+Alt+L".action.spawn = [
+          "${pkgs.bgutils}/bin/bgutils"
+          "lock"
+        ];
+
+        "Mod+Shift+S".action.screenshot = [ ];
+        "Mod+D".action.toggle-column-tabbed-display = [ ];
 
         "XF86AudioRaiseVolume".action.spawn = [
           "wpctl"
