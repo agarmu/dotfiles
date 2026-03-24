@@ -5,6 +5,7 @@ _: {
         enable = true;
         width = 10000;
         active.color = "#00000033";
+        inactive.color = "transparent";
       };
       border = {
         enable = false;
