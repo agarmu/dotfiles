@@ -1,16 +1,8 @@
 { lib, inputs, ... }:
 {
-  flake-file.inputs.walker = {
-    url = "github:abenz1267/walker";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
   flake.modules.homeManager.nixosGui =
     { pkgs, config, ... }:
     {
-      imports = [
-        inputs.walker.homeManagerModules.default
-      ];
-
       services.cliphist.enable = true;
 
       # swaylock
@@ -39,81 +31,6 @@
             command = "${lib.getExe config.programs.niri.package} msg action power-off-monitors";
           }
         ];
-      };
-
-      programs.walker = {
-        enable = true;
-        runAsService = true;
-        package = pkgs.walker;
-        config = {
-          close_when_open = true;
-          force_keyboard_focus = true;
-          search = {
-            placeholder = "Search...";
-          };
-          list = {
-            max_height = 300;
-          };
-        };
-        themes.catppuccin = {
-          style = ''
-            * {
-              font-family: "Source Sans 3", sans-serif;
-              font-size: 16px;
-            }
-
-            #window {
-              background: transparent;
-            }
-
-            #box {
-              background: rgba(36, 39, 58, 0.9);
-              border-radius: 12px;
-              padding: 12px;
-              border: 2px solid #494d64;
-            }
-
-            #search {
-              background: #363a4f;
-              color: #cad3f5;
-              border-radius: 8px;
-              padding: 8px 12px;
-              margin-bottom: 8px;
-              border: 1px solid #494d64;
-            }
-
-            #search:focus {
-              border-color: #8aadf4;
-            }
-
-            #list row {
-              padding: 6px 8px;
-              border-radius: 8px;
-              color: #cad3f5;
-            }
-
-            #list row:selected {
-              background: #494d64;
-              color: #cad3f5;
-            }
-
-            #list row:hover {
-              background: rgba(73, 77, 100, 0.5);
-            }
-
-            #icon {
-              margin-right: 8px;
-            }
-
-            #text {
-              color: #cad3f5;
-            }
-
-            #sub {
-              color: #6e738d;
-            }
-          '';
-        };
       };
 
       services.swaync = {
