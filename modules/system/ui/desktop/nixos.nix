@@ -42,7 +42,8 @@
       '';
 
       greeter-cmd = pkgs.writeShellScript "greeter-cmd" ''
-        ${lib.getExe pkgs.tuigreet} --remember --time --greeting "Welcome to Host '${config.networking.hostName}'" --cmd ${greeter-session-init}
+        quote=$(${lib.getExe pkgs.fortune} -s)
+        ${lib.getExe pkgs.tuigreet} --remember --time --greeting "$quote" --cmd ${greeter-session-init}
         # Quit the greeter niri so greetd doesn't hang
         ${niri-bin} msg action quit --skip-confirmation
       '';
