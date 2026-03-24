@@ -23,6 +23,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:vic/import-tree";
+    mybase-blacklist = {
+      url = "https://download.dnscrypt.info/blacklists/domains/mybase.txt";
+      flake = false;
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs = {

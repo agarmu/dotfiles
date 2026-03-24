@@ -1,5 +1,9 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
+  flake-file.inputs.mybase-blacklist = {
+    url = "https://download.dnscrypt.info/blacklists/domains/mybase.txt";
+    flake = false;
+  };
   flake.modules.nixos.base = _: {
     networking.nameservers = [
       "127.0.0.1"
@@ -30,6 +34,8 @@
 
         # todo: find a wider range of dns resolvers
         server_names = [ "cloudflare" ];
+
+        blocked_names.blocked_names_file = "${inputs.mybase-blacklist}";
       };
     };
 
