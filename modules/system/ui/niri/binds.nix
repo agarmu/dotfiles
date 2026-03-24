@@ -6,7 +6,7 @@ _: {
         "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
         "Mod+T".action.spawn = [ "kitty" ];
-        "Mod+Space".action.spawn = [ "walker" ];
+        "Mod+Space".action.spawn-sh = "pkill rofi || rofi -show drun";
         "Mod+N".action.spawn = [
           "swaync-client"
           "-t"

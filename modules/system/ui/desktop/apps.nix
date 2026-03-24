@@ -5,6 +5,11 @@
     {
       services.cliphist.enable = true;
 
+      # launcher
+      programs.rofi = {
+        enable = true;
+      };
+
       # swaylock
       programs.swaylock = {
         enable = true;
