@@ -43,7 +43,7 @@
 
       greeter-cmd = pkgs.writeShellScript "greeter-cmd" ''
         quote=$(${lib.getExe pkgs.fortune} -s)
-        ${lib.getExe pkgs.tuigreet} --remember --time --greeting "$quote" --cmd ${greeter-session-init}
+        ${lib.getExe pkgs.tuigreet} --asterisks --remember --time --greeting "$quote" --cmd ${greeter-session-init}
         # Quit the greeter niri so greetd doesn't hang
         ${niri-bin} msg action quit --skip-confirmation
       '';
