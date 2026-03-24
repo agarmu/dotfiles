@@ -3,13 +3,13 @@ _: {
     { pkgs, config, ... }:
     {
       xdg.mimeApps.defaultApplications = {
-        "text/html" = [ "floorp.desktop" ];
-        "x-scheme-handler/http" = [ "floorp.desktop" ];
-        "x-scheme-handler/https" = [ "floorp.desktop" ];
-        "x-scheme-handler/about" = [ "floorp.desktop" ];
-        "x-scheme-handler/unknown" = [ "floorp.desktop" ];
+        "text/html" = [ "firefox.desktop" ];
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+        "x-scheme-handler/about" = [ "firefox.desktop" ];
+        "x-scheme-handler/unknown" = [ "firefox.desktop" ];
       };
-      stylix.targets.floorp = {
+      stylix.targets.firefox = {
         enable = true;
         firefoxGnomeTheme.enable = true;
         profileNames = [ "default" ];
@@ -17,7 +17,7 @@ _: {
           config.stylix.base16.mkSchemeAttrs "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml"
         );
       };
-      programs.floorp = {
+      programs.firefox = {
         enable = true;
         profiles.default = {
           id = 0;
@@ -35,6 +35,12 @@ _: {
           };
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "browser.ai.control.default" = "blocked";
+            "browser.ai.control.linkPreviewKeyPoints" = "blocked";
+            "browser.ai.control.pdfjsAltText" = "blocked";
+            "browser.ai.control.sidebarChatbot" = "blocked";
+            "browser.ai.control.smartTabGroups" = "blocked";
+            "browser.ai.control.translations" = "blocked";
           };
         };
         policies = {
