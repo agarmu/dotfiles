@@ -10,10 +10,7 @@ in
   flake.modules.nixos.gui =
     { pkgs, ... }:
     let
-      source = pkgs.fetchurl {
-        inherit (wallpaper) url hash;
-        name = "${wallpaper.name}.png";
-      };
+      source = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
       blurred = pkgs.runCommand "${wallpaper.name}-blurred" { } ''
         mkdir -p $out
         ${pkgs.bgutils}/bin/bgutils blur ${source} $out/blurred.png
@@ -26,15 +23,13 @@ in
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     let
-      source = pkgs.fetchurl {
-        inherit (wallpaper) url hash;
-        name = "${wallpaper.name}.png";
-      };
-      blurred = pkgs.runCommand "${wallpaper.name}-blurred" { } ''
+      wname = "paper";
+      source = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
+      blurred = pkgs.runCommand "${wname}-blurred" { } ''
         mkdir -p $out
         ${pkgs.bgutils}/bin/bgutils blur ${source} $out/blurred.png
       '';
-      modulated = pkgs.runCommand "${wallpaper.name}-modulated" { } ''
+      modulated = pkgs.runCommand "${wname}-modulated" { } ''
         mkdir -p $out
         ${pkgs.bgutils}/bin/bgutils modulate ${source} $out/modulated.png
       '';
@@ -53,6 +48,9 @@ in
         layout.background-color = "transparent";
         layer-rules = [
           {
+            matches = [
+              { namespace = "^swww.*$"; }
+            ];
             place-within-backdrop = true;
           }
         ];
