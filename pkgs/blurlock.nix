@@ -16,17 +16,11 @@ writeShellScriptBin "blurlock" ''
   SWAYLOCK_ARGS=""
 
   for output in $(${lib.getExe niri-unstable} msg --json outputs | ${lib.getExe jq} -r '.[].name'); do
-    SCREENSHOT="$LOCK_DIR/$output.png"
-    BLURRED="$LOCK_DIR/$output-blurred.png"
-    ${lib.getExe grim} -o "$output" "$SCREENSHOT"
-    ${lib.getExe imgblur} "$SCREENSHOT" "$BLURRED" &
+    BLURRED="$LOCK_DIR/$output-blurred.jpg"
+    ${lib.getExe grim} -t ppm -o "$output" - | ${lib.getExe imgblur} -f image2pipe - "$BLURRED" &
     SWAYLOCK_ARGS="$SWAYLOCK_ARGS -i $output:$BLURRED"
   done
   wait
 
-  ${lib.getExe niri-unstable} msg action do-screen-transition 2>/dev/null || true
-
-  # Run swaylock in foreground, clean up after unlock
   ${lib.getExe swaylock} $SWAYLOCK_ARGS
-  rm -rf "$LOCK_DIR"
 ''
