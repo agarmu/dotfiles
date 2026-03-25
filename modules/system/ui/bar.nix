@@ -49,7 +49,7 @@ in
 
       programs.waybar = {
         enable = true;
-        systemd.enable = false;
+        systemd.enable = true;
         settings.mainBar = {
           layer = "top";
           position = "top";
@@ -224,12 +224,5 @@ in
             @keyframes critical-blink { to { color: #${colors.base08}; } }
           '';
       };
-
-      # Spawn waybar per niri session so it restarts on re-entry.
-      programs.niri.settings.spawn-at-startup = lib.mkAfter [
-        {
-          argv = [ (lib.getExe pkgs.waybar) ];
-        }
-      ];
     };
 }
