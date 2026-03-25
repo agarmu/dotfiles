@@ -10,6 +10,8 @@
         enable = true;
       };
 
+      home.packages = [ pkgs.mukul.blurlock ];
+
       # swaylock
       programs.swaylock = {
         enable = true;
@@ -24,12 +26,12 @@
       services.swayidle = {
         enable = true;
         events = {
-          before-sleep = "${pkgs.bgutils}/bin/bgutils lock";
+          before-sleep = "blurlock";
         };
         timeouts = [
           {
             timeout = 30;
-            command = "${pkgs.bgutils}/bin/bgutils lock";
+            command = "blurlock";
           }
           {
             timeout = 90;

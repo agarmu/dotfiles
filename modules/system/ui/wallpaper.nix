@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 let
   wallpaper = {
     name = "firewatch-wide";
@@ -11,34 +11,22 @@ in
     { pkgs, ... }:
     let
       source = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
-      blurred = pkgs.runCommand "${wallpaper.name}-blurred" { } ''
-        mkdir -p $out
-        ${pkgs.bgutils}/bin/bgutils blur ${source} $out/blurred.png
-      '';
+      wallpaper-dir = pkgs.mukul.mkWallpaper { src = source; };
     in
     {
-      environment.etc."greeter-wallpaper".source = "${blurred}/blurred.png";
+      environment.etc."greeter-wallpaper".source = "${wallpaper-dir}/blurred.jpg";
     };
 
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     let
-      wname = "paper";
       source = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
-      blurred = pkgs.runCommand "${wname}-blurred" { } ''
-        mkdir -p $out
-        ${pkgs.bgutils}/bin/bgutils blur ${source} $out/blurred.png
-      '';
-      modulated = pkgs.runCommand "${wname}-modulated" { } ''
-        mkdir -p $out
-        ${pkgs.bgutils}/bin/bgutils modulate ${source} $out/modulated.png
-      '';
+      wallpaper-dir = pkgs.mukul.mkWallpaper { src = source; };
     in
     {
       xdg.dataFile = {
-        "wallpapers/${wallpaper.name}/base.png".source = source;
-        "wallpapers/${wallpaper.name}/blurred.png".source = "${blurred}/blurred.png";
-        "wallpapers/${wallpaper.name}/modulated.png".source = "${modulated}/modulated.png";
+        "wallpapers/${wallpaper.name}/base.png".source = "${wallpaper-dir}/original.jpg";
+        "wallpapers/${wallpaper.name}/blurred.png".source = "${wallpaper-dir}/blurred.jpg";
       };
 
       home.packages = with pkgs; [ swww ];
@@ -80,7 +68,7 @@ in
               "img"
               "-n"
               "bg"
-              "${source}"
+              "${wallpaper-dir}/original.jpg"
             ];
           }
           {
@@ -89,7 +77,7 @@ in
               "img"
               "-n"
               "overview"
-              "${blurred}/blurred.png"
+              "${wallpaper-dir}/blurred.jpg"
             ];
           }
         ];

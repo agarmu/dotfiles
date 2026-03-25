@@ -11,10 +11,7 @@ _: {
           "swaync-client"
           "-t"
         ];
-        "Mod+Alt+L".action.spawn = [
-          "${pkgs.bgutils}/bin/bgutils"
-          "lock"
-        ];
+        "Mod+Alt+L".action.spawn = [ "blurlock" ];
 
         "Mod+Shift+S".action.screenshot = [ ];
         "Mod+D".action.toggle-column-tabbed-display = [ ];
