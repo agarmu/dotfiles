@@ -2,7 +2,7 @@
 {
   flake.modules.nixos.base = {
     # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = lib.mkDefault true;
+    boot.loader.limine.enable = true;
     boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
 
     # enable silent booting + systemd logs
@@ -32,8 +32,6 @@
     imports = [
       inputs.apple-silicon.nixosModules.default
     ];
-    boot.loader.systemd-boot.enable = lib.mkForce true;
     boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
-    boot.plymouth.enable = true;
   };
 }
