@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 {
   /*
     Do NOT change package = pkgs.niri-unstable to pkgs.niri
@@ -39,7 +39,7 @@
       services.greetd = {
         enable = true;
         settings.default_session = {
-          command = greeter.command;
+          inherit (greeter) command;
           user = "greeter";
         };
       };

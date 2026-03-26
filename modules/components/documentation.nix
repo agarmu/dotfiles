@@ -1,15 +1,11 @@
 _: {
-  flake.modules.nixos.base =
-    { pkgs, ... }:
-    {
-      documentation.man.enable = true;
+  flake.modules.nixos.base = _: {
+    documentation.man.enable = true;
+  };
+  flake.modules.homeManager.base = _: {
+    programs.tealdeer = {
+      enable = true;
+      settings.updates.auto_update = true;
     };
-  flake.modules.homeManager.base =
-    { pkgs, ... }:
-    {
-      programs.tealdeer = {
-        enable = true;
-        settings.updates.auto_update = true;
-      };
-    };
+  };
 }

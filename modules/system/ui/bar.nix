@@ -43,7 +43,7 @@ let
 in
 {
   flake.modules.homeManager.nixosGui =
-    { config, pkgs, ... }:
+    { config, ... }:
     {
       stylix.targets.waybar.enable = false;
 
@@ -172,7 +172,7 @@ in
 
         style =
           let
-            colors = config.lib.stylix.colors;
+            inherit (config.lib.stylix) colors;
             modules = s: "${s ".modules-left"}, ${s ".modules-center"}, ${s ".modules-right"}";
             module = s: modules (m: "${m} > ${s} > *");
           in

@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.nixosGui =
     { pkgs, config, ... }:
