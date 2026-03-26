@@ -8,7 +8,6 @@ _: {
           ublock-origin
           bitwarden
           darkreader
-          libredirect
           consent-o-matic
           web-archives
           zotero-connector
