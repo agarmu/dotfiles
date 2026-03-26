@@ -7,6 +7,7 @@ _: {
     programs.kitty = {
       enable = true;
       settings = {
+        window_padding_width = "4";
         window_border_width = "0px";
         tab_bar_edge = "top";
         tab_bar_margin_width = "0.0";
