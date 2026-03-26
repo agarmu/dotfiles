@@ -1,7 +1,7 @@
 {
   lib,
   runCommand,
-  imgblur,
+  mukul,
 }:
 {
   src,
@@ -16,5 +16,5 @@ in
 runCommand effectiveName { } ''
   mkdir -p $out
   cp ${src} $out/original.${ext}
-  ${lib.getExe imgblur} ${src} $out/blurred.${ext}
+  ${lib.getExe mukul.imgblur} ${src} $out/blurred.${ext}
 ''

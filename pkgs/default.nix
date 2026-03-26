@@ -1,12 +1,17 @@
 pkgs:
 let
-  imgblur = pkgs.callPackage ./imgblur.nix { };
+  inherit (pkgs) lib;
+  packageFiles =
+    builtins.readDir ./.
+    |> builtins.attrNames
+    |> builtins.filter (f: f != "default.nix" && lib.hasSuffix ".nix" f);
 in
 {
-  mukul = {
-    inherit imgblur;
-    blurlock = pkgs.callPackage ./blurlock.nix { inherit imgblur; };
-    niri-greeter = pkgs.callPackage ./niri-greeter.nix { };
-    mkWallpaper = pkgs.callPackage ./wallpaper.nix { inherit imgblur; };
-  };
+  mukul =
+    packageFiles
+    |> map (file: {
+      name = lib.removeSuffix ".nix" file;
+      value = pkgs.callPackage ./${file} { };
+    })
+    |> lib.listToAttrs;
 }
