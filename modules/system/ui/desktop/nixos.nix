@@ -35,7 +35,7 @@
         satty
       ];
 
-      # greetd with niri-based greeter
+      # greetd with cage-based greeter
       services.greetd = {
         enable = true;
         settings.default_session = {
