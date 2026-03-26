@@ -1,6 +1,6 @@
 _: {
   flake.modules.homeManager.base =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
       xdg = {
         enable = true;
@@ -22,8 +22,6 @@ _: {
           videos = "${config.home.homeDirectory}/Videos";
         };
       };
-      home.shellAliases = {
-        "open" = "xdg-open";
-      };
+      home.packages = [ pkgs.mukul.open ];
     };
 }
