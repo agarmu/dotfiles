@@ -8,6 +8,10 @@
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    asahi-firmware = {
+      url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
+      flake = false;
+    };
     betterfox = {
       url = "github:HeitorAugustoLN/betterfox-nix";
       inputs = {
@@ -73,10 +77,6 @@
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    wheat-firmware = {
-      url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
-      flake = false;
     };
   };
 }

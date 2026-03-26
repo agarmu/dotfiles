@@ -28,10 +28,15 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  flake-file.inputs.asahi-firmware = {
+    url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
+    flake = false;
+  };
   flake.modules.nixos.asahi = {
     imports = [
       inputs.apple-silicon.nixosModules.default
     ];
     boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
+    hardware.asahi.peripheralFirmwareDirectory = "${inputs.asahi-firmware}";
   };
 }
