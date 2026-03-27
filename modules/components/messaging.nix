@@ -1,12 +1,9 @@
 _: {
   flake.modules.homeManager.gui =
     { pkgs, ... }:
-    let
-      slack =
-        if pkgs.stdenv.hostPlatform.isAarch64 && pkgs.stdenv.isLinux then pkgs.slacky else pkgs.slack;
-    in
+
     {
-      home.packages = [ slack ];
+      home.packages = with pkgs; lib.mkIf (lib.meta.availableOn stdenv.hostPlatform slack) [ slack ];
     };
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
