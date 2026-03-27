@@ -16,39 +16,57 @@
     inputs.nixpkgs-stable.follows = "nixpkgs";
   };
   flake.modules.nixos.gui =
-    { pkgs, config, ... }:
+    {
+      pkgs,
+      config,
+      lib,
+      ...
+    }:
     let
+      cfg = config.services.greetd.kittygreet;
       home-config = config.home-manager.users.mukul;
       kitty-config = toString home-config.xdg.configFile."kitty/kitty.conf".source;
-      greeter = pkgs.mukul.niri-greeter { kittyConfig = kitty-config; };
+      greeter = pkgs.mukul.kittygreet {
+        kittyConfig = kitty-config;
+        outputScale = cfg.outputScale;
+      };
     in
     {
+      options.services.greetd.kittygreet.outputScale = lib.mkOption {
+        type = lib.types.int;
+        default = 1;
+        description = "Output scale for the greeter display.";
+      };
+
       imports = [
         inputs.niri.nixosModules.niri
       ];
-      environment.systemPackages = with pkgs; [
-        kbd
-        wl-clipboard
-        xwayland
-        brightnessctl
-        grim
-        satty
-      ];
 
-      # greetd with cage-based greeter
-      services.greetd = {
-        enable = true;
-        settings.default_session = {
-          inherit (greeter) command;
-          user = "greeter";
+      config = {
+        environment.systemPackages = with pkgs; [
+          kbd
+          wl-clipboard
+          xwayland
+          brightnessctl
+          grim
+          satty
+        ];
+
+        # greetd with cage-based greeter
+        services.greetd = {
+          enable = true;
+          settings.default_session = {
+            inherit (greeter) command;
+            user = "greeter";
+          };
         };
-      };
 
-      security.pam.services.greetd.enableGnomeKeyring = true;
+        security.pam.services.greetd.enableGnomeKeyring = true;
 
-      programs.niri = {
-        enable = true;
-        package = pkgs.niri-unstable;
+        programs.niri = {
+          enable = true;
+          package = pkgs.niri-unstable;
+        };
       };
     };
 }
