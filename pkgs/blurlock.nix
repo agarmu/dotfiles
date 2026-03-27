@@ -2,8 +2,8 @@
   writeShellScriptBin,
   lib,
   mukul,
-  niri-unstable,
-  jq,
+  wlr-randr,
+  gnugrep,
   grim,
   swaylock,
   procps,
@@ -15,7 +15,7 @@ writeShellScriptBin "blurlock" ''
   LOCK_DIR=$(mktemp -d /tmp/locker-XXXXXX)
   SWAYLOCK_ARGS=""
 
-  for output in $(${lib.getExe niri-unstable} msg --json outputs | ${lib.getExe jq} -r '.[].name'); do
+  for output in $(${lib.getExe wlr-randr} | ${lib.getExe gnugrep} -oP '^\S+'); do
     BLURRED="$LOCK_DIR/$output-blurred.jpg"
     ${lib.getExe grim} -t ppm -o "$output" - | ${lib.getExe mukul.imgblur} -f image2pipe - "$BLURRED" &
     SWAYLOCK_ARGS="$SWAYLOCK_ARGS -i $output:$BLURRED"
