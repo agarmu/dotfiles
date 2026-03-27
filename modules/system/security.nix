@@ -9,6 +9,7 @@ _: {
       environment.systemPackages = with pkgs; [
         cacert
         libsecret # secret-tool CLI
+        libseccomp
       ];
 
       # sudo-rs: Rust reimplementation of sudo
