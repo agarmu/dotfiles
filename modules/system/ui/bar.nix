@@ -1,4 +1,4 @@
-{ lib, ... }:
+_:
 let
   icons = rec {
     calendar = "󰃭 ";
@@ -118,6 +118,7 @@ in
             format-disconnected = icons.network.disconnected;
             format-icons = icons.network.strength;
             tooltip-format = "{ipaddr}/{cidr}";
+            on-click = "pkill rofi || rofi-network-manager";
           };
 
           bluetooth = {
@@ -127,6 +128,7 @@ in
             tooltip-format = "{controller_alias}\n{num_connections} connected";
             tooltip-format-connected = "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}";
             tooltip-format-enumerate-connected = "{device_alias}";
+            on-click = "pkill rofi || rofi-bluetooth";
           };
 
           "bluetooth#battery" = {
@@ -173,56 +175,27 @@ in
         style =
           let
             inherit (config.lib.stylix) colors;
-            modules = s: "${s ".modules-left"}, ${s ".modules-center"}, ${s ".modules-right"}";
-            module = s: modules (m: "${m} > ${s} > *");
           in
-          ''
-            * {
-              border: none;
-              font-family: "${config.stylix.fonts.sansSerif.name}";
-              font-size: ${toString config.stylix.fonts.sizes.desktop}px;
-              color: #${colors.base07};
-            }
-            window#waybar {
-              background: transparent;
-              font-size: 2em;
-            }
-            ${modules lib.id} {
-              background: transparent;
-              margin: 3px 10px;
-            }
-            ${module "*"} {
-              margin: 3px 1px;
-              padding: 5px 7px;
-              background: #${colors.base00};
-            }
-            ${module ":first-child"} {
-              padding-left: 10px;
-              border-top-left-radius: 20px;
-              border-bottom-left-radius: 20px;
-            }
-            ${module ":last-child"} {
-              padding-right: 10px;
-              border-top-right-radius: 20px;
-              border-bottom-right-radius: 20px;
-            }
-            ${module ":not(:first-child)"} {
-              border-top-left-radius: 3px;
-              border-bottom-left-radius: 3px;
-            }
-            ${module ":not(:last-child)"} {
-              border-top-right-radius: 3px;
-              border-bottom-right-radius: 3px;
-            }
-            #wireplumber:not(.source).muted { color: #${colors.base0A}; }
-            #idle_inhibitor.activated { color: #${colors.base0A}; }
-            #battery.charging { color: #${colors.base0B}; }
-            #battery.warning:not(.charging) { color: #${colors.base0A}; }
-            #battery.critical:not(.charging) {
-              animation: critical-blink steps(8) 1s infinite alternate;
-            }
-            @keyframes critical-blink { to { color: #${colors.base08}; } }
-          '';
+          builtins.replaceStrings
+            [
+              "@fontFamily@"
+              "@fontSize@"
+              "@base00@"
+              "@base07@"
+              "@base08@"
+              "@base0A@"
+              "@base0B@"
+            ]
+            [
+              config.stylix.fonts.sansSerif.name
+              (toString config.stylix.fonts.sizes.desktop)
+              colors.base00
+              colors.base07
+              colors.base08
+              colors.base0A
+              colors.base0B
+            ]
+            (builtins.readFile ./bar.css);
       };
     };
 }

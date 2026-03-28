@@ -52,6 +52,8 @@
           satty
           wayland
           wdisplays
+          rofi-bluetooth
+          rofi-network-manager
         ];
 
         # greetd with cage-based greeter
