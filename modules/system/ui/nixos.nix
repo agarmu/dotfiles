@@ -50,6 +50,8 @@
           brightnessctl
           grim
           satty
+          wayland
+          wdisplays
         ];
 
         # greetd with cage-based greeter
