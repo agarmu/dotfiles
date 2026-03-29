@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake-file.inputs.statix = {
-    url = "github:oppiliappan/statix";
+    url = "github:molybdenumsoftware/statix";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.flake-parts.follows = "flake-parts";
   };

@@ -60,7 +60,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     statix = {
-      url = "github:oppiliappan/statix";
+      url = "github:molybdenumsoftware/statix";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
