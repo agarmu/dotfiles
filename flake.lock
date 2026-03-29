@@ -366,18 +366,6 @@
         "type": "github"
       }
     },
-    "mybase-blacklist": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-MwjxhAmLLgHsS3HTzoDILTT7aFDsaBMrVN3q34P/LLQ=",
-        "type": "file",
-        "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
-      }
-    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -568,7 +556,6 @@
         "gdb-dashboard": "gdb-dashboard",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
-        "mybase-blacklist": "mybase-blacklist",
         "niri": "niri",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
