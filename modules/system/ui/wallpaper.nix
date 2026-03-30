@@ -7,16 +7,6 @@ let
   };
 in
 {
-  flake.modules.nixos.gui =
-    { pkgs, ... }:
-    let
-      source = "${pkgs.pop-wallpapers}/share/backgrounds/pop/benjamin-voros-250200.jpg";
-      wallpaper-dir = pkgs.mukul.mkWallpaper { src = source; };
-    in
-    {
-      environment.etc."greeter-wallpaper".source = "${wallpaper-dir}/blurred.jpg";
-    };
-
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     let

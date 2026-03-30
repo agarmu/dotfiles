@@ -23,19 +23,14 @@
       ...
     }:
     let
-      cfg = config.services.greetd.kittygreet;
-      home-config = config.home-manager.users.mukul;
-      kitty-config = toString home-config.xdg.configFile."kitty/kitty.conf".source;
-      greeter = pkgs.mukul.kittygreet {
-        inherit (cfg) outputScale;
-        kittyConfig = kitty-config;
-      };
+      cfg = config.services.greetd.tuigreet;
+      niri-session-bin = "/run/current-system/sw/bin/niri-session";
     in
     {
-      options.services.greetd.kittygreet.outputScale = lib.mkOption {
+      options.services.greetd.tuigreet.windowPadding = lib.mkOption {
         type = lib.types.int;
-        default = 1;
-        description = "Output scale for the greeter display.";
+        default = 2;
+        description = "Window padding for tuigreet.";
       };
 
       imports = [
@@ -56,11 +51,10 @@
           rofi-network-manager
         ];
 
-        # greetd with cage-based greeter
         services.greetd = {
           enable = true;
           settings.default_session = {
-            inherit (greeter) command;
+            command = "${lib.getExe pkgs.tuigreet} --asterisks --remember --time --window-padding ${toString cfg.windowPadding} --cmd ${niri-session-bin}";
             user = "greeter";
           };
         };
@@ -73,4 +67,6 @@
         };
       };
     };
+
+  flake.modules.nixos.host-wheat.services.greetd.tuigreet.windowPadding = 4;
 }

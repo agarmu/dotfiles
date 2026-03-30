@@ -4,7 +4,6 @@
 }:
 {
   flake.modules.nixos.host-wheat = {
-    services.greetd.kittygreet.outputScale = 2;
     imports = with inputs.self.modules.nixos; [
       base
       gui
