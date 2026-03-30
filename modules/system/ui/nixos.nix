@@ -27,8 +27,8 @@
       home-config = config.home-manager.users.mukul;
       kitty-config = toString home-config.xdg.configFile."kitty/kitty.conf".source;
       greeter = pkgs.mukul.kittygreet {
+        inherit (cfg) outputScale;
         kittyConfig = kitty-config;
-        outputScale = cfg.outputScale;
       };
     in
     {

@@ -1,9 +1,7 @@
 _: {
-  flake.modules.homeManager.base =
-    { pkgs, ... }:
-    {
-      programs.yt-dlp.enable = true;
-    };
+  flake.modules.homeManager.base = _: {
+    programs.yt-dlp.enable = true;
+  };
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
