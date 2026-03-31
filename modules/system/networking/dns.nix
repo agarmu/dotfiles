@@ -11,14 +11,17 @@
 
     services.resolved = {
       enable = lib.mkForce true;
-      dnssec = "true";
-      dnsovertls = "true";
-      fallbackDns = [
-        "9.9.9.9"
-        "149.112.112.112"
-        "2620:fe::fe"
-        "2620:fe::9"
-      ];
+      settings.Resolve = {
+        DNSOverTLS = "true";
+        DNSSEC = "true";
+        FallbackDNS = [
+          "9.9.9.9"
+          "149.112.112.112"
+          "2620:fe::fe"
+          "2620:fe::9"
+        ];
+
+      };
     };
   };
 }
