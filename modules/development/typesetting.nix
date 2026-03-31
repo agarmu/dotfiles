@@ -11,15 +11,20 @@ _: {
           inherit (t) scheme-full;
         };
       };
-      programs.nixvim.plugins.lsp.servers.texlab.enable = true;
-      programs.nixvim.plugins.lsp.servers.ltex.enable = true;
-      programs.nixvim.plugins.lsp.servers.tinymist.enable = true;
+      programs.nixvim.plugins.lsp.servers = {
+        texlab.enable = true;
+        ltex.enable = true;
+        tinymist.enable = true;
+        marksman.enable = true;
+      };
       programs.zed-editor.extensions = [
         "latex"
         "typst"
       ];
       home.packages = with pkgs; [
-        texlab
+        texlab # LaTeX LSP
+        tinymist # Typst LSP
+        marksman # Markdown LSP
         ltex-ls # grammar/spell checking LSP (LanguageTool)
         tex-fmt # LaTeX formatter
         tectonic # self-contained LaTeX engine
