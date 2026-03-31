@@ -27,13 +27,13 @@ _: {
       plugins.lsp.enable = true;
       plugins.lualine = {
         enable = true;
-        settings.options.theme = "catppuccin";
       };
       colorschemes.catppuccin = {
         enable = true;
         settings = {
           flavour = "macchiato";
           transparent_background = true;
+          integrations.lualine = true;
         };
       };
     };
