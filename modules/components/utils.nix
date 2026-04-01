@@ -20,7 +20,7 @@ _: {
         tokei # code statistics
         fswatch # file system watcher
         grex # regex generator
-        xxd # hex editing
+        hexyl # hex editing
         killall # kill processes by nae
         bc # calculator
         chase # resolve symlinks
