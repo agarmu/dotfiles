@@ -29,19 +29,10 @@
         enable = true;
         enableCompletion = true;
       };
-
-      programs.fish = {
-        enable = true;
-      };
-      programs.nushell = {
-        enable = true;
-      };
       programs.starship = {
         enable = true;
         enableZshIntegration = true;
         enableBashIntegration = true;
-        enableFishIntegration = true;
-        enableNushellIntegration = true;
         settings = {
           add_newline = true;
           character = {
