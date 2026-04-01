@@ -7,7 +7,7 @@ _: {
         nix-output-monitor
         nix-diff
         nurl
-        nvd
+        dix
       ];
     };
 }
