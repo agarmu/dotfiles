@@ -152,6 +152,26 @@
         "type": "github"
       }
     },
+    "dots-private": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775013850,
+        "narHash": "sha256-sFt7eq61fEdDe5iXIxbAsFCMqF9JFsIWWbAq8Zkz+18=",
+        "ref": "refs/heads/main",
+        "rev": "4def94dfd81a44a8780d808fb9cedab2aa698de6",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/agarmu/dots-private.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/agarmu/dots-private.git"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -610,6 +630,7 @@
         "asahi-firmware": "asahi-firmware",
         "betterfox": "betterfox",
         "disko": "disko",
+        "dots-private": "dots-private",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "gdb-dashboard": "gdb-dashboard",
