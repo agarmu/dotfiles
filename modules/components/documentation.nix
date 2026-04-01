@@ -1,8 +1,9 @@
-_: {
+{ lib, ... }:
+{
   flake.modules.nixos.base.documentation = {
     man = {
       enable = true;
-      cache.enable = false;
+      cache.enable = lib.mkForce false;
     };
     nixos.enable = true;
     doc.enable = false;
