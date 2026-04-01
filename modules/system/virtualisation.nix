@@ -4,12 +4,17 @@ _: {
     {
       environment.systemPackages = with pkgs; [
         virtiofsd
+        devcontainer
       ];
 
       virtualisation.libvirtd = {
         enable = true;
         qemu.runAsRoot = false;
       };
-      users.users.mukul.extraGroups = [ "libvirtd" ];
+      virtualisation.docker.enable = true;
+      users.users.mukul.extraGroups = [
+        "libvirtd"
+        "docker"
+      ];
     };
 }
