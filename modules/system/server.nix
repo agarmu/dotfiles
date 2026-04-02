@@ -17,11 +17,14 @@ _: {
     services.fail2ban = {
       enable = true;
       maxretry = 5;
-      bantime = "1h";
+      bantime = "2h";
+      bantime-increment = {
+        rndtime = "8m";
+        factor = "3";
+      };
     };
 
     services.logrotate.enable = true;
-
     security.auditd.enable = true;
 
     # Open ports in the firewall.
