@@ -3,13 +3,17 @@ _: {
     programs.pandoc.enable = true;
   };
   flake.modules.homeManager.dev =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       programs.texlive = {
         enable = true;
         extraPackages = t: {
           inherit (t) scheme-full;
         };
+      };
+      programs.nixvim.plugins.vimtex = {
+        enable = true;
+        texlivePackage = config.programs.texlive.package;
       };
       programs.nixvim.plugins.lsp.servers = {
         texlab.enable = true;
