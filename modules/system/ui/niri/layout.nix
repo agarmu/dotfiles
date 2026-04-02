@@ -1,18 +1,8 @@
 _: {
   flake.modules.homeManager.nixosGui = _: {
     programs.niri.settings.layout = {
-      focus-ring = {
-        enable = true;
-        width = 10000;
-        active.color = "#00000033";
-        inactive.color = "transparent";
-      };
-      border = {
-        enable = false;
-        width = 4;
-        active.color = "#ffc87f";
-        inactive.color = "#505050";
-      };
+      focus-ring.enable = false;
+      border.enable = false;
       preset-column-widths = [
         { proportion = 1.0 / 3.0; }
         { proportion = 1.0 / 2.0; }
