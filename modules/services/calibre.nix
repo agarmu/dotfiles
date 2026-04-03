@@ -63,7 +63,7 @@ _: {
           volumes = [ "/var/lib/calibre-web:/config" ];
           extraOptions = [
             "--mount"
-            "type=bind,source=/mnt/calibre,target=/books,bind-propagation=slave"
+            "type=bind,source=/mnt/calibre,target=/calibre-library,bind-propagation=slave"
             "--publish"
             "127.0.0.1:8083:8083"
           ];
@@ -71,6 +71,7 @@ _: {
             PUID = "1000";
             PGID = "1000";
             TZ = "UTC";
+            NETWORK_SHARE_MODE = "true";
           };
         };
       };
