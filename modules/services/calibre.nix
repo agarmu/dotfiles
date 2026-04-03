@@ -9,11 +9,14 @@ _: {
       backend = "docker";
       containers."calibre-web-automated" = {
         image = "crocodilestick/calibre-web-automated:latest";
-        volumes = [
-          "/var/lib/calibre-web:/config"
-          "/var/lib/calibre/library:/calibre-library"
+        extraOptions = [
+          "--mount"
+          "type=bind,source=/var/lib/calibre-web,target=/config"
+          "--mount"
+          "type=bind,source=/var/lib/calibre/library,target=/calibre-library,bind-propagation=slave"
+          "--publish"
+          "127.0.0.1:8083:8083"
         ];
-        ports = [ "127.0.0.1:8083:8083" ];
         environment = {
           PUID = "1000";
           PGID = "1000";
