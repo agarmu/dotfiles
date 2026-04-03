@@ -18,21 +18,9 @@
   flake.modules.nixos.gui =
     {
       pkgs,
-      config,
-      lib,
       ...
     }:
-    let
-      cfg = config.services.greetd.tuigreet;
-      niri-session-bin = "/run/current-system/sw/bin/niri-session";
-    in
     {
-      options.services.greetd.tuigreet.windowPadding = lib.mkOption {
-        type = lib.types.int;
-        default = 2;
-        description = "Window padding for tuigreet.";
-      };
-
       imports = [
         inputs.niri.nixosModules.niri
       ];
@@ -41,7 +29,6 @@
         environment.systemPackages = with pkgs; [
           kbd
           wl-clipboard
-          xwayland
           brightnessctl
           grim
           satty
@@ -51,15 +38,10 @@
           rofi-network-manager
         ];
 
-        services.greetd = {
+        services.displayManager.gdm = {
           enable = true;
-          settings.default_session = {
-            command = "${lib.getExe pkgs.tuigreet} --asterisks --remember --time --window-padding ${toString cfg.windowPadding} --cmd ${niri-session-bin}";
-            user = "greeter";
-          };
+          wayland = true;
         };
-
-        security.pam.services.greetd.enableGnomeKeyring = true;
 
         programs.niri = {
           enable = true;
@@ -67,6 +49,4 @@
         };
       };
     };
-
-  flake.modules.nixos.host-wheat.services.greetd.tuigreet.windowPadding = 4;
 }
