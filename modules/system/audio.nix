@@ -1,15 +1,14 @@
 _: {
-  flake.modules.nixos.base =
+  flake.modules.nixos.base = {
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+  };
+  flake.modules.home.nixosGui =
     { pkgs, ... }:
     {
-      environment.systemPackages = with pkgs; [
-        pavucontrol
-      ];
-
-      security.rtkit.enable = true;
-      services.pipewire = {
-        enable = true;
-        pulse.enable = true;
-      };
+      home.packages = [ pkgs.easyeffects ];
     };
 }
