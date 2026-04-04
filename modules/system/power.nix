@@ -14,5 +14,6 @@
     { pkgs, ... }:
     {
       home.packages = lib.optionals pkgs.stdenv.isDarwin [ pkgs.coconutbattery ];
+      services.poweralertd.enable = true;
     };
 }
