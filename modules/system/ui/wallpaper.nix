@@ -2,7 +2,7 @@ _: {
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ swww ];
+      home.packages = with pkgs; [ awww ];
 
       programs.niri.settings = {
         overview.workspace-shadow.enable = false;
@@ -10,7 +10,7 @@ _: {
         layer-rules = [
           {
             matches = [
-              { namespace = "^swww.*$"; }
+              { namespace = "^awww.*$"; }
             ];
             place-within-backdrop = true;
           }
@@ -19,11 +19,9 @@ _: {
         spawn-at-startup = [
           {
             argv = [
-              "swww-daemon"
+              "awww-daemon"
               "-l"
               "background"
-              "-n"
-              "overview"
             ];
           }
         ];
