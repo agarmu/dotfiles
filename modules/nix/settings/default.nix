@@ -12,6 +12,8 @@ let
       in
       {
         use-xdg-base-directories = true;
+        narinfo-cache-negative-ttl = 600;
+        narinfo-cache-positive-ttl = 600;
         experimental-features = [
           "nix-command"
           "flakes"
