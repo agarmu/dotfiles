@@ -2,7 +2,7 @@
 {
   flake.modules.nixos.base = {
     # Use the systemd-boot EFI boot loader.
-    boot.loader.limine.enable = true;
+    boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
 
     # enable silent booting + systemd logs
