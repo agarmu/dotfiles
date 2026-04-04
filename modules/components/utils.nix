@@ -28,6 +28,7 @@ _: {
         fend
         grc
         trash-cli
+        gdu
       ];
     };
 }
