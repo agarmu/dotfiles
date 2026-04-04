@@ -47,6 +47,13 @@ in
     {
       stylix.targets.waybar.enable = false;
 
+      systemd.user.services.waybar = {
+        Unit = {
+          BindsTo = [ "niri.service" ];
+          After = [ "niri.service" ];
+        };
+      };
+
       programs.waybar = {
         enable = true;
         systemd.enable = true;
