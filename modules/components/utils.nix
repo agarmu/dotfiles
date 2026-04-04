@@ -3,9 +3,9 @@ _: {
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        uutils-coreutils-noprefix
-        uutils-findutils
-        uutils-diffutils
+        coreutils-full
+        findutils
+        diffutils
         moreutils # more utilities
         file # Gets file type
         which # Gets executable path
