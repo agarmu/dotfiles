@@ -34,6 +34,8 @@
           satty
           wayland
           wdisplays
+          rofi-bluetooth
+          rofi-network-manager
         ];
 
         services.displayManager.gdm = {

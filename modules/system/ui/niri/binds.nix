@@ -3,30 +3,14 @@ _: {
     programs.niri.settings.binds = {
       "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
-      "Mod+T" = {
-        hotkey-overlay.title = "Open Terminal";
-        action.spawn = [ "alacritty" ];
-      };
-      "Mod+Space" = {
-        hotkey-overlay.title = "Open Launcher";
-        action.spawn = [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "launcher"
-          "toggle"
-        ];
-      };
-      "Mod+N" = {
-        hotkey-overlay.title = "Show Notification History";
-        action.spawn = [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "notificationHistory"
-          "open"
-        ];
-      };
+      "Mod+T".action.spawn = [ "alacritty" ];
+      "Mod+Space".action.spawn-sh = "pkill rofi || rofi -show drun";
+      "Mod+N".action.spawn = [
+        "swaync-client"
+        "-t"
+      ];
+      "Mod+Alt+L".action.spawn = [ "blurlock" ];
+
       "Mod+Shift+S".action.screenshot = [ ];
       "Mod+D".action.toggle-column-tabbed-display = [ ];
 
@@ -158,7 +142,12 @@ _: {
       "Mod+Shift+Minus".action.set-window-height = "-10%";
       "Mod+Shift+Equal".action.set-window-height = "+10%";
 
+      "Print".action.screenshot = [ ];
+      "Ctrl+Print".action.screenshot-screen = [ ];
+      "Alt+Print".action.screenshot-window = [ ];
+
       "Mod+Shift+E".action.quit = [ ];
+      "Mod+Shift+P".action.power-off-monitors = [ ];
     };
   };
 }
