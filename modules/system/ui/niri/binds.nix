@@ -15,39 +15,32 @@ _: {
       "Mod+D".action.toggle-column-tabbed-display = [ ];
 
       "XF86AudioRaiseVolume".action.spawn = [
-        "wpctl"
-        "set-volume"
-        "@DEFAULT_AUDIO_SINK@"
-        "0.1+"
+        "volumectl"
+        "-u"
+        "up"
       ];
       "XF86AudioLowerVolume".action.spawn = [
-        "wpctl"
-        "set-volume"
-        "@DEFAULT_AUDIO_SINK@"
-        "0.1-"
+        "volumectl"
+        "-u"
+        "down"
       ];
       "XF86AudioMute".action.spawn = [
-        "wpctl"
-        "set-mute"
-        "@DEFAULT_AUDIO_SINK@"
-        "toggle"
+        "volumectl"
+        "toggle-mute"
       ];
       "XF86AudioMicMute".action.spawn = [
-        "wpctl"
-        "set-mute"
-        "@DEFAULT_AUDIO_SOURCE@"
-        "toggle"
+        "volumectl"
+        "-m"
+        "toggle-mute"
       ];
 
       "XF86MonBrightnessUp".action.spawn = [
-        "brightnessctl"
-        "set"
-        "10%+"
+        "lightctl"
+        "up"
       ];
       "XF86MonBrightnessDown".action.spawn = [
-        "brightnessctl"
-        "set"
-        "10%-"
+        "lightctl"
+        "down"
       ];
 
       "Mod+Q".action.close-window = [ ];
