@@ -2,7 +2,6 @@ _: {
   flake.modules.nixos.base = {
     # TODO
     services.libinput.enable = true;
-    services.seatd.enable = true;
   };
   flake.modules.darwin.base = {
     system.keyboard = {
