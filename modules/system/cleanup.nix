@@ -1,12 +1,20 @@
 _: {
   flake.modules.homeManager.nixosGui =
-    { lib, pkgs, ... }:
+    {
+      lib,
+      pkgs,
+      config,
+      ...
+    }:
     let
       trashPut = lib.getExe' pkgs.trash-cli "trash-put";
       trashEmpty = lib.getExe' pkgs.trash-cli "trash-empty";
       du = lib.getExe' pkgs.coreutils "du";
       find = lib.getExe pkgs.findutils;
       notify = lib.getExe pkgs.libnotify;
+      df = lib.getExe' pkgs.coreutils "df";
+      date = lib.getExe' pkgs.coreutils "date";
+      git = lib.getExe config.programs.git.package;
 
       mkService =
         {
@@ -142,6 +150,94 @@ _: {
             echo "Trash <= 1 GB — removing files older than 7 days"
             ${trashEmpty} 7
           fi
+        ''
+      )
+      (mkService
+        {
+          name = "notify-downloads";
+          description = "Notify about old files in Downloads";
+          trigger.timer = "weekly";
+        }
+        ''
+          set -euo pipefail
+          dir="$HOME/Downloads"
+          [ -d "$dir" ] || exit 0
+          count=$(${find} "$dir" -maxdepth 1 -mtime +30 -print | wc -l)
+          echo "Old downloads: $count"
+          if [ "$count" -gt 0 ]; then
+            ${notify} "Downloads" "$count file(s) older than 30 days — consider cleaning up ~/Downloads"
+          fi
+        ''
+      )
+
+      (mkService
+        {
+          name = "notify-disk-usage";
+          description = "Notify if home partition is over 90% full";
+          trigger.timer = "*:0/6";
+        }
+        ''
+          set -euo pipefail
+          usage=$(${df} --output=pcent "$HOME" | tail -1 | tr -d ' %')
+          echo "Home partition usage: ''${usage}%"
+          if [ "$usage" -gt 90 ]; then
+            ${notify} "Disk Space" "Home partition is ''${usage}% full"
+          fi
+        ''
+      )
+
+      (mkService
+        {
+          name = "clean-thumbnail-cache";
+          description = "Remove old thumbnails from cache";
+          trigger.timer = "weekly";
+        }
+        ''
+          set -euo pipefail
+          dir="$HOME/.cache/thumbnails"
+          [ -d "$dir" ] || exit 0
+          count=0
+          while IFS= read -r -d "" f; do
+            echo "Trashing: $f"
+            ${trashPut} "$f"
+            count=$((count + 1))
+          done < <(${find} "$dir" -type f -mtime +14 -print0)
+          echo "Trashed $count thumbnail(s)"
+        ''
+      )
+      (mkService
+        {
+          name = "clean-direnv-cache";
+          description = "Remove stale .direnv directories";
+          trigger.timer = "daily";
+        }
+        ''
+          set -euo pipefail
+          cutoff=$(( $(${date} +%s) - 7 * 86400 ))
+          count=0
+          while IFS= read -r -d "" d; do
+            project="''${d%/.direnv}"
+            recent_files=$(${find} "$project" -maxdepth 1 \
+              -newer "$d" -not -name ".direnv" | wc -l)
+            last_commit=$(${git} -C "$project" log -1 --format="%at" 2>/dev/null || echo 0)
+            if [ "$recent_files" -eq 0 ] && [ "$last_commit" -lt "$cutoff" ]; then
+              echo "Removing stale .direnv: $project"
+              rm -rf "$d"
+              count=$((count + 1))
+            fi
+          done < <(${find} "$HOME" -maxdepth 5 -name ".direnv" -type d -print0)
+          echo "Removed $count stale .direnv directories"
+        ''
+      )
+
+      (mkService
+        {
+          name = "posture-reminder";
+          description = "Periodic posture reminder";
+          trigger.timer = "*:0/30";
+        }
+        ''
+          ${notify} -u low "Posture check" "Sit up straight and relax your shoulders"
         ''
       )
     ];
