@@ -12,37 +12,63 @@ _: {
         {
           name,
           description,
-          frequency,
+          trigger,
         }:
-        script: {
-          systemd.user.services.${name} = {
-            Unit.Description = description;
-            Service = {
-              Type = "oneshot";
-              ExecStart = toString (pkgs.writeShellScript name script);
-              StandardOutput = "journal";
-              StandardError = "journal";
-              Restart = "on-failure";
-              RestartSec = "5min";
+        script:
+        let
+          triggerUnit =
+            if trigger ? timer then
+              {
+                systemd.user.timers.${name} = {
+                  Unit.Description = "${description} (timer)";
+                  Timer = {
+                    OnCalendar = trigger.timer;
+                    Persistent = true;
+                    RandomizedDelaySec = "30min";
+                  };
+                  Install.WantedBy = [ "timers.target" ];
+                };
+              }
+            else
+              {
+                systemd.user.paths.${name} = {
+                  Unit.Description = "${description} (path watcher)";
+                  Path = {
+                    PathChanged = trigger.path;
+                    MakeDirectory = true;
+                  };
+                  Install.WantedBy = [ "default.target" ];
+                };
+              };
+        in
+        lib.mkMerge [
+          {
+            systemd.user.services.${name} = {
+              Unit.Description = description;
+              Service = {
+                Type = "oneshot";
+                ExecStart = toString (pkgs.writeShellScript name script);
+                StandardOutput = "journal";
+                StandardError = "journal";
+                Restart = "on-failure";
+                RestartSec = "5min";
+              };
             };
-          };
-          systemd.user.timers.${name} = {
-            Unit.Description = "${description} (timer)";
-            Timer = {
-              OnCalendar = frequency;
-              Persistent = true;
-              RandomizedDelaySec = "30min";
-            };
-            Install.WantedBy = [ "timers.target" ];
-          };
-        };
+          }
+          triggerUnit
+        ]
+        |> builtins.seq (
+          lib.assertMsg (
+            (trigger ? timer) != (trigger ? path)
+          ) "mkService '${name}': specify exactly one of trigger.timer or trigger.path"
+        );
     in
     lib.mkMerge [
       (mkService
         {
           name = "trash-screenshots";
           description = "Move old screenshots to trash";
-          frequency = "daily";
+          trigger.timer = "daily";
         }
         ''
           set -euo pipefail
@@ -62,7 +88,7 @@ _: {
         {
           name = "trash-downloads";
           description = "Move old downloads to trash";
-          frequency = "weekly";
+          trigger.timer = "weekly";
         }
         ''
           set -euo pipefail
@@ -82,7 +108,7 @@ _: {
         {
           name = "notify-trash-size";
           description = "Notify if trash exceeds 1 GB";
-          frequency = "daily";
+          trigger.path = "%h/.local/share/Trash/files";
         }
         ''
           set -euo pipefail
@@ -101,7 +127,7 @@ _: {
         {
           name = "empty-trash";
           description = "Remove old files from trash";
-          frequency = "daily";
+          trigger.timer = "daily";
         }
         ''
           set -euo pipefail
