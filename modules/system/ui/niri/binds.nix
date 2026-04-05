@@ -9,7 +9,7 @@ _: {
       };
       "Mod+Space" = {
         hotkey-overlay.title = "Launcher";
-        action.spawn = [ "fuzzel" ];
+        action.spawn-sh = [ "pkill fuzzel || fuzzel" ];
       };
       "Mod+N" = {
         hotkey-overlay.title = "Notifications";
