@@ -8,7 +8,14 @@ _: {
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ vesktop ];
+      home.packages = with pkgs; [
+        vesktop
+        (weechat.override {
+          configure = _: {
+            scripts = with weechatScripts; [ wee-slack ];
+          };
+        })
+      ];
     };
   flake.modules.darwin.gui = _: {
     homebrew.casks = [ "vesktop" ];
