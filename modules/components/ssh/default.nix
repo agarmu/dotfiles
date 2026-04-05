@@ -5,6 +5,7 @@ _: {
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
+      services.ssh-agent.enable = true;
       home.packages = with pkgs; [ mosh ];
       programs.ssh = {
         enable = true;

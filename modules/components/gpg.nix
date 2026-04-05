@@ -8,7 +8,6 @@
       };
       services.gpg-agent = {
         enable = true;
-        enableSshSupport = true;
         # todo --- better way ?
         enableBashIntegration = true;
         enableZshIntegration = true;
