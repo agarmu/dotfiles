@@ -125,7 +125,6 @@ in
             format-disconnected = icons.network.disconnected;
             format-icons = icons.network.strength;
             tooltip-format = "{ipaddr}/{cidr}";
-            on-click = "pkill rofi || rofi-network-manager";
           };
 
           bluetooth = {
@@ -135,7 +134,6 @@ in
             tooltip-format = "{controller_alias}\n{num_connections} connected";
             tooltip-format-connected = "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}";
             tooltip-format-enumerate-connected = "{device_alias}";
-            on-click = "pkill rofi || rofi-bluetooth";
           };
 
           "bluetooth#battery" = {

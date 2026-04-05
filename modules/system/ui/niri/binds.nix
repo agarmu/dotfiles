@@ -3,65 +3,128 @@ _: {
     programs.niri.settings.binds = {
       "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
-      "Mod+T".action.spawn = [ "alacritty" ];
-      "Mod+Space".action.spawn-sh = "pkill rofi || rofi -show drun";
-      "Mod+N".action.spawn = [
-        "swaync-client"
-        "-t"
-      ];
-      "Mod+Alt+L".action.spawn = [ "blurlock" ];
+      "Mod+T" = {
+        hotkey-overlay.title = "Terminal";
+        action.spawn = [ "alacritty" ];
+      };
+      "Mod+Space" = {
+        hotkey-overlay.title = "Launcher";
+        action.spawn = [ "fuzzel" ];
+      };
+      "Mod+N" = {
+        hotkey-overlay.title = "Notifications";
+        action.spawn = [
+          "swaync-client"
+          "-t"
+        ];
+      };
+      "Mod+Alt+L" = {
+        hotkey-overlay.title = "Lock screen";
+        action.spawn = [ "blurlock" ];
+      };
 
-      "Mod+Shift+S".action.screenshot = [ ];
-      "Mod+D".action.toggle-column-tabbed-display = [ ];
+      "Mod+Shift+S" = {
+        hotkey-overlay.title = "Screenshot";
+        action.screenshot = [ ];
+      };
+      "Mod+D" = {
+        hotkey-overlay.title = "Toggle tabbed";
+        action.toggle-column-tabbed-display = [ ];
+      };
 
-      "XF86AudioRaiseVolume".action.spawn = [
-        "volumectl"
-        "-u"
-        "up"
-      ];
-      "XF86AudioLowerVolume".action.spawn = [
-        "volumectl"
-        "-u"
-        "down"
-      ];
-      "XF86AudioMute".action.spawn = [
-        "volumectl"
-        "toggle-mute"
-      ];
-      "XF86AudioMicMute".action.spawn = [
-        "volumectl"
-        "-m"
-        "toggle-mute"
-      ];
+      "XF86AudioRaiseVolume" = {
+        hotkey-overlay.title = "Volume up";
+        action.spawn = [
+          "volumectl"
+          "-u"
+          "up"
+        ];
+      };
+      "XF86AudioLowerVolume" = {
+        hotkey-overlay.title = "Volume down";
+        action.spawn = [
+          "volumectl"
+          "-u"
+          "down"
+        ];
+      };
+      "XF86AudioMute" = {
+        hotkey-overlay.title = "Mute";
+        action.spawn = [
+          "volumectl"
+          "toggle-mute"
+        ];
+      };
+      "XF86AudioMicMute" = {
+        hotkey-overlay.title = "Mic mute";
+        action.spawn = [
+          "volumectl"
+          "-m"
+          "toggle-mute"
+        ];
+      };
 
-      "XF86MonBrightnessUp".action.spawn = [
-        "lightctl"
-        "up"
-      ];
-      "XF86MonBrightnessDown".action.spawn = [
-        "lightctl"
-        "down"
-      ];
+      "XF86MonBrightnessUp" = {
+        hotkey-overlay.title = "Brightness up";
+        action.spawn = [
+          "lightctl"
+          "up"
+        ];
+      };
+      "XF86MonBrightnessDown" = {
+        hotkey-overlay.title = "Brightness down";
+        action.spawn = [
+          "lightctl"
+          "down"
+        ];
+      };
 
-      "Mod+Q".action.close-window = [ ];
+      "Mod+Q" = {
+        hotkey-overlay.title = "Close window";
+        action.close-window = [ ];
+      };
 
       "Mod+Left".action.focus-column-left = [ ];
       "Mod+Down".action.focus-window-down = [ ];
       "Mod+Up".action.focus-window-up = [ ];
       "Mod+Right".action.focus-column-right = [ ];
-      "Mod+H".action.focus-column-left = [ ];
-      "Mod+J".action.focus-window-down = [ ];
-      "Mod+K".action.focus-window-up = [ ];
-      "Mod+L".action.focus-column-right = [ ];
+      "Mod+H" = {
+        hotkey-overlay.title = "Focus left";
+        action.focus-column-left = [ ];
+      };
+      "Mod+J" = {
+        hotkey-overlay.title = "Focus down";
+        action.focus-window-down = [ ];
+      };
+      "Mod+K" = {
+        hotkey-overlay.title = "Focus up";
+        action.focus-window-up = [ ];
+      };
+      "Mod+L" = {
+        hotkey-overlay.title = "Focus right";
+        action.focus-column-right = [ ];
+      };
 
       "Mod+Ctrl+Left".action.move-column-left = [ ];
       "Mod+Ctrl+Down".action.move-window-down = [ ];
       "Mod+Ctrl+Up".action.move-window-up = [ ];
       "Mod+Ctrl+Right".action.move-column-right = [ ];
-      "Mod+Ctrl+H".action.move-column-left = [ ];
-      "Mod+Ctrl+J".action.move-window-down = [ ];
-      "Mod+Ctrl+K".action.move-window-up = [ ];
-      "Mod+Ctrl+L".action.move-column-right = [ ];
+      "Mod+Ctrl+H" = {
+        hotkey-overlay.title = "Move column left";
+        action.move-column-left = [ ];
+      };
+      "Mod+Ctrl+J" = {
+        hotkey-overlay.title = "Move window down";
+        action.move-window-down = [ ];
+      };
+      "Mod+Ctrl+K" = {
+        hotkey-overlay.title = "Move window up";
+        action.move-window-up = [ ];
+      };
+      "Mod+Ctrl+L" = {
+        hotkey-overlay.title = "Move column right";
+        action.move-column-right = [ ];
+      };
 
       "Mod+Home".action.focus-column-first = [ ];
       "Mod+End".action.focus-column-last = [ ];
@@ -72,34 +135,76 @@ _: {
       "Mod+Shift+Down".action.focus-monitor-down = [ ];
       "Mod+Shift+Up".action.focus-monitor-up = [ ];
       "Mod+Shift+Right".action.focus-monitor-right = [ ];
-      "Mod+Shift+H".action.focus-monitor-left = [ ];
-      "Mod+Shift+J".action.focus-monitor-down = [ ];
-      "Mod+Shift+K".action.focus-monitor-up = [ ];
-      "Mod+Shift+L".action.focus-monitor-right = [ ];
+      "Mod+Shift+H" = {
+        hotkey-overlay.title = "Focus monitor left";
+        action.focus-monitor-left = [ ];
+      };
+      "Mod+Shift+J" = {
+        hotkey-overlay.title = "Focus monitor down";
+        action.focus-monitor-down = [ ];
+      };
+      "Mod+Shift+K" = {
+        hotkey-overlay.title = "Focus monitor up";
+        action.focus-monitor-up = [ ];
+      };
+      "Mod+Shift+L" = {
+        hotkey-overlay.title = "Focus monitor right";
+        action.focus-monitor-right = [ ];
+      };
 
       "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [ ];
       "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [ ];
       "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [ ];
       "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [ ];
-      "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [ ];
-      "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [ ];
-      "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [ ];
-      "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [ ];
+      "Mod+Shift+Ctrl+H" = {
+        hotkey-overlay.title = "Move to monitor left";
+        action.move-column-to-monitor-left = [ ];
+      };
+      "Mod+Shift+Ctrl+J" = {
+        hotkey-overlay.title = "Move to monitor down";
+        action.move-column-to-monitor-down = [ ];
+      };
+      "Mod+Shift+Ctrl+K" = {
+        hotkey-overlay.title = "Move to monitor up";
+        action.move-column-to-monitor-up = [ ];
+      };
+      "Mod+Shift+Ctrl+L" = {
+        hotkey-overlay.title = "Move to monitor right";
+        action.move-column-to-monitor-right = [ ];
+      };
 
       "Mod+Page_Down".action.focus-workspace-down = [ ];
       "Mod+Page_Up".action.focus-workspace-up = [ ];
-      "Mod+U".action.focus-workspace-down = [ ];
-      "Mod+I".action.focus-workspace-up = [ ];
+      "Mod+U" = {
+        hotkey-overlay.title = "Workspace down";
+        action.focus-workspace-down = [ ];
+      };
+      "Mod+I" = {
+        hotkey-overlay.title = "Workspace up";
+        action.focus-workspace-up = [ ];
+      };
 
       "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [ ];
       "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [ ];
-      "Mod+Ctrl+U".action.move-column-to-workspace-down = [ ];
-      "Mod+Ctrl+I".action.move-column-to-workspace-up = [ ];
+      "Mod+Ctrl+U" = {
+        hotkey-overlay.title = "Move to workspace down";
+        action.move-column-to-workspace-down = [ ];
+      };
+      "Mod+Ctrl+I" = {
+        hotkey-overlay.title = "Move to workspace up";
+        action.move-column-to-workspace-up = [ ];
+      };
 
       "Mod+Shift+Page_Down".action.move-workspace-down = [ ];
       "Mod+Shift+Page_Up".action.move-workspace-up = [ ];
-      "Mod+Shift+U".action.move-workspace-down = [ ];
-      "Mod+Shift+I".action.move-workspace-up = [ ];
+      "Mod+Shift+U" = {
+        hotkey-overlay.title = "Shift workspace down";
+        action.move-workspace-down = [ ];
+      };
+      "Mod+Shift+I" = {
+        hotkey-overlay.title = "Shift workspace up";
+        action.move-workspace-up = [ ];
+      };
 
       "Mod+1".action.focus-workspace = 1;
       "Mod+2".action.focus-workspace = 2;
@@ -121,26 +226,71 @@ _: {
       "Mod+Ctrl+8".action.move-column-to-workspace = 8;
       "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
-      "Mod+Comma".action.consume-window-into-column = [ ];
-      "Mod+Period".action.expel-window-from-column = [ ];
+      "Mod+Comma" = {
+        hotkey-overlay.title = "Consume into column";
+        action.consume-window-into-column = [ ];
+      };
+      "Mod+Period" = {
+        hotkey-overlay.title = "Expel from column";
+        action.expel-window-from-column = [ ];
+      };
 
-      "Mod+R".action.switch-preset-column-width = [ ];
-      "Mod+F".action.maximize-column = [ ];
-      "Mod+Shift+F".action.fullscreen-window = [ ];
-      "Mod+C".action.center-column = [ ];
+      "Mod+R" = {
+        hotkey-overlay.title = "Cycle column width";
+        action.switch-preset-column-width = [ ];
+      };
+      "Mod+F" = {
+        hotkey-overlay.title = "Maximize column";
+        action.maximize-column = [ ];
+      };
+      "Mod+Shift+F" = {
+        hotkey-overlay.title = "Fullscreen";
+        action.fullscreen-window = [ ];
+      };
+      "Mod+C" = {
+        hotkey-overlay.title = "Center column";
+        action.center-column = [ ];
+      };
 
-      "Mod+Minus".action.set-column-width = "-10%";
-      "Mod+Equal".action.set-column-width = "+10%";
+      "Mod+Minus" = {
+        hotkey-overlay.title = "Shrink column";
+        action.set-column-width = "-10%";
+      };
+      "Mod+Equal" = {
+        hotkey-overlay.title = "Grow column";
+        action.set-column-width = "+10%";
+      };
 
-      "Mod+Shift+Minus".action.set-window-height = "-10%";
-      "Mod+Shift+Equal".action.set-window-height = "+10%";
+      "Mod+Shift+Minus" = {
+        hotkey-overlay.title = "Shrink window";
+        action.set-window-height = "-10%";
+      };
+      "Mod+Shift+Equal" = {
+        hotkey-overlay.title = "Grow window";
+        action.set-window-height = "+10%";
+      };
 
-      "Print".action.screenshot = [ ];
-      "Ctrl+Print".action.screenshot-screen = [ ];
-      "Alt+Print".action.screenshot-window = [ ];
+      "Print" = {
+        hotkey-overlay.title = "Screenshot";
+        action.screenshot = [ ];
+      };
+      "Ctrl+Print" = {
+        hotkey-overlay.title = "Screenshot screen";
+        action.screenshot-screen = [ ];
+      };
+      "Alt+Print" = {
+        hotkey-overlay.title = "Screenshot window";
+        action.screenshot-window = [ ];
+      };
 
-      "Mod+Shift+E".action.quit = [ ];
-      "Mod+Shift+P".action.power-off-monitors = [ ];
+      "Mod+Shift+E" = {
+        hotkey-overlay.title = "Quit";
+        action.quit = [ ];
+      };
+      "Mod+Shift+P" = {
+        hotkey-overlay.title = "Power off monitors";
+        action.power-off-monitors = [ ];
+      };
     };
   };
 }
