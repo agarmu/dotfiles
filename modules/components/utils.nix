@@ -29,6 +29,7 @@ _: {
         grc
         trash-cli
         gdu
+        pkgs.mukul.why
       ];
     };
 }
