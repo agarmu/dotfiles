@@ -1,4 +1,5 @@
-_: {
+{ lib, ... }:
+{
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
@@ -18,10 +19,13 @@ _: {
 
       # Soteria: freedesktop security agent for Wayland
       security.soteria.enable = true;
-
       # GNOME Keyring
       services.gnome.gnome-keyring.enable = true;
     };
+  flake.modules.homeManager.nixosGui = {
+    # we use soteria instead.
+    systemd.niri-flake-polkit.service.wantedBy = lib.mkForce [ ];
+  };
   flake.modules.darwin.base = {
     security.pam.services.sudo_local = {
       enable = true;
