@@ -30,6 +30,7 @@ _: {
         trash-cli
         gdu
         pkgs.mukul.why
+        pciutils # pci devices
       ];
     };
 }
