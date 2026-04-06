@@ -18,6 +18,7 @@
   flake.modules.nixos.gui =
     {
       pkgs,
+      config,
       ...
     }:
     {
@@ -34,22 +35,19 @@
           satty
           wayland
           wdisplays
-          pkgs.mukul.pixie-sddm
-          kdePackages.qtdeclarative
-          kdePackages.qtsvg
+          mukul.pixie-sddm
+          config.stylix.cursor.package
         ];
-
-        # required explicitly: SDDM needs either xserver or wayland enabled,
-        # and wayland mode is broken (kwin has no mouse, weston has no easy HiDPI).
-        services.xserver.enable = true;
-
-        services.xserver.displayManager.setupCommands = ''
-          xrandr --output $(xrandr | awk '/ connected/{print $1; exit}') --scale 0.5x0.5
-        '';
 
         services.displayManager.sddm = {
           enable = true;
+          wayland.enable = true;
+          wayland.compositor = "kwin";
           theme = "pixie";
+          settings.Theme = {
+            CursorTheme = config.stylix.cursor.name;
+            CursorSize = config.stylix.cursor.size;
+          };
         };
         programs.niri = {
           enable = true;
