@@ -43,6 +43,9 @@
           enable = true;
           wayland.enable = true;
           theme = "pixie";
+          # see: https://www.reddit.com/r/kde/comments/1oyfs61/how_do_i_change_the_scaling_of_the_sddm_login/
+          # ideally, this should be done automatically (e.g., using kwin), but kwin mouse support is broken.
+          settings.General.GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192";
         };
         programs.niri = {
           enable = true;
