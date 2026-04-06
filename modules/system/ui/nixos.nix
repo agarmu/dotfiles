@@ -34,13 +34,16 @@
           satty
           wayland
           wdisplays
+          pkgs.mukul.pixie-sddm
+          kdePackages.qtdeclarative
+          kdePackages.qtsvg
         ];
 
-        services.displayManager.gdm = {
+        services.displayManager.sddm = {
           enable = true;
-          wayland = true;
+          wayland.enable = true;
+          theme = "pixie";
         };
-
         programs.niri = {
           enable = true;
           package = pkgs.niri-unstable;
