@@ -28,7 +28,7 @@ _: {
         };
       };
       xdg.mimeApps.defaultApplications = {
-        "application/pdf" = [ "okular.desktop" ];
+        "application/pdf" = [ "org.kde.okular.desktop" ];
       };
     };
 }
