@@ -24,7 +24,7 @@
     };
   flake.modules.homeManager.nixosGui = {
     # we use soteria instead.
-    systemd.niri-flake-polkit.service.wantedBy = lib.mkForce [ ];
+    systemd.user.services.niri-flake-polkit.Install.WantedBy = lib.mkForce [ ];
   };
   flake.modules.darwin.base = {
     security.pam.services.sudo_local = {
