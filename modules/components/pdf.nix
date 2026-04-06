@@ -13,10 +13,13 @@ _: {
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ pdfarranger ];
+      home.packages = with pkgs; [
+        pdfarranger
+        kdePackages.okular
+      ];
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
-        enable = true;
+        enable = false;
         config = {
           should_launch_new_window = "1";
           page_separator_width = "5";
@@ -25,7 +28,7 @@ _: {
         };
       };
       xdg.mimeApps.defaultApplications = {
-        "application/pdf" = [ "sioyek.desktop" ];
+        "application/pdf" = [ "okular.desktop" ];
       };
     };
 }
