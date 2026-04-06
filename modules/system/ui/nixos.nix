@@ -43,10 +43,12 @@
         # and wayland mode is broken (kwin has no mouse, weston has no easy HiDPI).
         services.xserver.enable = true;
 
+        services.xserver.displayManager.setupCommands = ''
+          xrandr --output $(xrandr | awk '/ connected/{print $1; exit}') --scale 0.5x0.5
+        '';
+
         services.displayManager.sddm = {
           enable = true;
-          # see: https://www.reddit.com/r/kde/comments/1oyfs61/how_do_i_change_the_scaling_of_the_sddm_login/
-          settings.General.GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192";
           theme = "pixie";
         };
         programs.niri = {
