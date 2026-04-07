@@ -27,57 +27,56 @@ _: {
         hotkey-overlay.title = "Screenshot";
         action.screenshot = [ ];
       };
+      "Mod+Shift+Ctrl+S" = {
+        hotkey-overlay.title = "Screenshot window";
+        action.screenshot-window = [ ];
+      };
       "Mod+D" = {
         hotkey-overlay.title = "Toggle tabbed";
         action.toggle-column-tabbed-display = [ ];
       };
 
-      "XF86AudioRaiseVolume" = {
-        hotkey-overlay.title = "Volume up";
-        action.spawn = [
-          "volumectl"
-          "-u"
-          "up"
-        ];
-      };
-      "XF86AudioLowerVolume" = {
-        hotkey-overlay.title = "Volume down";
-        action.spawn = [
-          "volumectl"
-          "-u"
-          "down"
-        ];
-      };
-      "XF86AudioMute" = {
-        hotkey-overlay.title = "Mute";
-        action.spawn = [
-          "volumectl"
-          "toggle-mute"
-        ];
-      };
-      "XF86AudioMicMute" = {
-        hotkey-overlay.title = "Mic mute";
-        action.spawn = [
-          "volumectl"
-          "-m"
-          "toggle-mute"
-        ];
-      };
-
-      "XF86MonBrightnessUp" = {
-        hotkey-overlay.title = "Brightness up";
-        action.spawn = [
-          "lightctl"
-          "up"
-        ];
-      };
-      "XF86MonBrightnessDown" = {
-        hotkey-overlay.title = "Brightness down";
-        action.spawn = [
-          "lightctl"
-          "down"
-        ];
-      };
+      "XF86AudioRaiseVolume".action.spawn = [
+        "volumectl"
+        "-u"
+        "up"
+      ];
+      "XF86AudioLowerVolume".action.spawn = [
+        "volumectl"
+        "-u"
+        "down"
+      ];
+      "XF86AudioMute".action.spawn = [
+        "volumectl"
+        "toggle-mute"
+      ];
+      "XF86AudioMicMute".action.spawn = [
+        "volumectl"
+        "-m"
+        "toggle-mute"
+      ];
+      "XF86AudioNext".action.spawn = [
+        "playerctl"
+        "next"
+      ];
+      "XF86AudioPrev".action.spawn = [
+        "playerctl"
+        "previous"
+      ];
+      "XF86AudioPlay".action.spawn = [
+        "playerctl"
+        "play-pause"
+      ];
+      "XF86MonBrightnessUp".action.spawn = [
+        "lightctl"
+        "up"
+      ];
+      "XF86MonBrightnessDown".action.spawn = [
+        "lightctl"
+        "down"
+      ];
+      "XF86LaunchA".action.spawn-sh = [ "pkill fuzzel || fuzzel" ];
+      "XF86Sleep".action.spawn = [ "blurlock" ];
 
       "Mod+Q" = {
         hotkey-overlay.title = "Close window";
@@ -126,55 +125,6 @@ _: {
         action.move-column-right = [ ];
       };
 
-      "Mod+Home".action.focus-column-first = [ ];
-      "Mod+End".action.focus-column-last = [ ];
-      "Mod+Ctrl+Home".action.move-column-to-first = [ ];
-      "Mod+Ctrl+End".action.move-column-to-last = [ ];
-
-      "Mod+Shift+Left".action.focus-monitor-left = [ ];
-      "Mod+Shift+Down".action.focus-monitor-down = [ ];
-      "Mod+Shift+Up".action.focus-monitor-up = [ ];
-      "Mod+Shift+Right".action.focus-monitor-right = [ ];
-      "Mod+Shift+H" = {
-        hotkey-overlay.title = "Focus monitor left";
-        action.focus-monitor-left = [ ];
-      };
-      "Mod+Shift+J" = {
-        hotkey-overlay.title = "Focus monitor down";
-        action.focus-monitor-down = [ ];
-      };
-      "Mod+Shift+K" = {
-        hotkey-overlay.title = "Focus monitor up";
-        action.focus-monitor-up = [ ];
-      };
-      "Mod+Shift+L" = {
-        hotkey-overlay.title = "Focus monitor right";
-        action.focus-monitor-right = [ ];
-      };
-
-      "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [ ];
-      "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [ ];
-      "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [ ];
-      "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [ ];
-      "Mod+Shift+Ctrl+H" = {
-        hotkey-overlay.title = "Move to monitor left";
-        action.move-column-to-monitor-left = [ ];
-      };
-      "Mod+Shift+Ctrl+J" = {
-        hotkey-overlay.title = "Move to monitor down";
-        action.move-column-to-monitor-down = [ ];
-      };
-      "Mod+Shift+Ctrl+K" = {
-        hotkey-overlay.title = "Move to monitor up";
-        action.move-column-to-monitor-up = [ ];
-      };
-      "Mod+Shift+Ctrl+L" = {
-        hotkey-overlay.title = "Move to monitor right";
-        action.move-column-to-monitor-right = [ ];
-      };
-
-      "Mod+Page_Down".action.focus-workspace-down = [ ];
-      "Mod+Page_Up".action.focus-workspace-up = [ ];
       "Mod+U" = {
         hotkey-overlay.title = "Workspace down";
         action.focus-workspace-down = [ ];
@@ -184,8 +134,6 @@ _: {
         action.focus-workspace-up = [ ];
       };
 
-      "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [ ];
-      "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [ ];
       "Mod+Ctrl+U" = {
         hotkey-overlay.title = "Move to workspace down";
         action.move-column-to-workspace-down = [ ];
@@ -195,8 +143,6 @@ _: {
         action.move-column-to-workspace-up = [ ];
       };
 
-      "Mod+Shift+Page_Down".action.move-workspace-down = [ ];
-      "Mod+Shift+Page_Up".action.move-workspace-up = [ ];
       "Mod+Shift+U" = {
         hotkey-overlay.title = "Shift workspace down";
         action.move-workspace-down = [ ];
@@ -268,19 +214,6 @@ _: {
       "Mod+Shift+Equal" = {
         hotkey-overlay.title = "Grow window";
         action.set-window-height = "+10%";
-      };
-
-      "Print" = {
-        hotkey-overlay.title = "Screenshot";
-        action.screenshot = [ ];
-      };
-      "Ctrl+Print" = {
-        hotkey-overlay.title = "Screenshot screen";
-        action.screenshot-screen = [ ];
-      };
-      "Alt+Print" = {
-        hotkey-overlay.title = "Screenshot window";
-        action.screenshot-window = [ ];
       };
 
       "Mod+Shift+E" = {
