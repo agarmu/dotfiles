@@ -8,7 +8,7 @@
   name ? null,
 }:
 let
-  basename = builtins.baseNameOf (builtins.toString src);
+  basename = baseNameOf (toString src);
   ext = lib.last (lib.splitString "." basename);
   stem = lib.removeSuffix ".${ext}" basename;
   effectiveName = if name != null then name else stem;

@@ -15,7 +15,7 @@ in
 {
   mukul =
     packageDefs
-    |> builtins.map (pkg: {
+    |> map (pkg: {
       inherit (pkg) name;
       value = pkgs.callPackage pkg.path { };
     })
