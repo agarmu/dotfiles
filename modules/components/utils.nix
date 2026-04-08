@@ -31,6 +31,7 @@ _: {
         gdu
         pkgs.mukul.why
         pciutils # pci devices
+        pkgs.mukul.kent
       ];
     };
 }
