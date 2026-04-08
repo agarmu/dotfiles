@@ -34,4 +34,10 @@
         dev.enable = true;
       };
     };
+  flake.modules.homeManager.base = {
+    programs.man = {
+      enable = true;
+      generateCaches = true;
+    };
+  };
 }
