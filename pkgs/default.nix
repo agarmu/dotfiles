@@ -1,17 +1,23 @@
 pkgs:
 let
   inherit (pkgs) lib;
-  packageFiles =
+  packageDefs =
     builtins.readDir ./.
-    |> builtins.attrNames
-    |> builtins.filter (f: f != "default.nix" && lib.hasSuffix ".nix" f);
+    |> lib.mapAttrsToList (
+      dir: kind:
+      lib.optional (kind == "directory" && builtins.pathExists (./. + "/${dir}/default.nix")) {
+        name = dir;
+        path = ./. + "/${dir}/default.nix";
+      }
+    )
+    |> lib.concatLists;
 in
 {
   mukul =
-    packageFiles
-    |> map (file: {
-      name = lib.removeSuffix ".nix" file;
-      value = pkgs.callPackage ./${file} { };
+    packageDefs
+    |> builtins.map (pkg: {
+      inherit (pkg) name;
+      value = pkgs.callPackage pkg.path { };
     })
     |> lib.listToAttrs;
 }
