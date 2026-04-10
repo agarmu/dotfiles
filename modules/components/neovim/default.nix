@@ -65,13 +65,8 @@ _: {
         };
       };
 
-      colorschemes.catppuccin = {
+      colorschemes.nord = {
         enable = true;
-        settings = {
-          flavour = "macchiato";
-          transparent_background = true;
-          integrations.lualine = true;
-        };
       };
     };
   };

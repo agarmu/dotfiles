@@ -3,11 +3,8 @@ _: {
     { pkgs, ... }:
     {
       gtk.iconTheme = {
-        package = pkgs.catppuccin-papirus-folders.override {
-          flavor = "macchiato";
-          accent = "mauve";
-        };
-        name = "Papirus-Dark";
+        package = pkgs.nordzy-icon-theme;
+        name = "Nordzy-dark";
       };
     };
 }
