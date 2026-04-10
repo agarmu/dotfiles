@@ -168,11 +168,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775777908,
-        "narHash": "sha256-M/qMdQLDV3gLcgTlExGIAbZz5zHnB2Yp5KesD/ULfPo=",
+        "lastModified": 1775785852,
+        "narHash": "sha256-j9i+2lcWgOKcUGPemi1bxg2GK9yF4Ddn24jYDWNBbbo=",
         "ref": "refs/heads/main",
-        "rev": "d5ed99f783ffd3936c62de38310b98fbda65ee25",
-        "revCount": 2,
+        "rev": "04c1e14d7dc38042fabef1d80dd35214e909d5fe",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/agarmu/dots-private.git"
       },
