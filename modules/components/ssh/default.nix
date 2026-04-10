@@ -1,7 +1,4 @@
 _: {
-  flake.modules.nixos.base = _: {
-
-  };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {

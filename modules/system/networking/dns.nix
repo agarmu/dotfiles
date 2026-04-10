@@ -10,7 +10,7 @@
     networking.networkmanager.dns = lib.mkForce "systemd-resolved";
 
     services.resolved = {
-      enable = lib.mkForce true;
+      enable = true;
       settings.Resolve = {
         DNSOverTLS = "true";
         DNSSEC = "true";

@@ -3,7 +3,7 @@
   flake.modules.homeManager.nixosGui =
     { pkgs, config, ... }:
     {
-      home.packages = [ pkgs.mukul.blurlock ];
+      home.packages = [ pkgs.wleave ];
 
       # swaylock
       programs.swaylock = {
@@ -19,12 +19,12 @@
       services.swayidle = {
         enable = true;
         events = {
-          before-sleep = "blurlock";
+          before-sleep = "${lib.getExe pkgs.swaylock}";
         };
         timeouts = [
           {
             timeout = 30;
-            command = "blurlock";
+            command = "${lib.getExe pkgs.swaylock}";
           }
           {
             timeout = 90;

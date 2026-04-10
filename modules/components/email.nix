@@ -4,8 +4,6 @@ _: {
       "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
       "message/rfc822" = [ "thunderbird.desktop" ];
     };
-    home.packages = [
-    ];
     programs.thunderbird = {
       enable = true;
       profiles.default = {

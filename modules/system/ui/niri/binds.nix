@@ -19,8 +19,8 @@ _: {
         ];
       };
       "Mod+Alt+L" = {
-        hotkey-overlay.title = "Lock screen";
-        action.spawn = [ "blurlock" ];
+        hotkey-overlay.title = "Session";
+        action.spawn = [ "wleave" ];
       };
 
       "Mod+Shift+S" = {
@@ -76,7 +76,7 @@ _: {
         "down"
       ];
       "XF86LaunchA".action.spawn-sh = [ "pkill fuzzel || fuzzel" ];
-      "XF86Sleep".action.spawn = [ "blurlock" ];
+      "XF86Sleep".action.spawn = [ "swaylock" ];
 
       "Mod+Q" = {
         hotkey-overlay.title = "Close window";

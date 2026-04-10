@@ -17,7 +17,7 @@
         history = {
           ignoreDups = true;
           extended = true;
-          size = 1000000000;
+          size = 1000000;
           ignorePatterns = [
             "ls *"
             "eza *"

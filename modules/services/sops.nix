@@ -9,7 +9,7 @@
       inputs.sops-nix.nixosModules.sops
     ];
     sops.age.keyFile = "/var/lib/sops-nix/key.txt";
-    sops.age.generateKey = true;
+    sops.age.generateKey = false;
   };
   flake.modules.nixos.host-millet = {
     sops.defaultSopsFile = "${rootDir}/secrets/millet.yaml";

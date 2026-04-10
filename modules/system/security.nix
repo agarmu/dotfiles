@@ -3,10 +3,6 @@
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
-      # TODO: add certs to blacklist
-      security.pki.certificateFiles = [ ];
-      security.pki.certificates = [ ];
-      security.pki.installCACerts = true; # (usually default)
       environment.systemPackages = with pkgs; [
         cacert
         libsecret # secret-tool CLI

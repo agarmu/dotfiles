@@ -3,6 +3,7 @@
   flake.modules.nixos.base =
     { config, ... }:
     {
+      nix.distributedBuilds = true;
       nix.buildMachines = lib.mkIf (config.networking.hostName != "millet") [
         {
           hostName = "millet";
@@ -13,11 +14,10 @@
             "big-parallel"
             "kvm"
           ];
-          # protocol = "ssh-ng";
+          protocol = "ssh-ng";
           maxJobs = 4;
           speedFactor = 16;
           sshUser = "mukul";
-
         }
       ];
     };

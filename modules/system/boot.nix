@@ -22,6 +22,7 @@
       ];
     };
     boot.tmp.useTmpfs = true;
+    boot.tmp.tmpfsSize = "25%";
     systemd.targets.multi-user.enable = true;
   };
 
