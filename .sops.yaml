@@ -1,7 +1,12 @@
 keys:
   - &millet age176hlf76w77ruq4d638336l9kz82n34zxjc57wgcsggxz8jlel3rs3ruj0w
+  - &wheat age1fmyf77rrhsmkykzttq2qjhvpuj4pzr2dwjcpm2rmhhtnwz8u9pyqqtffa9
 creation_rules:
-  - path_regex: secrets/secrets\.yaml$
+  - path_regex: secrets/millet\.yaml$
     key_groups:
       - age:
           - *millet
+  - path_regex: secrets/wheat\.yaml$
+    key_groups:
+      - age:
+          - *wheat

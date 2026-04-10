@@ -1,4 +1,5 @@
-_: {
+{ inputs, ... }:
+{
   flake.modules.nixos.base =
     { config, ... }:
     {
@@ -23,26 +24,6 @@ _: {
     };
   # wi-fi should be available on mobile systems
   flake.modules.nixos.mobile = _: {
-    networking = {
-      wireless.iwd = {
-        enable = true;
-        settings = {
-          Network.EnableIPv6 = true;
-          Settings.AutoConnect = true;
-          General.EnableNetworkConfiguration = true;
-        };
-      };
-      networkmanager.wifi.backend = "iwd";
-
-    };
-    /*
-      little utility to connect to `captive`
-               browser portals, without ruining our
-      	 dns settings
-    */
-    programs.captive-browser = {
-      enable = true;
-      interface = "wlan0";
-    };
+    imports = [ inputs.self.modules.nixos.wifi ];
   };
 }
