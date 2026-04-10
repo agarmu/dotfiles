@@ -13,7 +13,8 @@
       stylix = {
         enable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-        opacity.terminal = 0.9;
+        # TODO: lower opacity once niri has blur
+        opacity.terminal = 1.0;
       };
     };
 }
