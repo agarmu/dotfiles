@@ -64,8 +64,8 @@ def fetch_remote_timestamp(url):
         header_value = response.headers.get(
             "Last-Modified") or response.headers.get("Date")
         return parse_remote_datetime(header_value), header_value
-    except requests.RequestException:
-        pass
+    except requests.RequestException as e:
+        log(f"HEAD request failed, falling back to GET: {e}", level="WARN")
 
     try:
         with requests.get(
@@ -134,6 +134,7 @@ def main():
         downloaded_file = download_file(url, pdf_file, ownership_ref)
         if downloaded_file is None:
             log_error(f"Download did not complete for {pdf_file.name}")
+            sys.exit(1)
         return
 
     local_mtime_utc = datetime.fromtimestamp(
@@ -290,3 +291,4 @@ if __name__ == "__main__":
         main()
     except Exception as exc:
         log_error(f"Unhandled error: {exc}")
+        sys.exit(1)
