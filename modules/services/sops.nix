@@ -1,6 +1,7 @@
-_: {
+{ rootDir, ... }:
+{
   flake.modules.nixos.host-millet = {
-    sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    sops.defaultSopsFile = "${rootDir}/secrets/millet.yaml";
     sops.age.keyFile = "/var/lib/sops-nix/key.txt";
     sops.age.generateKey = false;
 
