@@ -23,11 +23,11 @@
         };
         timeouts = [
           {
-            timeout = 30;
+            timeout = 60 * 3;
             command = "${lib.getExe pkgs.swaylock}";
           }
           {
-            timeout = 90;
+            timeout = 60 * 5;
             command = "${lib.getExe config.programs.niri.package} msg action power-off-monitors";
           }
         ];
