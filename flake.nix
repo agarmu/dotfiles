@@ -1,7 +1,14 @@
 # DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake {
+      inherit inputs;
+      specialArgs = {
+        rootDir = ./.;
+      };
+    } (inputs.import-tree ./modules);
 
   inputs = {
     apple-silicon = {
@@ -29,6 +36,8 @@
       inputs = {
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
+        import-tree.follows = "import-tree";
+        nixpkgs.follows = "nixpkgs";
       };
     };
     flake-file.url = "github:vic/flake-file";
