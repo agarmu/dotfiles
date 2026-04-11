@@ -50,6 +50,7 @@
           nixfmt
           deadnix
           prek
+          nixfmt-tree
         ];
         inherit (pre-commit-check) shellHook;
         buildInputs = pre-commit-check.enabledPackages;
