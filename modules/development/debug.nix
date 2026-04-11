@@ -9,6 +9,7 @@
     {
       home.packages = with pkgs; [
         lldb
+        lemmeknow
         (rizin.withPlugins (
           ps: with ps; [
             rz-ghidra
