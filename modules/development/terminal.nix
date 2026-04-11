@@ -4,11 +4,25 @@ _: {
       enable = true;
       settings = {
         window = {
-          padding = {
-            x = 4;
-            y = 4;
-          };
+          padding =
+            let
+              u = 15;
+            in
+            {
+              x = u;
+              y = u;
+            };
+          dynamic_padding = true;
+          blur = true;
           decorations = "None";
+        };
+        cursor = {
+          style = {
+            shape = "Beam";
+            blinking = "On";
+          };
+          unfocused_hollow = false;
+
         };
       };
     };
