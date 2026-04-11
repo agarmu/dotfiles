@@ -2,7 +2,13 @@ _: {
   flake.modules.homeManager.nixosGui =
     { config, ... }:
     {
-      stylix.targets.fuzzel.fonts.override = config.stylix.fonts.monospace;
+      /*
+        by default fuzzel uses the sans font,
+        but we want monospace
+      */
+      stylix.targets.fuzzel.fonts.override = {
+        sansSerif = config.stylix.fonts.monospace;
+      };
 
       programs.fuzzel = {
         enable = true;
