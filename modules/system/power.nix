@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
@@ -13,7 +12,20 @@
   flake.modules.homeManager.mobile =
     { pkgs, ... }:
     {
-      home.packages = lib.optionals pkgs.stdenv.isDarwin [ pkgs.coconutbattery ];
-      services.poweralertd.enable = true;
+      home.packages = [ pkgs.mukul.zpoweralertd ];
+      systemd.user.services.zpoweralertd = {
+        Unit = {
+          Description = "UPower-powered power alerter; alternative to poweralertd";
+          After = [ "graphical-session.target" ];
+          PartOf = [ "graphical-session.target" ];
+        };
+        Install.WantedBy = [ "graphical-session.target" ];
+
+        Service = {
+          Type = "simple";
+          ExecStart = "${pkgs.mukul.zpoweralertd} -V";
+          Restart = "always";
+        };
+      };
     };
 }
