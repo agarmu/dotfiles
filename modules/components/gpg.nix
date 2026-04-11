@@ -6,6 +6,7 @@
       programs.gpg = {
         enable = true;
       };
+      home.packages = with pkgs; [ gpg-tui ];
       services.gpg-agent = {
         enable = true;
         # todo --- better way ?
