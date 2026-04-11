@@ -10,6 +10,8 @@ _: {
         duf # better df
         dust # better du
         procs # better ps
+        kmon # kernel monitor
+        ncdu # disk usage
       ];
     };
 }
