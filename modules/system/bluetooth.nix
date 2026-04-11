@@ -6,4 +6,9 @@ _: {
       hardware.bluetooth.powerOnBoot = true;
       environment.systemPackages = with pkgs; [ blueman ];
     };
+  flake.modules.homeManager.bluetooth =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [ bluetui ];
+    };
 }
