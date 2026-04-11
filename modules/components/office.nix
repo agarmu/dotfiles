@@ -10,7 +10,19 @@ _: {
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ libreoffice-qt6 ];
+      home.packages = [
+        pkgs.libreoffice-fresh
+        /*
+          TODO: switch to custom build once I have
+          	   a proper build server
+          	(pkgs.libreoffice-fresh.override {
+                    unwrapped = pkgs.libreoffice-fresh-unwrapped.override {
+                      withHelp = false;
+                      langs = [ "en-US" "en-GB" ];
+                    };
+                  })
+        */
+      ];
       xdg.mimeApps.defaultApplications = {
         "application/vnd.oasis.opendocument.text" = [ "writer.desktop" ];
         "application/vnd.oasis.opendocument.spreadsheet" = [ "calc.desktop" ];
