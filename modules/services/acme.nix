@@ -20,6 +20,7 @@ _: {
             "paperless.agarmu.com"
             "calibre.agarmu.com"
             "immich.agarmu.com"
+            "audiobookshelf.agarmu.com"
           ];
           group = "nginx";
         };

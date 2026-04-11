@@ -16,6 +16,9 @@
     sops.secrets."cloudflare-dns-token" = {
       owner = "acme";
     };
+    sops.secrets."audiobookshelf-token-secret" = {
+      owner = "audiobookshelf";
+    };
   };
 
   flake.modules.nixos.host-wheat = {
