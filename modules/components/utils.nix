@@ -20,6 +20,7 @@ _: {
         tokei # code statistics
         fswatch # file system watcher
         grex # regex generator
+        pipe-rename # batch rename with editor
         hexyl # hex editing
         killall # kill processes by nae
         bc # calculator
