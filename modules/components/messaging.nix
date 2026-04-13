@@ -8,8 +8,9 @@ _: {
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
+      programs.vesktop.enable = true;
+      stylix.targets.vesktop.enable = false;
       home.packages = with pkgs; [
-        vesktop
         (weechat.override {
           configure = _: {
             scripts = with weechatScripts; [ wee-slack ];
