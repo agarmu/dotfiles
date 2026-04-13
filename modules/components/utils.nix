@@ -24,7 +24,6 @@ _: {
         killall # kill processes by nae
         bc # calculator
         chase # resolve symlinks
-        fastfetch
         fend
         grc
         trash-cli
