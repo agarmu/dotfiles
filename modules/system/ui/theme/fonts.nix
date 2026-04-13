@@ -15,8 +15,7 @@ let
           ibm-plex
           source-sans
           source-serif
-          lilex
-          nerd-fonts.lilex
+          nerd-fonts.jetbrains-mono
           noto-fonts-color-emoji
           libertinus
         ]
@@ -39,8 +38,8 @@ in
           name = "Source Sans 3";
         };
         monospace = {
-          package = pkgs.nerd-fonts.lilex;
-          name = "Lilex Nerd Font";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
