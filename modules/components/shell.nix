@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules.homeManager.base =
     {
@@ -26,8 +27,8 @@
           ];
         };
         initContent = ''
-          	  fastfetch
-                   ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat
+          	${lib.getExe pkgs.figlet} "$USER@$(hostname)" | ${lib.getExe pkgs.lolcat}
+          	${lib.getExe pkgs.fastfetch}
         '';
       };
       programs.bash = {
