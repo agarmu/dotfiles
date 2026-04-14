@@ -1,4 +1,7 @@
 _: {
+  flake.modules.nixos.server = {
+    programs.mosh.enable = true;
+  };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
