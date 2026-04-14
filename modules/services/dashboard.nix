@@ -5,7 +5,7 @@ let
   port = 8080;
 in
 {
-  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.local";
+  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.internal";
 
   flake.modules.nixos."host-${host}" = {
     services.glance = {

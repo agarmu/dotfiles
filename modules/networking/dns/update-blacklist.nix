@@ -8,7 +8,7 @@ _: {
     }:
     let
       blacklistUrl = "https://download.dnscrypt.info/blacklists/domains/mybase.txt";
-      blacklistPath = config.services.dnscrypt-proxy.settings.blocked_names.blocked_names_file;
+      blacklistPath = "/run/dnscrypt-proxy/block.txt";
     in
     lib.mkIf config.services.dnscrypt-proxy.enable {
       systemd.services.update-dnscrypt-blacklist = {
