@@ -1,4 +1,5 @@
-_: {
+{ lib, ... }:
+{
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
@@ -23,7 +24,7 @@ _: {
 
         Service = {
           Type = "simple";
-          ExecStart = "${pkgs.mukul.zpoweralertd} -V";
+          ExecStart = "${lib.getExe pkgs.mukul.zpoweralertd} -V";
           Restart = "always";
         };
       };
