@@ -45,6 +45,7 @@ in
 
       systemd.tmpfiles.rules = [
         "d /etc/dnscrypt 0755 root root -"
+        "f ${blacklistPath} 0755 root root -"
       ];
 
       systemd.services.update-dnscrypt-blacklist = {
