@@ -23,7 +23,7 @@
           };
 
           label = {
-            text = "$TIME";
+            text = "cmd[update:1000] date +'%H:%M'";
             font_size = 72 * 4;
             font_family = config.stylix.fonts.monospace.name;
             position = "0, 300";
