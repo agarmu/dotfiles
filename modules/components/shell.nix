@@ -2,6 +2,7 @@
   flake.modules.homeManager.base =
     {
       config,
+      pkgs,
       ...
     }:
     {
@@ -24,6 +25,10 @@
             "pkill *"
           ];
         };
+        initContent = ''
+          	  fastfetch
+                   ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat
+        '';
       };
       programs.bash = {
         enable = true;
