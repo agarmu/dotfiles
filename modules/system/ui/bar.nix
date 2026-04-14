@@ -63,18 +63,15 @@ in
           spacing = 0;
 
           modules-left = [
-            "wireplumber"
             "idle_inhibitor"
+            "wireplumber"
           ];
           modules-center = [
           ];
           modules-right = [
             "network"
             "bluetooth"
-            "bluetooth#battery"
-            "battery"
-            "clock#date"
-            "clock"
+            "custom/time"
             "custom/swaync"
           ];
 
@@ -104,19 +101,10 @@ in
             tooltip-format-deactivated = "Idle inhibitor: off";
           };
 
-          "clock#date" = {
-            format = "${icons.calendar}{:%a %b %d}";
-            tooltip-format = "<tt><small>{calendar}</small></tt>";
-            calendar = {
-              mode = "month";
-              weeks-pos = "left";
-              on-scroll = 1;
-            };
-          };
-
-          clock = {
-            format = "${icons.clock}{:%H:%M}";
-            tooltip-format = "{:%A, %B %d %Y %H:%M:%S}";
+          # default clock shows UTC...
+          "custom/time" = {
+            exec = "date +'%H:%M'";
+            "interval" = 1;
           };
 
           network = {
