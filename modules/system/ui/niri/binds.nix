@@ -76,7 +76,7 @@ _: {
         "down"
       ];
       "XF86LaunchA".action.spawn-sh = [ "pkill fuzzel || fuzzel" ];
-      "XF86Sleep".action.spawn = [ "swaylock" ];
+      "XF86Sleep".action.spawn = [ "hyprlock" ];
 
       "Mod+Q" = {
         hotkey-overlay.title = "Close window";
