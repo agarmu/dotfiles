@@ -1,5 +1,12 @@
-_: {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking."grocy.agarmu" = "millet.agarmu";
+_:
+let
+  host = "millet";
+  domain = "grocy.agarmu.com";
+  port = 9001;
+in
+{
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."${domain}.agarmu.com" =
+    "${host}.hosts.agarmu.com";
 
   flake.modules.nixos.host-millet =
     {
@@ -9,9 +16,9 @@ _: {
       ...
     }:
     let
-      grocyHost = "grocy.agarmu";
+      grocyHost = "${domain}.agarmu.com";
       grocyDataDir = "/var/lib/grocy";
-      grocyPhpListen = "127.0.0.1:9001";
+      grocyPhpListen = "127.0.0.1:${toString port}";
       grocyPackage = pkgs.grocy;
     in
     {

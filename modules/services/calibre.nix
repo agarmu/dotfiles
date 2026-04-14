@@ -1,7 +1,14 @@
-_: {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking."calibre.agarmu" = "millet.agarmu";
+_:
+let
+  domain = "calibre.agarmu.com";
+  host = "millet";
+  port = 8083;
+in
 
-  flake.modules.nixos.host-millet = _: {
+{
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."${domain}" = "${host}.hosts.agarmu.com";
+
+  flake.modules.nixos."host-${host}" = _: {
     systemd.tmpfiles.rules = [
       "d /var/lib/calibre-web 0755 root root - -"
       "d /var/lib/calibre/library 0755 root root - -"
@@ -17,7 +24,7 @@ _: {
           "--mount"
           "type=bind,source=/var/lib/calibre/library,target=/calibre-library,bind-propagation=slave"
           "--publish"
-          "127.0.0.1:8083:8083"
+          "127.0.0.1:${toString port}:${toString port}"
         ];
         environment = {
           PUID = "1000";
@@ -33,11 +40,11 @@ _: {
       after = [ "calibre-rclone-mount.service" ];
     };
 
-    services.caddy.virtualHosts."calibre.agarmu" = {
+    services.caddy.virtualHosts."${domain}" = {
       extraConfig = ''
         import tailnet_only
         tls internal
-        reverse_proxy 127.0.0.1:8083
+        reverse_proxy 127.0.0.1:${toString port}
       '';
     };
   };

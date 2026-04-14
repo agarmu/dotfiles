@@ -1,93 +1,94 @@
-_: {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking."dash.agarmu" = "millet.agarmu";
+_:
+let
+  domain = "dash.agarmu.com";
+  host = "millet";
+  port = 8080;
+in
+{
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."${domain}" = "${host}.hosts.agarmu.com";
 
-  flake.modules.nixos.host-millet =
-    { config, ... }:
-    let
-      glancePort = config.services.glance.settings.server.port;
-    in
-    {
-      services.glance = {
-        enable = true;
-        settings = {
-          server = {
-            host = "127.0.0.1";
-            port = 8080;
-          };
-          pages = [
-            {
-              name = "Home";
-              columns = [
-                {
-                  size = "small";
-                  widgets = [
-                    {
-                      type = "bookmarks";
-                      groups = [
-                        {
-                          title = "Purdue";
-                          links = [
-                            {
-                              title = "myPurdue";
-                              url = "https://mypurdue.purdue.edu";
-                            }
-                            {
-                              title = "Gradescope";
-                              url = "https://gradescope.com";
-                            }
-                            {
-                              title = "Brightspace";
-                              url = "https://purdue.brightspace.com";
-                            }
-                          ];
-                        }
-                        {
-                          title = "General";
-                          links = [
-                            {
-                              title = "Google Drive";
-                              url = "https://drive.google.com";
-                            }
-                            {
-                              title = "GitHub";
-                              url = "https://github.com";
-                            }
-                          ];
-                        }
-                      ];
-                    }
-                  ];
-                }
-                {
-                  size = "full";
-                  widgets = [
-                    {
-                      type = "group";
-                      widgets = [
-                        {
-                          type = "lobsters";
-                          limit = 15;
-                        }
-                        {
-                          type = "hacker-news";
-                          limit = 15;
-                        }
-                      ];
-                    }
-                  ];
-                }
-              ];
-            }
-          ];
+  flake.modules.nixos."host-${host}" = {
+    services.glance = {
+      enable = true;
+      settings = {
+        server = {
+          host = "127.0.0.1";
+          inherit port;
         };
-      };
-
-      services.caddy.virtualHosts."dash.agarmu" = {
-        extraConfig = ''
-          import tailnet_only
-          tls internal
-          reverse_proxy 127.0.0.1:${toString glancePort}
-        '';
+        pages = [
+          {
+            name = "Home";
+            columns = [
+              {
+                size = "small";
+                widgets = [
+                  {
+                    type = "bookmarks";
+                    groups = [
+                      {
+                        title = "Purdue";
+                        links = [
+                          {
+                            title = "myPurdue";
+                            url = "https://mypurdue.purdue.edu";
+                          }
+                          {
+                            title = "Gradescope";
+                            url = "https://gradescope.com";
+                          }
+                          {
+                            title = "Brightspace";
+                            url = "https://purdue.brightspace.com";
+                          }
+                        ];
+                      }
+                      {
+                        title = "General";
+                        links = [
+                          {
+                            title = "Google Drive";
+                            url = "https://drive.google.com";
+                          }
+                          {
+                            title = "GitHub";
+                            url = "https://github.com";
+                          }
+                        ];
+                      }
+                    ];
+                  }
+                ];
+              }
+              {
+                size = "full";
+                widgets = [
+                  {
+                    type = "group";
+                    widgets = [
+                      {
+                        type = "lobsters";
+                        limit = 15;
+                      }
+                      {
+                        type = "hacker-news";
+                        limit = 15;
+                      }
+                    ];
+                  }
+                ];
+              }
+            ];
+          }
+        ];
       };
     };
+
+    services.caddy.virtualHosts."${domain}" = {
+      extraConfig = ''
+        import tailnet_only
+        tls internal
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
+    };
+  };
 }
