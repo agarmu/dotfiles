@@ -22,6 +22,7 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/share/sddm/themes/pixie
     cp -r * $out/share/sddm/themes/pixie/
+    rm -r $out/share/sddm/themes/pixie/assets
     printf '%s\n' \
       '[General]' \
       "# Path to the wallpaper. If it's in the assets folder, use \"assets/background.jpg\"" \
