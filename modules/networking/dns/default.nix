@@ -65,7 +65,7 @@
           forward-zone = [
             {
               name = ".";
-              forward-addr = [ "127.0.0.1@5353" ];
+              forward-addr = [ "127.0.0.1@12036" ];
               forward-no-cache = false;
             }
           ];
@@ -74,7 +74,7 @@
       services.dnscrypt-proxy = {
         enable = true;
         settings = {
-          listen_addresses = [ "127.0.0.1:5353" ];
+          listen_addresses = [ "127.0.0.1:12036" ];
           cache = false;
           sources.public-resolvers = {
             urls = [
