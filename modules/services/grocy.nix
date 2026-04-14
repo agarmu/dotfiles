@@ -5,10 +5,7 @@ let
   port = 9001;
 in
 {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking."${domain}.agarmu.com" =
-    "${host}.hosts.agarmu.com";
-
-  flake.modules.nixos.host-millet =
+  flake.modules.nixos."host-${host}" =
     {
       config,
       lib,
@@ -87,8 +84,6 @@ in
 
       services.caddy.virtualHosts."${grocyHost}" = {
         extraConfig = ''
-          import tailnet_only
-          tls internal
           root * ${grocyPackage}/public
           php_fastcgi ${grocyPhpListen}
           file_server

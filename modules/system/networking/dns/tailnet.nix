@@ -7,10 +7,10 @@ let
   ];
 in
 {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking =
+  flake.modules.nixos.base.networking.extraProxies =
     tailnetHosts
     |> map (name: {
-      name = "${name}.hosts.agarmu.com";
+      name = "${name}.local";
       value = "${name}.tail7434b.ts.net";
     })
     |> lib.listToAttrs;

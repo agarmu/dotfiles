@@ -6,8 +6,6 @@ let
 in
 
 {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking."${domain}" = "${host}.hosts.agarmu.com";
-
   flake.modules.nixos."host-${host}" = _: {
     systemd.tmpfiles.rules = [
       "d /var/lib/calibre-web 0755 root root - -"
@@ -42,8 +40,6 @@ in
 
     services.caddy.virtualHosts."${domain}" = {
       extraConfig = ''
-        import tailnet_only
-        tls internal
         reverse_proxy 127.0.0.1:${toString port}
       '';
     };

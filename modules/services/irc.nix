@@ -5,7 +5,7 @@ let
   port = 9000;
 in
 {
-  flake.modules.nixos.base.networking.dnscryptProxyCloaking."${domain}" = "${host}.hosts.agarmu.com";
+  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.local";
 
   # enable only on host millet
   flake.modules.nixos."host-${host}" = {
@@ -21,8 +21,6 @@ in
 
     services.caddy.virtualHosts."${domain}" = {
       extraConfig = ''
-        import tailnet_only
-        tls internal
         reverse_proxy 127.0.0.1:${toString port}
       '';
     };
