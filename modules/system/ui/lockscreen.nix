@@ -7,12 +7,43 @@
   flake.modules.homeManager.nixosGui =
     { pkgs, config, ... }:
     let
+      inherit (config.lib.stylix) colors;
       lockCmd = lib.getExe config.programs.hyprlock.package;
       niriCmd = lib.getExe config.programs.niri.package;
       notifySend = lib.getExe' pkgs.libnotify "notify-send";
     in
     {
-      home.packages = [ pkgs.wleave ];
+      programs.wlogout = {
+        enable = true;
+        style = ''
+          * {
+            background-image: none;
+            box-shadow: none;
+            font-family: "${config.stylix.fonts.sansSerif.name}";
+          }
+
+          window {
+            background-color: #${colors.base00};
+          }
+
+          button {
+            margin: 24px;
+            padding: 32px;
+            border-radius: 24px;
+            border: 2px solid #${colors.base03};
+            background-color: #${colors.base01};
+            color: #${colors.base07};
+            font-size: ${toString (config.stylix.fonts.sizes.desktop * 2)}px;
+          }
+
+          button:hover,
+          button:focus {
+            background-color: #${colors.base0D};
+            color: #${colors.base00};
+            border-color: #${colors.base0D};
+          }
+        '';
+      };
 
       programs.hyprlock = {
         enable = true;

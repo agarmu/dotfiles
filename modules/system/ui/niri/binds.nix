@@ -20,7 +20,7 @@ _: {
       };
       "Mod+Alt+L" = {
         hotkey-overlay.title = "Session";
-        action.spawn = [ "wleave" ];
+        action.spawn = [ "wlogout" ];
       };
 
       "Mod+Shift+S" = {
