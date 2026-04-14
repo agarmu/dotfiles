@@ -21,6 +21,19 @@
       config,
       ...
     }:
+    let
+      inherit (pkgs) lib;
+      inherit (config.lib.stylix) colors;
+      pixieSddm = pkgs.mukul.pixie-sddm.override {
+        background = "/etc/wallpaper.png";
+        primaryColor = "#${lib.toUpper colors.base0B}";
+        accentColor = "#${lib.toUpper colors.base07}";
+        backgroundColor = "#${lib.toUpper colors.base07}";
+        textColor = "#${lib.toUpper colors.base00}";
+        fontFamily = config.stylix.fonts.sansSerif.name;
+        fontSize = config.stylix.fonts.sizes.desktop;
+      };
+    in
     {
       imports = [
         inputs.niri.nixosModules.niri
@@ -35,7 +48,7 @@
           satty
           wayland
           wdisplays
-          mukul.pixie-sddm
+          pixieSddm
           config.stylix.cursor.package
         ];
 
