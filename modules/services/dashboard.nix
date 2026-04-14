@@ -80,13 +80,10 @@ _: {
         };
       };
 
-      services.nginx.virtualHosts."dash.agarmu.com" = {
-        useACMEHost = "agarmu.com";
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString glancePort}";
-          proxyWebsockets = true;
-        };
+      services.caddy.virtualHosts."dash.agarmu.com" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:${toString glancePort}
+        '';
       };
     };
 }

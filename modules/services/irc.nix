@@ -16,13 +16,10 @@ _: {
         };
       };
 
-      services.nginx.virtualHosts."irc.agarmu.com" = {
-        useACMEHost = "agarmu.com";
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString ircPort}";
-          proxyWebsockets = true;
-        };
+      services.caddy.virtualHosts."irc.agarmu.com" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:${toString ircPort}
+        '';
       };
 
     };

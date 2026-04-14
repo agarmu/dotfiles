@@ -18,13 +18,10 @@ _: {
       systemd.services.audiobookshelf.serviceConfig.EnvironmentFile =
         config.sops.templates."audiobookshelf-env".path;
 
-      services.nginx.virtualHosts."audiobookshelf.agarmu.com" = {
-        useACMEHost = "agarmu.com";
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:8000";
-          proxyWebsockets = true;
-        };
+      services.caddy.virtualHosts."audiobookshelf.agarmu.com" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8000
+        '';
       };
     };
 }

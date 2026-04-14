@@ -31,13 +31,10 @@ _: {
       after = [ "calibre-rclone-mount.service" ];
     };
 
-    services.nginx.virtualHosts."calibre.agarmu.com" = {
-      useACMEHost = "agarmu.com";
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:8083";
-        proxyWebsockets = true;
-      };
+    services.caddy.virtualHosts."calibre.agarmu.com" = {
+      extraConfig = ''
+        reverse_proxy 127.0.0.1:8083
+      '';
     };
   };
 }
