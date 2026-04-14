@@ -19,7 +19,7 @@ _: {
       ];
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
-        enable = false;
+        enable = true;
         config = {
           should_launch_new_window = "1";
           page_separator_width = "5";
