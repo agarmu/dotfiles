@@ -27,8 +27,7 @@
           ];
         };
         initContent = ''
-          	${lib.getExe pkgs.figlet} "$USER@$(hostname)" | ${lib.getExe pkgs.lolcat}
-          	${lib.getExe pkgs.fastfetch}
+          	${lib.getExe pkgs.figlet} "$USER@$(hostname)"
         '';
       };
       programs.bash = {
