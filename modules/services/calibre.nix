@@ -1,4 +1,6 @@
 _: {
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."calibre.agarmu" = "millet.agarmu";
+
   flake.modules.nixos.host-millet = _: {
     systemd.tmpfiles.rules = [
       "d /var/lib/calibre-web 0755 root root - -"
@@ -31,8 +33,10 @@ _: {
       after = [ "calibre-rclone-mount.service" ];
     };
 
-    services.caddy.virtualHosts."calibre.agarmu.com" = {
+    services.caddy.virtualHosts."calibre.agarmu" = {
       extraConfig = ''
+        import tailnet_only
+        tls internal
         reverse_proxy 127.0.0.1:8083
       '';
     };

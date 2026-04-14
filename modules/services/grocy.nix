@@ -1,4 +1,6 @@
 _: {
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."grocy.agarmu" = "millet.agarmu";
+
   flake.modules.nixos.host-millet =
     {
       config,
@@ -7,7 +9,7 @@ _: {
       ...
     }:
     let
-      grocyHost = "grocy.agarmu.com";
+      grocyHost = "grocy.agarmu";
       grocyDataDir = "/var/lib/grocy";
       grocyPhpListen = "127.0.0.1:9001";
       grocyPackage = pkgs.grocy;
@@ -78,6 +80,8 @@ _: {
 
       services.caddy.virtualHosts."${grocyHost}" = {
         extraConfig = ''
+          import tailnet_only
+          tls internal
           root * ${grocyPackage}/public
           php_fastcgi ${grocyPhpListen}
           file_server

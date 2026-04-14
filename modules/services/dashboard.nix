@@ -1,4 +1,6 @@
 _: {
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."dash.agarmu" = "millet.agarmu";
+
   flake.modules.nixos.host-millet =
     { config, ... }:
     let
@@ -80,8 +82,10 @@ _: {
         };
       };
 
-      services.caddy.virtualHosts."dash.agarmu.com" = {
+      services.caddy.virtualHosts."dash.agarmu" = {
         extraConfig = ''
+          import tailnet_only
+          tls internal
           reverse_proxy 127.0.0.1:${toString glancePort}
         '';
       };

@@ -1,4 +1,6 @@
 _: {
+  flake.modules.nixos.base.networking.dnscryptProxyCloaking."irc.agarmu" = "millet.agarmu";
+
   # enable only on host millet
   flake.modules.nixos.host-millet =
     { config, ... }:
@@ -16,8 +18,10 @@ _: {
         };
       };
 
-      services.caddy.virtualHosts."irc.agarmu.com" = {
+      services.caddy.virtualHosts."irc.agarmu" = {
         extraConfig = ''
+          import tailnet_only
+          tls internal
           reverse_proxy 127.0.0.1:${toString ircPort}
         '';
       };
