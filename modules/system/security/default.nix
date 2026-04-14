@@ -13,6 +13,10 @@
       security.sudo.enable = false;
       security.sudo-rs.enable = true;
 
+      security.pki.certificates = [
+        (builtins.readFile ./millet.crt)
+      ];
+
       # Soteria: freedesktop security agent for Wayland
       security.soteria.enable = true;
       # GNOME Keyring
