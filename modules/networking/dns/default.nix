@@ -1,7 +1,26 @@
 { lib, ... }:
 {
   flake.modules.nixos.base =
-    { config, ... }:
+    { config, pkgs, ... }:
+    let
+      serialNumber = 1;
+      zoneFile = pkgs.writeTextFile {
+        name = "internal.zone";
+        text = ''
+          $ORIGIN internal.
+          $TTL 3600
+          @  IN SOA ns.internal. admin.internal. ${toString serialNumber} 3600 1200 604800 3600
+          @  IN NS  ns.internal.
+          ns IN A   127.0.0.1
+        ''
+        + (
+          config.networking.extraProxies
+          |> lib.mapAttrsToList (name: target: "${lib.removeSuffix ".internal" name} IN CNAME ${target}.")
+          |> lib.concatStringsSep "\n"
+        )
+        + "\n";
+      };
+    in
     {
       networking.nameservers = [
         "127.0.0.1"
@@ -39,16 +58,14 @@
               "internal"
               "ts.net"
             ];
-
-            local-zone = [
-              "internal. transparent"
-            ];
-
-            local-data = lib.mapAttrsToList (
-              domain: target: ''"${domain}. IN CNAME ${target}."''
-            ) config.networking.extraProxies;
           };
 
+          auth-zone = [
+            {
+              name = "internal";
+              zonefile = "${zoneFile}";
+            }
+          ];
           stub-zone = [
             {
               name = "ts.net";

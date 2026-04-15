@@ -1,6 +1,6 @@
 _:
 let
-  domain = "irc.agarmu.com";
+  domain = "irc.internal";
   host = "millet";
   port = 9000;
 in

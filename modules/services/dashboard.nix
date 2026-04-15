@@ -1,6 +1,6 @@
 _:
 let
-  domain = "dash.agarmu.com";
+  domain = "dash.internal";
   host = "millet";
   port = 8080;
 in
