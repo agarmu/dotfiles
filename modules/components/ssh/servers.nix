@@ -29,7 +29,8 @@ let
       port = 4225;
     };
     "millet" = {
-      hostname = "millet.agarmu.com";
+      hostname = "millet.internal";
+      port = 2350;
       user = "mukul";
       forwardAgent = true;
     };

@@ -2,6 +2,10 @@ _: {
   flake.modules.nixos.server = {
     services.openssh = {
       enable = true;
+      ports = [
+        22
+        2350
+      ];
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
