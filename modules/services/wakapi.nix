@@ -5,6 +5,7 @@ let
   port = 54345;
 in
 {
+  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.internal";
   flake.modules.nixos."host-${host}" = {
     services.wakapi = {
       enable = true;
