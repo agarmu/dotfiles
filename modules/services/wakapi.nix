@@ -16,8 +16,8 @@ in
         };
         db = {
           dialect = "postgres";
-          host = "/run/wakapi-postgresql";
-          port = port + 1;
+          host = "/run/postgresql";
+          port = 5432;
           name = "wakapi";
           user = "wakapi";
         };
