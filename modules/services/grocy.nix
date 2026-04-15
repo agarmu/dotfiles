@@ -1,7 +1,7 @@
 _:
 let
   host = "millet";
-  domain = "grocy.agarmu.com";
+  domain = "grocy.internal";
   port = 9001;
 in
 {
@@ -13,12 +13,12 @@ in
       ...
     }:
     let
-      grocyHost = "${domain}.agarmu.com";
       grocyDataDir = "/var/lib/grocy";
       grocyPhpListen = "127.0.0.1:${toString port}";
       grocyPackage = pkgs.grocy;
     in
     {
+      networking.extraProxies."${domain}" = "${host}.internal";
       environment.etc."grocy/config.php".text = ''
         <?php
         Setting('CULTURE', 'en');
@@ -82,7 +82,7 @@ in
         '';
       };
 
-      services.caddy.virtualHosts."${grocyHost}" = {
+      services.caddy.virtualHosts."${domain}" = {
         extraConfig = ''
           root * ${grocyPackage}/public
           php_fastcgi ${grocyPhpListen}
