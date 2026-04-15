@@ -32,9 +32,11 @@ in
             user = "wakapi";
           };
           security = {
-            allow_signup = true;
-            disable_frontpage = false;
+            allow_signup = false;
+            disable_frontpage = true;
             invite_codes = false;
+            # ok bc on https
+            insecure_cookies = false;
           };
           app = {
             leaderboard_enabled = false;
