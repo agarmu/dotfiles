@@ -1,11 +1,8 @@
-_: {
+{ lib, ... }:
+{
   flake.modules.nixos.server = {
     services.openssh = {
       enable = true;
-      ports = [
-        22
-        2350
-      ];
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
@@ -30,8 +27,14 @@ _: {
 
     services.logrotate.enable = true;
     security.auditd.enable = true;
-
-    # Open ports in the firewall.
-    networking.firewall.allowedTCPPorts = [ 22 ];
   };
+
+  flake.modules.nixos.host-millet =
+    let
+      port = 2350;
+    in
+    {
+      services.openssh.ports = lib.mkForce [ port ];
+      networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ port ];
+    };
 }
