@@ -1,10 +1,11 @@
 _:
 let
-  domain = "abshelf.agarmu.com";
+  domain = "abook.internal";
   host = "millet";
   port = 8000;
 in
 {
+  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.internal";
   flake.modules.nixos."host-${host}" =
     { config, ... }:
     {
