@@ -64,6 +64,8 @@
             {
               name = "internal";
               zonefile = "${zoneFile}";
+              for-downstream = false;
+              for-upstream = true;
             }
           ];
           stub-zone = [
