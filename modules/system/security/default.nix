@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
@@ -22,10 +21,7 @@
       # GNOME Keyring
       services.gnome.gnome-keyring.enable = true;
     };
-  flake.modules.homeManager.nixosGui = {
-    # we use soteria instead.
-    systemd.user.services.niri-flake-polkit.Install.WantedBy = lib.mkForce [ ];
-  };
+
   flake.modules.darwin.base = {
     security.pam.services.sudo_local = {
       enable = true;

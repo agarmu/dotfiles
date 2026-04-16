@@ -20,17 +20,5 @@
         };
       };
 
-      programs.niri.settings = {
-        overview.workspace-shadow.enable = false;
-        layout.background-color = "transparent";
-        layer-rules = [
-          {
-            matches = [
-              { namespace = "^awww.*$"; }
-            ];
-            place-within-backdrop = true;
-          }
-        ];
-      };
     };
 }

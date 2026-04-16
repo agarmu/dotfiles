@@ -9,7 +9,6 @@
     let
       inherit (config.lib.stylix) colors;
       lockCmd = lib.getExe config.programs.hyprlock.package;
-      niriCmd = lib.getExe config.programs.niri.package;
       notifySend = lib.getExe' pkgs.libnotify "notify-send";
     in
     {
@@ -92,11 +91,14 @@
               timeout = 60 * 3 + 30;
               on-timeout = lockCmd;
             }
-            {
-              timeout = 60 * 5;
-              on-timeout = "${niriCmd} msg action power-off-monitors";
-              on-resume = "${niriCmd} msg action power-on-monitors";
-            }
+            /*
+              	    TODO: fix
+              	    {
+                            timeout = 60 * 5;
+                            on-timeout = "${niriCmd} msg action power-off-monitors";
+                            on-resume = "${niriCmd} msg action power-on-monitors";
+                          }
+            */
             {
               timeout = 60 * 10;
               on-timeout = "systemctl suspend";
