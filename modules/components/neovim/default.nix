@@ -16,7 +16,7 @@
   # user-level nixvim
   flake.modules.homeManager.base = {
     stylix.targets = {
-      neovim.enable = false;
+      neovim.enable = true;
       nixvim.enable = true;
     };
     programs.nixvim = {
