@@ -17,7 +17,7 @@ _: {
   flake.modules.homeManager.base = _: {
     stylix.targets = {
       neovim.enable = false;
-      nixvim.enable = false;
+      nixvim.enable = true;
     };
     programs.nixvim = {
       enable = true;
@@ -65,9 +65,6 @@ _: {
         };
       };
 
-      colorschemes.nord = {
-        enable = true;
-      };
     };
   };
 }

@@ -3,8 +3,8 @@ _: {
     { pkgs, ... }:
     {
       gtk.iconTheme = {
-        package = pkgs.nordzy-icon-theme;
-        name = "Nordzy-dark";
+        package = pkgs.papirus-icon-theme;
+        name = "Papirus-Dark";
       };
     };
 }
