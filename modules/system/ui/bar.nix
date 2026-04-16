@@ -64,6 +64,7 @@ in
 
           modules-left = [
             "idle_inhibitor"
+            "battery"
             "wireplumber"
           ];
           modules-center = [
