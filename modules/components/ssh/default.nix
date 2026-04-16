@@ -1,4 +1,4 @@
-_: {
+{
   flake.modules.nixos.server = {
     programs.mosh.enable = true;
   };

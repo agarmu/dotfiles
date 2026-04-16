@@ -1,5 +1,5 @@
-_: {
-  flake.modules.homeManager.base = _: {
+{
+  flake.modules.homeManager.base = {
     programs.zoxide = {
       enable = true;
       enableBashIntegration = true;

@@ -1,4 +1,4 @@
-_: {
+{
   flake.modules.darwin.gui = {
     system.defaults = {
       menuExtraClock.Show24Hour = true; # show 24 hour clock

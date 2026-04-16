@@ -3,7 +3,7 @@
   ...
 }:
 let
-  home-manager-config = _: {
+  home-manager-config = {
     home-manager = {
       verbose = true;
       useUserPackages = true;
@@ -41,7 +41,7 @@ in
       inputs.nixvim.homeModules.nixvim
     ];
   };
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {
     programs.home-manager.enable = true;
   };
 }

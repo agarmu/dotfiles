@@ -1,4 +1,4 @@
-_: {
+{
   # TODO: Configure restic backups
   # - Add Backblaze B2 as backup target
   # - Set up secrets management for B2 credentials (sops-nix / agenix)

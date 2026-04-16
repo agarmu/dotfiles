@@ -1,5 +1,5 @@
-_: {
-  flake.modules.darwin.gui = _: {
+{
+  flake.modules.darwin.gui = {
     homebrew.casks = [
       "microsoft-word"
       "microsoft-excel"

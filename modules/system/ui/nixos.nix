@@ -1,4 +1,4 @@
-_: {
+{
   /*
     Do NOT change package = pkgs.niri-unstable to pkgs.niri
     so long as the latest Niri update is (25.11) --- this is because

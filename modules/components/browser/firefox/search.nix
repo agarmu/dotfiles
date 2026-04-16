@@ -1,5 +1,5 @@
-_: {
-  flake.modules.homeManager.gui = _: {
+{
+  flake.modules.homeManager.gui = {
     programs.firefox.profiles.default.search = {
       force = true;
       default = "google";

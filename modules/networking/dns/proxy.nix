@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.base = _: {
+  flake.modules.nixos.base = {
     options.networking.extraProxies = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
       default = { };

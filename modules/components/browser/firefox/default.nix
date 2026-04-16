@@ -1,5 +1,5 @@
-_: {
-  flake.modules.homeManager.gui = _: {
+{
+  flake.modules.homeManager.gui = {
     programs.firefox = {
       enable = true;
       profiles.default = {

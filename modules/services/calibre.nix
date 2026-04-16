@@ -6,7 +6,7 @@ let
 in
 
 {
-  flake.modules.nixos."host-${host}" = _: {
+  flake.modules.nixos."host-${host}" = {
     systemd.tmpfiles.rules = [
       "d /var/lib/calibre-web 0755 root root - -"
       "d /var/lib/calibre/library 0755 root root - -"

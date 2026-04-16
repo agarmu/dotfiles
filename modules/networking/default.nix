@@ -23,7 +23,7 @@
       };
     };
   # wi-fi should be available on mobile systems
-  flake.modules.nixos.mobile = _: {
+  flake.modules.nixos.mobile = {
     imports = [ inputs.self.modules.nixos.wifi ];
   };
 }

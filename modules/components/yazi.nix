@@ -1,5 +1,5 @@
-_: {
-  flake.modules.homeManager.base = _: {
+{
+  flake.modules.homeManager.base = {
     programs.yazi = {
       enable = true;
       enableBashIntegration = true;

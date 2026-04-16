@@ -1,4 +1,4 @@
-_: {
+{
   flake.modules.nixos.asahi = {
     boot.kernelParams = [ "appledrm.show_notch=1" ];
   };

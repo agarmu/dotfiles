@@ -1,14 +1,14 @@
-_: {
-  flake.modules.homeManager.base = _: {
+{
+  flake.modules.homeManager.base = {
     home.sessionVariables = {
       LESS = "-FLRi -x2 --mouse";
       PAGER = "less";
     };
   };
-  flake.modules.nixos.base = _: {
+  flake.modules.nixos.base = {
     environment.variables.LESSSECURE = "1";
   };
-  flake.modules.darwin.base = _: {
+  flake.modules.darwin.base = {
     environment.variables.LESSSECURE = "1";
   };
 }

@@ -1,5 +1,5 @@
-_: {
-  flake.modules.homeManager.gui = _: {
+{
+  flake.modules.homeManager.gui = {
     xdg.mimeApps.defaultApplications = {
       "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
       "message/rfc822" = [ "thunderbird.desktop" ];

@@ -1,5 +1,5 @@
-_: {
-  flake.modules.homeManager.base = _: {
+{
+  flake.modules.homeManager.base = {
     programs.yt-dlp.enable = true;
   };
   flake.modules.homeManager.gui =

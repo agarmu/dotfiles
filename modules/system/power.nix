@@ -7,7 +7,7 @@
       services.upower.enable = true;
     };
 
-  flake.modules.nixos.mobile = _: {
+  flake.modules.nixos.mobile = {
     services.auto-cpufreq.enable = true;
   };
   flake.modules.homeManager.mobile =

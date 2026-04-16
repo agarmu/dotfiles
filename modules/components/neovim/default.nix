@@ -1,4 +1,4 @@
-_: {
+{
   flake-file.inputs.nixvim = {
     url = "github:nix-community/nixvim";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +14,7 @@ _: {
   };
 
   # user-level nixvim
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {
     stylix.targets = {
       neovim.enable = false;
       nixvim.enable = true;

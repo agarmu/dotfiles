@@ -1,4 +1,4 @@
-_: {
+{
   # enable only on host millet
   flake.modules.nixos.host-millet = {
     services.caddy = {

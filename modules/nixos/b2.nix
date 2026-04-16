@@ -1,4 +1,4 @@
-_: {
+{
   flake.modules.nixos.b2 =
     {
       config,

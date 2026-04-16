@@ -52,7 +52,7 @@ let
   };
 in
 {
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {
     programs.ssh.matchBlocks = servers;
   };
 }

@@ -1,5 +1,5 @@
-_: {
-  flake.modules.nixos.base = _: {
+{
+  flake.modules.nixos.base = {
     services.fstrim.enable = true;
   };
 }
