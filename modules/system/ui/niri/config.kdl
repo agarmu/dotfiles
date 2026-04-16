@@ -131,8 +131,19 @@ window-rule {
     geometry-corner-radius 10.000000 10.000000 10.000000 10.000000
     clip-to-geometry true
 }
+window-rule {
+    background-effect {
+        blur true
+    }
+}
 layer-rule {
     match namespace="^awww.*$"
     place-within-backdrop true
+}
+layer-rule {
+    match namespace="^launcher$" // fuzzel
+    background-effect {
+        blur true
+    }
 }
 xwayland-satellite { path "xwayland-satellite"; }

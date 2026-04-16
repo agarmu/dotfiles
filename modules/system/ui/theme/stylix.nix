@@ -13,8 +13,12 @@
       stylix = {
         enable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/tomorrow-night.yaml";
-        # TODO: lower opacity once niri has blur
-        opacity.terminal = 1.0;
+        opacity = {
+          applications = 0.85;
+          desktop = 0.85;
+          popups = 0.85;
+          terminal = 0.85;
+        };
       };
     };
 }
