@@ -181,7 +181,7 @@ in
               "@base0B@"
             ]
             [
-              config.stylix.fonts.sansSerif.name
+              config.stylix.fonts.monospace.name
               (toString config.stylix.fonts.sizes.desktop)
               colors.base00
               colors.base07
