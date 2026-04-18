@@ -1,20 +1,20 @@
 pkgs:
 let
   inherit (pkgs) lib;
-  packageDefs =
-    builtins.readDir ./.
-    |> lib.mapAttrsToList (
-      dir: kind:
-      lib.optional (kind == "directory" && builtins.pathExists (./. + "/${dir}/default.nix")) {
-        name = dir;
-        path = ./. + "/${dir}/default.nix";
-      }
-    )
-    |> lib.concatLists;
 in
 {
   mukul =
-    packageDefs
+    builtins.readDir ./.
+    |> lib.mapAttrsToList (
+      name: kind:
+      let
+        path = ./. + "/${name}/default.nix";
+      in
+      lib.optional (kind == "directory" && builtins.pathExists path) {
+        inherit name path;
+      }
+    )
+    |> lib.concatLists
     |> map (pkg: {
       inherit (pkg) name;
       value = pkgs.callPackage pkg.path { };
