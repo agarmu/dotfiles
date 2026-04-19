@@ -7,15 +7,6 @@
       ...
     }:
     let
-      trashPut = lib.getExe' pkgs.trash-cli "trash-put";
-      trashEmpty = lib.getExe' pkgs.trash-cli "trash-empty";
-      du = lib.getExe' pkgs.coreutils "du";
-      find = lib.getExe pkgs.findutils;
-      notify = lib.getExe pkgs.libnotify;
-      df = lib.getExe' pkgs.coreutils "df";
-      date = lib.getExe' pkgs.coreutils "date";
-      git = lib.getExe config.programs.git.package;
-
       mkService =
         {
           name,
@@ -25,6 +16,17 @@
         }:
         script:
         let
+          drv = pkgs.writeShellApplication {
+            inherit name;
+            runtimeInputs = with pkgs; [
+              coreutils
+              findutils
+              trash-cli
+              libnotify
+              config.programs.git.package
+            ];
+            text = script;
+          };
           triggerUnit =
             if trigger ? timer then
               {
@@ -56,7 +58,7 @@
               Unit.Description = description;
               Service = {
                 Type = "oneshot";
-                ExecStart = toString (pkgs.writeShellScript name script);
+                ExecStart = lib.getExe drv;
                 StandardOutput = "journal";
                 StandardError = "journal";
                 Restart = "on-failure";
@@ -80,15 +82,14 @@
           trigger.timer = "daily";
         }
         ''
-          set -euo pipefail
           dir="$HOME/Pictures/screenshots"
           [ -d "$dir" ] || exit 0
           count=0
           while IFS= read -r -d "" f; do
             echo "Trashing: $f"
-            ${trashPut} "$f"
+            trash-put "$f"
             count=$((count + 1))
-          done < <(${find} "$dir" -name 'Screenshot*' -mmin +1440 -print0)
+          done < <(find "$dir" -name 'Screenshot*' -mmin +1440 -print0)
           echo "Trashed $count screenshot(s)"
         ''
       )
@@ -100,15 +101,14 @@
           trigger.timer = "daily";
         }
         ''
-          set -euo pipefail
           dir="$HOME/Downloads"
           [ -d "$dir" ] || exit 0
           count=0
           while IFS= read -r -d "" f; do
             echo "Trashing: $f"
-            ${trashPut} "$f"
+            trash-put "$f"
             count=$((count + 1))
-          done < <(${find} "$dir" -maxdepth 1 -mtime +3 -print0)
+          done < <(find "$dir" -maxdepth 1 -mtime +3 -print0)
           echo "Trashed $count download(s)"
         ''
       )
@@ -120,14 +120,13 @@
           trigger.path = "%h/.local/share/Trash/files";
         }
         ''
-          set -euo pipefail
           trash_dir="$HOME/.local/share/Trash/files"
           [ -d "$trash_dir" ] || exit 0
-          size=$(${du} -sb "$trash_dir" | cut -f1)
+          size=$(du -sb "$trash_dir" | cut -f1)
           echo "Trash size: $size bytes"
           if [ "$size" -gt $((1024 * 1024 * 1024)) ]; then
-            size_hr=$(${du} -sh "$trash_dir" | cut -f1)
-            ${notify} "Trash" "Trash is ''${size_hr} — consider emptying it"
+            size_hr=$(du -sh "$trash_dir" | cut -f1)
+            notify-send "Trash" "Trash is ''${size_hr} — consider emptying it"
           fi
         ''
       )
@@ -139,20 +138,20 @@
           trigger.timer = "daily";
         }
         ''
-          set -euo pipefail
           trash_dir="$HOME/.local/share/Trash/files"
           [ -d "$trash_dir" ] || exit 0
-          size=$(${du} -sb "$trash_dir" | cut -f1)
+          size=$(du -sb "$trash_dir" | cut -f1)
           echo "Trash size: $size bytes"
           if [ "$size" -gt $((1024 * 1024 * 1024)) ]; then
             echo "Trash > 1 GB — removing files older than 30 days"
-            ${trashEmpty} 30
+            trash-empty 30
           else
             echo "Trash <= 1 GB — removing files older than 7 days"
-            ${trashEmpty} 7
+            trash-empty 7
           fi
         ''
       )
+
       (mkService
         {
           name = "notify-downloads";
@@ -160,13 +159,12 @@
           trigger.timer = "weekly";
         }
         ''
-          set -euo pipefail
           dir="$HOME/Downloads"
           [ -d "$dir" ] || exit 0
-          count=$(${find} "$dir" -maxdepth 1 -mtime +30 -print | wc -l)
+          count=$(find "$dir" -maxdepth 1 -mtime +30 -print | wc -l)
           echo "Old downloads: $count"
           if [ "$count" -gt 0 ]; then
-            ${notify} "Downloads" "$count file(s) older than 30 days — consider cleaning up ~/Downloads"
+            notify-send "Downloads" "$count file(s) older than 30 days — consider cleaning up ~/Downloads"
           fi
         ''
       )
@@ -178,11 +176,10 @@
           trigger.timer = "*:0/6";
         }
         ''
-          set -euo pipefail
-          usage=$(${df} --output=pcent "$HOME" | tail -1 | tr -d ' %')
+          usage=$(df --output=pcent "$HOME" | tail -1 | tr -d ' %')
           echo "Home partition usage: ''${usage}%"
           if [ "$usage" -gt 90 ]; then
-            ${notify} "Disk Space" "Home partition is ''${usage}% full"
+            notify-send "Disk Space" "Home partition is ''${usage}% full"
           fi
         ''
       )
@@ -194,18 +191,18 @@
           trigger.timer = "weekly";
         }
         ''
-          set -euo pipefail
           dir="$HOME/.cache/thumbnails"
           [ -d "$dir" ] || exit 0
           count=0
           while IFS= read -r -d "" f; do
             echo "Trashing: $f"
-            ${trashPut} "$f"
+            trash-put "$f"
             count=$((count + 1))
-          done < <(${find} "$dir" -type f -mtime +14 -print0)
+          done < <(find "$dir" -type f -mtime +14 -print0)
           echo "Trashed $count thumbnail(s)"
         ''
       )
+
       (mkService
         {
           name = "clean-direnv-cache";
@@ -213,20 +210,19 @@
           trigger.timer = "daily";
         }
         ''
-          set -euo pipefail
-          cutoff=$(( $(${date} +%s) - 7 * 86400 ))
+          cutoff=$(( $(date +%s) - 7 * 86400 ))
           count=0
           while IFS= read -r -d "" d; do
             project="''${d%/.direnv}"
-            recent_files=$(${find} "$project" -maxdepth 1 \
+            recent_files=$(find "$project" -maxdepth 1 \
               -newer "$d" -not -name ".direnv" | wc -l)
-            last_commit=$(${git} -C "$project" log -1 --format="%at" 2>/dev/null || echo 0)
+            last_commit=$(git -C "$project" log -1 --format="%at" 2>/dev/null || echo 0)
             if [ "$recent_files" -eq 0 ] && [ "$last_commit" -lt "$cutoff" ]; then
               echo "Removing stale .direnv: $project"
               rm -rf "$d"
               count=$((count + 1))
             fi
-          done < <(${find} "$HOME" -maxdepth 5 -name ".direnv" -type d -print0)
+          done < <(find "$HOME" -maxdepth 5 -name ".direnv" -type d -print0)
           echo "Removed $count stale .direnv directories"
         ''
       )
@@ -239,7 +235,7 @@
           randomizedDelay = "1min";
         }
         ''
-          ${notify} -u low "Posture check" "Sit up straight and relax your shoulders"
+          notify-send -u low "Posture check" "Sit up straight and relax your shoulders"
         ''
       )
     ];
