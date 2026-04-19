@@ -21,10 +21,8 @@ input {
     touch { map-to-output "eDP-1"; }
 }
 output "eDP-1" {
-    scale 2.000000
-    transform "normal"
-    position x=1280 y=0
-    mode "1920x1080@120.030000"
+    mode "3024x1964@60.000"
+    variable-refresh-rate
 }
 screenshot-path "~/Pictures/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
