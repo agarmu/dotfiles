@@ -26,9 +26,6 @@
             "pkill *"
           ];
         };
-        initContent = ''
-          	${lib.getExe pkgs.figlet} "$USER@$(hostname)"
-        '';
       };
       programs.bash = {
         enable = true;
