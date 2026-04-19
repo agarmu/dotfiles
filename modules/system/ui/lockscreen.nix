@@ -4,8 +4,6 @@
     { pkgs, config, ... }:
     let
       inherit (config.lib.stylix) colors;
-      lockCmd = lib.getExe config.programs.swaylock.package;
-      notifySend = lib.getExe' pkgs.libnotify "notify-send";
     in
     {
       programs.wlogout = {
@@ -47,6 +45,9 @@
           show-failed-attempts = true;
           daemonize = true;
           scaling = "fill";
+          indicator-radius = 80;
+          indicator-thickness = 8;
+          indicator-caps-lock = true;
         };
       };
 
