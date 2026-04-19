@@ -6,6 +6,7 @@
         cacert
         libsecret # secret-tool CLI
         libseccomp
+        kdePackages.kwallet # KDE secret service daemon (D-Bus activated)
       ];
 
       # sudo-rs: Rust reimplementation of sudo
@@ -18,8 +19,8 @@
 
       # Soteria: freedesktop security agent for Wayland
       security.soteria.enable = true;
-      # GNOME Keyring
-      services.gnome.gnome-keyring.enable = true;
+      # KWallet: PAM auto-unlock on login
+      security.pam.services.login.kwallet.enable = true;
     };
 
   flake.modules.darwin.base = {

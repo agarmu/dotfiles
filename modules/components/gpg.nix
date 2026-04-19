@@ -18,11 +18,8 @@
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.seahorse ];
-      services.gnome-keyring = {
-        components = [ "secrets" ];
-      };
-      services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
+      home.packages = [ pkgs.kdePackages.kwalletmanager ];
+      services.gpg-agent.pinentry.package = pkgs.pinentry-qt;
     };
   flake.modules.darwin.gui = {
     homebrew.casks = [ "gpg-suite-pinentry" ];

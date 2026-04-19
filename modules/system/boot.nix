@@ -42,5 +42,6 @@
     ];
     boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
     hardware.asahi.peripheralFirmwareDirectory = "${inputs.asahi-firmware}";
+    hardware.asahi.setupAsahiSound = true;
   };
 }

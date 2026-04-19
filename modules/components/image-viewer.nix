@@ -2,15 +2,15 @@
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.eog ];
+      home.packages = [ pkgs.kdePackages.gwenview ];
       xdg.mimeApps.defaultApplications = {
-        "image/png" = [ "org.gnome.eog.desktop" ];
-        "image/jpeg" = [ "org.gnome.eog.desktop" ];
-        "image/gif" = [ "org.gnome.eog.desktop" ];
-        "image/webp" = [ "org.gnome.eog.desktop" ];
-        "image/svg+xml" = [ "org.gnome.eog.desktop" ];
-        "image/bmp" = [ "org.gnome.eog.desktop" ];
-        "image/tiff" = [ "org.gnome.eog.desktop" ];
+        "image/png" = [ "org.kde.gwenview.desktop" ];
+        "image/jpeg" = [ "org.kde.gwenview.desktop" ];
+        "image/gif" = [ "org.kde.gwenview.desktop" ];
+        "image/webp" = [ "org.kde.gwenview.desktop" ];
+        "image/svg+xml" = [ "org.kde.gwenview.desktop" ];
+        "image/bmp" = [ "org.kde.gwenview.desktop" ];
+        "image/tiff" = [ "org.kde.gwenview.desktop" ];
       };
     };
 }

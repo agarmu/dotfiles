@@ -2,13 +2,12 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      programs.gnome-shell.enable = true;
-      home.packages = with pkgs; [
-        nautilus
-        gnome-disk-utility
+      home.packages = with pkgs.kdePackages; [
+        dolphin
+        partitionmanager
       ];
       xdg.mimeApps.defaultApplications = {
-        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "inode/directory" = "org.kde.dolphin.desktop";
       };
     };
 }

@@ -47,6 +47,11 @@
           config.stylix.cursor.package
         ];
 
+        xdg.portal = {
+          enable = true;
+          extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+        };
+
         services.displayManager.sddm = {
           enable = true;
           enableHidpi = true;
