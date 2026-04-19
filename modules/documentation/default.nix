@@ -39,7 +39,10 @@
     {
       programs.man = {
         enable = true;
-        generateCaches = true;
+        # this is way too slow unfortunately.
+        # will enable once they do dynamically
+        # like NixOS.
+        # generateCaches = true;
       };
       home.packages = [ pkgs.mukul.qman ];
       home.shellAliases.q = "qman";
