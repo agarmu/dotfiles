@@ -75,6 +75,7 @@
         procs # better ps
         kmon # kernel monitor
         ncdu # disk usage
+        bandwhich # per-process network bandwidth
       ];
     };
 }
