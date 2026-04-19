@@ -21,6 +21,7 @@
           name,
           description,
           trigger,
+          randomizedDelay ? "30min",
         }:
         script:
         let
@@ -32,7 +33,7 @@
                   Timer = {
                     OnCalendar = trigger.timer;
                     Persistent = true;
-                    RandomizedDelaySec = "30min";
+                    RandomizedDelaySec = randomizedDelay;
                   };
                   Install.WantedBy = [ "timers.target" ];
                 };
@@ -96,7 +97,7 @@
         {
           name = "trash-downloads";
           description = "Move old downloads to trash";
-          trigger.timer = "weekly";
+          trigger.timer = "daily";
         }
         ''
           set -euo pipefail
@@ -107,7 +108,7 @@
             echo "Trashing: $f"
             ${trashPut} "$f"
             count=$((count + 1))
-          done < <(${find} "$dir" -maxdepth 1 -mtime +30 -print0)
+          done < <(${find} "$dir" -maxdepth 1 -mtime +3 -print0)
           echo "Trashed $count download(s)"
         ''
       )
@@ -235,6 +236,7 @@
           name = "posture-reminder";
           description = "Periodic posture reminder";
           trigger.timer = "*:0/30";
+          randomizedDelay = "1min";
         }
         ''
           ${notify} -u low "Posture check" "Sit up straight and relax your shoulders"
