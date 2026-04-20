@@ -41,7 +41,10 @@
 
       colorschemes.everforest = {
         enable = true;
-        settings.background = "hard";
+        settings = {
+          background = "hard";
+          transparent_background = 1;
+        };
       };
 
       plugins = {
