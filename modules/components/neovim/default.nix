@@ -16,8 +16,8 @@
   # user-level nixvim
   flake.modules.homeManager.base = {
     stylix.targets = {
-      neovim.enable = true;
-      nixvim.enable = true;
+      neovim.enable = false;
+      nixvim.enable = false;
     };
     programs.nixvim = {
       enable = true;
@@ -37,6 +37,11 @@
         smartcase = true;
         splitright = true; # open vertical splits to the right
         splitbelow = true; # open horizontal splits below
+      };
+
+      colorschemes.everforest = {
+        enable = true;
+        settings.background = "hard";
       };
 
       plugins = {
