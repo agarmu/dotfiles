@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake-file.inputs.nixvim = {
     url = "github:nix-community/nixvim";
@@ -9,7 +10,7 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
-      defaultEditor = true;
+      defaultEditor = lib.mkDefault true;
     };
   };
 
@@ -19,6 +20,7 @@
       neovim.enable = false;
       nixvim.enable = false;
     };
+    programs.neovide.enable = true;
     programs.nixvim = {
       enable = true;
       viAlias = true;
