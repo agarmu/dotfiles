@@ -16,6 +16,7 @@ in
           "seat"
           "video"
           "input"
+          "networkmanager"
         ];
         shell = pkgs.zsh;
       };
