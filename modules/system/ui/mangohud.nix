@@ -1,5 +1,5 @@
 {
-  flake.modules.home.nixosGui =
+  flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
       programs.mangohud = {
