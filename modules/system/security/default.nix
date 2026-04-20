@@ -17,6 +17,8 @@
         (builtins.readFile ./millet.crt)
       ];
 
+      security.polkit.enable = true;
+
       # Soteria: freedesktop security agent for Wayland
       security.soteria.enable = true;
       # KWallet: PAM auto-unlock on login
