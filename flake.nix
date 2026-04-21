@@ -19,14 +19,6 @@
       url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
       flake = false;
     };
-    betterfox = {
-      url = "github:HeitorAugustoLN/betterfox-nix";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        import-tree.follows = "import-tree";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

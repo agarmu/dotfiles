@@ -1,9 +1,8 @@
 {
   flake.modules.homeManager.gui = {
     stylix.targets.firefox = {
-      enable = true;
+      enable = false;
       firefoxGnomeTheme.enable = false;
-      profileNames = [ "default" ];
     };
   };
 }
