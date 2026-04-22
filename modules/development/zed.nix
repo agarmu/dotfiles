@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.dev = {
     programs.zed-editor = {
-      enable = false;
+      enable = true;
       userSettings = {
         telemetry = {
           metrics = false;
