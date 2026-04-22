@@ -25,7 +25,6 @@
   flake.modules.homeManager.mobile =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.mukul.zpoweralertd ];
       systemd.user.services.niri-refresh-rate = {
         Unit = {
           Description = "Adjust niri refresh rate based on battery state";
@@ -60,20 +59,6 @@
             }
           );
           Restart = "on-failure";
-        };
-      };
-      systemd.user.services.zpoweralertd = {
-        Unit = {
-          Description = "UPower-powered power alerter; alternative to poweralertd";
-          After = [ "graphical-session.target" ];
-          PartOf = [ "graphical-session.target" ];
-        };
-        Install.WantedBy = [ "graphical-session.target" ];
-
-        Service = {
-          Type = "simple";
-          ExecStart = "${lib.getExe pkgs.mukul.zpoweralertd} -V";
-          Restart = "always";
         };
       };
     };
