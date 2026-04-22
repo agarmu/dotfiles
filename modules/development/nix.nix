@@ -1,9 +1,4 @@
 {
-  flake-file.inputs.statix = {
-    url = "github:molybdenumsoftware/statix";
-    inputs.nixpkgs.follows = "nixpkgs";
-    inputs.flake-parts.follows = "flake-parts";
-  };
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {

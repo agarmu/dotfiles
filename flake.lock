@@ -622,7 +622,6 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "sops-nix": "sops-nix",
-        "statix": "statix",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix"
       }
@@ -644,29 +643,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "statix": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1776781113,
-        "narHash": "sha256-xiDYlnvCgroWD2uEqmYQDfDTtd+HSh5aFdvVoeIdBwo=",
-        "owner": "molybdenumsoftware",
-        "repo": "statix",
-        "rev": "950cda61db2671ed68efb9df6ed15bee4a550639",
-        "type": "github"
-      },
-      "original": {
-        "owner": "molybdenumsoftware",
-        "repo": "statix",
         "type": "github"
       }
     },

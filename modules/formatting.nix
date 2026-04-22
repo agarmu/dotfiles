@@ -18,10 +18,6 @@
       ...
     }:
     let
-      statixPkgs = import inputs.nixpkgs {
-        inherit system;
-        overlays = [ inputs.statix.overlays.default ];
-      };
       pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
         src = inputs.self;
         package = pkgs.prek;
@@ -29,10 +25,6 @@
           nixfmt = {
             enable = true;
             package = pkgs.nixfmt;
-          };
-          statix = {
-            enable = true;
-            package = statixPkgs.statix;
           };
           deadnix.enable = true;
         };
@@ -46,7 +38,6 @@
       checks = { inherit pre-commit-check; };
       devShells.default = pkgs.mkShellNoCC {
         packages = with pkgs; [
-          statixPkgs.statix
           nixfmt
           deadnix
           prek
