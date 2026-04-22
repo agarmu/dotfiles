@@ -11,6 +11,7 @@ in
     services.homepage-dashboard = {
       enable = true;
       listenPort = port;
+      allowedHosts = domain;
 
       settings = {
         title = "Dashboard";
