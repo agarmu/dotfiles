@@ -110,12 +110,6 @@ in
                 href = "https://irc.internal";
               };
             }
-            {
-              Karakeep = {
-                description = "Bookmark manager";
-                href = "https://karakeep.internal";
-              };
-            }
           ];
         }
       ];
