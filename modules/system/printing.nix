@@ -10,7 +10,7 @@
     { pkgs, ... }:
     {
       services.samba = {
-        enable = true;
+        enable = false;
       };
       services.printing = {
         enable = true;
