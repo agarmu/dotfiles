@@ -32,6 +32,8 @@
         pkgs.mukul.why
         pciutils # pci devices
         pkgs.mukul.kent
+        libnotify # for notify-send
+        glow # md viewer for terminal
       ];
     };
 }
