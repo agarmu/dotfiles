@@ -18,6 +18,7 @@ let
           nerd-fonts.jetbrains-mono
           noto-fonts-color-emoji
           libertinus
+          mukul.iosevka-kian-bin
         ]
         ++ (toDrvList tex-gyre)
         ++ (toDrvList tex-gyre-math);
@@ -38,8 +39,8 @@ in
           name = "Source Sans 3";
         };
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font";
+          package = pkgs.mukul.iosevka-kian-bin;
+          name = "Iosevka Kian Term";
         };
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
