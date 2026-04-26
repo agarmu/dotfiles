@@ -62,9 +62,9 @@ let
     family = "Iosevka Kian Fixed";
   };
 in
-(symlinkJoin {
+symlinkJoin {
   pname = "iosevka-kian";
-  version = sans.version;
+  inherit (sans) version;
   paths = [
     sans
     term
@@ -74,4 +74,4 @@ in
   passthru = {
     inherit sans term fixed;
   };
-})
+}

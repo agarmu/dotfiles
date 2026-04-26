@@ -16,6 +16,6 @@
       };
     in
     {
-      hardware.graphics.package = lib.mkForce (mesaPkgs.mesa);
+      hardware.graphics.package = lib.mkForce mesaPkgs.mesa;
     };
 }

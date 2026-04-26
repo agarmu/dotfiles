@@ -32,7 +32,7 @@ in
         isSystemUser = true;
         createHome = true;
         home = grocyDataDir;
-        group = config.services.caddy.group;
+        inherit (config.services.caddy) group;
       };
 
       systemd.tmpfiles.rules =
@@ -46,7 +46,7 @@ in
 
       services.phpfpm.pools.grocy = {
         user = "grocy";
-        group = config.services.caddy.group;
+        inherit (config.services.caddy) group;
 
         inherit (grocyPackage.passthru) phpPackage;
 
