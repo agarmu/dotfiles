@@ -3,6 +3,9 @@ let
   overlays = [
     inputs.niri.overlays.niri
     inputs.nur.overlays.default
+    (_final: prev: {
+      niri-screen-time = inputs.niri-screen-time.packages.${prev.stdenv.hostPlatform.system}.default;
+    })
   ];
 in
 {

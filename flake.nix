@@ -54,6 +54,10 @@
         nixpkgs-stable.follows = "nixpkgs";
       };
     };
+    niri-screen-time = {
+      url = "github:probeldev/niri-screen-time";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
