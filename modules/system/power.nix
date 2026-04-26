@@ -8,18 +8,11 @@
     };
 
   flake.modules.nixos.mobile = {
-    services.auto-cpufreq = {
+    # Asahi kernel handles power management via ARM_APPLE_SOC_CPUFREQ.
+    # schedutil is the recommended governor for Apple Silicon.
+    powerManagement = {
       enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-      };
+      cpuFreqGovernor = "schedutil";
     };
   };
   flake.modules.homeManager.mobile =
