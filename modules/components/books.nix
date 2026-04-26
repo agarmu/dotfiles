@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.nixosGui =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
     {
       programs.foliate = {
         enable = true;
