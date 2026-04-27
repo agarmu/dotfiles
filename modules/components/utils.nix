@@ -31,7 +31,8 @@
         gdu
         pkgs.mukul.why
         pciutils # pci devices
-        pkgs.mukul.kent
+        mukul.kent-class-download
+        mukul.lazymake
         libnotify # for notify-send
         glow # md viewer for terminal
       ];
