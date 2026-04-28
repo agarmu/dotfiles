@@ -11,7 +11,7 @@
           # apex
           # arduino
           asm
-          astro
+          #astro
           # authzed
           awk
           bash
@@ -26,44 +26,44 @@
           # brightscript
           c
           # c3
-          c_sharp
+          # c_sharp
           # caddy
           # cairo
           # capnp
           # chatito
           # circom
-          clojure
+          # clojure
           cmake
-          comment
-          commonlisp
+          # comment
+          # commonlisp
           # cooklang
           # corn
           # cpon
           cpp
-          css
-          csv
+          # css
+          # csv
           # cuda
           # cue
           # cylc
           # d
-          dart
+          # dart
           # desktop
           # devicetree
           # dhall
           diff
           # disassembly
           # djot
-          dockerfile
-          dot
+          # dockerfile
+          # dot
           # doxygen
           # dtd
           # earthfile
           # ebnf
-          editorconfig
+          # editorconfig
           # eds
           # eex
-          elixir
-          elm
+          # elixir
+          # elm
           # elsa
           # elvish
           # embedded_template
@@ -74,7 +74,7 @@
           # fennel
           # fidl
           # firrtl
-          fish
+          # fish
           # foam
           # forth
           # fortran
@@ -85,38 +85,38 @@
           # gaptst
           # gdscript
           # gdshader
-          git_config
-          git_rebase
-          gitattributes
-          gitcommit
-          gitignore
-          gleam
+          # git_config
+          # git_rebase
+          # gitattributes
+          # gitcommit
+          # gitignore
+          # gleam
           # glimmer
           # glimmer_javascript
           # glimmer_typescript
           # glsl
           # gn
           # gnuplot
-          go
+          # go
           # goctl
           # godot_resource
-          gomod
-          gosum
+          # gomod
+          # gosum
           # gotmpl
-          gowork
+          # gowork
           # gpg
-          graphql
+          # graphql
           # gren
-          groovy
+          # groovy
           # groq
           # gstlaunch
           # hack
           # hare
           haskell
-          haskell_persistent
-          hcl
+          # haskell_persistent
+          # hcl
           # heex
-          helm
+          # helm
           # hjson
           # hlsl
           # hlsplaylist
@@ -129,20 +129,20 @@
           # hyprlang
           # idl
           # idris
-          ini
+          # ini
           # inko
           # ispc
           # janet_simple
-          java
+          # java
           # javadoc
           javascript
           # jinja
           # jinja_inline
-          jq
-          jsdoc
-          json
-          json5
-          jsonnet
+          # jq
+          # jsdoc
+          # json
+          # json5
+          # jsonnet
           # julia
           just
           # kcl
@@ -150,7 +150,7 @@
           kdl
           kitty
           # kos
-          kotlin
+          # kotlin
           # koto
           # kusto
           # lalrpop
@@ -160,8 +160,8 @@
           # linkerscript
           # liquid
           # liquidsoap
-          llvm
-          lua
+          # llvm
+          # lua
           # luadoc
           # luap
           # luau
@@ -176,7 +176,7 @@
           # mlir
           # muttrc
           # nasm
-          nginx
+          # nginx
           # nickel
           # nim
           # nim_format_string
@@ -186,15 +186,15 @@
           # nu
           # objc
           # objdump
-          ocaml
+          # ocaml
           # ocaml_interface
           # ocamllex
           # odin
           # pascal
           # passwd
           # pem
-          perl
-          php
+          # perl
+          # php
           # php_only
           # phpdoc
           # pioasm
@@ -203,21 +203,21 @@
           # pod
           # poe_filter
           # pony
-          powershell
+          # powershell
           # printf
-          prisma
+          # prisma
           # problog
           # prolog
           # promql
           # properties
-          proto
+          # proto
           # prql
           # psv
           # pug
           # puppet
           # purescript
           # pymanifest
-          python
+          # python
           # ql
           # qmldir
           # qmljs
@@ -230,24 +230,24 @@
           # rbs
           # re2c
           # readline
-          regex
+          # regex
           # rego
           # requirements
           # rescript
           # rifleconf
           # rnoweb
           # robot
-          robots_txt
+          # robots_txt
           # roc
           # ron
           # rst
-          ruby
+          # ruby
           # runescript
           rust
           scala
           # scfg
           # scheme
-          scss
+          # scss
           # sflog
           # slang
           # slim
@@ -262,9 +262,9 @@
           # sourcepawn
           # sparql
           # sproto
-          sql
+          # sql
           # squirrel
-          ssh_config
+          # ssh_config
           # starlark
           # strace
           # styled
@@ -273,7 +273,7 @@
           # surface
           # svelte
           # sway
-          swift
+          # swift
           # sxhkdrc
           # systemtap
           # systemverilog
@@ -284,22 +284,22 @@
           # teal
           # templ
           # tera
-          terraform
+          # terraform
           # textproto
           # thrift
           # tiger
           # tlaplus
           # tmux
           # todotxt
-          toml
-          # tsv
+          # toml
+          # # tsv
           tsx
           # turtle
           # twig
-          typescript
+          # typescript
           # typespec
           # typoscript
-          typst
+          # typst
           # udev
           # ungrammar
           # unison
@@ -310,26 +310,26 @@
           # vento
           # vhdl
           # vhs
-          vim
-          vimdoc
+          # vim
+          # vimdoc
           # vrl
-          vue
+          # vue
           # wgsl
           # wgsl_bevy
           # wing
           # wit
           # wxml
           # xcompose
-          xml
+          # xml
           # xresources
-          yaml
+          # yaml
           # yang
           # yuck
           # zathurarc
           zig
           # ziggy
           # ziggy_schema
-          zsh
+          # zsh
         ];
       };
     };
