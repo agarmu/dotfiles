@@ -16,7 +16,7 @@ stdenv.mkDerivation {
     owner = "xCaptaiN09";
     repo = "pixie-sddm";
     rev = "main";
-    sha256 = "sha256-NkjWP/y3kLRjYM0Wr3l7ndbMx3XYxQFXy07C28vrUSU=";
+    sha256 = "sha256-4eD4RC/ZLw/zSPmBVllyw+PCDDha/fD3WWB/vwwzj7I=";
   };
 
   installPhase = ''
