@@ -235,7 +235,7 @@
           randomizedDelay = "1min";
         }
         ''
-          notify-send -u low "Posture check" "Sit up straight and relax your shoulders"
+          notify-send -t 1500 -u low -e "Posture check" "Sit up straight and relax your shoulders"
         ''
       )
     ];
