@@ -6,14 +6,18 @@
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     let
+      config-subst = pkgs.replaceVars ./config.kdl {
+        shaders = pkgs.mukul.niri-shaders;
+      };
+
       validated-config =
         pkgs.runCommand "niri-config-validated"
           {
             nativeBuildInputs = [ pkgs.niri-unstable ];
           }
           ''
-            niri validate -c ${./config.kdl}
-            cp ${./config.kdl} $out
+            niri validate -c ${config-subst}
+            cp ${config-subst} $out
           '';
     in
     {

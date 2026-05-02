@@ -10,10 +10,9 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "jgarza9788";
     repo = "niri-animation-collection";
-    rev = "0b77e739f0007f7fffedd014e44e68daccddbd3b";
-    hash = "sha256-unwQ5RyaL+6019qgTqVqE2eDVsq9EUvgmhRHgPqnQww=";
+    rev = "aa26f4e157b818630cb281f6e1968b641c079d69";
+    hash = "sha256-DgoudR6etn+t5eYplPcOISPuWMRAulW6ZOCTsyFHi2w=";
   };
-
   dontConfigure = true;
   dontBuild = true;
 
