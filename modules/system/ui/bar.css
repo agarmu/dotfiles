@@ -21,7 +21,7 @@ window#waybar.hidden {
 #network,
 #bluetooth,
 #custom-time,
-#custom-mako {
+#custom-swaync {
   background: #@base00@;
   color: #@base07@;
   margin: 6px 3px;
@@ -36,7 +36,7 @@ window#waybar.hidden {
   margin-left: 8px;
 }
 
-.modules-right > widget:last-child #custom-mako,
+.modules-right > widget:last-child #custom-swaync,
 .modules-right > widget:last-child > * {
   margin-right: 8px;
 }

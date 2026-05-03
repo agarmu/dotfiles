@@ -196,7 +196,7 @@ binds {
         set-column-width "-10%"
     }
     Mod+N hotkey-overlay-title="Notifications" {
-        spawn "makoctl" "dismiss"
+        spawn "swaync-client" "-t"
     }
     Mod+Period hotkey-overlay-title="Expel from column" {
         expel-window-from-column
