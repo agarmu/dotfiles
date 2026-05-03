@@ -1,5 +1,4 @@
-
-include "@shaders@/smoke.kdl"
+include "@shaders@/pixelate.kdl"
 
 animations {
     slowdown 2.0
