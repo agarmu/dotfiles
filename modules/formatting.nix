@@ -33,7 +33,7 @@
     {
       treefmt = {
         programs.nixfmt.enable = true;
-        programs.nixfmt.package = pkgs.nixfmt;
+        programs.kdlfmt.enable = true;
       };
       checks = { inherit pre-commit-check; };
       devShells.default = pkgs.mkShellNoCC {
