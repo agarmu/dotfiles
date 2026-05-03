@@ -195,6 +195,9 @@ binds {
     Mod+Minus hotkey-overlay-title="Shrink column" {
         set-column-width "-10%"
     }
+    Mod+Shift+L hotkey-overlay-title="Lock" {
+        spawn "hyprlock"
+    }
     Mod+N hotkey-overlay-title="Notifications" {
         spawn "swaync-client" "-t"
     }
