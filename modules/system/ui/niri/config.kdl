@@ -102,7 +102,7 @@ binds {
     Mod+L hotkey-overlay-title="Focus right" { focus-column-right; }
     Mod+Left { focus-column-left; }
     Mod+Minus hotkey-overlay-title="Shrink column" { set-column-width "-10%"; }
-    Mod+N hotkey-overlay-title="Notifications" { spawn "swaync-client" "-t"; }
+    Mod+N hotkey-overlay-title="Notifications" { spawn "makoctl" "dismiss"; }
     Mod+Period hotkey-overlay-title="Expel from column" { expel-window-from-column; }
     Mod+Q hotkey-overlay-title="Close window" { close-window; }
     Mod+R hotkey-overlay-title="Cycle column width" { switch-preset-column-width; }

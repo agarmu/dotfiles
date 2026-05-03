@@ -1,51 +1,23 @@
 _: {
   flake.modules.homeManager.nixosGui = {
-    services.swaync = {
+    services.mako = {
       enable = true;
       settings = {
-        positionX = "right";
-        positionY = "top";
+        actions = true;
+        anchor = "top-right";
+        default-timeout = 8000;
         layer = "overlay";
-        control-center-layer = "overlay";
-        cssPriority = "user";
-
-        timeout = 8;
-        timeout-low = 4;
-        timeout-critical = 0;
-
-        notification-window-width = 400;
-        control-center-width = 450;
-
-        fit-to-screen = true;
-        relative-timestamps = true;
-        notification-icon-size = 48;
-        notification-body-image-height = 100;
-        notification-body-image-width = 200;
-
-        widgets = [
-          "title"
-          "dnd"
-          "mpris"
-          "notifications"
-        ];
-        widget-config = {
-          title = {
-            text = "Notifications";
-            clear-all-button = true;
-            button-text = "Clear";
-          };
-          dnd = {
-            text = "Do Not Disturb";
-          };
-          mpris = {
-            image-size = 80;
-            image-radius = 8;
-          };
-        };
-
-        notification-visibility = { };
+        max-visible = 5;
+        sort = "-time";
+        width = 400;
+        height = 400;
+        margin = "10";
+        padding = "10";
+        border-radius = 8;
+        border-size = 2;
+        icons = true;
       };
     };
-    stylix.targets.swaync.enable = true;
+    stylix.targets.mako.enable = true;
   };
 }

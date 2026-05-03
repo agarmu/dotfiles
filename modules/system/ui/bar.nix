@@ -73,7 +73,7 @@ in
             "network"
             "bluetooth"
             "custom/time"
-            "custom/swaync"
+            "custom/mako"
           ];
 
           wireplumber = {
@@ -144,24 +144,18 @@ in
             tooltip-format = "{timeTo}";
           };
 
-          "custom/swaync" = {
+          "custom/mako" = {
             tooltip = false;
-            format = "{icon} {text}";
+            format = "{icon}";
             format-icons = {
-              notification = icons.notification.bell;
-              none = icons.notification.bell-outline;
-              dnd-notification = "󰂛";
-              dnd-none = "󰪑";
-              inhibited-notification = icons.notification.bell;
-              inhibited-none = icons.notification.bell-outline;
-              dnd-inhibited-notification = "󰂛";
-              dnd-inhibited-none = "󰪑";
+              default = icons.notification.bell;
+              dnd = "󰪑";
             };
             return-type = "json";
-            exec-if = "which swaync-client";
-            exec = "swaync-client -swb";
-            on-click = "swaync-client -t -sw";
-            on-click-right = "swaync-client -d -sw";
+            exec-if = "which makoctl";
+            exec = "makoctl mode | grep -q dnd && printf '{\"alt\":\"dnd\"}' || printf '{\"alt\":\"default\"}'";
+            on-click = "makoctl dismiss";
+            on-click-right = "makoctl mode -t dnd default";
             escape = true;
           };
         };
