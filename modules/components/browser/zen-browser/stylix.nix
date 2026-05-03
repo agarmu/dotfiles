@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.gui = {
     stylix.targets.zen-browser = {
-      enable = true;
+      enable = false;
       profileNames = [ "default" ];
     };
   };
