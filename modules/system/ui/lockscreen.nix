@@ -38,35 +38,42 @@
         '';
       };
 
-      # swaylock
-      programs.swaylock = {
+      programs.hyprlock = {
         enable = true;
         settings = {
-          show-failed-attempts = true;
-          daemonize = true;
-          scaling = "fill";
-          indicator-radius = 80;
-          indicator-thickness = 8;
-          indicator-caps-lock = true;
+          general = {
+            disable_loading_bar = true;
+            grace = 300;
+            hide_cursor = true;
+          };
         };
       };
 
-      # swayidle: lock at 30s idle, power off monitors at 90s
-      services.swayidle = {
+      services.hypridle = {
         enable = true;
-        events = {
-          before-sleep = "${lib.getExe pkgs.swaylock}";
+        settings = {
+          general = {
+            lock_cmd = "${lib.getExe pkgs.hyprlock}";
+            before_sleep_cmd = "${lib.getExe pkgs.hyprlock}";
+            after_sleep_cmd = "hyprctl dispatch dpms on";
+          };
+
+          listener = [
+            {
+              timeout = 180;
+              on-timeout = "notify-send -e 'Screen Lock' 'Locking in 20 seconds...'";
+            }
+            {
+              timeout = 200;
+              on-timeout = "${lib.getExe pkgs.hyprlock}";
+            }
+            {
+              timeout = 300;
+              on-timeout = "niri msg action power-off-monitors";
+              on-resume = "niri msg action power-on-monitors";
+            }
+          ];
         };
-        timeouts = [
-          {
-            timeout = 60 * 3;
-            command = "${lib.getExe pkgs.swaylock}";
-          }
-          {
-            timeout = 60 * 5;
-            command = "niri msg action power-off-monitors";
-          }
-        ];
       };
     };
 }

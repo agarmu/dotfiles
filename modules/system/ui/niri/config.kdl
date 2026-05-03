@@ -131,7 +131,7 @@ binds {
     XF86LaunchA { spawn-sh "pkill fuzzel || fuzzel"; }
     XF86MonBrightnessDown { spawn "lightctl" "down"; }
     XF86MonBrightnessUp { spawn "lightctl" "up"; }
-    XF86Sleep { spawn "swaylock"; }
+    XF86Sleep { spawn "hyprlock"; }
 }
 window-rule {
     geometry-corner-radius 10.000000 10.000000 10.000000 10.000000
