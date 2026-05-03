@@ -45,7 +45,8 @@
         enable = true;
         settings = {
           background = "hard";
-          transparent_background = 1;
+          # transparent in terminal, opaque in neovide (GUI bg handled by neovide)
+          transparent_background.__raw = "(vim.g.neovide and 0) or 1";
         };
       };
 
