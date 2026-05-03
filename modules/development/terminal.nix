@@ -1,29 +1,13 @@
 {
   flake.modules.homeManager.gui = {
-    programs.alacritty = {
+    programs.ghostty = {
       enable = true;
       settings = {
-        window = {
-          padding =
-            let
-              u = 15;
-            in
-            {
-              x = u;
-              y = u;
-            };
-          dynamic_padding = true;
-          blur = true;
-          decorations = "None";
-        };
-        cursor = {
-          style = {
-            shape = "Beam";
-            blinking = "On";
-          };
-          unfocused_hollow = false;
-
-        };
+        window-padding-x = 15;
+        window-padding-y = 15;
+        window-decoration = false;
+        cursor-style = "bar";
+        cursor-style-blink = true;
       };
     };
   };

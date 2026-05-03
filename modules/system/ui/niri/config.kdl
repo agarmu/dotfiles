@@ -118,7 +118,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+U hotkey-overlay-title="Shift workspace down" { move-workspace-down; }
     Mod+Space hotkey-overlay-title="Launcher" { spawn-sh "pkill fuzzel || fuzzel"; }
-    Mod+T hotkey-overlay-title="Terminal" { spawn "alacritty"; }
+    Mod+T hotkey-overlay-title="Terminal" { spawn "ghostty"; }
     Mod+U hotkey-overlay-title="Workspace down" { focus-workspace-down; }
     Mod+Up { focus-window-up; }
     XF86AudioLowerVolume { spawn "volumectl" "-u" "down"; }
