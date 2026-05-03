@@ -149,6 +149,7 @@ layer-rule {
 layer-rule {
     match namespace="^launcher$" // fuzzel
     background-effect {
+        xray false
         blur true
     }
 }
