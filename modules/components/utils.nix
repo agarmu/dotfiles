@@ -36,5 +36,7 @@
         libnotify # for notify-send
         glow # md viewer for terminal
       ];
+      programs.jq.enable = true;
+      programs.jqp.enable = true;
     };
 }
