@@ -17,7 +17,7 @@
           applications = 0.85;
           desktop = 0.85;
           popups = 0.85;
-          terminal = 0.65;
+          terminal = 0.55;
         };
       };
     };
