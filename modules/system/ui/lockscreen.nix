@@ -61,7 +61,7 @@
           listener = [
             {
               timeout = 180;
-              on-timeout = "notify-send -e 'Screen Lock' 'Locking in 20 seconds...'";
+              on-timeout = "notify-send -e -t 2000 'Screen Lock' 'Locking in 20 seconds...'";
             }
             {
               timeout = 200;
