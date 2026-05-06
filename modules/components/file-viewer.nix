@@ -2,14 +2,9 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs.kdePackages; [
-        dolphin
-        partitionmanager
-        kio-extras
-        ark
-      ];
+      home.packages = [ pkgs.nautilus ];
       xdg.mimeApps.defaultApplications = {
-        "inode/directory" = "org.kde.dolphin.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
       };
     };
 }
