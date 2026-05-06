@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.base =
+  flake.modules.nixos.useMilletBuilder =
     { config, ... }:
     {
       nix.distributedBuilds = true;
