@@ -23,6 +23,11 @@
         nixvim.enable = false;
       };
       programs.neovide.enable = true;
+      xdg.mimeApps.defaultApplications = {
+        "text/plain" = [ "neovide.desktop" ];
+        "text/english" = [ "neovide.desktop" ];
+        "application/x-desktop" = [ "neovide.desktop" ];
+      };
       programs.nixvim = {
         enable = true;
         viAlias = true;
