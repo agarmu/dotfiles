@@ -15,7 +15,7 @@
     {
       home.packages = with pkgs; [
         pdfarranger
-        kdePackages.okular
+        papers
       ];
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
@@ -28,7 +28,11 @@
         };
       };
       xdg.mimeApps.defaultApplications = {
-        "application/pdf" = [ "org.kde.okular.desktop" ];
+        "application/pdf" = [ "org.gnome.Papers.desktop" ];
+        "application/x-bzpdf" = [ "org.gnome.Papers.desktop" ];
+        "application/x-gzpdf" = [ "org.gnome.Papers.desktop" ];
+        "application/x-xzpdf" = [ "org.gnome.Papers.desktop" ];
+        "application/x-ext-pdf" = [ "org.gnome.Papers.desktop" ];
       };
     };
 }
