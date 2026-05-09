@@ -35,6 +35,7 @@
         mukul.lazymake
         libnotify # for notify-send
         glow # md viewer for terminal
+        pipes-rs
       ];
       programs.jq.enable = true;
       programs.jqp.enable = true;
