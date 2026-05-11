@@ -20,19 +20,6 @@
       config,
       ...
     }:
-    let
-      inherit (pkgs) lib;
-      inherit (config.lib.stylix) colors;
-      pixieSddm = pkgs.mukul.pixie-sddm.override {
-        background = "/etc/wallpaper.png";
-        primaryColor = "#${lib.toUpper colors.base0B}";
-        accentColor = "#${lib.toUpper colors.base07}";
-        backgroundColor = "#${lib.toUpper colors.base07}";
-        textColor = "#${lib.toUpper colors.base00}";
-        fontFamily = config.stylix.fonts.sansSerif.name;
-        fontSize = config.stylix.fonts.sizes.desktop;
-      };
-    in
     {
       config = {
         environment.systemPackages = with pkgs; [
@@ -43,7 +30,6 @@
           satty
           wayland
           wdisplays
-          pixieSddm
           config.stylix.cursor.package
         ];
 
@@ -52,16 +38,8 @@
           extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
         };
 
-        services.displayManager.sddm = {
+        services.displayManager.ly = {
           enable = true;
-          enableHidpi = true;
-          wayland.enable = true;
-          wayland.compositor = "kwin";
-          theme = "pixie";
-          settings.Theme = {
-            CursorTheme = config.stylix.cursor.name;
-            CursorSize = config.stylix.cursor.size;
-          };
         };
         programs.niri = {
           enable = true;
