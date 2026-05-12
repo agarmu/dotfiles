@@ -41,6 +41,7 @@
       programs.hyprlock = {
         enable = true;
         settings = {
+          background = lib.mkForce "/etc/wallpaper.jpg";
           general = {
             disable_loading_bar = true;
             grace = 300;
