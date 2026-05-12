@@ -3,8 +3,8 @@
     { pkgs, ... }:
     {
       gtk.iconTheme = {
-        package = pkgs.papirus-icon-theme;
-        name = "Papirus-Dark";
+        package = pkgs.colloid-icon-theme;
+        name = "Colloid";
       };
     };
 }
