@@ -1,49 +1,77 @@
 { lib, ... }:
 {
+  flake.modules.nixos.gui = {
+    programs.hyprlock.enable = true;
+  };
   flake.modules.homeManager.nixosGui =
     { pkgs, config, ... }:
-    let
-      inherit (config.lib.stylix) colors;
-    in
     {
-      programs.wlogout = {
-        enable = true;
-        style = ''
-          * {
-            background-image: none;
-            box-shadow: none;
-            font-family: "${config.stylix.fonts.sansSerif.name}";
-          }
-
-          window {
-            background-color: #${colors.base00};
-          }
-
-          button {
-            margin: 24px;
-            padding: 32px;
-            border-radius: 24px;
-            border: 2px solid #${colors.base03};
-            background-color: #${colors.base01};
-            color: #${colors.base07};
-            font-size: ${toString (config.stylix.fonts.sizes.desktop * 2)}px;
-          }
-
-          button:hover,
-          button:focus {
-            background-color: #${colors.base0D};
-            color: #${colors.base00};
-            border-color: #${colors.base0D};
-          }
-        '';
-      };
-
       stylix.targets.hyprlock.enable = false;
 
       programs.hyprlock = {
         enable = true;
         settings = {
-          background = lib.mkForce { path = "/etc/wallpaper.jpg"; };
+          "$font" = config.stylix.fonts.monospace.name;
+          background = {
+            path = "/etc/wallpaper.jpg";
+            blur_passes = 3;
+          };
+
+          general = {
+            hide_cursor = false;
+          };
+
+          animations = {
+            enabled = true;
+            bezier = "linear, 1, 1, 0, 0";
+            animation = [
+              "fadeIn, 1, 5, linear"
+              "fadeOut, 1, 5, linear"
+              "inputFieldDots, 1, 2, linear"
+            ];
+          };
+
+          input-field = {
+            size = "20%, 5%";
+            outline_thickness = 3;
+            inner_color = "rgba(0, 0, 0, 0.0)"; # no fill
+
+            outer_color = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+            check_color = "rgba(00ff99ee) rgba(ff6633ee) 120deg";
+            fail_color = "rgba(ff6633ee) rgba(ff0066ee) 40deg";
+
+            font_color = "rgb(ffffff)";
+            font_family = "$font";
+            fade_on_empty = false;
+            rounding = 15;
+
+            placeholder_text = "Input password...";
+            fail_text = "$PAMFAIL";
+
+            dots_spacing = 0.3;
+
+            position = "0, -20";
+            halign = "center";
+            valign = "center";
+          };
+          label = [
+            {
+              text = "$TIME";
+              font_family = "$font";
+              font_size = 50;
+              position = "-60, -60";
+              halign = "right";
+              valign = "top";
+            }
+            {
+              text = "cmd[update:60000] date +'%a, %Y/%m/%d'";
+              font_family = "$font";
+              font_size = 50;
+              position = "60, -60";
+              halign = "left";
+              valign = "top";
+            }
+          ];
         };
       };
 

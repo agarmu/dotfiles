@@ -95,9 +95,6 @@ binds {
     Mod+9 {
         focus-workspace 9
     }
-    Mod+Alt+L hotkey-overlay-title="Session" {
-        spawn "wlogout"
-    }
     Mod+C hotkey-overlay-title="Center column" {
         center-column
     }
