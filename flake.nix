@@ -47,12 +47,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:vic/import-tree";
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "nixpkgs";
-      };
+    niri-nix = {
+      url = "git+https://codeberg.org/BANanaD3V/niri-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-screen-time = {
       url = "github:probeldev/niri-screen-time";

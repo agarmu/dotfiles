@@ -1,4 +1,3 @@
-include "@shaders@/pixelate.kdl"
 input {
     keyboard {
         xkb {
