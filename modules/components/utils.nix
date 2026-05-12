@@ -1,4 +1,11 @@
 {
+  flake.modules.homeManager.nixosGui =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        gnome-calculator
+      ];
+    };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {

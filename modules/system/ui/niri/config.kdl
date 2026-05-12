@@ -98,6 +98,9 @@ binds {
     Mod+C hotkey-overlay-title="Center column" {
         center-column
     }
+    Mod+Shift+C {
+        spawn-sh "pkill -fx 'gnome-calculator' || gnome-calculator"
+    }
     Mod+Comma hotkey-overlay-title="Consume into column" {
         consume-window-into-column
     }
@@ -293,6 +296,10 @@ window-rule {
     background-effect {
         blur true
     }
+}
+window-rule {
+    match app-id="^org.gnome.Calculator$"
+    open-floating true
 }
 layer-rule {
     match namespace="^awww.*$"
