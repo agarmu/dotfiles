@@ -1,9 +1,17 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 
 {
   flake-file.inputs.niri-screen-time = {
     url = "github:probeldev/niri-screen-time";
     inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  flake.modules.nixos.base = {
+    nixpkgs.overlays = [
+      (_: prev: {
+        niri-screen-time = inputs.niri-screen-time.packages.${prev.stdenv.hostPlatform.system}.default;
+      })
+    ];
   };
 
   flake.modules.homeManager.nixosGui =
