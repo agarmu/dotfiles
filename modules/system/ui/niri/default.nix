@@ -9,6 +9,7 @@
     {
       imports = [ inputs.niri-nix.homeModules.default ];
       wayland.windowManager.niri = {
+        package = pkgs.niri-unstable;
         enable = true;
         settings.include = [
           {
