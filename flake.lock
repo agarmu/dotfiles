@@ -553,22 +553,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-mesa-26-0-4": {
-      "locked": {
-        "lastModified": 1776323588,
-        "narHash": "sha256-tU//uqGUT6jClXWthoY6JAV7RIRXssuef3ExE9HmqMg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "0d48975cf3cf588e820cad9d5c905fdcb35a2d4b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "0d48975cf3cf588e820cad9d5c905fdcb35a2d4b",
-        "type": "github"
-      }
-    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -653,7 +637,6 @@
         "niri-screen-time": "niri-screen-time",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-mesa-26-0-4": "nixpkgs-mesa-26-0-4",
         "nixvim": "nixvim",
         "nur": "nur",
         "sops-nix": "sops-nix",

@@ -60,7 +60,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-mesa-26-0-4.url = "github:nixos/nixpkgs/0d48975cf3cf588e820cad9d5c905fdcb35a2d4b";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
