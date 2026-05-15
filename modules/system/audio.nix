@@ -1,4 +1,7 @@
 {
+  flake.modules.nixos.asahi = {
+    hardware.asahi.setupAsahiSound = true;
+  };
   flake.modules.nixos.base = {
     security.rtkit.enable = true;
     services.pipewire = {
