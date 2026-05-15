@@ -7,7 +7,11 @@
         "inode/directory" = "org.gnome.Nautilus.desktop";
       };
     };
-  flake.modules.nixos.gui = {
-    services.gvfs.enable = true;
-  };
+  flake.modules.nixos.gui =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.nautilus ];
+      services.gvfs.enable = true;
+      services.gnome.sushi.enable = true;
+    };
 }
