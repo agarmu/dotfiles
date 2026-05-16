@@ -102,10 +102,9 @@ in
             tooltip-format-deactivated = "Idle inhibitor: off";
           };
 
-          # default clock shows UTC...
           "custom/time" = {
             exec = "date +'%H:%M'";
-            "interval" = 1;
+            interval = 1;
           };
 
           network = {
