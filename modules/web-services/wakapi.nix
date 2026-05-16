@@ -1,12 +1,10 @@
-_:
-let
-  domain = "wakapi.internal";
-  host = "millet";
-  port = 54345;
-in
 {
-  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.internal";
-  flake.modules.nixos."host-${host}" =
+  flake.modules.nixos.base.web-services.wakapi = {
+    host = "millet";
+    port = 54345;
+  };
+
+  flake.modules.nixos.host-millet =
     { config, ... }:
     {
       sops.secrets."wakapi-password-salt" = { };
@@ -16,13 +14,11 @@ in
       services.wakapi = {
         enable = true;
         database.createLocally = true;
-        environmentFiles = [
-          config.sops.templates."wakapi-env-file".path
-        ];
+        environmentFiles = [ config.sops.templates."wakapi-env-file".path ];
         settings = {
           server = {
-            inherit port;
-            public_url = "https://${domain}";
+            port = 54345;
+            public_url = "https://wakapi.internal";
           };
           db = {
             dialect = "postgres";
@@ -48,11 +44,6 @@ in
             };
           };
         };
-      };
-      services.caddy.virtualHosts."${domain}" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:${toString port}
-        '';
       };
     };
 }

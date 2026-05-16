@@ -13,9 +13,6 @@
   };
   flake.modules.nixos.host-millet = {
     sops.defaultSopsFile = "${rootDir}/secrets/millet.yaml";
-    sops.secrets."audiobookshelf-token-secret" = {
-      owner = "audiobookshelf";
-    };
   };
 
   flake.modules.nixos.host-wheat = {

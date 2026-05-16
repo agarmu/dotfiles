@@ -1,17 +1,14 @@
-_:
-let
-  domain = "dash.internal";
-  host = "millet";
-  port = 8080;
-in
 {
-  flake.modules.nixos.base.networking.extraProxies."${domain}" = "${host}.internal";
+  flake.modules.nixos.base.web-services.dash = {
+    host = "millet";
+    port = 8080;
+  };
 
-  flake.modules.nixos."host-${host}" = {
+  flake.modules.nixos.host-millet = {
     services.homepage-dashboard = {
       enable = true;
-      listenPort = port;
-      allowedHosts = domain;
+      listenPort = 8080;
+      allowedHosts = "dash.internal";
 
       settings = {
         title = "Dashboard";
@@ -122,12 +119,6 @@ in
           };
         }
       ];
-    };
-
-    services.caddy.virtualHosts."${domain}" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString port}
-      '';
     };
   };
 }
