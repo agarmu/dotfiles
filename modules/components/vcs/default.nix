@@ -1,3 +1,9 @@
+let
+  identity = {
+    email = "vcs@agarmu.com";
+    name = "Mukul Agarwal";
+  };
+in
 {
   flake.modules.homeManager.base =
     { pkgs, ... }:
@@ -9,10 +15,7 @@
         enable = true;
         package = pkgs.gitFull;
         settings = {
-          user = {
-            email = "vcs@agarmu.com";
-            name = "Mukul Agarwal";
-          };
+          user = identity;
           init.defaultBranch = "main";
           alias = {
             c = "commit";
@@ -44,6 +47,19 @@
           format = "openpgp";
         };
       };
+
+      programs.jujutsu = {
+        enable = true;
+        settings = {
+          user = identity;
+          signing = {
+            behavior = "own";
+            backend = "gpg";
+          };
+        };
+      };
+      programs.jjui.enable = true;
+
       programs.lazygit.enable = true;
     };
 }
