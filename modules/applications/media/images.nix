@@ -1,4 +1,9 @@
 {
+  flake.modules.homeManager.dev =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [ silicon ];
+    };
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
@@ -12,5 +17,15 @@
         "image/bmp" = [ "org.gnome.Loupe.desktop" ];
         "image/tiff" = [ "org.gnome.Loupe.desktop" ];
       };
+    };
+  flake.modules.homeManager.image =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        imagemagick # Tooling to work with images
+        exiftool # image exif data
+        ffmpeg # Audio library/tool
+        darktable
+      ];
     };
 }

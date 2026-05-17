@@ -5,10 +5,13 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.playerctl ];
+      home.packages = with pkgs; [
+        playerctl
+        freetube
+      ];
       programs.mpv = {
         package = pkgs.mpv.override {
-          scripts = [ pkgs.mpvScripts.mpris ];
+          scripts = with pkgs.mpvScripts; [ mpris ];
         };
         enable = true;
         config = {
@@ -26,7 +29,4 @@
         "audio/wav" = [ "mpv.desktop" ];
       };
     };
-  flake.modules.homeManager.nixosGui = {
-    programs.freetube.enable = true;
-  };
 }
