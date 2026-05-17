@@ -3,7 +3,7 @@
     { pkgs, ... }:
     {
       home.packages = [
-        pkgs.libreoffice-fresh
+        pkgs.libreoffice
         /*
           TODO: switch to custom build once I have
           	   a proper build server
