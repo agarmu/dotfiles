@@ -81,11 +81,4 @@ in
       RandomizedDelaySec = lib.mkForce 0;
     };
   };
-
-  flake.modules.darwin.base = {
-    /*
-      TODO: Is determinate... worth it?
-      inherit nix;
-    */
-  };
 }

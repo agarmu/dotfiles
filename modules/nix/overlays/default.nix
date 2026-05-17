@@ -15,8 +15,4 @@ in
     #     "widevine-cdm"
     #   ];
   };
-  flake.modules.darwin.base.nixpkgs = {
-    inherit overlays;
-    config.allowUnfree = true;
-  };
 }

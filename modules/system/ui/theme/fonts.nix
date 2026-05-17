@@ -52,7 +52,4 @@ in
         };
       };
     };
-  flake.modules.darwin.base = {
-    imports = [ fonts ];
-  };
 }

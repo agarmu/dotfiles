@@ -1,7 +1,6 @@
 # Nix Dotfiles
 
 My [**Nix**](https://nixos.org/) dotfiles using
-[**nix-darwin**](https://github.com/LnL7/nix-darwin)
 and [**home-manager**](https://github.com/nix-community/home-manager).
 
 My dotfiles are inspired by those of:
@@ -41,20 +40,16 @@ This flake defines custom modules under `flake.modules.*` that can be imported i
 | Module | Platform |
 |--------|----------|
 | `nixos.wheat` | NixOS |
-| `darwin.sorghum` | Darwin |
 
 ### System Modules
 
 | Module | Platform |
 |--------|----------|
 | `nixos.base` | NixOS |
-| `darwin.base` | Darwin |
-| `nixos.gui` / `darwin.gui` | Both |
+| `nixos.gui` | Both |
 | `nixos.asahi` | NixOS |
 | `nixos.home-manager` | NixOS |
-| `darwin.home-manager` | Darwin |
-| `nixos.sshServer` / `darwin.sshServer` | Both |
-| `darwin.homebrew` | Darwin |
+| `nixos.sshServer`  | Both |
 | `nixos.bluetooth` | NixOS |
 | `nixos.office` | NixOS |
 

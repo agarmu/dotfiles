@@ -18,7 +18,4 @@
         })
       ];
     };
-  flake.modules.darwin.gui = {
-    homebrew.casks = [ "vesktop" ];
-  };
 }

@@ -24,16 +24,4 @@ in
       # of course, enable that shell at the system level
       programs.zsh.enable = true;
     };
-
-  flake.modules.darwin.base =
-    { pkgs, ... }:
-    {
-      users.users.${userName} = {
-        home = "/Users/${userName}";
-        shell = pkgs.zsh;
-      };
-      # of course, enable that shell at the system level
-      programs.zsh.enable = true;
-      system.primaryUser = userName;
-    };
 }

@@ -21,7 +21,4 @@
       home.packages = [ pkgs.kdePackages.kwalletmanager ];
       services.gpg-agent.pinentry.package = pkgs.pinentry-qt;
     };
-  flake.modules.darwin.gui = {
-    homebrew.casks = [ "gpg-suite-pinentry" ];
-  };
 }

@@ -1,12 +1,4 @@
 {
-  flake.modules.darwin.gui = {
-    homebrew.casks = [
-      "microsoft-word"
-      "microsoft-excel"
-      "microsoft-powerpoint"
-    ];
-  };
-
   flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {

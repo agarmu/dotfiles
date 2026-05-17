@@ -24,12 +24,4 @@
       # KWallet: PAM auto-unlock on login
       security.pam.services.login.kwallet.enable = true;
     };
-
-  flake.modules.darwin.base = {
-    security.pam.services.sudo_local = {
-      enable = true;
-      reattach = true;
-      touchIdAuth = true;
-    };
-  };
 }
