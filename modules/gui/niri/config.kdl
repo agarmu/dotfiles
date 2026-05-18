@@ -268,6 +268,9 @@ binds {
     Mod+Up {
         focus-window-up
     }
+    Mod+V {
+        spawn "voxtype" "record" "toggle"
+    }
     XF86AudioLowerVolume {
         spawn "volumectl" "-u" "down"
     }
