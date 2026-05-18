@@ -107,6 +107,7 @@ in
             interval = 1;
           };
 
+
           network = {
             format-wifi = "{icon} {essid}";
             format-ethernet = "${icons.network.ethernet}{ifname}";

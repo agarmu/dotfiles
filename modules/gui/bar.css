@@ -21,14 +21,7 @@ window#waybar.hidden {
 #network,
 #bluetooth,
 #custom-time,
-#custom-swaync {
-  background: #@base00@;
-  color: #@base07@;
-  margin: 6px 3px;
-  padding: 4px 14px;
-  border-radius: 10px;
-  transition: none;
-}
+#custom-swaync,
 
 /* Outer edge spacing */
 .modules-left > widget:first-child #idle_inhibitor,
