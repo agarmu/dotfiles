@@ -11,11 +11,6 @@
       wayland.windowManager.niri = {
         package = pkgs.niri-unstable;
         enable = true;
-        settings.include = [
-          {
-            _args = [ "${pkgs.mukul.niri-shaders}/pixelate.kdl" ];
-          }
-        ];
         extraConfig = builtins.readFile ./config.kdl;
       };
     };
