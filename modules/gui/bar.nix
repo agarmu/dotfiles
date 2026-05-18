@@ -70,6 +70,7 @@ in
           modules-center = [
           ];
           modules-right = [
+            "custom/voxtype"
             "network"
             "bluetooth"
             "custom/time"
@@ -105,6 +106,14 @@ in
           "custom/time" = {
             exec = "date +'%H:%M'";
             interval = 1;
+          };
+
+          "custom/voxtype" = {
+            "exec" = "voxtype status --follow --format json";
+            "return-type" = "json";
+            "format" = "{}";
+            "tooltip" = true;
+            "on-click" = "systemctl --user restart voxtype";
           };
 
           network = {
