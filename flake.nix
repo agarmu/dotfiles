@@ -23,15 +23,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dots-private = {
-      url = "git+ssh://git@github.com/agarmu/dots-private.git";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        home-manager.follows = "home-manager";
-        import-tree.follows = "import-tree";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
     gdb-dashboard = {
