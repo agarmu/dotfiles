@@ -268,15 +268,17 @@ binds {
     Mod+Up {
         focus-window-up
     }
+    Mod+Shift+V {
+    }
     Mod+V {
     }
     XF86AudioLowerVolume {
         spawn "volumectl" "-u" "down"
     }
-    XF86AudioMicMute {
+    XF86AudioMicMute allow-when-locked=true {
         spawn "volumectl" "-m" "toggle-mute"
     }
-    XF86AudioMute {
+    XF86AudioMute allow-when-locked=true {
         spawn "volumectl" "toggle-mute"
     }
     XF86AudioNext {
@@ -294,10 +296,10 @@ binds {
     XF86LaunchA {
         spawn-sh "pkill fuzzel || fuzzel"
     }
-    XF86MonBrightnessDown {
+    XF86MonBrightnessDown allow-when-locked=true {
         spawn "lightctl" "down"
     }
-    XF86MonBrightnessUp {
+    XF86MonBrightnessUp allow-when-locked=true {
         spawn "lightctl" "up"
     }
     XF86Sleep {
