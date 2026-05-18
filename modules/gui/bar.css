@@ -21,7 +21,8 @@ window#waybar.hidden {
 #network,
 #bluetooth,
 #custom-time,
-#custom-swaync {
+#custom-swaync,
+#custom-voxtype {
   background: #@base00@;
   color: #@base07@;
   margin: 6px 3px;
