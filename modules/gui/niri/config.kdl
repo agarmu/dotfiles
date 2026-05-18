@@ -1,3 +1,14 @@
+animations {
+    window-open {
+        off
+    }
+    window-close {
+        off
+    }
+    window-resize {
+        off
+    }
+}
 input {
     keyboard {
         xkb {
