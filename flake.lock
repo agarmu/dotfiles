@@ -125,35 +125,6 @@
         "type": "github"
       }
     },
-    "dots-private": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "home-manager": [
-          "home-manager"
-        ],
-        "import-tree": [
-          "import-tree"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1777415751,
-        "narHash": "sha256-oXndhA/q7PRkw/6z/Hu1V9H6u2a7+QxyBJTpTBWDFSA=",
-        "ref": "refs/heads/main",
-        "rev": "5fed94d822f9c3cbfd34a36ac9a372bd6c3a6898",
-        "revCount": 8,
-        "type": "git",
-        "url": "ssh://git@github.com/agarmu/dots-private.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/agarmu/dots-private.git"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -606,7 +577,6 @@
         "apple-silicon": "apple-silicon",
         "asahi-firmware": "asahi-firmware",
         "disko": "disko",
-        "dots-private": "dots-private",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "gdb-dashboard": "gdb-dashboard",

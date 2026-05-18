@@ -1,15 +1,12 @@
-{ inputs, ... }:
 {
   flake.modules.homeManager.gui =
     { pkgs, config, ... }:
     {
-      imports = [ inputs.dots-private.modules.homeManager.rbw ];
-      # better cli client for bitwarden
       programs.rbw = {
         enable = true;
         settings = {
           # the imported module sets `email`.
-          # https://github.com/nix-community/home-manager/issues/9126
+          email = "agarmukul23@gmail.com";
           pinentry = config.services.gpg-agent.pinentry.package;
           lock_timeout = 300;
         };
