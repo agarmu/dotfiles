@@ -19,6 +19,8 @@ let
           noto-fonts-color-emoji
           libertinus
           mukul.iosevka-kian-bin
+          league-of-moveable-type
+          national-park-typeface
         ]
         ++ (toDrvList tex-gyre)
         ++ (toDrvList tex-gyre-math);
@@ -51,5 +53,11 @@ in
           desktop = 14;
         };
       };
+    };
+
+  flake.modules.homeManager.base =
+    { pkgs, ... }:
+    {
+      home.packages = [ pkgs.gnome-font-viewer ];
     };
 }
