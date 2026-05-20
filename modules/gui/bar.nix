@@ -72,9 +72,9 @@ in
           modules-right = [
             "custom/voxtype"
             "network"
-            "bluetooth"
             "custom/time"
             "custom/swaync"
+            "tray"
           ];
 
           wireplumber = {
@@ -190,7 +190,7 @@ in
             ]
             [
               "monospace"
-              (toString config.stylix.fonts.sizes.desktop)
+              "${(toString config.stylix.fonts.sizes.desktop)}px"
               colors.base00
               colors.base07
               colors.base08
