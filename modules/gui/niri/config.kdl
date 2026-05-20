@@ -37,9 +37,8 @@ input {
     touch {
         map-to-output "eDP-1"
     }
-}
-output "eDP-1" {
-    mode "3024x1964@120.000"
+    focus-follows-mouse max-scroll-amount="10%"
+    warp-mouse-to-focus mode="center-xy"
 }
 screenshot-path "~/Pictures/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
@@ -49,12 +48,12 @@ overview {
     }
 }
 layout {
-    gaps 16
+    gaps 8
     struts {
         left 0
         right 0
-        top 0
-        bottom 0
+        top -8
+        bottom -4
     }
     focus-ring {
         off
@@ -71,7 +70,7 @@ layout {
         proportion 0.5
         proportion 0.666667
     }
-    center-focused-column "never"
+    center-focused-column "on-overflow"
     always-center-single-column
 }
 cursor {
@@ -305,6 +304,15 @@ binds {
     XF86Sleep {
         spawn "hyprlock"
     }
+}
+window-rule {
+    match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="^mpv$"
+    open-floating true
+}
+window-rule {
+    match app-id="^Bitwarden$"
+    block-out-from "screen-capture"
 }
 window-rule {
     background-effect {
