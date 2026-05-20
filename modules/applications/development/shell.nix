@@ -5,6 +5,13 @@ _: {
       ...
     }:
     {
+      programs.mcfly = {
+        enable = true;
+        enableZshIntegration = true;
+        enableBashIntegration = true;
+        fzf.enable = true;
+        interfaceView = "BOTTOM";
+      };
       programs.zsh = {
         enable = true;
         dotDir = "${config.xdg.configHome}/zsh";
