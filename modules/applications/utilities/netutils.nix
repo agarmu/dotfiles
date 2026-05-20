@@ -17,9 +17,11 @@
         lsof # list open files/ports
         rclone # cloud storage CLI (S3, GDrive, B2, etc.)
         dnsutils # dig, nslookup, etc.
+        doggo # pretty dig
         xh # HTTP client
         gping # graphical ping
         whois
+        nethogs # net-top, but by process
       ];
       home.shellAliases.ping = "${pkgs.gping}/bin/gping";
     };
