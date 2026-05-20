@@ -34,6 +34,7 @@
         tectonic # self-contained LaTeX engine
         vale # prose linter (style guide enforcement)
         typst # modern typesetting
+        bibtool # manipulate BibTeX
       ];
     };
 }
