@@ -73,6 +73,7 @@
         procs # better ps
         kmon # kernel monitor
         bandwhich # per-process network bandwidth
+        psmisc
       ];
     };
 }
