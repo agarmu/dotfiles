@@ -1,17 +1,17 @@
 * {
-  border: none;
-  font-family: "@fontFamily@";
-  font-size: @fontSize@px;
-  color: #@base07@;
-  min-height: 0;
+    border: none;
+    font-family: "@fontFamily@";
+    font-size: @fontSize@;
+    color: #@base07@;
+    min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
+    background: transparent;
 }
 
 window#waybar.hidden {
-  opacity: 0.2;
+    opacity: 0.2;
 }
 
 /* -- Individual module pills -- */
@@ -22,32 +22,45 @@ window#waybar.hidden {
 #bluetooth,
 #custom-time,
 #custom-swaync,
-#custom-voxtype {
-  background: #@base00@;
-  color: #@base07@;
-  margin: 6px 3px;
-  padding: 4px 14px;
-  border-radius: 10px;
-  transition: none;
+#custom-voxtype,
+#tray {
+    background: #@base00@;
+    color: #@base07@;
+    margin: 6px 3px;
+    padding: 4px 14px;
+    border-radius: 10px;
+    transition: none;
 }
 
 /* Outer edge spacing */
 .modules-left > widget:first-child #idle_inhibitor,
 .modules-left > widget:first-child > * {
-  margin-left: 8px;
+    margin-left: 8px;
 }
 
 .modules-right > widget:last-child #custom-swaync,
 .modules-right > widget:last-child > * {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 /* -- State colors -- */
-#wireplumber:not(.source).muted { color: #@base0A@; }
-#idle_inhibitor.activated { color: #@base0A@; }
-#battery.charging { color: #@base0B@; }
-#battery.warning:not(.charging) { color: #@base0A@; }
-#battery.critical:not(.charging) {
-  animation: critical-blink steps(8) 1s infinite alternate;
+#wireplumber:not(.source).muted {
+    color: #@base0A@;
 }
-@keyframes critical-blink { to { color: #@base08@; } }
+#idle_inhibitor.activated {
+    color: #@base0A@;
+}
+#battery.charging {
+    color: #@base0B@;
+}
+#battery.warning:not(.charging) {
+    color: #@base0A@;
+}
+#battery.critical:not(.charging) {
+    animation: critical-blink steps(8) 1s infinite alternate;
+}
+@keyframes critical-blink {
+    to {
+        color: #@base08@;
+    }
+}
