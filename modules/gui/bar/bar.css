@@ -1,72 +1,116 @@
-* {
+/* left */
+#waybar {
     border: none;
-    font-family: "~fontFamily~";
-    font-size: ~fontSize~;
-    color: #~base07~;
-    min-height: 0;
-}
-
-window#waybar {
+    border-radius: 0;
+    min-height: 31px;
     background: transparent;
+    color: @base06;
+    font-size: 1.15rem;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+.modules-left {
+    margin-left: 16px;
 }
 
-/* -- Individual module pills -- */
-#idle_inhibitor,
-#battery,
-#wireplumber,
-#network,
-#bluetooth,
-#custom-time,
-#custom-swaync,
-#custom-voxtype,
-#tray,
-#cpu,
-#memory,
-#temperature,
-#workspaces,
-#window,
-#clock {
-    background: #~base00~;
-    color: #~base07~;
-    margin: 6px 3px;
-    padding: 4px 14px;
+.modules-right {
+    padding-right: 16px;
+}
+
+.module {
+    margin-top: 8px;
+    background-color: alpha(@base00, 0.55);
+    padding: 0.2rem 1rem;
+}
+
+/* modules-left */
+
+#custom-voxtype {
     border-radius: 10px;
-    transition: none;
 }
 
-/* Outer edge spacing */
-.modules-left > widget:first-child #idle_inhibitor,
-.modules-left > widget:first-child > * {
-    margin-left: 8px;
+#workspaces {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 10px;
 }
 
-.modules-right > widget:last-child #custom-swaync,
-.modules-right > widget:last-child > * {
-    margin-right: 8px;
+#workspaces button {
+    color: @base06;
+    padding: 0.2rem 0.2rem;
 }
 
-/* -- State colors -- */
-#wireplumber:not(.source).muted {
-    color: #~base0A~;
+#workspaces button.active {
+    color: @base0D;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@base00, 0.95);
+}
+
+#window {
+    border-radius: 10px;
+}
+
+#title {
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+/* right */
+#idle_inhibitor {
+    border-radius: 10px;
+    margin-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 #idle_inhibitor.activated {
-    color: #~base0A~;
+    background-color: alpha(mix(@base0D, @base00, 0.75), 0.55);
 }
+
+#cpu,
+#memory,
+#temperature {
+    padding: 0.2rem 0.35rem;
+}
+
+#cpu {
+    border-radius: 10px 0 0 10px;
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+#temperature {
+    border-radius: 0 10px 10px 0;
+    margin-right: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#battery {
+    color: @base0B;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 10px;
+}
+
 #battery.charging {
-    color: #~base0B~;
+    color: @base0B;
 }
+
 #battery.warning:not(.charging) {
-    color: #~base0A~;
+    color: @base08;
 }
-#battery.critical:not(.charging) {
-    animation: critical-blink steps(8) 1s infinite alternate;
+
+#clock {
+    color: @base0D;
+    border-color: @base0D;
+    border-radius: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: bold;
 }
-@keyframes critical-blink {
-    to {
-        color: #~base08~;
-    }
+
+#tray {
+    min-width: 100px;
+    margin-left: 0.5rem;
+    border-radius: 10px 10px 10px 10px;
 }
