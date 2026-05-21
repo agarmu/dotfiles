@@ -1,4 +1,5 @@
-_: {
+{ lib, ... }:
+{
   flake.modules.homeManager.nixosGui =
     { config, ... }:
     {
@@ -7,26 +8,28 @@ _: {
       programs.waybar.style =
         let
           inherit (config.lib.stylix) colors;
+          bases = map (lib.toHexString) (lib.range 0 15);
+
+          # 2. Map through them to create the @define-color rules
+          definitions = lib.concatMapStringsSep "\n" (
+            base: "@define-color base0${base} #${colors."base0${base}"};"
+          ) bases;
+          font = ''
+            * {
+              font-family: monospace;
+              font-size: ${(toString config.stylix.fonts.sizes.desktop)}px;
+            }
+          '';
         in
-        builtins.replaceStrings
-          [
-            "~fontFamily~"
-            "~fontSize~"
-            "~base00~"
-            "~base07~"
-            "~base08~"
-            "~base0A~"
-            "~base0B~"
-          ]
-          [
-            "monospace"
-            "${(toString config.stylix.fonts.sizes.desktop)}px"
-            colors.base00
-            colors.base07
-            colors.base08
-            colors.base0A
-            colors.base0B
-          ]
-          (builtins.readFile ./bar.css);
+        ''
+          /* COLOR DEFINITIONS */
+          ${definitions}
+
+          /* FONT DEFINITIONS */
+          ${font}
+
+          ${builtins.readFile ./bar.css}
+        '';
+
     };
 }

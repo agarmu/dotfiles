@@ -44,11 +44,14 @@
         };
 
         cpu = {
-          format = "{usage}% ";
-          tooltip = false;
+          format = "";
+          tooltip = true;
+          tooltip-format = "{usage}%";
         };
         memory = {
-          format = "{}% 󰍛";
+          format = "";
+          tooltip = true;
+          tooltip-format = "{used} GiB ({percentage}%)";
         };
 
         temperature = {
