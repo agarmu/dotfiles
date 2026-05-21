@@ -110,7 +110,7 @@
 }
 
 #tray {
-    min-width: 100px;
+    min-width: 50px;
     margin-left: 0.5rem;
     border-radius: 10px 10px 10px 10px;
 }
