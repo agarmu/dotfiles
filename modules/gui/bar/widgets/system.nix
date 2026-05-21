@@ -40,7 +40,7 @@
 
         clock = {
           format = "{:%H:%M}";
-          tooltip = false;
+          tooltip = true;
         };
 
         cpu = {

@@ -2,10 +2,9 @@
 #waybar {
     border: none;
     border-radius: 0;
-    min-height: 31px;
     background: transparent;
     color: @base06;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
 }
 
 .modules-left {
@@ -46,11 +45,6 @@
 
 #window {
     border-radius: 10px;
-}
-
-#title {
-    border-radius: 10px;
-    font-size: 0.8rem;
 }
 
 /* right */
