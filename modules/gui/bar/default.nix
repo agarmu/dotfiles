@@ -20,11 +20,10 @@
           modules-left = [
             "custom/voxtype"
             "niri/workspaces"
-            "niri/window"
+            "idle_inhibitor"
           ];
           modules-center = [ ];
           modules-right = [
-            "idle_inhibitor"
             "systemd-failed-units"
             "cpu"
             "memory"
