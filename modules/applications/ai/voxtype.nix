@@ -11,6 +11,9 @@
     in
     {
       imports = [ inputs.voxtype.homeManagerModules.default ];
+      home.packages = [
+        inputs.voxtype.packages."${system}".osd-native
+      ];
       programs.voxtype = {
         enable = true;
         package = inputs.voxtype.packages."${system}".vulkan;
