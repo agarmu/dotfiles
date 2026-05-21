@@ -50,10 +50,10 @@ overview {
 layout {
     gaps 8
     struts {
-        left 0
-        right 0
-        top -8
-        bottom -4
+        left 8
+        right 8
+        top 0
+        bottom 0
     }
     focus-ring {
         off
