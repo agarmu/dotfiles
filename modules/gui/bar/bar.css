@@ -1,8 +1,8 @@
 * {
     border: none;
-    font-family: "@fontFamily@";
-    font-size: @fontSize@;
-    color: #@base07@;
+    font-family: "~fontFamily~";
+    font-size: ~fontSize~;
+    color: #~base07~;
     min-height: 0;
 }
 
@@ -22,9 +22,15 @@ window#waybar.hidden {
 #bluetooth,
 #custom-time,
 #custom-swaync,
-#tray {
-    background: #@base00@;
-    color: #@base07@;
+#tray,
+#cpu,
+#memory,
+#temperature,
+#workspaces,
+#window,
+#clock {
+    background: #~base00~;
+    color: #~base07~;
     margin: 6px 3px;
     padding: 4px 14px;
     border-radius: 10px;
@@ -44,22 +50,22 @@ window#waybar.hidden {
 
 /* -- State colors -- */
 #wireplumber:not(.source).muted {
-    color: #@base0A@;
+    color: #~base0A~;
 }
 #idle_inhibitor.activated {
-    color: #@base0A@;
+    color: #~base0A~;
 }
 #battery.charging {
-    color: #@base0B@;
+    color: #~base0B~;
 }
 #battery.warning:not(.charging) {
-    color: #@base0A@;
+    color: #~base0A~;
 }
 #battery.critical:not(.charging) {
     animation: critical-blink steps(8) 1s infinite alternate;
 }
 @keyframes critical-blink {
     to {
-        color: #@base08@;
+        color: #~base08~;
     }
 }
