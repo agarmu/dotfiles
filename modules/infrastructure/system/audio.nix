@@ -9,9 +9,4 @@
       pulse.enable = true;
     };
   };
-  flake.modules.homeManager.nixosGui =
-    { pkgs, ... }:
-    {
-      home.packages = [ pkgs.easyeffects ];
-    };
 }
