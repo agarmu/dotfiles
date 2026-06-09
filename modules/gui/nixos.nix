@@ -36,10 +36,6 @@
         extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
       };
 
-      services.displayManager.dms-greeter = {
-        enable = true;
-        compositor.name = "niri";
-      };
       imports = [
         inputs.niri-nix.nixosModules.default
       ];
