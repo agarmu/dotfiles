@@ -7,6 +7,8 @@
         settings = {
           # to configure w stylix
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          # nova look
+          "browser.nova.enabled" = true;
 
           # first run options
           "browser.disableResetPrompt" = true;
