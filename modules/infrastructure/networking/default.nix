@@ -1,25 +1,25 @@
 { inputs, ... }:
 {
   flake.modules.nixos.base =
-    { config, ... }:
+    { ... }:
     {
       networking = {
-        /*
-          	   first, let us set up the firewall
-
-          	   trust ONLY the tailscale0 interface
-          	   for incoming connections, a priori
-        */
         nftables.enable = true;
-        firewall = {
-          enable = true;
-          # Always allow traffic from your Tailscale network
-          trustedInterfaces = [ "tailscale0" ];
-          # Allow the Tailscale UDP port through the firewall
-          allowedUDPPorts = [ config.services.tailscale.port ];
-        };
+        firewall.enable = true;
         # tool to manage networks. very useful
         networkmanager.enable = true;
+        nameservers = [
+          "1.1.1.1#cloudflare-dns.com"
+          "1.0.0.1#cloudflare-dns.com"
+          "2606:4700:4700::1111#cloudflare-dns.com"
+          "2606:4700:4700::1001#cloudflare-dns.com"
+        ];
+      };
+      services.resolved = {
+        enable = true;
+        dnsovertls = "opportunistic";
+        dnssec = "allow-downgrade";
+        domains = [ "~." ];
       };
     };
   # wi-fi should be available on mobile systems
