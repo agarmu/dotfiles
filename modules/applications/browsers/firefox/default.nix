@@ -1,8 +1,9 @@
 {
-  flake.modules.homeManager.gui = {
+  flake.modules.homeManager.gui = { pkgs, ... }: {
     programs.firefox = {
       enable = true;
-      profiles.default = {
+      package = pkgs.firefox-devedition;
+      profiles.dev-edition-default = {
         id = 0;
         settings = {
           # to configure w stylix
