@@ -21,8 +21,8 @@
       systemd.user.services.niri-refresh-rate = {
         Unit = {
           Description = "Adjust niri refresh rate based on battery state";
-          After = [ "graphical-session.target" ];
-          PartOf = [ "graphical-session.target" ];
+          After = [ "niri.service" ];
+          PartOf = [ "niri.service" ];
         };
         Install.WantedBy = [ "graphical-session.target" ];
         Service = {
