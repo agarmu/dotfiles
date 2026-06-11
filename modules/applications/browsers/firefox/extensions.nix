@@ -2,7 +2,7 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      programs.firefox.profiles.default.extensions = {
+      programs.firefox.profiles.dev-edition-default.extensions = {
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin

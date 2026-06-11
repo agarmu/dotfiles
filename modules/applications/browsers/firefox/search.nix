@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.gui = {
-    programs.firefox.profiles.default.search = {
+    programs.firefox.profiles.dev-edition-default.search = {
       force = true;
       default = "google";
       privateDefault = "ddg";
