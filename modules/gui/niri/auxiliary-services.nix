@@ -23,7 +23,7 @@
       systemd.user.services.niri-screen-time = {
         Unit = {
           Description = "Track application screen time";
-          BindsTo = [ "niri.service" ];
+          PartOf = [ "niri.service" ];
           After = [ "niri.service" ];
         };
         Service = {
