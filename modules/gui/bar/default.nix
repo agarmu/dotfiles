@@ -4,8 +4,11 @@
     {
       systemd.user.services.waybar = {
         Unit = {
-          BindsTo = [ "niri.service" ];
-          After = [ "niri.service" ];
+          PartOf = [ "graphical-session.target" ];
+          After = [
+            "graphical-session.target"
+            "niri.service"
+          ];
         };
       };
 
