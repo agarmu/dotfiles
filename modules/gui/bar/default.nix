@@ -2,7 +2,6 @@
   flake.modules.homeManager.nixosGui =
     { ... }:
     {
-      systemd.user.targets.tray.Install.WantedBy = [ "graphical-session.target" ];
       programs.waybar = {
         enable = true;
         systemd.enable = true;
