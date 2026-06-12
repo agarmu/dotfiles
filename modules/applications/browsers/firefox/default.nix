@@ -6,10 +6,6 @@
       profiles.dev-edition-default = {
         id = 0;
         settings = {
-          # to configure w stylix
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          # nova look
-          "browser.nova.enabled" = true;
 
           # first run options
           "browser.disableResetPrompt" = true;
@@ -28,14 +24,6 @@
 
           # download directory
           "browser.download.useDownloadDir" = false;
-
-          # make homepage less bad
-          "browser.newtabpage.activity-stream.feeds.topsites" = false;
-          "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
-          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-          "browser.newtabpage.activity-stream.default.sites" = "";
-          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
 
           # Disable fx accounts
           "identity.fxaccounts.enabled" = false;
