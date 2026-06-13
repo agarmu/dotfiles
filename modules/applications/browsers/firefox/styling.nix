@@ -4,7 +4,7 @@
       enable = false;
       firefoxGnomeTheme.enable = false;
     };
-    programs.firefox.profiles.dev-edition-default = {
+    programs.firefox.profiles.default = {
       settings = {
         # basic styling
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

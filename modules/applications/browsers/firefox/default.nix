@@ -2,8 +2,8 @@
   flake.modules.homeManager.gui = { pkgs, ... }: {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-devedition;
-      profiles.dev-edition-default = {
+      package = pkgs.firefox;
+      profiles.default = {
         id = 0;
         settings = {
 
