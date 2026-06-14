@@ -18,7 +18,7 @@
         enable = true;
         package = pkgs.voxtype-vulkan;
         service.enable = true;
-        model.name = "base.en";
+        model.name = "medium.en";
       };
     };
 }
