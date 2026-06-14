@@ -6,11 +6,14 @@
   };
   flake.modules.homeManager.ai =
     { pkgs, ... }:
+    let
+      inherit (pkgs.stdenv.hostPlatform) system;
+    in
     {
       imports = [ inputs.voxtype.homeManagerModules.default ];
-      # home.packages = [
-      #   inputs.voxtype.packages."${system}".osd-gtk4
-      # ];
+      home.packages = [
+        inputs.voxtype.packages."${system}".osd-gtk4
+      ];
       programs.voxtype = {
         enable = true;
         package = pkgs.voxtype-vulkan;
