@@ -2,14 +2,20 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      programs.firefox.profiles.default.extensions = {
-        force = true;
-        packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          bitwarden
-          web-archives
-          zotero-connector
-        ];
-      };
+      programs.firefox =
+        let
+          addons = pkgs.nur.repos.rycee.firefox-addons;
+        in
+        {
+          globalExtensions = with addons; [ ublock-origin ];
+          profiles.default.extensions = {
+            force = true;
+            packages = with addons; [
+              bitwarden
+              web-archives
+              zotero-connector
+            ];
+          };
+        };
     };
 }
