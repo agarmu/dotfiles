@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
@@ -10,18 +10,31 @@
       ];
 
       # sudo-rs: Rust reimplementation of sudo
-      security.sudo.enable = false;
-      security.sudo-rs.enable = true;
+      security = {
+        sudo.enable = lib.mkForce false;
+        sudo-rs.enable = lib.mkForce false;
+        run0 = {
+          enableSudoAlias = true;
+        };
+        polkit.enable = true;
+        wrappers = {
+          unix_chkpwd.enable = lib.mkForce true;
+          su.enable = lib.mkForce false;
+          sg.enable = lib.mkForce false;
+          fusermount.enable = lib.mkForce false;
+          fusermount3.enable = lib.mkForce false;
+          pkexec.setuid = lib.mkForce false;
+          newgrp.setuid = lib.mkForce false;
+          newgidmap.setuid = lib.mkForce false;
+          newuidmap.setuid = lib.mkForce false;
+          mount.enable = lib.mkForce false;
+          umount.enable = lib.mkForce false;
+        };
+        pki.certificates = [
+          (builtins.readFile ./millet.crt)
+        ];
 
-      security.pki.certificates = [
-        (builtins.readFile ./millet.crt)
-      ];
-
-      security.polkit.enable = true;
-
-      # Soteria: freedesktop security agent for Wayland
-      security.soteria.enable = true;
-      # KWallet: PAM auto-unlock on login
-      security.pam.services.login.kwallet.enable = true;
+        pam.services.login.kwallet.enable = true;
+      };
     };
 }
