@@ -2,6 +2,9 @@
   flake.modules.nixos.server = {
     programs.mosh.enable = true;
   };
+  flake.modules.nixos.base = {
+    programs.ssh.setXAuthLocation = false;
+  };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
