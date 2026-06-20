@@ -24,9 +24,6 @@
         factor = "3";
       };
     };
-
-    services.logrotate.enable = true;
-    security.auditd.enable = true;
   };
 
   flake.modules.nixos.host-millet =
