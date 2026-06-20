@@ -41,8 +41,6 @@ in
       "page_alloc.shuffle=1"
     ];
     security.forcePageTableIsolation = mkForce true;
-    environment.memoryAllocator.provider = "scudo";
-    environment.variables.SCUDO_OPTIONS = "";
   };
 
   flake.modules.nixos.securityNetwork = {
