@@ -9,6 +9,8 @@
         kdePackages.kwallet # KDE secret service daemon (D-Bus activated)
       ];
 
+      services.logrotate.enable = true;
+
       # sudo-rs: Rust reimplementation of sudo
       security = {
         sudo.enable = lib.mkForce false;
