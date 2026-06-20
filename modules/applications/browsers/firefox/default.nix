@@ -32,6 +32,9 @@
           # Harden
           "privacy.trackingprotection.enabled" = true;
           "dom.security.https_only_mode" = true;
+
+          # don't overcorrect - uBO does what i need
+          "browser.contentblocking.category" = "standard";
         };
       };
       policies = {
