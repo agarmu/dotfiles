@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   flake.modules.nixos.base =
     { ... }:
@@ -8,6 +8,7 @@
         firewall.enable = true;
         # tool to manage networks. very useful
         networkmanager.enable = true;
+        modemmanager.enable = lib.mkForce false;
         nameservers = [
           "1.1.1.1#cloudflare-dns.com"
           "1.0.0.1#cloudflare-dns.com"
