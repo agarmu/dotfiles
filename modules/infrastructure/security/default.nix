@@ -23,14 +23,14 @@
           unix_chkpwd.enable = lib.mkForce true;
           su.enable = lib.mkForce false;
           sg.enable = lib.mkForce false;
-          fusermount.enable = lib.mkForce false;
-          fusermount3.enable = lib.mkForce false;
+          fusermount.enable = lib.mkDefault false;
+          fusermount3.enable = lib.mkDefault false;
           pkexec.setuid = lib.mkForce false;
           newgrp.setuid = lib.mkForce false;
           newgidmap.setuid = lib.mkForce false;
           newuidmap.setuid = lib.mkForce false;
-          mount.enable = lib.mkForce false;
-          umount.enable = lib.mkForce false;
+          mount.enable = lib.mkDefault false;
+          umount.enable = lib.mkDefault false;
         };
         pki.certificates = [
           (builtins.readFile ./millet.crt)
@@ -39,4 +39,12 @@
         pam.services.login.kwallet.enable = true;
       };
     };
+  flake.modules.nixos.gui = {
+    security.wrappers = {
+      fusermount.enable = lib.mkForce true;
+      fusermount3.enable = lib.mkForce true;
+      mount.enable = lib.mkForce true;
+      umount.enable = lib.mkForce true;
+    };
+  };
 }
