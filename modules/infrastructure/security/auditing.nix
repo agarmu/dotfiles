@@ -25,6 +25,10 @@
         clamav
         aide
       ]);
+      services.clamav = {
+        daemon.enable = true;
+        updater.enable = true;
+      };
       boot.kernelParams = [ "audit=1" ];
       security.auditd.enable = true;
       security.audit.enable = true;
