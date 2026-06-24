@@ -32,4 +32,11 @@ in
       })
       |> lib.listToAttrs;
   };
+  flake.modules.darwin.base = {
+    services.tailscale.enable = true;
+  };
+
+  flake.modules.homeManager.nixosGui = {
+    services.tailscale-systray.enable = true;
+  };
 }
