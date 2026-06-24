@@ -1,15 +1,15 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   flake-file.inputs.voxtype = {
     url = "github:/peteonrails/voxtype";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  flake.modules.homeManager.ai =
+  flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     let
       inherit (pkgs.stdenv.hostPlatform) system;
     in
-    lib.mkIf (pkgs.system != "darwin") {
+    {
       imports = [ inputs.voxtype.homeManagerModules.default ];
       home.packages = [
         inputs.voxtype.packages."${system}".osd-gtk4
