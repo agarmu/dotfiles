@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.gui = {
+  flake.modules.homeManager.linuxGui = {
     xdg.mimeApps.defaultApplications = {
       "text/html" = [ "firefox.desktop" ];
       "x-scheme-handler/http" = [ "firefox.desktop" ];

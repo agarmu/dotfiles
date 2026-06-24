@@ -14,6 +14,18 @@
     };
   };
 
+  # gui
+  flake.modules.homeManger.gui = {
+    programs.neovide.enable = true;
+  };
+  flake.modules.homeManager.linuxGui = {
+    xdg.mimeApps.defaultApplications = {
+      "text/plain" = [ "neovide.desktop" ];
+      "text/english" = [ "neovide.desktop" ];
+      "application/x-desktop" = [ "neovide.desktop" ];
+    };
+  };
+
   # user-level nixvim
   flake.modules.homeManager.base =
     { config, ... }:
@@ -22,12 +34,6 @@
       stylix.targets = {
         neovim.enable = false;
         nixvim.enable = false;
-      };
-      programs.neovide.enable = true;
-      xdg.mimeApps.defaultApplications = {
-        "text/plain" = [ "neovide.desktop" ];
-        "text/english" = [ "neovide.desktop" ];
-        "application/x-desktop" = [ "neovide.desktop" ];
       };
       imports = [
         inputs.nixvim.homeModules.nixvim

@@ -1,6 +1,6 @@
 {
   # GUI file manager (Nautilus)
-  flake.modules.homeManager.gui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.nautilus ];

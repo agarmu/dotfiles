@@ -2,9 +2,6 @@
   flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
-      home.packages = [
-        pkgs.libreoffice
-      ];
       xdg.mimeApps.defaultApplications = {
         "application/vnd.oasis.opendocument.text" = [ "writer.desktop" ];
         "application/vnd.oasis.opendocument.spreadsheet" = [ "calc.desktop" ];
@@ -16,6 +13,9 @@
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "calc.desktop" ];
         "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "impress.desktop" ];
       };
+      home.packages = [
+        pkgs.libreoffice
+      ];
     };
   # TODO: MSFT Office via homebrew
 }
