@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.gui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       programs.anki = {
