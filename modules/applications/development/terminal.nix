@@ -13,7 +13,7 @@
         settings = {
           window-padding-x = 15;
           window-padding-y = 15;
-          window-decoration = false;
+          window-decoration = (pkgs.stdenv.hostPlatform.isDarwin);
           cursor-style = "bar";
           cursor-style-blink = true;
         };
