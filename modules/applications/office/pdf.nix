@@ -29,7 +29,7 @@
         };
       };
     };
-  flake.modules.homeManger.linuxGui = {
+  flake.modules.homeManager.linuxGui = {
     xdg.mimeApps.defaultApplications = {
       "application/pdf" = [ "org.kde.okular.desktop" ];
       "application/x-bzpdf" = [ "org.kde.okular.desktop" ];

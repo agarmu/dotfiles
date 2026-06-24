@@ -15,7 +15,7 @@
   };
 
   # gui
-  flake.modules.homeManger.gui = {
+  flake.modules.homeManager.gui = {
     programs.neovide.enable = true;
   };
   flake.modules.homeManager.linuxGui = {
