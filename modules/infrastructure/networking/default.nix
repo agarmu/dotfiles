@@ -18,9 +18,11 @@
       };
       services.resolved = {
         enable = true;
-        dnsovertls = "opportunistic";
-        dnssec = "allow-downgrade";
-        domains = [ "~." ];
+        settings.Resolve = {
+          DNSOverTLS = "opportunistic";
+          DNSSEC = "allow-downgrade";
+          Domains = [ "~." ];
+        };
       };
     };
   # wi-fi should be available on mobile systems
