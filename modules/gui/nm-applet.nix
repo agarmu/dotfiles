@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.networkmanagerapplet ];

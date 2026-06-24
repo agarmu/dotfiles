@@ -15,7 +15,7 @@
         pinentry.package = lib.mkDefault pkgs.pinentry-curses;
       };
     };
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.kdePackages.kwalletmanager ];

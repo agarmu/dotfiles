@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { config, ... }:
     {
       stylix.targets.waybar.enable = false;

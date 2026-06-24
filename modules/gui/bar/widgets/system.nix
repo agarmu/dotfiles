@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { ... }:
     {
       programs.waybar.settings.mainBar = {
