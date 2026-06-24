@@ -28,5 +28,6 @@ rustPlatform.buildRustPackage {
     homepage = "https://github.com/Rolv-Apneseth/clipvault";
     license = lib.licenses.agpl3Only;
     mainProgram = "clipvault";
+    platforms = lib.platforms.linux;
   };
 }
