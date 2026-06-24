@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.darwin.host-sorghum = {
+  flake.modules.darwin.host-mukul-mbp = {
     imports = with inputs.self.modules.darwin; [
       base
       gui
