@@ -21,14 +21,19 @@ in
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  # flake parts <--> hm
   imports = [ inputs.home-manager.flakeModules.home-manager ];
+
   flake.modules.nixos.home-manager = {
     imports = [
       inputs.home-manager.nixosModules.home-manager
       home-manager-config
     ];
-    home-manager.sharedModules = [
-      inputs.nixvim.homeModules.nixvim
+  };
+  flake.modules.darwin.home-manager = {
+    imports = [
+      inputs.home-manager.darwinModules.home-manager
+      home-manager-config
     ];
   };
   flake.modules.homeManager.base = {

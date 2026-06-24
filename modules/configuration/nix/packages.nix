@@ -18,4 +18,7 @@ in
   flake.modules.nixos.base.nixpkgs = {
     inherit overlays;
   };
+  flake.modules.darwin.base.nixpkgs = {
+    inherit overlays;
+  };
 }
