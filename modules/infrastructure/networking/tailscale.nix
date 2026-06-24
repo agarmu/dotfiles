@@ -36,7 +36,7 @@ in
     services.tailscale.enable = true;
   };
 
-  flake.modules.homeManager.nixosGui = {
+  flake.modules.homeManager.linuxGui = {
     services.tailscale-systray.enable = true;
   };
 }

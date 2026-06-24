@@ -58,7 +58,7 @@ in
     ];
   };
 
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.gnome-font-viewer ];

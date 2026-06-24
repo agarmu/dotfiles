@@ -4,7 +4,7 @@
     url = "github:/peteonrails/voxtype";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     let
       inherit (pkgs.stdenv.hostPlatform) system;
