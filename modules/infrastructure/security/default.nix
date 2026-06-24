@@ -47,4 +47,11 @@
       umount.enable = lib.mkForce true;
     };
   };
+  flake.modules.darwin.base = {
+    security.pam.services.sudo_local = {
+      enable = true;
+      reattach = true;
+      touchIdAuth = true;
+    };
+  };
 }
