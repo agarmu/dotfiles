@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   flake-file.inputs.voxtype = {
     url = "github:/peteonrails/voxtype";
@@ -9,7 +9,7 @@
     let
       inherit (pkgs.stdenv.hostPlatform) system;
     in
-    {
+    lib.mkIf (pkgs.system != "darwin") {
       imports = [ inputs.voxtype.homeManagerModules.default ];
       home.packages = [
         inputs.voxtype.packages."${system}".osd-gtk4
