@@ -4,7 +4,7 @@ let
   sharedConfig =
     { pkgs, ... }:
     let
-      homeDirName = if pkgs.system == "darwin" then "Users" else "home";
+      homeDirName = if pkgs.stdenv.hostPlatform.isDarwin then "Users" else "home";
     in
     {
       users.users.${userName} = {

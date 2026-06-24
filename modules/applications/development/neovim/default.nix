@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake-file.inputs.nixvim = {
     url = "github:nix-community/nixvim";
@@ -18,6 +18,7 @@
   flake.modules.homeManager.base =
     { config, ... }:
     {
+
       stylix.targets = {
         neovim.enable = false;
         nixvim.enable = false;
@@ -28,11 +29,16 @@
         "text/english" = [ "neovide.desktop" ];
         "application/x-desktop" = [ "neovide.desktop" ];
       };
+      imports = [
+        inputs.nixvim.homeModules.nixvim
+      ];
       programs.nixvim = {
         enable = true;
         viAlias = true;
         vimAlias = true;
         defaultEditor = true;
+
+        nixpkgs.source = inputs.nixpkgs;
 
         # stylix doesn't target neovide; apply window opacity ourselves
         globals.neovide_opacity = config.stylix.opacity.terminal;
