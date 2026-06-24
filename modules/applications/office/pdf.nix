@@ -15,9 +15,9 @@
     {
       home.packages = [
         pkgs.pdfarranger
-        pkgs.kdePackages.okular
       ]
-      ++ (lib.optionals (pkgs.stdenv.isDarwin) [ pkgs.skimpdf ]);
+      ++ (lib.optionals pkgs.stdenv.isLinux [ pkgs.kdePackages.okular ])
+      ++ (lib.optionals pkgs.stdenv.isDarwin [ pkgs.skimpdf ]);
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
         enable = true;
