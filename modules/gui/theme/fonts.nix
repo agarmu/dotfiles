@@ -1,10 +1,8 @@
 { lib, ... }:
 let
+  toDrvList = attrs: lib.filter lib.isDerivation (lib.attrValues attrs);
   fonts =
     { pkgs, ... }:
-    let
-      toDrvList = attrs: lib.filter lib.isDerivation (lib.attrValues attrs);
-    in
     {
       fonts.packages =
         with pkgs;
@@ -25,12 +23,9 @@ let
         ++ (toDrvList tex-gyre)
         ++ (toDrvList tex-gyre-math);
     };
-in
-{
-  flake.modules.nixos.base =
+  stylix-fonts =
     { pkgs, ... }:
     {
-      imports = [ fonts ];
       stylix.fonts = {
         serif = {
           package = pkgs.source-serif;
@@ -54,10 +49,25 @@ in
         };
       };
     };
+in
+{
+  flake.modules.nixos.base = {
+    imports = [
+      fonts
+      stylix-fonts
+    ];
+  };
 
-  flake.modules.homeManager.base =
+  flake.modules.homeManager.nixosGui =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.gnome-font-viewer ];
     };
+
+  flake.modules.darwin.base = {
+    imports = [
+      fonts
+      stylix-fonts
+    ];
+  };
 }

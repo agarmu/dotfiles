@@ -21,4 +21,8 @@
       home.packages = [ pkgs.kdePackages.kwalletmanager ];
       services.gpg-agent.pinentry.package = pkgs.pinentry-qt;
     };
+  flake.modules.homeManager.darwin = { pkgs, ... }: {
+    home.packages = [ pkgs.pinentry_mac ];
+    services.gpg-agent.pinentry.package = pkgs.pinentry_mac;
+  };
 }
