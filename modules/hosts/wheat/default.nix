@@ -23,6 +23,7 @@
         linuxGui
         mobile
         image
+        linux
       ];
       home.stateVersion = "26.05";
     };

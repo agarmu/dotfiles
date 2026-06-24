@@ -28,12 +28,14 @@
           new-instance = "1";
         };
       };
-      xdg.mimeApps.defaultApplications = {
-        "application/pdf" = [ "org.kde.okular.desktop" ];
-        "application/x-bzpdf" = [ "org.kde.okular.desktop" ];
-        "application/x-gzpdf" = [ "org.kde.okular.desktop" ];
-        "application/x-xzpdf" = [ "org.kde.okular.desktop" ];
-        "application/x-ext-pdf" = [ "org.kde.okular.desktop" ];
-      };
     };
+  flake.modules.homeManger.linuxGui = {
+    xdg.mimeApps.defaultApplications = {
+      "application/pdf" = [ "org.kde.okular.desktop" ];
+      "application/x-bzpdf" = [ "org.kde.okular.desktop" ];
+      "application/x-gzpdf" = [ "org.kde.okular.desktop" ];
+      "application/x-xzpdf" = [ "org.kde.okular.desktop" ];
+      "application/x-ext-pdf" = [ "org.kde.okular.desktop" ];
+    };
+  };
 }
