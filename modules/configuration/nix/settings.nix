@@ -81,7 +81,9 @@ in
       RandomizedDelaySec = lib.mkForce 0;
     };
   };
-  flake.modules.darwin.base = {
-    inherit nix;
+  flake.modules.darwin.base = {pkgs, ...}: {
+    nix = {
+      package = pkgs.lix;
+    } // nix;
   };
 }
