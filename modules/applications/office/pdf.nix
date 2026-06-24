@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
@@ -9,15 +9,12 @@
         poppler-utils
       ];
     };
-
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
       home.packages = [
         pkgs.pdfarranger
-      ]
-      ++ (lib.optionals pkgs.stdenv.isLinux [ pkgs.kdePackages.okular ])
-      ++ (lib.optionals pkgs.stdenv.isDarwin [ pkgs.skimpdf ]);
+      ];
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
         enable = true;
@@ -29,7 +26,11 @@
         };
       };
     };
-  flake.modules.homeManager.linuxGui = {
+  flake.modules.homeManager.darwin = { pkgs, ... }: {
+    home.packages = [ pkgs.skimpdf ];
+  };
+  flake.modules.homeManager.linuxGui = { pkgs, ... }: {
+    home.packages = [ pkgs.kdePackages.okular ];
     xdg.mimeApps.defaultApplications = {
       "application/pdf" = [ "org.kde.okular.desktop" ];
       "application/x-bzpdf" = [ "org.kde.okular.desktop" ];
