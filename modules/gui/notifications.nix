@@ -1,5 +1,5 @@
 _: {
-  flake.modules.homeManager.nixosGui = {
+  flake.modules.homeManager.linuxGui = {
     services.swaync = {
       enable = true;
       settings = {

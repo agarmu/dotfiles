@@ -17,7 +17,7 @@
         ))
       ];
     };
-  flake.modules.homeManager.nixosDev =
+  flake.modules.homeManager.linuxDev =
     { pkgs, config, ... }:
     {
       home.sessionVariables = {

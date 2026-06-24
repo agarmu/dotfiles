@@ -2,7 +2,7 @@
   flake.modules.nixos.base = {
     services.udisks2.enable = true;
   };
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       services.udiskie.enable = true;
