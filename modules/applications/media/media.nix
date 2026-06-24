@@ -3,15 +3,14 @@
     programs.yt-dlp.enable = true;
   };
   flake.modules.homeManager.gui =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       home.packages = with pkgs; [
-        playerctl
         freetube
       ];
       programs.mpv = {
         package = pkgs.mpv.override {
-          scripts = with pkgs.mpvScripts; [ mpris ];
+          scripts = with pkgs.mpvScripts; (lib.optionals pkgs.stdenv.isLinux [ mpris ]);
         };
         enable = true;
         config = {
@@ -19,16 +18,21 @@
         };
       };
     };
-  flake.modules.homeManager.linuxGui = {
-    xdg.mimeApps.defaultApplications = {
-      "video/mp4" = [ "mpv.desktop" ];
-      "video/x-matroska" = [ "mpv.desktop" ];
-      "video/webm" = [ "mpv.desktop" ];
-      "video/x-msvideo" = [ "mpv.desktop" ];
-      "audio/mpeg" = [ "mpv.desktop" ];
-      "audio/flac" = [ "mpv.desktop" ];
-      "audio/ogg" = [ "mpv.desktop" ];
-      "audio/wav" = [ "mpv.desktop" ];
+  flake.modules.homeManager.linuxGui =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        playerctl
+      ];
+      xdg.mimeApps.defaultApplications = {
+        "video/mp4" = [ "mpv.desktop" ];
+        "video/x-matroska" = [ "mpv.desktop" ];
+        "video/webm" = [ "mpv.desktop" ];
+        "video/x-msvideo" = [ "mpv.desktop" ];
+        "audio/mpeg" = [ "mpv.desktop" ];
+        "audio/flac" = [ "mpv.desktop" ];
+        "audio/ogg" = [ "mpv.desktop" ];
+        "audio/wav" = [ "mpv.desktop" ];
+      };
     };
-  };
 }
