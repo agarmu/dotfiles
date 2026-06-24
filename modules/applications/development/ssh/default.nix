@@ -13,7 +13,7 @@
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks."*" = {
+        settings."*" = {
           # safety
           forwardAgent = false;
           addKeysToAgent = "no";

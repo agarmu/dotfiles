@@ -53,6 +53,6 @@ let
 in
 {
   flake.modules.homeManager.base = {
-    programs.ssh.matchBlocks = servers;
+    programs.ssh.settings = servers;
   };
 }
