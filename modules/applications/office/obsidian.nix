@@ -1,3 +1,3 @@
 {
-  flake.modules.homeManager.nixosGui.programs.obsidian.enable = true;
+  flake.modules.homeManager.linuxGui.programs.obsidian.enable = true;
 }

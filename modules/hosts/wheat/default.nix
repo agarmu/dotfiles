@@ -18,9 +18,9 @@
       imports = with inputs.self.modules.homeManager; [
         base
         dev
-        nixosDev
+        linuxDev
         gui
-        nixosGui
+        linuxGui
         mobile
         image
       ];

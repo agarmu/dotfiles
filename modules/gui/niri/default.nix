@@ -4,7 +4,7 @@
     boot.kernelParams = [ "appledrm.show_notch=1" ];
   };
 
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
       imports = [ inputs.niri-nix.homeModules.default ];

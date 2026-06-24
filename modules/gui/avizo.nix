@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.nixosGui = {
+  flake.modules.homeManager.linuxGui = {
     services.avizo.enable = true;
     services.avizo.settings.default = {
       time = 0.5;

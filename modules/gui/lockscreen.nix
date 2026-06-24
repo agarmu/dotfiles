@@ -3,7 +3,7 @@
   flake.modules.nixos.gui = {
     programs.hyprlock.enable = true;
   };
-  flake.modules.homeManager.nixosGui =
+  flake.modules.homeManager.linuxGui =
     { pkgs, config, ... }:
     {
       stylix.targets.hyprlock.enable = false;
