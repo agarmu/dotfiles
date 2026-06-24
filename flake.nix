@@ -46,6 +46,10 @@
       url = "github:probeldev/niri-screen-time";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       url = "github:nix-community/nixvim";
