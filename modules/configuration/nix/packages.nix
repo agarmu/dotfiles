@@ -12,8 +12,13 @@ in
         inherit system overlays;
       };
     in
+    with pkgs.lib;
+    let
+      isValidPackage =
+        _: v: builtins.isAttrs v && isDerivation v && meta.availableOn pkgs.stdenv.hostPlatform v;
+    in
     {
-      packages = pkgs.lib.filterAttrs (_: v: builtins.isAttrs v && pkgs.lib.isDerivation v) pkgs.mukul;
+      packages = filterAttrs isValidPackage pkgs.mukul;
     };
   flake.modules.nixos.base.nixpkgs = {
     inherit overlays;
