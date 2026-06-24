@@ -3,14 +3,16 @@
     programs.yt-dlp.enable = true;
   };
   flake.modules.homeManager.gui =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       home.packages = with pkgs; [
         freetube
       ];
       programs.mpv = {
         package = pkgs.mpv.override {
-          scripts = with pkgs.mpvScripts; (lib.optionals pkgs.stdenv.isLinux [ mpris ]);
+          scripts =
+            (with pkgs.mpvScripts; [ mpris ])
+            |> builtins.filter (pkgs.lib.meta.availableOn (pkgs.stdenv.hostPlatform));
         };
         enable = true;
         config = {
