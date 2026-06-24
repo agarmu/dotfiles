@@ -1,21 +1,32 @@
-{
-  flake.modules.homeManager.gui =
-    { pkgs, ... }:
-
-    {
-      home.packages = with pkgs; lib.mkIf (lib.meta.availableOn stdenv.hostPlatform slack) [ slack ];
+let
+  stdCommunication = { pkgs, ... }: {
+    home.packages = [ pkgs.slack ];
+    programs.discord = {
+      enable = true;
     };
-  flake.modules.homeManager.nixosGui =
-    { pkgs, ... }:
-    {
-      home.packages = [ pkgs.mukul.slk ];
-      programs.vesktop = {
-        enable = true;
-        settings = {
-          minimizeToTray = false;
-          hardwareAcceleration = true;
-        };
+    stylix.targets.discord.enable = false;
+  };
+  aarch64Communication = { pkgs, ... }: {
+    # SHAME ON SLACK !
+    home.packages = [ pkgs.mukul.slk ];
+    # SHAME ON DISCORD!
+    programs.vesktop = {
+      enable = true;
+      settings = {
+        minimizeToTray = false;
+        hardwareAcceleration = true;
       };
-      stylix.targets.vesktop.enable = false;
     };
+    stylix.targets.vesktop.enable = false;
+
+  };
+in
+{
+  flake.modules.homeManager.gui = { pkgs, ... }: {
+    imports =
+      if (pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64) then
+        [ aarch64Communication ]
+      else
+        [ stdCommunication ];
+  };
 }

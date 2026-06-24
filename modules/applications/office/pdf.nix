@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
@@ -13,10 +13,11 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [
-        pdfarranger
-        papers
-      ];
+      home.packages = [
+        pkgs.pdfarranger
+        pkgs.kdePackages.okular
+      ]
+      ++ (lib.optionals (pkgs.stdenv.isDarwin) [ pkgs.skimpdf ]);
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
         enable = true;
@@ -28,11 +29,11 @@
         };
       };
       xdg.mimeApps.defaultApplications = {
-        "application/pdf" = [ "org.gnome.Papers.desktop" ];
-        "application/x-bzpdf" = [ "org.gnome.Papers.desktop" ];
-        "application/x-gzpdf" = [ "org.gnome.Papers.desktop" ];
-        "application/x-xzpdf" = [ "org.gnome.Papers.desktop" ];
-        "application/x-ext-pdf" = [ "org.gnome.Papers.desktop" ];
+        "application/pdf" = [ "org.kde.okular.desktop" ];
+        "application/x-bzpdf" = [ "org.kde.okular.desktop" ];
+        "application/x-gzpdf" = [ "org.kde.okular.desktop" ];
+        "application/x-xzpdf" = [ "org.kde.okular.desktop" ];
+        "application/x-ext-pdf" = [ "org.kde.okular.desktop" ];
       };
     };
 }

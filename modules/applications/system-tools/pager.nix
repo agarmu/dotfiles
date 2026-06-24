@@ -8,4 +8,7 @@
   flake.modules.nixos.base = {
     environment.variables.LESSSECURE = "1";
   };
+  flake.modules.darwin.base = {
+    environment.variables.LESSSECURE = "1";
+  };
 }
