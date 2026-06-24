@@ -4,6 +4,7 @@
 }:
 {
   flake.modules.darwin.host-mukul-mbp = {
+    nixpkgs.hostPlatform = "aarch64-darwin";
     imports = with inputs.self.modules.darwin; [
       base
       gui
