@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.base =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       programs.htop = {
         enable = true;
@@ -69,15 +69,15 @@
 
       programs.bottom.enable = true;
       home.shellAliases.top = "${pkgs.btop}/bin/btop";
-      home.packages =
-        with pkgs;
-        [
-          procs # better ps
-          bandwhich # per-process network bandwidth
-        ]
-        ++ (lib.optionals pkgs.stdenv.isLinux [
-          kmon
-          psmisc
-        ]);
+      home.packages = with pkgs; [
+        procs # better ps
+        bandwhich # per-process network bandwidth
+      ];
     };
+  flake.modules.homeManager.linux = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      kmon
+      psmisc
+    ];
+  };
 }
