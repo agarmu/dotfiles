@@ -4,16 +4,6 @@
     {
       home.packages = [
         pkgs.libreoffice
-        /*
-          TODO: switch to custom build once I have
-          	   a proper build server
-          	(pkgs.libreoffice-fresh.override {
-                    unwrapped = pkgs.libreoffice-fresh-unwrapped.override {
-                      withHelp = false;
-                      langs = [ "en-US" "en-GB" ];
-                    };
-                  })
-        */
       ];
       xdg.mimeApps.defaultApplications = {
         "application/vnd.oasis.opendocument.text" = [ "writer.desktop" ];
@@ -27,4 +17,5 @@
         "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "impress.desktop" ];
       };
     };
+  # TODO: MSFT Office via homebrew
 }
