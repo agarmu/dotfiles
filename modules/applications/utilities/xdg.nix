@@ -8,7 +8,7 @@
         configHome = "${config.home.homeDirectory}/.config";
         dataHome = "${config.home.homeDirectory}/.local/share";
         stateHome = "${config.home.homeDirectory}/.local/state";
-        mimeApps.enable = true;
+        mimeApps.enable = pkgs.stdenv.isLinux;
         userDirs = {
           enable = true;
           createDirectories = true;

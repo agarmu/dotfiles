@@ -26,6 +26,7 @@
     home-manager.users.mukul = {
       imports = with inputs.self.modules.homeManager; [
         base
+        linux
       ];
       home.stateVersion = "26.05";
     };
