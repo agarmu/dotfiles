@@ -16,6 +16,7 @@
         sudo.enable = lib.mkForce false;
         sudo-rs.enable = lib.mkForce false;
         run0 = {
+          enable = true;
           enableSudoAlias = true;
         };
         polkit.enable = true;
