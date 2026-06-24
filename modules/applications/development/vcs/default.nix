@@ -6,7 +6,7 @@ let
 in
 {
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       home.packages = with pkgs; [
         difftastic
@@ -42,9 +42,9 @@ in
           skipSmudge = false;
         };
         signing = {
-          key = null;
+          key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
           signByDefault = true;
-          format = "openpgp";
+          format = "ssh";
         };
       };
 
@@ -54,7 +54,7 @@ in
           user = identity;
           signing = {
             behavior = "own";
-            backend = "gpg";
+            backend = "ssh";
           };
         };
       };
