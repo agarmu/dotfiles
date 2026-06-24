@@ -18,6 +18,22 @@ let
         ];
       };
     };
+  mkDarwin =
+    moduleName:
+    let
+      name = lib.removePrefix "host-" moduleName;
+    in
+    {
+      ${name} = inputs.nix-darwin.lib.darwinSystem {
+        modules = [
+          modules.darwin.${moduleName}
+          {
+            networking.hostName = lib.mkDefault name;
+            system.stateVersion = lib.mkDefault 7;
+          }
+        ];
+      };
+    };
   makeConfigurations =
     mod: builder:
     (builtins.attrNames modules.${mod})
@@ -27,4 +43,5 @@ let
 in
 {
   flake.nixosConfigurations = makeConfigurations "nixos" mkNixos;
+  flake.darwinConfigurations = makeConfigurations "darwin" mkDarwin;
 }
