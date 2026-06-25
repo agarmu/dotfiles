@@ -1,5 +1,13 @@
 {
   flake.modules.homeManager.dev = {
+    programs.zed-editor.extensions = [
+      "scala"
+      "haskell"
+      "python"
+      "ocaml"
+      "typescript"
+      "astro"
+    ];
     programs.nixvim.plugins.lsp.servers = {
       metals = {
         enable = true;
