@@ -1,5 +1,13 @@
 _: {
   flake.modules.homeManager.linuxGui = {
+    services.avizo = {
+      enable = true;
+      settings.default = {
+        time = 0.5;
+        fade-in = 0.1;
+        fade-out = 0.2;
+      };
+    };
     services.swaync = {
       enable = true;
       settings = {
