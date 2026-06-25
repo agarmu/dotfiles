@@ -17,5 +17,11 @@
         pkgs.libreoffice
       ];
     };
-  # TODO: MSFT Office via homebrew
+  flake.modules.darwin.homebrew = {
+    homebrew.casks = [
+      "microsoft-word"
+      "microsoft-excel"
+      "microsoft-powerpoint"
+    ];
+  };
 }
