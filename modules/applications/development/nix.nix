@@ -10,4 +10,14 @@
         dix
       ];
     };
+  flake.modules.homeManager.dev =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [ nixd ];
+      programs.nixvim.plugins.lsp.servers.nixd = {
+        enable = true;
+        package = null;
+      };
+      programs.zed-editor.extensions = [ "nix" ];
+    };
 }
