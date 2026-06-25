@@ -9,6 +9,7 @@
       base
       gui
       home-manager
+      homebrew
     ];
     home-manager.users.mukul = {
       imports = with inputs.self.modules.homeManager; [

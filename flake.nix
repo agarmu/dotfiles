@@ -37,6 +37,14 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
     import-tree.url = "github:vic/import-tree";
     niri-nix = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix.git";
@@ -50,6 +58,7 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       url = "github:nix-community/nixvim";
