@@ -3,8 +3,7 @@
   flake.modules.homeManager.linuxGui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ awww ];
-
+      home.packages = [ pkgs.awww ];
       systemd.user.services.awww-daemon = {
         Unit = {
           Description = "Animated wallpaper daemon";
@@ -19,6 +18,8 @@
           WantedBy = [ "graphical-session.target" ];
         };
       };
-
     };
+  flake.modules.homeManager.darwin = { pkgs, ... }: {
+    home.packages = [ pkgs.desktoppr ];
+  };
 }
