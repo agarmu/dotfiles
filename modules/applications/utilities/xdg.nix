@@ -1,6 +1,9 @@
-{
+{ lib, ... }: {
   flake.modules.homeManager.base =
     { config, pkgs, ... }:
+    let
+      inherit (pkgs.stdenv) isLinux isDarwin;
+    in
     {
       xdg = {
         enable = true;
@@ -8,7 +11,7 @@
         configHome = "${config.home.homeDirectory}/.config";
         dataHome = "${config.home.homeDirectory}/.local/share";
         stateHome = "${config.home.homeDirectory}/.local/state";
-        mimeApps.enable = pkgs.stdenv.isLinux;
+        mimeApps.enable = isLinux;
         userDirs = {
           enable = true;
           createDirectories = true;
@@ -22,6 +25,6 @@
           videos = "${config.home.homeDirectory}/Videos";
         };
       };
-      home.packages = [ pkgs.mukul.open ];
+      home.packages = lib.optionals (!isDarwin) [ pkgs.mukul.open ];
     };
 }
