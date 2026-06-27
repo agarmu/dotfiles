@@ -1,63 +1,73 @@
 {
   lib,
   stdenv,
-  fetchurl,
-  darwin,
+  makeBinaryWrapper,
+  callPackage,
 }:
-stdenv.mkDerivation rec {
-  pname = "calibre";
-  version = "9.10.0";
-
-  src = fetchurl {
-    url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
-    hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
-  };
-
-  nativeBuildInputs = [
-    darwin.sigtool
+let
+  calibre-unwrapped = callPackage ./calibre-unwrapped.nix { };
+  realApp = "${calibre-unwrapped}/Applications/calibre.app";
+  realMacOS = "${realApp}/Contents/MacOS";
+  installables = [
+    "calibre"
+    "calibre-complete"
+    "calibre-customize"
+    "calibre-debug"
+    "calibre-parallel"
+    "calibre-server"
+    "calibre-smtp"
+    "calibredb"
+    "ebook-convert"
+    "ebook-device"
+    "ebook-edit"
+    "ebook-meta"
+    "ebook-polish"
+    "ebook-viewer"
+    "fetch-ebook-metadata"
+    "lrf2lrs"
+    "lrfviewer"
+    "lrs2lrf"
+    "markdown-calibre"
+    "web2disk"
   ];
+  wrapperCommands = lib.concatMapStringsSep "\n" (name: ''
+    makeBinaryWrapper "${realMacOS}/${name}" "$app/Contents/MacOS/${name}"
+    makeBinaryWrapper "${realMacOS}/${name}" "$out/bin/${name}"
+  '') installables;
+in
+stdenv.mkDerivation {
+  pname = "calibre";
+  version = calibre-unwrapped.version;
 
-  sourceRoot = ".";
+  dontUnpack = true;
+
+  nativeBuildInputs = [ makeBinaryWrapper ];
+  buildInputs = [ calibre-unwrapped ];
 
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/Applications
-    cp -r *.app $out/Applications/
+    app=$out/Applications/calibre.app
+    mkdir -p "$app/Contents/MacOS"
+    mkdir -p "$app/Contents/Resources"
+    mkdir -p "$out/bin"
 
-    # Re-sign the main executable, otherwise macOS reports the app as damaged
-    appBundle="$out/Applications/calibre.app"
-    mainExe="$appBundle/Contents/MacOS/calibre"
-    codesign --force --sign - "$mainExe"
+    # Copy bundle metadata/resources so macOS recognises the bundle and shows
+    # the normal calibre icon. Avoid copying Frameworks, PlugIns, and nested
+    # helper apps here; the wrapper should stay copyApps-safe.
+    cp "${realApp}/Contents/Info.plist" "$app/Contents/Info.plist"
+    cp -R "${realApp}/Contents/Resources/." "$app/Contents/Resources/"
+
+    # Binary wrappers that exec the real calibre binaries.
+    # The real binaries resolve their @rpath/@loader_path relative to their own
+    # locations in the nix store, so they find their Frameworks there.
+    ${wrapperCommands}
 
     runHook postInstall
   '';
 
-  # APFS -- requires use of hdiutil
-  # see the below link:
-  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/lm/lmstudio/darwin.nix
-  unpackCmd = ''
-    echo "Creating temp directory"
-    mnt=$(TMPDIR=/tmp mktemp -d -t nix-XXXXXXXXXX)
-    function finish {
-      echo "Ejecting temp directory"
-      /usr/bin/hdiutil detach $mnt -force
-      rm -rf $mnt
-    }
-    # Detach volume when receiving SIG "0"
-    trap finish EXIT
-    # Mount DMG file
-    echo "Mounting DMG file into \"$mnt\""
-    /usr/bin/hdiutil attach -nobrowse -mountpoint $mnt $curSrc
-    # Copy content to local dir for later use
-    echo 'Copying extracted content into "sourceRoot"'
-    cp -a $mnt/calibre.app $PWD/
-  '';
-
-  meta = with lib; {
-    description = "Powerful and easy to use e-book manager";
-    homepage = "https://calibre-ebook.com/";
-    license = licenses.gpl2Only;
-    platforms = platforms.darwin;
+  meta = {
+    description = "Calibre (wrapped, copyApps-safe bundle)";
+    platforms = lib.platforms.darwin;
   };
 }
