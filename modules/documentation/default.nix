@@ -34,6 +34,14 @@
         dev.enable = true;
       };
     };
+  flake.modules.darwin.base = {
+    # TODO: change on fix upstream
+    # workaround for github.com/nix-darwin/nix-darwin/issues/1817
+
+    # implements the fix suggested in https://github.com/nix-darwin/nix-darwin/issues/1817#issuecomment-4887465960
+    documentation.enable = lib.mkForce false;
+    system.tools.darwin-uninstaller.enable = lib.mkForce false;
+  };
   flake.modules.homeManager.base =
     { pkgs, config, ... }:
     {
