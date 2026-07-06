@@ -6,7 +6,7 @@ _: {
     }:
     {
       programs.mcfly = {
-        enable = true;
+        enable = false;
         enableZshIntegration = true;
         enableBashIntegration = true;
         fzf.enable = true;
