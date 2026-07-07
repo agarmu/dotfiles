@@ -3,14 +3,16 @@
   stdenv,
   fetchurl,
   darwin,
+  version,
+  hash,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "calibre-unwrapped";
-  version = "9.10.0";
+  inherit version;
 
   src = fetchurl {
     url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
-    hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
+    inherit hash;
   };
 
   nativeBuildInputs = [
