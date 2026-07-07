@@ -15,6 +15,7 @@
     {
       pkgs,
       system,
+      config,
       ...
     }:
     let
@@ -22,9 +23,9 @@
         src = inputs.self;
         package = pkgs.prek;
         hooks = {
-          nixfmt = {
+          treefmt = {
             enable = true;
-            package = pkgs.nixfmt;
+            packageOverrides.treefmt = config.treefmt.build.wrapper;
           };
           deadnix.enable = true;
         };
