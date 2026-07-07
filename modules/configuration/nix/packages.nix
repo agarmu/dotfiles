@@ -21,6 +21,7 @@ in
     in
     {
       packages = pkgs.lib.filterAttrs (_: availableOnSystem) custom;
+      legacyPackages = custom;
     };
   flake.modules.nixos.base.nixpkgs = {
     inherit overlays;
