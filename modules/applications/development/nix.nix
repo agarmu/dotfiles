@@ -1,15 +1,19 @@
+let
+  module = { pkgs, ... }: {
+    environment.systemPackages = with pkgs; [
+      nix-output-monitor
+      nix-diff
+      nurl
+      dix
+    ];
+  };
+in
 {
-  flake.modules.nixos.base =
-    { pkgs, ... }:
-    {
-      programs.nh.enable = true;
-      environment.systemPackages = with pkgs; [
-        nix-output-monitor
-        nix-diff
-        nurl
-        dix
-      ];
-    };
+  flake.modules.nixos.base = {
+    programs.nh.enable = true;
+    imports = [ module ];
+  };
+  flake.modules.darwin.base = module;
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
