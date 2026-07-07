@@ -13,7 +13,14 @@
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ nixd ];
+      home.packages = with pkgs; [
+        nixd
+        nixpkgs-review
+        nixpkgs-hammering
+        deadnix
+        statix
+        nixfmt
+      ];
       programs.nixvim.plugins.lsp.servers.nixd = {
         enable = true;
         package = null;
