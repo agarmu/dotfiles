@@ -1,19 +1,13 @@
 {
   lib,
   stdenv,
-  fetchurl,
   darwin,
   version,
-  hash,
+  src,
 }:
 stdenv.mkDerivation {
   pname = "calibre-unwrapped";
-  inherit version;
-
-  src = fetchurl {
-    url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
-    inherit hash;
-  };
+  inherit version src;
 
   nativeBuildInputs = [
     darwin.sigtool
@@ -21,23 +15,10 @@ stdenv.mkDerivation {
 
   sourceRoot = ".";
 
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/Applications
-    cp -r *.app $out/Applications/
-
-    # Re-sign the main executable, otherwise macOS reports the app as damaged
-    appBundle="$out/Applications/calibre.app"
-    mainExe="$appBundle/Contents/MacOS/calibre"
-    codesign --force --sign - "$mainExe"
-
-    runHook postInstall
-  '';
-
   # APFS -- requires use of hdiutil
   # see the below link:
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/lm/lmstudio/darwin.nix
+
   unpackCmd = ''
     echo "Creating temp directory"
     mnt=$(TMPDIR=/tmp mktemp -d -t nix-XXXXXXXXXX)
@@ -54,6 +35,20 @@ stdenv.mkDerivation {
     # Copy content to local dir for later use
     echo 'Copying extracted content into "sourceRoot"'
     cp -a $mnt/calibre.app $PWD/
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p $out/Applications
+    cp -r *.app $out/Applications/
+
+    # Re-sign the main executable, otherwise macOS reports the app as damaged
+    appBundle="$out/Applications/calibre.app"
+    mainExe="$appBundle/Contents/MacOS/calibre"
+    codesign --force --sign - "$mainExe"
+
+    runHook postInstall
   '';
 
   meta = with lib; {
