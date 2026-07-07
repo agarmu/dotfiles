@@ -28,6 +28,7 @@
             packageOverrides.treefmt = config.treefmt.build.wrapper;
           };
           deadnix.enable = true;
+          statix.enable = true;
         };
       };
     in
@@ -41,6 +42,7 @@
         packages = with pkgs; [
           nixfmt
           deadnix
+          statix
           prek
           nixfmt-tree
         ];
