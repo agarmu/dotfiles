@@ -35,30 +35,43 @@ jobs:
 
           for pkg in ${{ steps.discover.outputs.packages }}; do
             echo "::group::Updating $pkg"
-            git checkout main
-            git branch -D "chore/update-$pkg" 2>/dev/null || true
-            git checkout -b "chore/update-$pkg"
+            branch="chore/update-$pkg"
+
+            if git ls-remote --exit-code origin "refs/heads/$branch" 2>/dev/null; then
+              echo "Branch $branch exists on origin, fetching and rebasing"
+              git fetch origin "$branch"
+              git checkout "$branch"
+              git rebase main || git rebase --abort
+            else
+              echo "Creating new branch $branch"
+              git checkout main
+              git checkout -b "$branch"
+            fi
 
             if ! nix run nixpkgs#nix-update -- --flake --use-update-script "$pkg"; then
               echo "nix-update failed for $pkg, skipping"
-              git checkout main
-              git branch -D "chore/update-$pkg" 2>/dev/null || true
+              echo "::endgroup::"
               continue
             fi
 
             if git diff --quiet; then
               echo "No updates for $pkg"
-              git checkout main
-              git branch -D "chore/update-$pkg" 2>/dev/null || true
+              echo "::endgroup::"
               continue
             fi
 
             git add -A
-            git commit -m "chore($pkg): update"
-            git push origin "chore/update-$pkg" --force
-            gh pr create --title "chore($pkg): update" \
-              --body "Automated update via nix-update." \
-              --base main --head "chore/update-$pkg" || true
+            git commit -m "chore($pkg): update" 2>/dev/null || true
+            git push origin "$branch" --force
+
+            pr_url=$(gh pr list --head "$branch" --json url --jq '.[0].url' 2>/dev/null)
+            if [ -n "$pr_url" ]; then
+              echo "PR already exists: $pr_url"
+            else
+              gh pr create --title "chore($pkg): update" \
+                --body "Automated update via nix-update." \
+                --base main --head "$branch" || true
+            fi
             echo "::endgroup::"
           done
         env:
