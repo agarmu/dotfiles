@@ -60,3 +60,4 @@ jobs:
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NIX_PATH: nixpkgs=channel:nixpkgs-unstable
