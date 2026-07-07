@@ -13,4 +13,6 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           extra_nix_config: |
             extra-experimental-features = nix-command flakes pipe-operators
-      - run: nix flake check --no-build --all-systems
+      - name: Evaluate flake outputs
+        run: |
+          nix flake check --all-systems --show-trace -L
