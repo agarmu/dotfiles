@@ -29,6 +29,16 @@
           };
           deadnix.enable = true;
           statix.enable = true;
+          yamllint = {
+            enable = true;
+            settings.configuration = ''
+              extends: default
+              rules:
+                line-length: disable
+                document-start: disable
+                truthy: disable
+            '';
+          };
         };
       };
     in
@@ -36,6 +46,7 @@
       treefmt = {
         programs.nixfmt.enable = true;
         programs.kdlfmt.enable = true;
+        programs.yamlfmt.enable = true;
       };
       checks = { inherit pre-commit-check; };
       devShells.default = pkgs.mkShellNoCC {
@@ -43,6 +54,8 @@
           nixfmt
           deadnix
           statix
+          yamlfmt
+          yamllint
           prek
           nixfmt-tree
         ];
