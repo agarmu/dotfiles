@@ -22,4 +22,5 @@ in
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
   why = callPackage ./why { };
+  zotero-addons = callPackage ./zotero-addons { };
 }
