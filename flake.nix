@@ -15,10 +15,6 @@
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    asahi-firmware = {
-      url = "git+ssh://git@github.com/agarmu/asahi-firmware.git";
-      flake = false;
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
