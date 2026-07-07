@@ -5,14 +5,14 @@
   pkg-config,
   wayland,
 }:
-rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "clipvault";
   version = "1.1.1";
 
   src = fetchFromGitHub {
     owner = "Rolv-Apneseth";
     repo = "clipvault";
-    rev = "v1.1.1";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-iETuHXMUllQstKcNc7p02gU230kPfmEFXYqBh2+HMy4=";
   };
 
@@ -30,4 +30,4 @@ rustPlatform.buildRustPackage {
     mainProgram = "clipvault";
     platforms = lib.platforms.linux;
   };
-}
+})

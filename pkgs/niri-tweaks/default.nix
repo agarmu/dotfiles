@@ -4,12 +4,13 @@
   stdenvNoCC,
   fetchFromGitHub,
   makeWrapper,
+  nix-update-script,
   jq,
   libnotify,
 }:
 
 let
-  version = "0.0.0+unstable-2026-03-19";
+  version = "0-unstable-2026-03-19";
 in
 stdenvNoCC.mkDerivation {
   inherit version;
@@ -74,5 +75,13 @@ stdenvNoCC.mkDerivation {
     homepage = "https://github.com/heyoeyo/niri_tweaks";
     license = lib.licenses.mit;
     platforms = lib.platforms.linux;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "niri-tweaks";
+    extraArgs = [
+      "--flake"
+      "--version=branch"
+    ];
   };
 }
