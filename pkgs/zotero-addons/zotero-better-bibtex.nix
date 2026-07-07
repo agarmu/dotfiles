@@ -63,6 +63,8 @@ buildNpmPackage rec {
     runHook postInstall
   '';
 
+  passthru.extensionId = "better-bibtex@iris-advies.com";
+
   meta = with lib; {
     description = "Make Zotero useful for us LaTeX holdouts";
     homepage = "https://retorque.re/zotero-better-bibtex";
