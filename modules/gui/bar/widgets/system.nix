@@ -1,70 +1,68 @@
 {
-  flake.modules.homeManager.linuxGui =
-    { ... }:
-    {
-      programs.waybar.settings.mainBar = {
-        systemd-failed-units = {
-          hide-on-ok = true;
-          format = "✗ {nr_failed}";
-          system = true;
-          user = true;
-        };
+  flake.modules.homeManager.linuxGui = _: {
+    programs.waybar.settings.mainBar = {
+      systemd-failed-units = {
+        hide-on-ok = true;
+        format = "✗ {nr_failed}";
+        system = true;
+        user = true;
+      };
 
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = "󰈈 ";
-            deactivated = "󰈉 ";
-          };
-          tooltip-format-activated = "Idle inhibited";
-          tooltip-format-deactivated = "Idle allowed";
+      idle_inhibitor = {
+        format = "{icon}";
+        format-icons = {
+          activated = "󰈈 ";
+          deactivated = "󰈉 ";
         };
+        tooltip-format-activated = "Idle inhibited";
+        tooltip-format-deactivated = "Idle allowed";
+      };
 
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon}";
-          format-charging = "󰂄";
-          format-plugged = "";
-          tooltip-format = "{capacity}%";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
+      battery = {
+        states = {
+          warning = 30;
+          critical = 15;
         };
+        format = "{icon}";
+        format-charging = "󰂄";
+        format-plugged = "";
+        tooltip-format = "{capacity}%";
+        format-icons = [
+          ""
+          ""
+          ""
+          ""
+          ""
+        ];
+      };
 
-        clock = {
-          format = "{:%H:%M}";
-          tooltip = true;
-        };
+      clock = {
+        format = "{:%H:%M}";
+        tooltip = true;
+      };
 
-        cpu = {
-          format = "";
-          tooltip = true;
-          tooltip-format = "{usage}%";
-        };
-        memory = {
-          format = "";
-          tooltip = true;
-          tooltip-format = "{used} GiB ({percentage}%)";
-        };
+      cpu = {
+        format = "";
+        tooltip = true;
+        tooltip-format = "{usage}%";
+      };
+      memory = {
+        format = "";
+        tooltip = true;
+        tooltip-format = "{used} GiB ({percentage}%)";
+      };
 
-        temperature = {
-          critical-threshold = 60;
-          format = "{icon}";
-          tooltip = true;
-          tooltip-format = "{temperatureC}°C";
-          format-icons = [
-            ""
-            ""
-            ""
-          ];
-        };
+      temperature = {
+        critical-threshold = 60;
+        format = "{icon}";
+        tooltip = true;
+        tooltip-format = "{temperatureC}°C";
+        format-icons = [
+          ""
+          ""
+          ""
+        ];
       };
     };
+  };
 }

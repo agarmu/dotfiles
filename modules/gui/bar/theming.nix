@@ -8,7 +8,7 @@
       programs.waybar.style =
         let
           inherit (config.lib.stylix) colors;
-          bases = map (lib.toHexString) (lib.range 0 15);
+          bases = map lib.toHexString (lib.range 0 15);
 
           # 2. Map through them to create the @define-color rules
           definitions = lib.concatMapStringsSep "\n" (

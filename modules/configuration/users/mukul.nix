@@ -1,4 +1,4 @@
-{ ... }:
+_:
 let
   userName = "mukul";
   sharedConfig =

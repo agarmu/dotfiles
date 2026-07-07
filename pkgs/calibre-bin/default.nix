@@ -37,7 +37,7 @@ let
 in
 stdenv.mkDerivation {
   pname = "calibre";
-  version = calibre-unwrapped.version;
+  inherit (calibre-unwrapped) version;
 
   dontUnpack = true;
 

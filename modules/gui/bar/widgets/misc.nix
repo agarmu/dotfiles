@@ -1,8 +1,6 @@
 {
-  flake.modules.homeManager.linuxGui =
-    { ... }:
-    {
-      programs.waybar.settings.mainBar = {
-      };
+  flake.modules.homeManager.linuxGui = _: {
+    programs.waybar.settings.mainBar = {
     };
+  };
 }
