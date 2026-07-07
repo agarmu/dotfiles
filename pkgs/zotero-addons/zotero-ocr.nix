@@ -41,6 +41,8 @@ stdenvNoCC.mkDerivation rec {
     runHook postInstall
   '';
 
+  passthru.extensionId = "zotero-ocr@bib.uni-mannheim.de";
+
   meta = with lib; {
     description = "Zotero plugin adding OCR functionality for PDFs using Tesseract";
     homepage = "https://github.com/UB-Mannheim/zotero-ocr";

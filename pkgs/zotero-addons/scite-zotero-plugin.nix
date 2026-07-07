@@ -63,6 +63,8 @@ buildNpmPackage rec {
     runHook postInstall
   '';
 
+  passthru.extensionId = "scite-zotero-plugin@scite.ai";
+
   meta = with lib; {
     description = "Scite Zotero plugin — Smart Citation tallies in Zotero";
     homepage = "https://github.com/scitedotai/scite-zotero-plugin";

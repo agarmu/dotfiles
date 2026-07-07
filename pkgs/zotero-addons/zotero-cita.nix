@@ -57,6 +57,8 @@ buildNpmPackage rec {
     runHook postInstall
   '';
 
+  passthru.extensionId = "zotero-wikicite@wikidata.org";
+
   meta = with lib; {
     description = "Cita: a Wikidata addon for Zotero with citations metadata support";
     homepage = "https://github.com/zotero-cita/zotero-cita";
