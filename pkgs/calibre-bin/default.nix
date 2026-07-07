@@ -1,5 +1,6 @@
 {
   lib,
+  fetchurl,
   stdenv,
   makeBinaryWrapper,
   callPackage,
@@ -7,8 +8,13 @@
 }:
 let
   version = "9.10.0";
-  hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
-  calibre-unwrapped = callPackage ./calibre-unwrapped.nix { inherit version hash; };
+  calibre-unwrapped = callPackage ./calibre-unwrapped.nix {
+    inherit version;
+    src = fetchurl {
+      url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
+      hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
+    };
+  };
   realApp = "${calibre-unwrapped}/Applications/calibre.app";
   realMacOS = "${realApp}/Contents/MacOS";
   installables = [
