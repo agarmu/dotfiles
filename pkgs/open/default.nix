@@ -14,6 +14,6 @@ in
     meta = {
       description = "Compatibility shim to allow `open` on non-darwin to behave like darwin";
       license = lib.licenses.mit;
-      platforms = lib.subtractLists lib.platforms.darwin xdg-utils.meta.platforms;
+      platforms = lib.platforms.all;
     };
   })

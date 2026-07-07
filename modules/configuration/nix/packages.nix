@@ -11,14 +11,16 @@ in
       pkgs = import inputs.nixpkgs {
         inherit system overlays;
       };
-    in
-    with pkgs.lib;
-    let
-      isValidPackage =
-        _: v: builtins.isAttrs v && isDerivation v && meta.availableOn pkgs.stdenv.hostPlatform v;
+      custom = import (rootDir + "/pkgs") pkgs;
+      availableOnSystem =
+        pkg:
+        if pkg ? type && pkg.type == "derivation" then
+          if pkg ? meta && pkg.meta ? platforms then builtins.elem system pkg.meta.platforms else true
+        else
+          false;
     in
     {
-      packages = filterAttrs isValidPackage pkgs.mukul;
+      packages = pkgs.lib.filterAttrs (_: availableOnSystem) custom;
     };
   flake.modules.nixos.base.nixpkgs = {
     inherit overlays;

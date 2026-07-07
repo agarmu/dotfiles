@@ -3,6 +3,7 @@
   buildGoModule,
   fetchFromGitHub,
   libX11,
+  nix-update-script,
 }:
 
 buildGoModule rec {
@@ -28,5 +29,10 @@ buildGoModule rec {
     maintainers = [ ];
     mainProgram = "slk";
     platforms = platforms.unix;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "slk";
+    extraArgs = [ "--flake" ];
   };
 }
