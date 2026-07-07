@@ -16,7 +16,7 @@ let
           nerd-fonts.jetbrains-mono
           noto-fonts-color-emoji
           libertinus
-          mukul.iosevka-kian-bin
+          iosevka-kian-bin
           league-of-moveable-type
           national-park-typeface
         ]
@@ -36,7 +36,7 @@ let
           name = "Source Sans 3";
         };
         monospace = {
-          package = pkgs.mukul.iosevka-kian-bin;
+          package = pkgs.iosevka-kian-bin;
           name = "Iosevka Kian Term";
         };
         emoji = {

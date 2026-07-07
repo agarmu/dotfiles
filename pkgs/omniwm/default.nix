@@ -4,6 +4,7 @@
   fetchurl,
   unzip,
   makeBinaryWrapper,
+  nix-update-script,
 }:
 stdenv.mkDerivation rec {
   pname = "omniwm";
@@ -38,5 +39,10 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/BarutSRB/OmniWM";
     license = licenses.gpl2Only;
     platforms = platforms.darwin;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "omniwm";
+    extraArgs = [ "--flake" ];
   };
 }

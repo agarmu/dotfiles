@@ -6,6 +6,7 @@
   patchelf,
   widevine-cdm,
   enableWidevine ? false,
+  nix-update-script,
   # runtime deps (from ldd)
   alsa-lib,
   at-spi2-atk,
@@ -123,5 +124,10 @@ stdenv.mkDerivation {
     mainProgram = pname;
     platforms = [ "aarch64-linux" ];
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "helium";
+    extraArgs = [ "--flake" ];
   };
 }

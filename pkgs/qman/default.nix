@@ -10,6 +10,7 @@
   python3Packages,
   man-db,
   xdg-utils,
+  nix-update-script,
   # Optional dependencies
   zlib,
   bzip2,
@@ -96,5 +97,10 @@ stdenv.mkDerivation rec {
     license = licenses.bsd2;
     platforms = platforms.unix;
     mainProgram = "qman";
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "qman";
+    extraArgs = [ "--flake" ];
   };
 }

@@ -36,10 +36,10 @@
         grc
         trash-cli
         gdu
-        pkgs.mukul.why
+        pkgs.why
         pciutils # pci devices
-        mukul.kent-class-download
-        mukul.lazymake
+        kent-class-download
+        lazymake
         libnotify # for notify-send
         glow # md viewer for terminal
         pipes-rs

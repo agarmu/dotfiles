@@ -4,7 +4,7 @@
     {
       home.packages = with pkgs; [
         wl-clipboard
-        mukul.clipvault
+        clipvault
       ];
       systemd.user.services.clipvault = {
         Unit = {
@@ -13,7 +13,7 @@
           After = [ "graphical-session.target" ];
         };
         Service = {
-          ExecStart = "${lib.getExe' pkgs.wl-clipboard "wl-paste"} --watch ${lib.getExe pkgs.mukul.clipvault} store --max-entry-age 24h";
+          ExecStart = "${lib.getExe' pkgs.wl-clipboard "wl-paste"} --watch ${lib.getExe pkgs.clipvault} store --max-entry-age 24h";
           Restart = "on-failure";
           RestartSec = "5s";
         };

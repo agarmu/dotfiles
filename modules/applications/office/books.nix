@@ -8,7 +8,7 @@
       home.packages = [ pkgs.thorium-reader ];
       programs.calibre = {
         enable = true;
-        package = if pkgs.stdenv.isDarwin then pkgs.mukul.calibre-bin else pkgs.calibre-no-speech;
+        package = if pkgs.stdenv.isDarwin then pkgs.calibre-bin else pkgs.calibre-no-speech;
       };
     };
 

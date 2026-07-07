@@ -2,6 +2,7 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+  nix-update-script,
 }:
 
 buildGoModule (finalAttrs: {
@@ -29,5 +30,10 @@ buildGoModule (finalAttrs: {
     changelog = "https://github.com/rshelekhov/lazymake/blob/${finalAttrs.src.rev}/CHANGELOG.md";
     license = lib.licenses.mit;
     mainProgram = "lazymake";
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "lazymake";
+    extraArgs = [ "--flake" ];
   };
 })

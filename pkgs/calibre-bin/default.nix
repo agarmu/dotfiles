@@ -3,9 +3,12 @@
   stdenv,
   makeBinaryWrapper,
   callPackage,
+  nix-update-script,
 }:
 let
-  calibre-unwrapped = callPackage ./calibre-unwrapped.nix { };
+  version = "9.10.0";
+  hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
+  calibre-unwrapped = callPackage ./calibre-unwrapped.nix { inherit version hash; };
   realApp = "${calibre-unwrapped}/Applications/calibre.app";
   realMacOS = "${realApp}/Contents/MacOS";
   installables = [
@@ -37,7 +40,7 @@ let
 in
 stdenv.mkDerivation {
   pname = "calibre";
-  inherit (calibre-unwrapped) version;
+  inherit version;
 
   dontUnpack = true;
 
@@ -69,5 +72,14 @@ stdenv.mkDerivation {
   meta = {
     description = "Calibre (wrapped, copyApps-safe bundle)";
     platforms = lib.platforms.darwin;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "calibre-bin";
+    extraArgs = [
+      "--flake"
+      "--url"
+      "https://github.com/kovidgoyal/calibre"
+    ];
   };
 }

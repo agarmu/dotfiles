@@ -52,7 +52,7 @@
         # like NixOS.
         # generateCaches = true;
       };
-      home.packages = [ pkgs.mukul.qman ];
+      home.packages = [ pkgs.qman ];
       home.shellAliases.q = "qman";
       xdg.configFile."qman/qman.conf".text = ''
         ; qman.conf
