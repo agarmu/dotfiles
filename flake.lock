@@ -21,22 +21,6 @@
         "type": "github"
       }
     },
-    "asahi-firmware": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1772335202,
-        "narHash": "sha256-G6HZarvbMfttg+v3hVxu8robpTJYkn7VMQEmA4Nff0A=",
-        "ref": "refs/heads/main",
-        "rev": "e92d24a308b9a67481031ef74beece32e4c019d6",
-        "revCount": 1,
-        "type": "git",
-        "url": "ssh://git@github.com/agarmu/asahi-firmware.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/agarmu/asahi-firmware.git"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -680,7 +664,6 @@
     "root": {
       "inputs": {
         "apple-silicon": "apple-silicon",
-        "asahi-firmware": "asahi-firmware",
         "disko": "disko",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
