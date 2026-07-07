@@ -4,6 +4,7 @@
   rustPlatform,
   runCommand,
   makeWrapper,
+  nix-update-script,
   awww,
   grim,
   satty,
@@ -44,7 +45,7 @@ let
 in
 rustPlatform.buildRustPackage {
   pname = "niri-scripts";
-  version = "unstable-2026-04-26";
+  version = "0-unstable-2026-04-26";
 
   inherit src;
   cargoHash = "sha256-5FZKPRm5oQWtnZk7/REX8xkkxCtc5JiRq8TAOvAAavM=";
@@ -68,5 +69,13 @@ rustPlatform.buildRustPackage {
     homepage = "https://github.com/0xwal/niri-scripts";
     license = lib.licenses.mit;
     platforms = lib.platforms.linux;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "niri-scripts";
+    extraArgs = [
+      "--flake"
+      "--version=branch"
+    ];
   };
 }

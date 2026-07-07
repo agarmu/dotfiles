@@ -2,10 +2,11 @@
   fetchFromGitHub,
   stdenvNoCC,
   lib,
+  nix-update-script,
 }:
 stdenvNoCC.mkDerivation {
   pname = "niri-shaders";
-  version = "unstable-2025-03-27";
+  version = "0-unstable-2025-03-27";
 
   src = fetchFromGitHub {
     owner = "jgarza9788";
@@ -24,5 +25,13 @@ stdenvNoCC.mkDerivation {
     description = "GLSL shaders for Niri from niri-animation-collection";
     homepage = "https://github.com/jgarza9788/niri-animation-collection";
     license = lib.licenses.mit;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "niri-shaders";
+    extraArgs = [
+      "--flake"
+      "--version=branch"
+    ];
   };
 }
