@@ -19,7 +19,7 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           extra_nix_config: |
-            extra-experimental-features = pipe-operators
+            extra-experimental-features = nix-command flakes pipe-operators
       - run: nix flake check --no-build
         env:
           NIX_CONFIG: system = ${{ matrix.system }}
