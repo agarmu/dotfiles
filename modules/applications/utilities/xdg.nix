@@ -25,6 +25,6 @@
           videos = "${config.home.homeDirectory}/Videos";
         };
       };
-      home.packages = lib.optionals (!isDarwin) [ pkgs.mukul.open ];
+      home.packages = lib.optionals (!isDarwin) [ pkgs.open ];
     };
 }

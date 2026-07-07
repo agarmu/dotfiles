@@ -4,6 +4,7 @@
   rustPlatform,
   pkg-config,
   wayland,
+  nix-update-script,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "clipvault";
@@ -29,5 +30,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.agpl3Only;
     mainProgram = "clipvault";
     platforms = lib.platforms.linux;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "clipvault";
+    extraArgs = [ "--flake" ];
   };
 })

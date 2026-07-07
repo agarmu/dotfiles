@@ -1,6 +1,7 @@
 {
   stdenvNoCC,
   fetchFromGitHub,
+  nix-update-script,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "iosevka-kian-bin";
@@ -16,4 +17,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     mkdir -p $out/share/fonts
     cp -r $src/truetype $out/share/fonts/truetype
   '';
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "iosevka-kian-bin";
+    extraArgs = [ "--flake" ];
+  };
 })
