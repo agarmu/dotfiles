@@ -45,6 +45,8 @@ buildNpmPackage rec {
     runHook postInstall
   '';
 
+  passthru.extensionId = "Knowledge4Zotero@windingwind.com";
+
   meta = with lib; {
     description = "Everything about note management. All in Zotero.";
     homepage = "https://github.com/windingwind/zotero-better-notes";

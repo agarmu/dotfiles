@@ -27,6 +27,8 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
+  passthru.extensionId = "zoteroabstractcleaner@carter-tod.com";
+
   meta = with lib; {
     description = "Fix line endings in abstracts copied from PDFs";
     homepage = "https://github.com/dcartertod/zotero-plugins";
