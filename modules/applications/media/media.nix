@@ -12,7 +12,7 @@
         package = pkgs.mpv.override {
           scripts =
             (with pkgs.mpvScripts; [ mpris ])
-            |> builtins.filter (pkgs.lib.meta.availableOn (pkgs.stdenv.hostPlatform));
+            |> builtins.filter (pkgs.lib.meta.availableOn pkgs.stdenv.hostPlatform);
         };
         enable = true;
         config = {
