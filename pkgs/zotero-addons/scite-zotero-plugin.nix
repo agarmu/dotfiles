@@ -59,7 +59,7 @@ buildNpmPackage rec {
 
   installPhase = ''
     runHook preInstall
-    install -m444 -D xpi/*.xpi $out/share/zotero/addons/scite-zotero-plugin.xpi
+    install -m444 -D xpi/*.xpi $out/share/zotero/extensions/scite-zotero-plugin.xpi
     runHook postInstall
   '';
 

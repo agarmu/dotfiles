@@ -41,7 +41,7 @@ buildNpmPackage rec {
 
   installPhase = ''
     runHook preInstall
-    install -m444 -D build/*.xpi $out/share/zotero/addons/zotero-better-notes.xpi
+    install -m444 -D build/*.xpi $out/share/zotero/extensions/zotero-better-notes.xpi
     runHook postInstall
   '';
 

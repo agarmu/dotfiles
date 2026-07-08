@@ -53,7 +53,7 @@ buildNpmPackage rec {
 
   installPhase = ''
     runHook preInstall
-    install -m444 -D build/*.xpi $out/share/zotero/addons/zotero-cita.xpi
+    install -m444 -D build/*.xpi $out/share/zotero/extensions/zotero-cita.xpi
     runHook postInstall
   '';
 
