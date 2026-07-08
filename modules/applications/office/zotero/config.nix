@@ -7,7 +7,6 @@
       addons = with pkgs.zotero-addons; [
         zotero-cita
         zotero-ocr
-        zotero-abstract-cleaner
         zotero-better-notes
         zotero-better-bibtex
         scite-zotero-plugin
