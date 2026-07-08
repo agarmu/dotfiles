@@ -59,7 +59,7 @@ buildNpmPackage rec {
 
   installPhase = ''
     runHook preInstall
-    install -m444 -D xpi/*.xpi $out/share/zotero/addons/zotero-better-bibtex.xpi
+    install -m444 -D xpi/*.xpi $out/share/zotero/extensions/zotero-better-bibtex.xpi
     runHook postInstall
   '';
 
