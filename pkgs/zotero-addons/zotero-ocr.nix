@@ -34,9 +34,9 @@ stdenvNoCC.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out/share/zotero/addons
+    mkdir -p $out/share/zotero/extensions
     pushd src
-    zip -DX -r $out/share/zotero/addons/zotero-ocr-${version}.xpi * -x "**/.*"
+    zip -DX -r $out/share/zotero/extensions/zotero-ocr-${version}.xpi * -x "**/.*"
     popd
     runHook postInstall
   '';

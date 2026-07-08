@@ -66,7 +66,7 @@
               pkg:
               pkgs.runCommand "${pkg.name}-xpi" { } ''
                 mkdir -p $out/share/zotero/extensions
-                ln -sf ${pkg}/share/zotero/addons/*.xpi $out/share/zotero/extensions/${pkg.passthru.extensionId}.xpi
+                ln -sf ${pkg}/share/zotero/extensions/*.xpi $out/share/zotero/extensions/${pkg.passthru.extensionId}.xpi
               ''
             ) pz.addons;
           };
