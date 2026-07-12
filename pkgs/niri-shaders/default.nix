@@ -6,7 +6,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "niri-shaders";
-  version = "0-unstable-2025-03-27";
+  version = "0-unstable-2026-04-07";
 
   src = fetchFromGitHub {
     owner = "jgarza9788";
