@@ -8,17 +8,17 @@
 
 buildGoModule rec {
   pname = "slk";
-  version = "0.8.1";
+  version = "0.10.0";
 
   src = fetchFromGitHub {
     owner = "gammons";
     repo = "slk";
     tag = "v${version}";
-    hash = "sha256-VZa/oc33obp02a18Wa5T1xF28Rlgfrfqv6XC02/1DjM=";
+    hash = "sha256-Mns5HBBz5iql/AhlZxFEK/VcPn3TPID+RgPwsGwOgvs=";
   };
   subPackages = [ "cmd/slk" ];
 
-  vendorHash = "sha256-jstv3EH3e827KXmbKl7d3GBuLNyrpwEQeRpiM/mYSOY=";
+  vendorHash = "sha256-dPa469oNv6eYyDdly3uhc273DAGz+erc0E3K/am7WoY=";
 
   buildInputs = [ libX11 ];
 
