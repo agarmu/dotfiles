@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "iosevka-kian-bin";
-  version = "v1.0.0";
+  version = "1.0.0";
   src = fetchFromGitHub {
     owner = "agarmu";
     repo = "iosevka-kian";
