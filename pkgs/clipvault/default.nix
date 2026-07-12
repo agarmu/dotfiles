@@ -8,16 +8,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "clipvault";
-  version = "1.1.1";
+  version = "1.2.0";
 
   src = fetchFromGitHub {
     owner = "Rolv-Apneseth";
     repo = "clipvault";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-iETuHXMUllQstKcNc7p02gU230kPfmEFXYqBh2+HMy4=";
+    hash = "sha256-RpY2j39llW6oirkYXxNp4343n3erYupRKXpQYq4TVWM=";
   };
 
-  cargoHash = "sha256-hmr3N/K+cj87OQDoCz2G4vWoNByRfh78rd0BtGJN1hA=";
+  cargoHash = "sha256-U+/djxC0QpQMq5MFqdORMn6SaXqkTre9iQ0WNxubo2Y=";
 
   doCheck = false; # tests require filesystem access (SQLite), fails in sandbox
 
