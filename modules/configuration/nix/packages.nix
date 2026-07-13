@@ -1,6 +1,11 @@
 { inputs, rootDir, ... }:
 let
   overlays = [
+    (final: _: {
+      stable = import inputs.stablePkgs {
+        system = final.stdenv.hostPlatform.system;
+      };
+    })
     (final: _: import (rootDir + "/pkgs") final)
   ];
 in
