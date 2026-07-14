@@ -21,6 +21,7 @@ in
         nixd
         nixpkgs-review
         nixpkgs-hammering
+        hydra-check
         deadnix
         statix
         nixfmt
