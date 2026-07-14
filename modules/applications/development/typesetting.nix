@@ -3,17 +3,14 @@
     programs.pandoc.enable = true;
   };
   flake.modules.homeManager.dev =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
+    let
+      texlivePackage = pkgs.texliveFull;
+    in
     {
-      programs.texlive = {
-        enable = true;
-        extraPackages = t: {
-          inherit (t) scheme-full;
-        };
-      };
       programs.nixvim.plugins.vimtex = {
         enable = true;
-        texlivePackage = config.programs.texlive.package;
+        inherit texlivePackage;
       };
       programs.nixvim.plugins.lsp.servers = {
         texlab.enable = true;
@@ -26,6 +23,7 @@
         "typst"
       ];
       home.packages = with pkgs; [
+        texlivePackage
         texlab # LaTeX LSP
         tinymist # Typst LSP
         marksman # Markdown LSP
