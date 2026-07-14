@@ -9,7 +9,8 @@
         freetube
       ];
       programs.mpv = {
-        package = pkgs.mpv.override {
+        # TODO: go back once https://github.com/NixOS/nixpkgs/pull/541654 is merged
+        package = pkgs.stable.mpv.override {
           scripts =
             (with pkgs.mpvScripts; [ mpris ])
             |> builtins.filter (pkgs.lib.meta.availableOn pkgs.stdenv.hostPlatform);
