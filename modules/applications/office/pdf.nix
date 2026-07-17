@@ -18,8 +18,6 @@ _: {
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
         enable = true;
-        # TODO: go back when https://github.com/NixOS/nixpkgs/pull/541644 is merged
-        package = pkgs.stable.sioyek;
         config = {
           should_launch_new_window = "1";
           page_separator_width = "5";
