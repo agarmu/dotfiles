@@ -80,11 +80,9 @@
       psmisc
     ];
   };
-  flake.modules.homeManager.darwin = {
+  flake.modules.homeManager.darwin = { pkgs, ... }: {
     home.packages = [
-      # TODO: re-enable once https://github.com/NixOS/nixpkgs/pull/541630 is merged
-      # Can't switch to stable b/c it's broken there too.. (for a diff reason)
-      # pkgs.mactop
+      pkgs.mactop
     ];
   };
 }
