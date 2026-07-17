@@ -1,4 +1,4 @@
-_: {
+{ lib, ... }: {
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
@@ -18,6 +18,17 @@ _: {
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
         enable = true;
+        package = pkgs.sioyek.overrideAttrs (
+          prevAttrs:
+          lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+            nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.llvmPackages.lld ];
+            env = {
+              # Work around ld64's libc++ hardening issue.
+              # TODO: Remove once #536365 reaches this branch.
+              NIX_CFLAGS_LINK = "-fuse-ld=lld";
+            };
+          }
+        );
         config = {
           should_launch_new_window = "1";
           page_separator_width = "5";
