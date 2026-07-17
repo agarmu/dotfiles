@@ -18,7 +18,7 @@
           "^com.mitchellh.ghostty: (.+)$" = " $1";
           "^(neovide|dev.zed.Zed): (.*)$" = "󰅴 $2";
           "^vesktop(.*)$" = " ";
-          "^\s*$" = "";
+          "^\\s*$" = "";
         };
       };
     };
