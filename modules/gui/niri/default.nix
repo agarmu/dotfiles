@@ -9,7 +9,7 @@
     {
       imports = [ inputs.niri-nix.homeModules.default ];
       wayland.windowManager.niri = {
-        package = pkgs.niri-unstable;
+        package = pkgs.niri;
         enable = true;
         extraConfig = builtins.readFile ./config.kdl;
       };
