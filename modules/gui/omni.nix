@@ -4,7 +4,7 @@
   };
   flake.modules.homeManager.darwin = { pkgs, ... }: {
     launchd.agents.omniwm = {
-      enable = true;
+      enable = false;
       config = {
         Label = "org.bartusrb.omniwm";
         # Provide the exact path to the wrapper we built earlier
