@@ -38,7 +38,19 @@
       };
     };
   flake.modules.homeManager.darwin = { pkgs, ... }: {
-    home.packages = [ pkgs.skimpdf ];
+    home.packages = [
+      # TODO: change back when https://github.com/NixOS/nixpkgs/pull/544437 hits unstable
+      (pkgs.skimpdf.overrideAttrs (prevAttrs: {
+        nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
+
+        postInstall = (prevAttrs.postInstall or "") + ''
+          install -d "$out/bin"
+          for app in displayline skimnotes skimpdf; do
+            makeWrapper "$out/Applications/Skim.app/Contents/SharedSupport/$app" "$out/bin/$app"
+          done
+        '';
+      }))
+    ];
   };
   flake.modules.homeManager.linuxGui = { pkgs, ... }: {
     home.packages = [ pkgs.kdePackages.okular ];
