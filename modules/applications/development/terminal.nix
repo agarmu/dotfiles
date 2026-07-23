@@ -19,6 +19,9 @@
         };
       };
     };
+  flake.modules.homeManager.darwin = {
+    programs.ghostty.settings.background-blur = "macos-glass-regular";
+  };
   flake.modules.nixos.gui = {
     programs.nautilus-open-any-terminal = {
       terminal = "ghostty";
