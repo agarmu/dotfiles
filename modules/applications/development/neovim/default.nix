@@ -84,6 +84,7 @@
           indent-blankline.enable = true; # indentation guides
           nvim-autopairs.enable = true; # auto-close brackets
           trouble.enable = true; # diagnostics panel
+          smear-cursor.enable = true;
           mini = {
             enable = true;
             modules.icons = { };
