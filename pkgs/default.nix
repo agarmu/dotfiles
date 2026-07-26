@@ -17,6 +17,7 @@ in
   niri-scripts = callPackage ./niri-scripts { };
   niri-shaders = callPackage ./niri-shaders { };
   niri-tweaks = callPackage ./niri-tweaks { };
+  stinkpot = callPackage ./stinkpot { };
   omniwm = callPackage ./omniwm { };
   open = callPackage ./open { };
   qman = callPackage ./qman { };
