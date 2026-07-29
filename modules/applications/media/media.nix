@@ -5,9 +5,9 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [
-        freetube
-      ];
+      # home.packages = with pkgs; [
+      #   freetube
+      # ];
       programs.mpv = {
         package = pkgs.mpv.override {
           scripts =
