@@ -5,8 +5,6 @@
       "haskell"
       "python"
       "ocaml"
-      "typescript"
-      "astro"
     ];
     programs.nixvim.plugins.lsp.servers = {
       metals = {
@@ -26,13 +24,10 @@
         enable = true;
         package = null;
       };
-      ts_ls = {
+      # Use the project's Ruff configuration when present.
+      ruff = {
         enable = true;
-        package = null;
-      };
-      astro = {
-        enable = true;
-        package = null;
+        packageFallback = true;
       };
     };
   };
