@@ -3,7 +3,7 @@
     programs.pandoc.enable = true;
   };
   flake.modules.homeManager.dev =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     let
       texlivePackage = pkgs.texliveFull;
     in
@@ -12,6 +12,11 @@
         enable = true;
         inherit texlivePackage;
         settings = {
+          # LuaSnip and Blink provide the snippet and completion layers.
+          imaps_enabled = false;
+          complete_enabled = false;
+          syntax_conceal_disable = true;
+
           # latexmk handles the required reruns for references and bibliographies
           # and keeps the PDF current while writing.
           compiler_method = "latexmk";
@@ -26,8 +31,9 @@
             ];
           };
 
-          # Skim integrates with VimTeX's forward and inverse SyncTeX search.
-          view_method = "skim";
+          # Use each platform's reliable SyncTeX-capable viewer.
+          view_method = if pkgs.stdenv.isDarwin then "skim" else "zathura";
+          view_automatic = true;
 
           # Show the quickfix list for real compiler errors, without interrupting
           # the writing flow for routine LaTeX warnings.
@@ -48,12 +54,40 @@
             "tex"
             "plaintex"
           ];
-          command = "setlocal spell spelllang=en_us wrap linebreak breakindent conceallevel=2 concealcursor=nc";
+          command = "setlocal spell spelllang=en_us wrap linebreak breakindent conceallevel=0";
+        }
+        {
+          event = "FileType";
+          pattern = [
+            "markdown"
+            "typst"
+          ];
+          command = "setlocal spell spelllang=en_us wrap linebreak breakindent";
+        }
+        {
+          # Let VimTeX resolve the document entrypoint, then start latexmk's
+          # continuous compiler.
+          event = "User";
+          pattern = "VimtexEventInitPost";
+          command = "VimtexCompile";
         }
       ];
       programs.nixvim.plugins.luasnip = {
         enable = true;
         filetypeExtend.plaintex = [ "tex" ];
+      };
+      programs.nixvim.plugins.conform-nvim.settings.formatters_by_ft = {
+        plaintex = [ "tex-fmt" ];
+        tex = [ "tex-fmt" ];
+      };
+      programs.nixvim.plugins.lint = {
+        enable = true;
+        lintersByFt = {
+          markdown = [ "vale" ];
+          plaintex = [ "vale" ];
+          tex = [ "vale" ];
+          typst = [ "vale" ];
+        };
       };
       programs.nixvim.plugins.blink-cmp.settings.sources.default = [
         "lsp"
@@ -61,6 +95,7 @@
         "snippets"
         "buffer"
       ];
+      programs.nixvim.globals.tex_flavor = "latex";
       programs.nixvim.extraConfigLua = builtins.readFile ./neovim/latex-snippets.lua;
       programs.nixvim.plugins.lsp.servers = {
         texlab.enable = true;
@@ -72,6 +107,16 @@
         "latex"
         "typst"
       ];
+      xdg.configFile = {
+        "vale/.vale.ini".text = ''
+          StylesPath = ${config.xdg.configHome}/vale/styles
+          MinAlertLevel = warning
+
+          [*.{md,tex,typ}]
+          BasedOnStyles = Vale
+        '';
+        "vale/styles/.keep".text = "";
+      };
       home.packages = with pkgs; [
         texlivePackage
         texlab # LaTeX LSP
