@@ -17,6 +17,49 @@ in
         settings = {
           user = identity;
           init.defaultBranch = "main";
+
+          # Show the staged diff in the commit message editor.
+          commit.verbose = true;
+
+          fetch = {
+            # Remove stale remote-tracking branches when fetching.
+            prune = true;
+            # Refresh the commit graph after fetches to speed up history queries.
+            writeCommitGraph = true;
+          };
+
+          # Set up a new branch's upstream on its first push.
+          push.autoSetupRemote = true;
+          # Remember conflict resolutions and reuse them when possible.
+          rerere.enabled = true;
+          # Include the common ancestor in conflict markers.
+          merge.conflictStyle = "zdiff3";
+          diff = {
+            # Produce clearer diffs for code with repeated or moved lines.
+            algorithm = "histogram";
+            # Highlight code that moved instead of treating it as new code.
+            colorMoved = "default";
+          };
+          rebase = {
+            # Stash dirty work automatically before a rebase, then restore it.
+            autoStash = true;
+            # Automatically arrange fixup and squash commits during rebases.
+            autoSquash = true;
+            # Move other local branch refs that point into rewritten history.
+            updateRefs = true;
+          };
+
+          # List recently updated branches first.
+          branch.sort = "-committerdate";
+          # Sort tags by version number instead of lexicographically.
+          tag.sort = "version:refname";
+          # Show the number of saved stashes in git status.
+          status.showStash = true;
+          # Use compact columns for supported commands in a terminal.
+          column.ui = "auto";
+          # Offer to run the intended command after a typo.
+          help.autocorrect = "prompt";
+
           alias = {
             c = "commit";
             cl = "clone";
