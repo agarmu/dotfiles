@@ -321,7 +321,7 @@
               "x"
             ];
             key = "<leader>cf";
-            action = "<cmd>lua require('conform').format({ async = true, lsp_format = 'fallback' })<cr>";
+            action = "<cmd>lua if vim.bo.filetype ~= 'tex' and vim.bo.filetype ~= 'plaintex' then require('conform').format({ async = true, lsp_format = 'fallback' }) end<cr>";
             options.desc = "Format buffer or selection";
           }
         ];
@@ -398,16 +398,20 @@
           conform-nvim = {
             enable = true;
             settings = {
-              format_on_save = {
-                timeout_ms = 1000;
-                lsp_format = "fallback";
-              };
+              format_on_save = ''
+                function(bufnr)
+                  local filetype = vim.bo[bufnr].filetype
+                  if filetype == "tex" or filetype == "plaintex" then
+                    return
+                  end
+                  return { timeout_ms = 1000, lsp_format = "fallback" }
+                end
+              '';
               notify_on_error = true;
               notify_no_formatters = false;
             };
           };
           fidget.enable = true; # unobtrusive LSP progress
-          guess-indent.enable = true; # detect indentation per file
           todo-comments.enable = true; # highlight TODO/FIXME annotations
           smear-cursor.enable = true;
           mini = {
