@@ -76,10 +76,6 @@
         enable = true;
         filetypeExtend.plaintex = [ "tex" ];
       };
-      programs.nixvim.plugins.conform-nvim.settings.formatters_by_ft = {
-        plaintex = [ "tex-fmt" ];
-        tex = [ "tex-fmt" ];
-      };
       programs.nixvim.plugins.lint = {
         enable = true;
         lintersByFt = {
