@@ -1,9 +1,4 @@
-{ inputs, ... }:
-{
-  flake-file.inputs.niri-nix = {
-    url = "git+https://codeberg.org/BANanaD3V/niri-nix.git";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+_: {
   flake.modules.nixos.gui =
     {
       pkgs,
@@ -25,10 +20,6 @@
         enable = true;
         extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
       };
-
-      imports = [
-        inputs.niri-nix.nixosModules.default
-      ];
 
       programs.niri = {
         enable = true;
