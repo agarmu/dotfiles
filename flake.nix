@@ -42,10 +42,6 @@
       flake = false;
     };
     import-tree.url = "github:vic/import-tree";
-    niri-nix = {
-      url = "git+https://codeberg.org/BANanaD3V/niri-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     niri-screen-time = {
       url = "github:probeldev/niri-screen-time";
       inputs.nixpkgs.follows = "nixpkgs";
