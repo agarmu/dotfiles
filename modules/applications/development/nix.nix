@@ -29,6 +29,9 @@ in
       programs.nixvim.plugins.lsp.servers.nixd = {
         enable = true;
         package = null;
+        settings.nixd = {
+          formatting.command = [ "nixfmt" ];
+        };
       };
       programs.zed-editor.extensions = [ "nix" ];
     };
