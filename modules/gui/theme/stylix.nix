@@ -5,7 +5,7 @@ let
     {
       stylix = {
         enable = true;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
         opacity = {
           applications = 0.7;
           desktop = 0.7;
