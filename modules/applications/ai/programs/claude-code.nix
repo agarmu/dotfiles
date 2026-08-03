@@ -6,7 +6,7 @@
         enable = false;
 
         settings = {
-          theme = "dark";
+          theme = "light";
           includeCoAuthoredBy = true;
           systemPrompt = lib.concatStringsSep "\n\n" (lib.attrValues config.ai.shared.rules);
           permissions = {

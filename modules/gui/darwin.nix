@@ -21,7 +21,7 @@
         QuitMenuItem = true;
       };
       NSGlobalDomain = {
-        AppleInterfaceStyle = "Dark";
+        AppleInterfaceStyle = null;
         NSNavPanelExpandedStateForSaveMode = true;
         NSNavPanelExpandedStateForSaveMode2 = true;
       };
