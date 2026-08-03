@@ -37,7 +37,9 @@
 
           # Show the quickfix list for real compiler errors, without interrupting
           # the writing flow for routine LaTeX warnings.
-          quickfix_mode = 1;
+          quickfix_open_on_warning = 0;
+          quickfix_mode = 2;
+          quickfix_autoclose_after_keystrokes = 1;
 
           fold_enabled = 1;
           toc_config = {
@@ -54,7 +56,7 @@
             "tex"
             "plaintex"
           ];
-          command = "setlocal spell spelllang=en_us wrap linebreak breakindent conceallevel=0";
+          command = "setlocal spell spelllang=en_us wrap linebreak breakindent";
         }
         {
           event = "FileType";
