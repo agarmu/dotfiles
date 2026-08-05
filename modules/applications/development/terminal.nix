@@ -5,6 +5,7 @@
       programs.alacritty = {
         enable = true;
         settings.window = {
+          blur = true;
           padding = {
             x = 15;
             y = 15;
