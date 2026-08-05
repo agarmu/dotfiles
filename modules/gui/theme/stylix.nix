@@ -7,10 +7,10 @@ let
         enable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
         opacity = {
-          applications = 0.87;
-          desktop = 0.87;
-          popups = 0.87;
-          terminal = 0.87;
+          applications = 0.75;
+          desktop = 0.75;
+          popups = 0.75;
+          terminal = 0.75;
         };
       };
     };
