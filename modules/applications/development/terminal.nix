@@ -2,6 +2,15 @@
   flake.modules.homeManager.gui =
     { pkgs, lib, ... }:
     {
+      programs.alacritty = {
+        enable = true;
+        settings.window = {
+          padding = {
+            x = 15;
+            y = 15;
+          };
+        };
+      };
       programs.ghostty = {
         enable = true;
         # ghostty-bin not avail on darwin for now..
@@ -16,12 +25,10 @@
           window-decoration = pkgs.stdenv.hostPlatform.isDarwin;
           cursor-style = "bar";
           cursor-style-blink = true;
+          background-blur = true;
         };
       };
     };
-  flake.modules.homeManager.darwin = {
-    programs.ghostty.settings.background-blur = "macos-glass-regular";
-  };
   flake.modules.nixos.gui = {
     programs.nautilus-open-any-terminal = {
       terminal = "ghostty";
