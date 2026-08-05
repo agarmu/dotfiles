@@ -7,10 +7,10 @@ let
         enable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
         opacity = {
-          applications = 0.7;
-          desktop = 0.7;
-          popups = 0.7;
-          terminal = 0.7;
+          applications = 0.87;
+          desktop = 0.87;
+          popups = 0.87;
+          terminal = 0.87;
         };
       };
     };
