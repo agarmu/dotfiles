@@ -5,7 +5,7 @@ let
     {
       stylix = {
         enable = true;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
         opacity = {
           applications = 0.87;
           desktop = 0.87;

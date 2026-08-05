@@ -335,10 +335,10 @@
           }
         ];
 
-        colorschemes.rose-pine = {
+        colorschemes.onedark = {
           enable = true;
           settings = {
-            variant = "dawn";
+            variant = "light";
             # transparent in terminal, opaque in neovide (GUI bg handled by neovide)
             transparent_background.__raw = "(vim.g.neovide and 0) or 1";
           };
