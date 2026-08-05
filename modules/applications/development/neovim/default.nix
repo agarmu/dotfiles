@@ -335,10 +335,19 @@
           }
         ];
 
-        colorschemes.onedark = {
+        colorschemes.catppuccin = {
           enable = true;
           settings = {
-            variant = "light";
+            flavour = "latte";
+            term_colors = true;
+
+            integrations = {
+              cmp = true;
+              gitsigns = true;
+              treesitter = true;
+              telescope.enabled = true;
+              native_lsp.enabled = true;
+            };
             # transparent in terminal, opaque in neovide (GUI bg handled by neovide)
             transparent_background.__raw = "(vim.g.neovide and 0) or 1";
           };
