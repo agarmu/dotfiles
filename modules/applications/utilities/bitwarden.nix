@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.gui =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
       programs.rbw = {
         enable = true;
@@ -13,8 +13,6 @@
       };
 
       # gui client
-      # leave disabled so long as it relies on broken electron
-      # which means i would need to self-build
-      # home.packages = [ pkgs.bitwarden-desktop ];
+      home.packages = [ pkgs.bitwarden-desktop ];
     };
 }
