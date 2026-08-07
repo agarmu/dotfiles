@@ -1,17 +1,18 @@
 {
   buildFirefoxXpiAddon,
   fetchurl,
+  nix-update-script,
   lib,
   ...
 }:
 
-buildFirefoxXpiAddon {
+buildFirefoxXpiAddon rec {
   pname = "zotero-connector";
   version = "5.0.211";
   addonId = "zotero@chnm.gmu.edu";
   src = fetchurl {
-    url = "https://download.zotero.org/connector/firefox/release/Zotero_Connector-5.0.211.xpi";
-    sha256 = "9a1e57ac566a5cf81a2d7c1cdc9098a084b11fea22c281322a248971f4953aa8";
+    url = "https://download.zotero.org/connector/firefox/release/Zotero_Connector-${version}.xpi";
+    hash = "sha256-mh5XrFZqXPgaLXwc3JCYoISxH+oiwoEyKiSJcfSVOqg=";
   };
   mozPermissions = [
     "http://*/*"
@@ -33,5 +34,13 @@ buildFirefoxXpiAddon {
     description = "Save references to Zotero from your web browser";
     license = licenses.agpl3Plus;
     platforms = platforms.all;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "firefox-addons.zotero-connector";
+    extraArgs = [
+      "--version=branch"
+      "--flake"
+    ];
   };
 }
