@@ -2,6 +2,7 @@
   lib,
   fetchgit,
   buildGoModule,
+  nix-update-script,
 }:
 buildGoModule {
   pname = "stinkpot";
@@ -23,5 +24,13 @@ buildGoModule {
     licenses = lib.licenses.unfree;
     mainProgram = "stinkpot";
     platforms = lib.platforms.unix;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "stinkpot";
+    extraArgs = [
+      "--version=branch"
+      "--flake"
+    ];
   };
 }

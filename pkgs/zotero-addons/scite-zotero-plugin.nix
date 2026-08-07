@@ -12,6 +12,7 @@
   pkg-config,
   python3,
   python3Packages,
+  nix-update-script,
 }:
 
 buildNpmPackage rec {
@@ -64,6 +65,11 @@ buildNpmPackage rec {
   '';
 
   passthru.extensionId = "scite-zotero-plugin@scite.ai";
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "zotero-addons.scite-zotero-plugin";
+    extraArgs = [ "--flake" ];
+  };
 
   meta = with lib; {
     description = "Scite Zotero plugin — Smart Citation tallies in Zotero";
