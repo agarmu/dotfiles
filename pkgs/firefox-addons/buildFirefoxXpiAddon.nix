@@ -1,6 +1,8 @@
 {
   lib,
   stdenv,
+  unzip,
+  web-ext,
 }:
 
 lib.makeOverridable (
@@ -18,6 +20,13 @@ lib.makeOverridable (
     inherit src;
     inherit meta;
 
+    doCheck = true;
+
+    nativeBuildInputs = [
+      unzip
+      web-ext
+    ];
+
     preferLocalBuild = true;
     allowSubstitutes = true;
 
@@ -25,7 +34,17 @@ lib.makeOverridable (
       inherit addonId;
     };
 
+    checkPhase = ''
+      runHook preCheck
+      addonDir="$NIX_BUILD_TOP/addon"
+      mkdir -p "$addonDir"
+      unzip -q "$src" -d "$addonDir"
+      web-ext lint --source-dir "$addonDir"
+      runHook postCheck
+    '';
+
     buildCommand = ''
+      eval "$checkPhase"
       dst="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
       mkdir -p "$dst"
       install -v -m644 "$src" "$dst/${addonId}.xpi"
