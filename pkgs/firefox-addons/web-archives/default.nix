@@ -1,17 +1,18 @@
 {
   buildFirefoxXpiAddon,
   fetchurl,
+  nix-update-script,
   lib,
   ...
 }:
 
-buildFirefoxXpiAddon {
+buildFirefoxXpiAddon rec {
   pname = "web-archives";
   version = "7.3.3";
   addonId = "{d07ccf11-c0cd-4938-a265-2a4d6ad01189}";
   src = fetchurl {
-    url = "https://addons.mozilla.org/firefox/downloads/file/4871262/view_page_archive-7.3.3.xpi";
-    sha256 = "81ca25bd41392cf4b03d4c1c4c39ebd5a4eaa840ef8a4d26f84b1dd396999a34";
+    url = "https://github.com/dessant/web-archives/releases/download/v${version}/web_archives-${version}-firefox.zip";
+    hash = "sha256-CayoaA6USsvjwfkQ2tr460u0xXztNMyqXH7TCBC+e8I=";
   };
   meta = with lib; {
     homepage = "https://github.com/dessant/web-archives#readme";
@@ -31,5 +32,13 @@ buildFirefoxXpiAddon {
       "scripting"
     ];
     platforms = platforms.all;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "firefox-addons.web-archives";
+    extraArgs = [
+      "--version=branch"
+      "--flake"
+    ];
   };
 }

@@ -10,74 +10,72 @@
 
 lib.makeOverridable (
   {
-    pname,
-    version,
     addonId,
-    src,
-    meta ? { },
     ...
-  }:
-  stdenvNoCC.mkDerivation {
-    inherit
-      pname
-      version
-      src
-      meta
-      ;
+  }@args:
+  stdenvNoCC.mkDerivation (
+    args
+    // {
+      nativeBuildInputs = [
+        jq
+        moreutils
+        unzip
+        web-ext
+        zip
+      ]
+      ++ (args.nativeBuildInputs or [ ]);
 
-    nativeBuildInputs = [
-      jq
-      moreutils
-      unzip
-      web-ext
-      zip
-    ];
+      unpackPhase =
+        args.unpackPhase or ''
+          runHook preUnpack
+          mkdir -p addon
+          unzip -q "$src" -d addon
+          runHook postUnpack
+        '';
 
-    unpackPhase = ''
-      runHook preUnpack
-      mkdir -p addon
-      unzip -q "$src" -d addon
-      runHook postUnpack
-    '';
+      patchPhase =
+        args.patchPhase or ''
+          runHook prePatch
+          jq '
+            del(.applications.gecko.update_url, .browser_specific_settings.gecko.update_url)
+            | .browser_specific_settings.gecko.data_collection_permissions = {"required": ["none"]}
+          ' addon/manifest.json | sponge addon/manifest.json
+          rm -rf addon/META-INF addon/mozilla-recommendation.json
+          runHook postPatch
+        '';
 
-    patchPhase = ''
-      runHook prePatch
-      jq '
-        del(.applications.gecko.update_url, .browser_specific_settings.gecko.update_url)
-        | .browser_specific_settings.gecko.data_collection_permissions = {"required": ["none"]}
-      ' addon/manifest.json | sponge addon/manifest.json
-      rm -rf addon/META-INF addon/mozilla-recommendation.json
-      runHook postPatch
-    '';
+      dontConfigure = args.dontConfigure or true;
 
-    dontConfigure = true;
+      buildPhase =
+        args.buildPhase or ''
+          runHook preBuild
+          (cd addon && zip -qr ../addon.xpi .)
+          runHook postBuild
+        '';
 
-    buildPhase = ''
-      runHook preBuild
-      (cd addon && zip -qr ../addon.xpi .)
-      runHook postBuild
-    '';
+      doCheck = args.doCheck or true;
+      checkPhase =
+        args.checkPhase or ''
+          runHook preCheck
+          NO_UPDATE_NOTIFIER=1 web-ext lint --source-dir addon
+          runHook postCheck
+        '';
 
-    doCheck = true;
-    checkPhase = ''
-      runHook preCheck
-      NO_UPDATE_NOTIFIER=1 web-ext lint --source-dir addon
-      runHook postCheck
-    '';
+      installPhase =
+        args.installPhase or ''
+          runHook preInstall
+          dst="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+          mkdir -p "$dst"
+          install -v -m644 addon.xpi "$dst/${addonId}.xpi"
+          runHook postInstall
+        '';
 
-    installPhase = ''
-      runHook preInstall
-      dst="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-      mkdir -p "$dst"
-      install -v -m644 addon.xpi "$dst/${addonId}.xpi"
-      runHook postInstall
-    '';
+      preferLocalBuild = args.preferLocalBuild or true;
+      allowSubstitutes = args.allowSubstitutes or true;
 
-    preferLocalBuild = true;
-    allowSubstitutes = true;
-
-    passthru = {
-      inherit addonId;
-    };
-  }
+      passthru = (args.passthru or { }) // {
+        inherit addonId;
+      };
+    }
+  )
 )
