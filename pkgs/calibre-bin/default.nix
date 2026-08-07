@@ -127,6 +127,7 @@ stdenv.mkDerivation rec {
       "--flake"
       "--url"
       "https://github.com/kovidgoyal/calibre"
+      "--use-github-releases"
     ];
   };
 }
