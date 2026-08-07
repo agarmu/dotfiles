@@ -4,7 +4,7 @@
     {
       programs.firefox =
         let
-          addons = pkgs.nur.repos.rycee.firefox-addons;
+          addons = pkgs.firefox-addons;
         in
         {
           globalExtensions = with addons; [
