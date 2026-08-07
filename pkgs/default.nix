@@ -21,6 +21,7 @@ in
   stinkpot = callPackage ./stinkpot { };
   omniwm = callPackage ./omniwm { };
   open = callPackage ./open { };
+  pi-extensions = callPackage ./pi-extensions { };
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
   why = callPackage ./why { };
