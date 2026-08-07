@@ -7,6 +7,7 @@
   nodejs_22,
   python3,
   python3Packages,
+  nix-update-script,
 }:
 
 buildNpmPackage rec {
@@ -58,6 +59,11 @@ buildNpmPackage rec {
   '';
 
   passthru.extensionId = "zotero-wikicite@wikidata.org";
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "zotero-addons.zotero-cita";
+    extraArgs = [ "--flake" ];
+  };
 
   meta = with lib; {
     description = "Cita: a Wikidata addon for Zotero with citations metadata support";

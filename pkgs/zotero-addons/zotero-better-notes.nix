@@ -6,6 +6,7 @@
   nodejs_22,
   python3,
   python3Packages,
+  nix-update-script,
 }:
 
 buildNpmPackage rec {
@@ -46,6 +47,11 @@ buildNpmPackage rec {
   '';
 
   passthru.extensionId = "Knowledge4Zotero@windingwind.com";
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "zotero-addons.zotero-better-notes";
+    extraArgs = [ "--flake" ];
+  };
 
   meta = with lib; {
     description = "Everything about note management. All in Zotero.";

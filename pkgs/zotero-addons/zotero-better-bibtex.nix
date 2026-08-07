@@ -6,6 +6,7 @@
   nodejs_26,
   python3,
   python3Packages,
+  nix-update-script,
 }:
 
 buildNpmPackage rec {
@@ -64,6 +65,14 @@ buildNpmPackage rec {
   '';
 
   passthru.extensionId = "better-bibtex@iris-advies.com";
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "zotero-addons.zotero-better-bibtex";
+    extraArgs = [
+      "--version=branch"
+      "--flake"
+    ];
+  };
 
   meta = with lib; {
     description = "Make Zotero useful for us LaTeX holdouts";

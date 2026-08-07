@@ -5,6 +5,7 @@
   tesseract,
   poppler,
   zip,
+  nix-update-script,
 }:
 
 stdenvNoCC.mkDerivation rec {
@@ -42,6 +43,11 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   passthru.extensionId = "zotero-ocr@bib.uni-mannheim.de";
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "zotero-addons.zotero-ocr";
+    extraArgs = [ "--flake" ];
+  };
 
   meta = with lib; {
     description = "Zotero plugin adding OCR functionality for PDFs using Tesseract";
