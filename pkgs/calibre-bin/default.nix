@@ -2,21 +2,11 @@
   lib,
   fetchurl,
   stdenv,
+  darwin,
   makeBinaryWrapper,
-  callPackage,
   nix-update-script,
 }:
 let
-  version = "9.10.0";
-  calibre-unwrapped = callPackage ./calibre-unwrapped.nix {
-    inherit version;
-    src = fetchurl {
-      url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
-      hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
-    };
-  };
-  realApp = "${calibre-unwrapped}/Applications/calibre.app";
-  realMacOS = "${realApp}/Contents/MacOS";
   installables = [
     "calibre"
     "calibre-complete"
@@ -39,40 +29,91 @@ let
     "markdown-calibre"
     "web2disk"
   ];
-  wrapperCommands = lib.concatMapStringsSep "\n" (name: ''
-    makeBinaryWrapper "${realMacOS}/${name}" "$app/Contents/MacOS/${name}"
-    makeBinaryWrapper "${realMacOS}/${name}" "$out/bin/${name}"
-  '') installables;
 in
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "calibre";
-  inherit version;
+  version = "9.10.0";
+  src = fetchurl {
+    url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
+    hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
+  };
 
-  dontUnpack = true;
+  nativeBuildInputs = [
+    darwin.sigtool
+    makeBinaryWrapper
+  ];
 
-  nativeBuildInputs = [ makeBinaryWrapper ];
-  buildInputs = [ calibre-unwrapped ];
+  sourceRoot = ".";
+
+  # APFS -- requires use of hdiutil
+  # see the below link:
+  # https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/lm/lmstudio/darwin.nix
+  unpackCmd = ''
+    echo "Creating temp directory"
+    mnt=$(TMPDIR=/tmp mktemp -d -t nix-XXXXXXXXXX)
+    function finish {
+      echo "Ejecting temp directory"
+      /usr/bin/hdiutil detach $mnt -force
+      rm -rf $mnt
+    }
+    # Detach volume when receiving SIG "0"
+    trap finish EXIT
+    # Mount DMG file
+    echo "Mounting DMG file into \"$mnt\""
+    /usr/bin/hdiutil attach -nobrowse -mountpoint $mnt $curSrc
+    # Copy content to local dir for later use
+    echo 'Copying extracted content into "sourceRoot"'
+    cp -a $mnt/calibre.app $PWD/
+  '';
+
+  dontBuild = true;
 
   installPhase = ''
     runHook preInstall
 
     app=$out/Applications/calibre.app
-    mkdir -p "$app/Contents/MacOS"
-    mkdir -p "$app/Contents/Resources"
-    mkdir -p "$out/bin"
+    realApp=$out/libexec/calibre.app
+    realMacOS=$realApp/Contents/MacOS
+
+    mkdir -p "$out/Applications" "$out/libexec" "$app/Contents/MacOS"
+    mkdir -p "$app/Contents/Resources" "$out/bin"
+
+    # Keep the complete app outside Applications so the visible bundle remains
+    # copyApps-safe. The wrappers execute the binaries from this location.
+    cp -R calibre.app "$out/libexec/"
+
+    # Re-sign the main executable, otherwise macOS reports the app as damaged.
+    codesign --force --sign - "$realApp/Contents/MacOS/calibre"
 
     # Copy bundle metadata/resources so macOS recognises the bundle and shows
     # the normal calibre icon. Avoid copying Frameworks, PlugIns, and nested
-    # helper apps here; the wrapper should stay copyApps-safe.
-    cp "${realApp}/Contents/Info.plist" "$app/Contents/Info.plist"
-    cp -R "${realApp}/Contents/Resources/." "$app/Contents/Resources/"
+    # helper apps into the visible bundle.
+    cp calibre.app/Contents/Info.plist "$app/Contents/Info.plist"
+    cp -R calibre.app/Contents/Resources/. "$app/Contents/Resources/"
 
     # Binary wrappers that exec the real calibre binaries.
     # The real binaries resolve their @rpath/@loader_path relative to their own
     # locations in the nix store, so they find their Frameworks there.
-    ${wrapperCommands}
+    ${lib.concatMapStringsSep "\n" (name: ''
+      makeBinaryWrapper "$realMacOS/${name}" "$app/Contents/MacOS/${name}"
+      makeBinaryWrapper "$realMacOS/${name}" "$out/bin/${name}"
+    '') installables}
 
     runHook postInstall
+  '';
+
+  doInstallCheck = true;
+  installCheckPhase = ''
+    runHook preInstallCheck
+
+    test -f "$out/Applications/calibre.app/Contents/Info.plist"
+    test -x "$out/libexec/calibre.app/Contents/MacOS/calibre"
+    ${lib.concatMapStringsSep "\n" (name: ''
+      test -x "$out/Applications/calibre.app/Contents/MacOS/${name}"
+      test -x "$out/bin/${name}"
+    '') installables}
+
+    runHook postInstallCheck
   '';
 
   meta = {
