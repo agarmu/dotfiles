@@ -1,17 +1,18 @@
 {
   buildFirefoxXpiAddon,
   fetchurl,
+  nix-update-script,
   lib,
   ...
 }:
 
-buildFirefoxXpiAddon {
+buildFirefoxXpiAddon rec {
   pname = "bitwarden";
   version = "2026.7.0";
   addonId = "{446900e4-71c2-419f-a6a7-df9c091e268b}";
   src = fetchurl {
-    url = "https://addons.mozilla.org/firefox/downloads/file/4915668/bitwarden_password_manager-2026.7.0.xpi";
-    sha256 = "11836eb9d2abc9914bb337b57e20c5a09cf44f24fa572f7e886384fd350a5112";
+    url = "https://github.com/bitwarden/clients/releases/download/browser-v${version}/dist-firefox-${version}.zip";
+    hash = "sha256-hkLBcoR7G4WUVnAuo4z9p+BRmkUEXYqPsF0q8TNocFM=";
   };
   meta = with lib; {
     homepage = "https://bitwarden.com";
@@ -33,5 +34,13 @@ buildFirefoxXpiAddon {
       "notifications"
     ];
     platforms = platforms.all;
+  };
+
+  passthru.updateScript = nix-update-script {
+    attrPath = "firefox-addons.bitwarden";
+    extraArgs = [
+      "--version=branch"
+      "--flake"
+    ];
   };
 }
