@@ -1,0 +1,37 @@
+{
+  buildFirefoxXpiAddon,
+  fetchurl,
+  lib,
+  ...
+}:
+
+buildFirefoxXpiAddon {
+  pname = "zotero-connector";
+  version = "5.0.211";
+  addonId = "zotero@chnm.gmu.edu";
+  src = fetchurl {
+    url = "https://download.zotero.org/connector/firefox/release/Zotero_Connector-5.0.211.xpi";
+    sha256 = "9a1e57ac566a5cf81a2d7c1cdc9098a084b11fea22c281322a248971f4953aa8";
+  };
+  mozPermissions = [
+    "http://*/*"
+    "https://*/*"
+    "tabs"
+    "contextMenus"
+    "cookies"
+    "storage"
+    "scripting"
+    "webRequest"
+    "webRequestBlocking"
+    "webNavigation"
+    "declarativeNetRequest"
+    "management"
+    "clipboardWrite"
+  ];
+  meta = with lib; {
+    homepage = "https://www.zotero.org/";
+    description = "Save references to Zotero from your web browser";
+    license = licenses.agpl3Plus;
+    platforms = platforms.all;
+  };
+}
