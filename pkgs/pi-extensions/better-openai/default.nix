@@ -4,6 +4,7 @@
   fetchFromGitHub,
   jq,
   moreutils,
+  imageSupport ? false,
 }:
 
 buildNpmPackage rec {
@@ -35,6 +36,15 @@ buildNpmPackage rec {
   postPatch = ''
     ${jq}/bin/jq '.devDependencies = {}' package.json | ${moreutils}/bin/sponge package.json
     ${jq}/bin/jq 'del(.packages[""].devDependencies) | .packages |= with_entries(select(.value.dev | not))' package-lock.json | ${moreutils}/bin/sponge package-lock.json
+  ''
+  + lib.optionalString (!imageSupport) ''
+    # Disable everything related to the openai_image tool.
+    sed -i \
+      -e '/import { registerOpenAIImage, _imageTest } from ".\/src\/image\.ts";/d' \
+      -e '/registerOpenAIImage(pi, config);/d' \
+      -e '/imageTest: _imageTest,/d' \
+      index.ts
+    rm -f src/image.ts tests/image.test.ts
   '';
 
   postInstall = ''
