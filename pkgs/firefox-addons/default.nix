@@ -1,7 +1,10 @@
-{ callPackage }:
+{
+  build-support,
+  callPackage,
+}:
 
 let
-  buildFirefoxXpiAddon = callPackage ./buildFirefoxXpiAddon.nix { };
+  inherit (build-support) buildFirefoxXpiAddon;
 in
 {
   inherit buildFirefoxXpiAddon;

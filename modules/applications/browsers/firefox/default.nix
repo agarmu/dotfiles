@@ -41,6 +41,7 @@
         PasswordManagerEnabled = false;
         OfferToSaveLogins = false;
         CredentialsEnableService = false;
+        ExtensionUpdate = false;
         Preferences = {
           "signon.rememberSignons" = false;
           "signon.autofillForms" = false;
