@@ -1,16 +1,21 @@
 {
+  gnutar,
   lib,
+  poppler-utils,
   stdenvNoCC,
 }:
 
 stdenvNoCC.mkDerivation {
   pname = "pi-scratchpad";
-  version = "0.1.0";
+  version = "0.2.0";
   src = ./.;
 
   installPhase = ''
     runHook preInstall
     cp -r . "$out"
+    substituteInPlace "$out/src/papers/corpus.ts" \
+      --replace-fail '@PDFTOTEXT@' '${poppler-utils}/bin/pdftotext' \
+      --replace-fail '@TAR@' '${gnutar}/bin/tar'
     runHook postInstall
   '';
 

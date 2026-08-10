@@ -1,8 +1,8 @@
 # Pi subagents
 
 Persistent, isolated Pi children controlled through the `subagents` tool. Each
-child has its own context and accepts follow-up prompts. Output enters the
-parent context only when explicitly read.
+child has its own context and accepts follow-up prompts. The parent sees only
+small lifecycle metadata unless it explicitly inspects child output.
 
 ## Lifecycle
 
@@ -17,28 +17,51 @@ subagents({
   systemPrompt: "Do not edit files.",   // optional temporary instructions
   cwd: "/path/to/project",             // optional
 })
-// => Started auth scout (a1b2c3d4). Read from cursor 0.
+// => Started auth scout (a1b2c3d4) with openai-codex/gpt-5.6-terra. Poll for readiness.
 
-subagents({ action: "read", id: "a1b2c3d4", cursor: 0, maxBytes: 4096 })
-// details includes the next cursor, status, and `more`
+subagents({ action: "poll" })
+// => compact metadata only: status, ready, age/running duration, unread bytes, model
+
+subagents({ action: "inspect", id: "a1b2c3d4", maxBytes: 4096 })
+// => explicitly retrieves a bounded output chunk; details includes next cursor and more
 
 subagents({ action: "send", id: "a1b2c3d4", task: "Now inspect tests." })
-subagents({ action: "list" })
 subagents({ action: "stop", id: "a1b2c3d4" })
 ```
 
-`spawn` displays a compact TUI notification containing the child label, id,
-and requested model. It returns immediately after Pi accepts the initial task;
-it does not wait for or stream the answer. Agents can automate the complete
-workflow by polling `read`, following its returned cursor, sending follow-ups,
-and stopping finished children.
+`spawn`, `send`, `poll`, and `stop` return compact metadata. They never copy
+the delegated prompt or child response into the host context. `inspect` is the
+only output retrieval action; it defaults to 4 KiB and allows at most 32 KiB.
+`read` remains an alias for `inspect`, and `list` remains an alias for `poll`.
+
+Tool rows in the TUI display only the child label and resolved model. The
+prompt, status details, and output stay out of the transcript unless the user
+opens the dedicated command below.
+
+## User inspection
+
+Use `/subagents` to list current children, including label, id, model, status,
+age, and unread output. In the TUI, selecting a child opens an action picker:
+
+- `details` — model, thinking level, status, runtime, cursors, and cwd
+- `output` — retained assistant output
+- `prompts` — delegated initial and follow-up tasks
+- `stderr` — retained child stderr
+- `stop` — terminate the child
+
+Non-interactively, use `/subagents <id> [details|output|prompts|stderr|stop]`.
+This command is user-only: none of its inspection data enters the host model
+context.
 
 ## Context behavior
 
-- `read` defaults to 12 KiB and allows at most 32 KiB per call.
+- `poll` reports whether a child is ready, its age and current running time,
+  unread output size, and model without consuming output.
+- `inspect` advances a per-child inspection cursor by default. Pass `cursor`
+  to revisit a specific retained range.
 - Every child retains at most 256 KiB. Cursors are absolute byte offsets.
-- If unread output expires, `read` advances to the oldest retained cursor and
-  reports `lost: true`.
+- If unread output expires, `inspect` advances to the oldest retained cursor
+  and reports `lost: true`.
 - Only completed assistant text is buffered; JSON events, thinking, tool
   progress, and stderr are not copied into the parent conversation.
 - Children run in RPC mode with `--no-session`, so they do not create normal Pi
@@ -47,8 +70,8 @@ and stopping finished children.
 - Children and temporary system-prompt files are cleaned up on stop, exit, or
   parent-session shutdown.
 
-Tasks should be self-contained. Prefer small reads and ask the child for a
-concise report before retrieving output.
+Tasks should be self-contained. Poll while work continues, then ask for a
+concise report and inspect only the amount needed.
 
 ## Package
 
