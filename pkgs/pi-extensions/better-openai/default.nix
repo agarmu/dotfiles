@@ -20,6 +20,11 @@ buildNpmPackage rec {
 
   npmDepsHash = "sha256-104Fet+8lFxsqd+OIVshhLRDTTQwdZv3AbPA6SlIllM=";
 
+  # `/wham/usage` supplies a duration for each quota window, but v0.1.22
+  # assumes primary/secondary always mean 5h/7d. Apply the API duration when
+  # labelling the footer so a multi-day primary window is not misreported.
+  patches = [ ./usage-window-labels.patch ];
+
   dontNpmBuild = true;
   dontNpmPrune = true;
 
