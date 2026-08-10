@@ -1,9 +1,12 @@
 {
+  callPackage,
   jq,
   pi-coding-agent,
 }:
 
 {
+  buildFirefoxXpiAddon = callPackage ./buildFirefoxXpiAddon.nix { };
+
   # Wrap a Pi extension package with an install-time smoke test.  The RPC
   # request initializes Pi without contacting a model, so this catches parse,
   # import, and registration failures without needing credentials or network.
