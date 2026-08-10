@@ -14,6 +14,7 @@ in
   fff = buildPiSubagent { package = callPackage ./fff { }; };
   rtk = buildPiSubagent { package = callPackage ./rtk { }; };
   dynamic-footer = buildPiSubagent { package = callPackage ./dynamic-footer { }; };
+  model-picker = buildPiSubagent { package = callPackage ./model-picker { }; };
   better-openai = buildPiSubagent { package = callPackage ./better-openai { }; };
   scratchpad = buildPiSubagent { package = callPackage ./scratchpad { }; };
   loop = buildPiSubagent { package = callPackage ./loop { }; };

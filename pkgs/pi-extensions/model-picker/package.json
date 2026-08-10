@@ -1,0 +1,16 @@
+{
+  "name": "pi-model-picker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Categorized keyboard-driven model selector for Pi",
+  "type": "module",
+  "keywords": ["pi-package", "pi", "model", "selector"],
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  }
+}

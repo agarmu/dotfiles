@@ -16,6 +16,7 @@
               dynamic-footer
               fff
               loop
+              model-picker
               notify
               pi-sandbox
               rtk
