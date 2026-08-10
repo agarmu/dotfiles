@@ -18,6 +18,15 @@ stdenvNoCC.mkDerivation rec {
 
   buildInputs = [ pkgs.rtk ];
 
+  # Rewritten commands may contain multiple `rtk` invocations, so make the
+  # packaged binary available to the whole shell command.
+  patches = [ ./rtk-path.patch ];
+
+  postPatch = ''
+    substituteInPlace src/rtk-command-environment.ts \
+      --replace-fail '@rtkBinPath@' '${lib.makeBinPath [ pkgs.rtk ]}'
+  '';
+
   # Pi supplies the extension's peer dependencies at runtime.
   installPhase = ''
     runHook preInstall
