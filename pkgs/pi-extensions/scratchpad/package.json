@@ -1,0 +1,15 @@
+{
+  "name": "pi-scratchpad",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A per-session scratchpad and academic paper search/download tools for Pi",
+  "type": "module",
+  "keywords": ["pi-package", "pi"],
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  }
+}

@@ -13,6 +13,7 @@
               better-openai
               context
               context-guard
+              scratchpad
               guardrails
               notify
               todo

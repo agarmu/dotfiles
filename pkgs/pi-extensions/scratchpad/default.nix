@@ -4,8 +4,8 @@
 }:
 
 stdenvNoCC.mkDerivation {
-  pname = "pi-subagents";
-  version = "0.2.0";
+  pname = "pi-scratchpad";
+  version = "0.1.0";
   src = ./.;
 
   installPhase = ''
@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "Persistent interactive isolated subagents for Pi";
+    description = "Per-session scratchpad plus academic paper search and download tools for Pi agents";
     license = licenses.mit;
     platforms = platforms.all;
   };

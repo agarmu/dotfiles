@@ -1,39 +1,56 @@
 # Pi subagents
 
-A local Pi package that registers `subagents`: a one-shot child Pi
-process with its own context window. Unlike role-based subagent packages, no
-agent markdown file or persistent agent name is required.
+Persistent, isolated Pi children controlled through the `subagents` tool. Each
+child has its own context and accepts follow-up prompts. Output enters the
+parent context only when explicitly read.
 
-## Tool shape
+## Lifecycle
 
 ```ts
 subagents({
-  task: "Inspect the authentication flow and return relevant files and risks.",
-  label: "auth scout",                 // optional display name
-  systemPrompt: "Be concise; do not edit files.", // optional, temporary
-  tools: ["read", "bash"],             // optional child allowlist
-  model: "openai-codex/gpt-5.6",        // optional Pi model pattern
-  thinking: "low",                     // optional Pi thinking level
-  cwd: "/path/to/project",             // optional child cwd
+  action: "spawn",
+  task: "Inspect authentication and report relevant paths and risks.",
+  label: "auth scout",
+  model: "openai-codex/gpt-5.6-terra", // optional
+  thinking: "low",                     // optional
+  tools: ["read", "bash"],             // optional allowlist
+  systemPrompt: "Do not edit files.",   // optional temporary instructions
+  cwd: "/path/to/project",             // optional
 })
+// => Started auth scout (a1b2c3d4). Read from cursor 0.
+
+subagents({ action: "read", id: "a1b2c3d4", cursor: 0, maxBytes: 4096 })
+// details includes the next cursor, status, and `more`
+
+subagents({ action: "send", id: "a1b2c3d4", task: "Now inspect tests." })
+subagents({ action: "list" })
+subagents({ action: "stop", id: "a1b2c3d4" })
 ```
 
-`task` must be self-contained. The child does not receive the parent
-conversation. `systemPrompt` is appended to the child's ordinary Pi system
-prompt and is stored in a temporary, owner-only file for the duration of the
-run. The child runs with `--no-session`, returns only its final text, and has
-the `subagents` tool excluded from its tool set to prevent accidental recursion.
+`spawn` displays a compact TUI notification containing the child label, id,
+and requested model. It returns immediately after Pi accepts the initial task;
+it does not wait for or stream the answer. Agents can automate the complete
+workflow by polling `read`, following its returned cursor, sending follow-ups,
+and stopping finished children.
 
-The package relies only on Pi's documented extension API and CLI flags:
-`registerTool`, `--mode json`, `--print`, `--no-session`,
-`--append-system-prompt`, `--tools`, `--exclude-tools`, `--model`, and
-`--thinking`.
+## Context behavior
 
-## Local layout
+- `read` defaults to 12 KiB and allows at most 32 KiB per call.
+- Every child retains at most 256 KiB. Cursors are absolute byte offsets.
+- If unread output expires, `read` advances to the oldest retained cursor and
+  reports `lost: true`.
+- Only completed assistant text is buffered; JSON events, thinking, tool
+  progress, and stderr are not copied into the parent conversation.
+- Children run in RPC mode with `--no-session`, so they do not create normal Pi
+  session history.
+- The child cannot call `subagents`, preventing accidental recursive spawning.
+- Children and temporary system-prompt files are cleaned up on stop, exit, or
+  parent-session shutdown.
 
-- `default.nix` packages the local source without network dependencies.
-- `package.json` is a Pi package manifest.
-- `src/index.ts` is the extension entry point.
+Tasks should be self-contained. Prefer small reads and ask the child for a
+concise report before retrieving output.
 
-Wiring the resulting derivation into Pi settings is deliberately left to the
-consumer.
+## Package
+
+`default.nix` installs this local Pi package without network dependencies.
+Wiring it into Pi settings is left to the consumer.
