@@ -2,13 +2,24 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
-      programs.firefox.globalExtensions = with pkgs.firefox-addons; [
-        ublock-origin
-        cliget
-        bitwarden
-        web-archives
-        zotero-connector
-        bypass-paywalls-clean
-      ];
+      programs.firefox =
+        let
+          addons = pkgs.firefox-addons;
+        in
+        {
+          globalExtensions = with addons; [
+            ublock-origin
+            cliget
+          ];
+          profiles.default.extensions = {
+            force = true;
+            packages = with addons; [
+              bitwarden
+              web-archives
+              zotero-connector
+              bypass-paywalls-clean
+            ];
+          };
+        };
     };
 }
