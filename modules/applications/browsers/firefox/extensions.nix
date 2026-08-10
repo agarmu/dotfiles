@@ -9,12 +9,12 @@
         {
           globalExtensions = with addons; [
             ublock-origin
-            cliget
+            bitwarden
           ];
           profiles.default.extensions = {
             force = true;
             packages = with addons; [
-              bitwarden
+              cliget
               web-archives
               zotero-connector
               bypass-paywalls-clean
