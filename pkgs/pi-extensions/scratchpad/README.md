@@ -4,7 +4,7 @@ Creates a private scratchpad at `$PI_HOME/scratchpad/$PI_SESSION_ID` for each Pi
 
 The path is included in the agent system prompt, exposed through the `scratchpad` tool, and shown by `/scratchpad`. It is suitable for temporary files and directories (anything you would otherwise put under `/tmp`), cloned repositories, and experiments without changing the current project. Agents are instructed not to use `/tmp` for agent-created temporary work.
 
-When Guardrails is installed, the scratchpad root is automatically added as an allowed directory in `extensions/guardrails.json`, so path-access checks do not prompt for scratchpad work. Set `PI_SCRATCHPAD_GUARDRAILS=0` to opt out.
+When Pi Sandbox is installed, the scratchpad root is automatically added to `$PI_CODING_AGENT_DIR/sandbox.json` (or `~/.pi/agent/sandbox.json`) as an allowed read/write path, so sandbox permission checks do not prompt for scratchpad work. Set `PI_SCRATCHPAD_SANDBOX=0` to opt out.
 
 ## Academic paper search
 
@@ -19,7 +19,7 @@ Google Scholar is not scraped because it has no stable public API. Search result
 ## Source layout
 
 - `src/index.ts` wires session hooks and tool modules.
-- `src/session.ts` owns scratchpad paths and Guardrails integration.
+- `src/session.ts` owns scratchpad paths and Pi Sandbox integration.
 - `src/schemas.ts` contains tool input schemas.
 - `src/papers/` contains query parsing, provider adapters, caching/deduplication, downloads, and corpus preparation.
 - `src/tools/` contains one registration module per tool.

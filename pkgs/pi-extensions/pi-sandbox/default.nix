@@ -8,14 +8,14 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "pi-guardrails";
-  version = "0.16.2";
+  pname = "pi-sandbox";
+  version = "0.6.2";
 
   src = fetchFromGitHub {
-    owner = "aliou";
-    repo = "pi-guardrails";
+    owner = "carderne";
+    repo = "pi-sandbox";
     rev = "v${version}";
-    hash = "sha256-3t0zudRxifBNDidxxyPdM+eLQ/DPgNbpo9qFVo2hOdk=";
+    hash = "sha256-grQv6O1YHQy3uYJ7WZVMCjF1vPaKTdqaMDLQ2qodP7s=";
   };
 
   pnpmWorkspaces = [ ];
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
       pnpmWorkspaces
       ;
     pnpm = pnpm_10;
-    hash = "sha256-YiNmu30PuusUVV36swVuwVOEXwa+GzK46/MmjrYiMrs=";
+    hash = "sha256-4jedfkRZSUsNJKNLK7dl82RHbGswS8Rd8c6kb/g8e2E=";
     fetcherVersion = 4;
   };
 
@@ -39,14 +39,14 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out
-    cp -r . $out/
+    mkdir -p "$out"
+    cp -r . "$out/"
     runHook postInstall
   '';
 
   meta = with lib; {
-    description = "Security hooks for Pi: file protection policies, path access control, and permission gates";
-    homepage = "https://github.com/aliou/pi-guardrails";
+    description = "OS-level sandboxing and permission prompts for Pi tools";
+    homepage = "https://github.com/carderne/pi-sandbox";
     license = licenses.mit;
     platforms = platforms.all;
   };

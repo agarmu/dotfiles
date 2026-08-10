@@ -1,7 +1,7 @@
 import * as path from "node:path";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { PaperCache } from "./papers/model.ts";
-import { configureGuardrails, ensureScratchpad, scratchpadPath } from "./session.ts";
+import { configureSandbox, ensureScratchpad, scratchpadPath } from "./session.ts";
 import { registerPaperDetails } from "./tools/paper-details.ts";
 import { registerPaperDownload } from "./tools/paper-download.ts";
 import { registerPaperRead } from "./tools/paper-read.ts";
@@ -9,14 +9,13 @@ import { registerPaperSearch } from "./tools/paper-search.ts";
 import { registerScratchpadTool } from "./tools/scratchpad.ts";
 
 export default async function registerScratchpad(pi: ExtensionAPI) {
-  await configureGuardrails();
+  await configureSandbox();
   const paperCache = new PaperCache();
   let directory = scratchpadPath();
 
-  pi.on("session_start", async (_event, ctx) => {
+  pi.on("session_start", async () => {
     paperCache.clear();
     directory = await ensureScratchpad();
-    ctx.ui.notify(`Scratchpad: ${directory}`, "info");
   });
 
   pi.on("before_agent_start", async (event) => {

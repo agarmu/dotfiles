@@ -22,6 +22,10 @@ export function scratchpadRoot(): string {
   return path.join(piHome(), "scratchpad");
 }
 
+function piAgentDir(): string {
+  return process.env.PI_CODING_AGENT_DIR?.trim() || path.join(os.homedir(), ".pi", "agent");
+}
+
 export function scratchpadPath(): string {
   return path.join(scratchpadRoot(), safeSessionId());
 }
@@ -33,38 +37,47 @@ export async function ensureScratchpad(): Promise<string> {
   return directory;
 }
 
-export async function configureGuardrails(): Promise<void> {
-  if (process.env.PI_SCRATCHPAD_GUARDRAILS === "0") return;
-  const configPath = path.join(piHome(), "extensions", "guardrails.json");
-  const config = await readGuardrailsConfig(configPath);
+export async function configureSandbox(): Promise<void> {
+  if (process.env.PI_SCRATCHPAD_SANDBOX === "0") return;
+  const configPath = path.join(piAgentDir(), "sandbox.json");
+  const config = await readSandboxConfig(configPath);
   if (!config) return;
-  const pathAccess = objectValue(config.pathAccess);
-  const allowedPaths = Array.isArray(pathAccess.allowedPaths) ? pathAccess.allowedPaths : [];
-  const exists = allowedPaths.some((entry) => isScratchpadPermission(entry));
-  if (exists) return;
-  pathAccess.allowedPaths = [...allowedPaths, { kind: "directory", path: scratchpadRoot() }];
-  config.pathAccess = pathAccess;
-  await writeGuardrailsConfig(configPath, config);
+
+  const filesystem = objectValue(config.filesystem);
+  const root = scratchpadRoot();
+  // Preserve Pi Sandbox v0.6.2 defaults when initializing its global config.
+  const allowRead = stringArray(filesystem.allowRead, [".", "~/.config", "~/.local", "Library"]);
+  const allowWrite = stringArray(filesystem.allowWrite, [".", "/tmp"]);
+  if (allowRead.includes(root) && allowWrite.includes(root)) return;
+
+  filesystem.allowRead = addPath(allowRead, root);
+  filesystem.allowWrite = addPath(allowWrite, root);
+  config.filesystem = filesystem;
+  await writeSandboxConfig(configPath, config);
 }
 
-async function readGuardrailsConfig(configPath: string): Promise<Record<string, unknown> | undefined> {
+async function readSandboxConfig(configPath: string): Promise<Record<string, unknown> | undefined> {
   try {
-    return JSON.parse(await fs.promises.readFile(configPath, "utf8")) as Record<string, unknown>;
+    const parsed: unknown = JSON.parse(await fs.promises.readFile(configPath, "utf8"));
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed as Record<string, unknown> : undefined;
   } catch (error) {
     return (error as NodeJS.ErrnoException).code === "ENOENT" ? {} : undefined;
   }
 }
 
 function objectValue(value: unknown): Record<string, unknown> {
-  return value && typeof value === "object" ? value as Record<string, unknown> : {};
+  return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 }
 
-function isScratchpadPermission(entry: unknown): boolean {
-  const value = objectValue(entry);
-  return value.kind === "directory" && value.path === scratchpadRoot();
+function stringArray(value: unknown, fallback: string[]): string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === "string") ? value : fallback;
 }
 
-async function writeGuardrailsConfig(configPath: string, config: Record<string, unknown>): Promise<void> {
+function addPath(paths: string[], target: string): string[] {
+  return paths.includes(target) ? paths : [...paths, target];
+}
+
+async function writeSandboxConfig(configPath: string, config: Record<string, unknown>): Promise<void> {
   await fs.promises.mkdir(path.dirname(configPath), { recursive: true });
   const temporaryPath = `${configPath}.${process.pid}.tmp`;
   await fs.promises.writeFile(temporaryPath, `${JSON.stringify(config, null, 2)}\n`, { mode: 0o600 });

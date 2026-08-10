@@ -13,11 +13,14 @@
               better-openai
               context
               context-guard
-              scratchpad
-              guardrails
+              dynamic-footer
+              fff
+              loop
               notify
+              pi-sandbox
+              rtk
+              scratchpad
               todo
-              statusline
               subagents
               web-search
             ])
