@@ -28,6 +28,13 @@ buildNpmPackage rec {
   dontNpmBuild = true;
   dontNpmPrune = true;
 
+  doCheck = true;
+  checkPhase = ''
+    runHook preCheck
+    npm test
+    runHook postCheck
+  '';
+
   npmInstallFlags = [ "--legacy-peer-deps" ];
 
   nativeBuildInputs = [

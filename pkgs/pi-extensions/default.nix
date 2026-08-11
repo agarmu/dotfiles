@@ -1,21 +1,26 @@
-{ build-support, callPackage }:
+{
+  build-support,
+  callPackage,
+  lib,
+}:
 let
-  inherit (build-support) buildPiSubagent;
+  inherit (build-support) wrapPiExtension;
 in
 {
-  pi-sandbox = buildPiSubagent { package = callPackage ./pi-sandbox { }; };
-  web-search = buildPiSubagent { package = callPackage ./web-search { }; };
-  context-guard = buildPiSubagent { package = callPackage ./context-guard { }; };
-  context = buildPiSubagent { package = callPackage ./context { }; };
-  notify = buildPiSubagent { package = callPackage ./notify { }; };
-  statusline = buildPiSubagent { package = callPackage ./statusline { }; };
-  subagents = buildPiSubagent { package = callPackage ./subagents { }; };
-  todo = buildPiSubagent { package = callPackage ./todo { }; };
-  fff = buildPiSubagent { package = callPackage ./fff { }; };
-  rtk = buildPiSubagent { package = callPackage ./rtk { }; };
-  dynamic-footer = buildPiSubagent { package = callPackage ./dynamic-footer { }; };
-  model-picker = buildPiSubagent { package = callPackage ./model-picker { }; };
-  better-openai = buildPiSubagent { package = callPackage ./better-openai { }; };
-  scratchpad = buildPiSubagent { package = callPackage ./scratchpad { }; };
-  loop = buildPiSubagent { package = callPackage ./loop { }; };
+  pi-sandbox = callPackage ./pi-sandbox { };
+  web-search = callPackage ./web-search { };
+  context-guard = callPackage ./context-guard { };
+  context = callPackage ./context { };
+  notify = callPackage ./notify { };
+  statusline = callPackage ./statusline { };
+  subagents = callPackage ./subagents { };
+  todo = callPackage ./todo { };
+  fff = callPackage ./fff { };
+  rtk = callPackage ./rtk { };
+  dynamic-footer = callPackage ./dynamic-footer { };
+  model-picker = callPackage ./model-picker { };
+  better-openai = callPackage ./better-openai { };
+  scratchpad = callPackage ./scratchpad { };
+  loop = callPackage ./loop { };
 }
+|> lib.mapAttrs (_: package: wrapPiExtension { inherit package; })
