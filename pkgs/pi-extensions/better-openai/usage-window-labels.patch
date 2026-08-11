@@ -1,5 +1,5 @@
 diff --git a/src/usage.ts b/src/usage.ts
-index 5df0a00..2c6199b 100644
+index 5df0a00..c99c380 100644
 --- a/src/usage.ts
 +++ b/src/usage.ts
 @@ -6,6 +6,7 @@ export type UsageWindow = {
@@ -10,16 +10,17 @@ index 5df0a00..2c6199b 100644
  };
  
  export type RateLimitBucket = {
-@@ -28,6 +29,8 @@ export type UsageSnapshot = {
+@@ -28,6 +29,9 @@ export type UsageSnapshot = {
    fiveHourResetInSeconds: number | null;
    sevenDayResetInSeconds: number | null;
    isLimited: boolean;
 +  primaryWindowLabel: string;
 +  secondaryWindowLabel: string;
++  hasSecondaryWindow: boolean;
  };
  
  export type UsageScope = "default" | "spark";
-@@ -198,6 +201,14 @@ function getResetSeconds(window: UsageWindow | null | undefined, now: number): n
+@@ -198,6 +202,14 @@ function getResetSeconds(window: UsageWindow | null | undefined, now: number): n
    return Math.max(0, resetAtSeconds - now / 1000);
  }
  
@@ -34,7 +35,7 @@ index 5df0a00..2c6199b 100644
  export function usageScopeForModel(modelId: string | undefined): UsageScope {
    return modelId === SPARK_MODEL_ID ? "spark" : "default";
  }
-@@ -220,6 +231,12 @@ export function parseUsageSnapshot(
+@@ -220,6 +232,13 @@ export function parseUsageSnapshot(
      fiveHourResetInSeconds: getResetSeconds(bucket?.primary_window, now),
      sevenDayResetInSeconds: getResetSeconds(bucket?.secondary_window, now),
      isLimited: bucket?.limit_reached === true || bucket?.allowed === false,
@@ -44,10 +45,11 @@ index 5df0a00..2c6199b 100644
 +    // but label the display from the duration supplied by the API.
 +    primaryWindowLabel: formatWindowLabel(bucket?.primary_window?.limit_window_seconds, "5h"),
 +    secondaryWindowLabel: formatWindowLabel(bucket?.secondary_window?.limit_window_seconds, "7d"),
++    hasSecondaryWindow: bucket?.secondary_window != null,
    };
  }
  
-@@ -239,20 +256,20 @@ export function formatUsageSnapshot(
+@@ -239,20 +258,26 @@ export function formatUsageSnapshot(
    const resets = options.showResetTimes
      ? [
          formatCompactReset(
@@ -57,17 +59,28 @@ index 5df0a00..2c6199b 100644
            undefined,
            now,
          ),
-         formatCompactReset(
+-        formatCompactReset(
 -          "7d",
-+          snapshot.secondaryWindowLabel,
-           remainingResetSeconds(snapshot.sevenDayResetInSeconds, snapshot.capturedAt, now),
-           { includeDate: true },
-           now,
-         ),
+-          remainingResetSeconds(snapshot.sevenDayResetInSeconds, snapshot.capturedAt, now),
+-          { includeDate: true },
+-          now,
+-        ),
++        ...(snapshot.hasSecondaryWindow
++          ? [
++              formatCompactReset(
++                snapshot.secondaryWindowLabel,
++                remainingResetSeconds(snapshot.sevenDayResetInSeconds, snapshot.capturedAt, now),
++                { includeDate: true },
++                now,
++              ),
++            ]
++          : []),
        ].filter((value): value is string => value !== null)
      : [];
 -  return `Usage: 5h: ${fiveHour} | 7d: ${sevenDay}${resets.length ? ` | ${resets.join(" | ")}` : ""}`;
-+  return `Usage: ${snapshot.primaryWindowLabel}: ${fiveHour} | ${snapshot.secondaryWindowLabel}: ${sevenDay}${resets.length ? ` | ${resets.join(" | ")}` : ""}`;
++  const windows = [`${snapshot.primaryWindowLabel}: ${fiveHour}`];
++  if (snapshot.hasSecondaryWindow) windows.push(`${snapshot.secondaryWindowLabel}: ${sevenDay}`);
++  return `Usage: ${windows.join(" | ")}${resets.length ? ` | ${resets.join(" | ")}` : ""}`;
  }
  
  function remainingResetSeconds(
