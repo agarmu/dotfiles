@@ -1,10 +1,10 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "pi-statusline";
   # No v${version} tag exists upstream; pin the commit that was published as 0.0.2.
   version = "0.0.2";

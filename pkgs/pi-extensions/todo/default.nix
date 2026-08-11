@@ -1,10 +1,10 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "pi9-todo";
   version = "0.3.7";
 

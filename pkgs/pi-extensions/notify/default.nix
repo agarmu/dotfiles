@@ -1,10 +1,10 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "pi-notify";
   version = "1.4.0";
 

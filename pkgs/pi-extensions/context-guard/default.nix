@@ -1,13 +1,13 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
   pnpmConfigHook,
   pnpm_10,
   fetchPnpmDeps,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "pi-mono-context-guard";
   version = "1.7.4";
 

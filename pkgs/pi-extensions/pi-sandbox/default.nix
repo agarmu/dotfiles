@@ -1,13 +1,13 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
   pnpmConfigHook,
   pnpm_10,
   fetchPnpmDeps,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "pi-sandbox";
   version = "0.6.2";
 
