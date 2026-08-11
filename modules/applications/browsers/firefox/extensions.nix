@@ -18,6 +18,7 @@
               web-archives
               zotero-connector
               bypass-paywalls-clean
+              xcancel
             ];
           };
         };
