@@ -15,6 +15,7 @@ in
   kent-class-download = callPackage ./kent-class-download { };
   lazymake = callPackage ./lazymake { };
   mkWallpaper = callPackage ./mkWallpaper { };
+  mullvad-vpn-patched = callPackage ./mullvad-vpn-patched { };
   niri-scripts = callPackage ./niri-scripts { };
   niri-shaders = callPackage ./niri-shaders { };
   niri-tweaks = callPackage ./niri-tweaks { };
