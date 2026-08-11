@@ -286,7 +286,7 @@ class ModelPickerComponent {
 
 export default function modelPickerExtension(pi: ExtensionAPI) {
 	async function openPicker(ctx: ExtensionContext) {
-		ctx.modelRegistry.refresh();
+		await ctx.modelRegistry.refresh();
 		const allModels = ctx.modelRegistry.getAvailable();
 
 		if (allModels.length === 0) {
@@ -334,9 +334,10 @@ export default function modelPickerExtension(pi: ExtensionAPI) {
 
 	pi.on("session_start", async (event, ctx) => {
 		const isExplicitNewSession = event.reason === "new";
-		const isFreshStartupSession = event.reason === "startup" && ctx.sessionManager.getEntries().length === 0;
+		const isFreshStartupSession =
+			event.reason === "startup" && ctx.sessionManager.buildSessionContext().messages.length === 0;
 		if (!isExplicitNewSession && !isFreshStartupSession) return;
-		if (!ctx.hasUI) return;
+		if (ctx.mode !== "tui") return;
 
 		await openPicker(ctx);
 	});
