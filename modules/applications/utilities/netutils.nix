@@ -2,7 +2,7 @@
   flake.modules.homeManager.base =
     { pkgs, ... }:
     let
-      net = if pkgs.stdenv.isLinux then pkgs.iputils else pkgs.inetutils;
+      net = if pkgs.stdenv.hostPlatform.isLinux then pkgs.iputils else pkgs.inetutils;
     in
     {
       home.packages = with pkgs; [

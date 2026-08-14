@@ -5,7 +5,7 @@
       let
         inherit (prev) lib stdenv;
       in
-      lib.optionalAttrs (stdenv.isLinux && stdenv.isAarch64) {
+      lib.optionalAttrs (stdenv.hostPlatform.isLinux && stdenv.hostPlatform.isAarch64) {
         wrapFirefox =
           browser: opts:
           let

@@ -32,7 +32,7 @@
           };
 
           # Use each platform's reliable SyncTeX-capable viewer.
-          view_method = if pkgs.stdenv.isDarwin then "skim" else "zathura";
+          view_method = if pkgs.stdenv.hostPlatform.isDarwin then "skim" else "zathura";
           view_automatic = true;
 
           # Show the quickfix list for real compiler errors, without interrupting

@@ -2,7 +2,7 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     let
-      needsShamefulConfig = pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64;
+      needsShamefulConfig = pkgs.stdenv.hostPlatform.isLinux && pkgs.stdenv.hostPlatform.isAarch64;
     in
     {
       home.packages = [ (if needsShamefulConfig then pkgs.slk else pkgs.slack) ];
