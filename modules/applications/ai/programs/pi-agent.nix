@@ -1,10 +1,10 @@
 {
   flake.modules.homeManager.ai =
-    { config, pkgs, ... }:
+    { pkgs, ... }:
     {
       programs.pi-coding-agent = {
         enable = true;
-        configDir = "${config.xdg.configHome}/pi/agent";
+        configDir = "$HOME/.pi/agent";
         settings = {
           autoshare = false;
           autoupdate = false;
