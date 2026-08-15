@@ -8,6 +8,7 @@
         settings = {
           autoshare = false;
           autoupdate = false;
+          tuiMode = "fullscreen";
           packages =
             (with pkgs.pi-extensions; [
               better-openai
