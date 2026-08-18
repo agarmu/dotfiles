@@ -7,6 +7,18 @@
         settings = {
           autoshare = false;
           autoupdate = false;
+          compaction = {
+            enabled = true;
+            reserveTokens = 8192;
+            keepRecentTokens = 12000;
+          };
+          defaultTools = [
+            "bash"
+            "read"
+            "write"
+            "edit"
+            "grep"
+          ];
           tuiMode = "fullscreen";
           packages =
             (with pkgs.pi-extensions; [

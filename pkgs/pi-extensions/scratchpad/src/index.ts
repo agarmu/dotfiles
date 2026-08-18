@@ -1,4 +1,3 @@
-import * as path from "node:path";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { PaperCache } from "./papers/model.ts";
 import { configureSandbox, ensureScratchpad, scratchpadPath } from "./session.ts";
@@ -18,19 +17,9 @@ export default async function registerScratchpad(pi: ExtensionAPI) {
     directory = await ensureScratchpad();
   });
 
-  pi.on("before_agent_start", async (event) => {
-    directory = await ensureScratchpad();
-    return { systemPrompt: appendScratchpadPrompt(event.systemPrompt, directory) };
-  });
-
   registerPaperSearch(pi, paperCache);
   registerPaperDetails(pi, paperCache);
   registerPaperDownload(pi);
   registerPaperRead(pi);
   registerScratchpadTool(pi);
-}
-
-function appendScratchpadPrompt(systemPrompt: string, directory: string): string {
-  const papers = path.join(directory, "papers");
-  return `${systemPrompt}\n\n## Session scratchpad\nUse the private session scratchpad at \`${directory}\` for temporary work outside the project, including files and directories you might otherwise put under /tmp; do not use /tmp for agent-created temporary work. Academic downloads are stored under \`${papers}\`; use paper_search, paper_details, paper_download, and paper_read for literature workflows.`;
 }
