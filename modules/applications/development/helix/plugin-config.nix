@@ -12,10 +12,5 @@
         ];
       };
     };
-
-    programs.nhx.plugins.moka = {
-      enable = true;
-      config.bufferline.enable = true;
-    };
   };
 }
