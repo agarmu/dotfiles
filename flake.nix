@@ -42,6 +42,10 @@
       flake = false;
     };
     import-tree.url = "github:vic/import-tree";
+    nhx = {
+      url = "github:Ra77a3l3-jar/nhx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri-screen-time = {
       url = "github:probeldev/niri-screen-time";
       inputs.nixpkgs.follows = "nixpkgs";

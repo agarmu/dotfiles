@@ -424,6 +424,26 @@
         "type": "github"
       }
     },
+    "nhx": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786346189,
+        "narHash": "sha256-qQrWlsaKia9pHy8hpj/nvr4LlIb7hrQrx4HoEPhMJAM=",
+        "owner": "Ra77a3l3-jar",
+        "repo": "nhx",
+        "rev": "f694ddbe37ebc6b59b117cead1bf35b5f38aa342",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ra77a3l3-jar",
+        "repo": "nhx",
+        "type": "github"
+      }
+    },
     "niri-screen-time": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -573,6 +593,7 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "import-tree": "import-tree",
+        "nhx": "nhx",
         "niri-screen-time": "niri-screen-time",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
