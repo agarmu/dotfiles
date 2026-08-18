@@ -4,7 +4,6 @@
     {
       programs.pi-coding-agent = {
         enable = true;
-        configDir = "$HOME/.pi/agent";
         settings = {
           autoshare = false;
           autoupdate = false;
