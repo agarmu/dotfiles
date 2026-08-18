@@ -93,6 +93,7 @@
         "snippets"
         "buffer"
       ];
+      programs.nixvim.plugins.blink-cmp.settings.snippets.preset = "luasnip";
       programs.nixvim.globals.tex_flavor = "latex";
       programs.nixvim.extraConfigLua = builtins.readFile ./neovim/latex-snippets.lua;
       programs.nixvim.plugins.lsp.servers = {
