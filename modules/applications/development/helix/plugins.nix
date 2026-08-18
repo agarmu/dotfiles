@@ -19,7 +19,15 @@
         # provided by neo-tree, lualine, Telescope, and Trouble in Neovim.
         plugins = {
           forest.package = localPlugins.forest;
-          moka.package = localPlugins.moka;
+          moka-bufferline = {
+            enable = true;
+            package = localPlugins.moka;
+            requirePath = "moka/moka.scm";
+            extra = ''
+              (moka-bufferline-configure! #:gap 0)
+              (moka-bufferline-enable!)
+            '';
+          };
           oil = {
             enable = true;
             package = localPlugins.oil;
