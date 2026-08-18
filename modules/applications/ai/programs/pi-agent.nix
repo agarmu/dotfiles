@@ -14,11 +14,11 @@
               better-openai
               context
               context-guard
-              dynamic-footer
+              btw
+              fancy-footer
               fff
-              loop
+              goal
               model-picker
-              notify
               pi-sandbox
               rtk
               scratchpad

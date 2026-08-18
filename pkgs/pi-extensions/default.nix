@@ -22,5 +22,9 @@ in
   better-openai = callPackage ./better-openai { };
   scratchpad = callPackage ./scratchpad { };
   loop = callPackage ./loop { };
+  mcp-adapter = callPackage ./mcp-adapter { };
+  btw = callPackage ./btw { };
+  goal = callPackage ./goal { };
+  fancy-footer = callPackage ./fancy-footer { };
 }
 |> lib.mapAttrs (_: package: wrapPiExtension { inherit package; })
