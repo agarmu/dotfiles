@@ -389,7 +389,22 @@
           blink-cmp = {
             enable = true; # autocompletion
             settings = {
-              keymap.preset = "default";
+              keymap = {
+                preset = "default";
+                "<CR>" = [
+                  "accept"
+                  "fallback"
+                ];
+                "<Tab>" = [
+                  "snippet_forward"
+                  "accept"
+                  "fallback"
+                ];
+                "<S-Tab>" = [
+                  "snippet_backward"
+                  "fallback"
+                ];
+              };
               completion = {
                 documentation.auto_show = true;
                 ghost_text.enabled = true;
