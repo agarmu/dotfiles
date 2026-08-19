@@ -4,6 +4,7 @@
     {
       home.packages = with pkgs; [
         ghostscript
+        ocrmypdf
         pdftk
         qpdf
         poppler-utils
