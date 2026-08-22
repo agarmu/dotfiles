@@ -9,10 +9,10 @@ let
     {
       users.users.${userName} = {
         home = "/${homeDirName}/${userName}";
-        shell = pkgs.zsh;
+        shell = pkgs.fish;
       };
-      # of course, enable that shell at the system level
-      programs.zsh.enable = true;
+      # Enable the user's default shell at the system level.
+      programs.fish.enable = true;
     };
 in
 {
