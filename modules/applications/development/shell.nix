@@ -9,6 +9,7 @@ _: {
         enable = false;
         enableZshIntegration = true;
         enableBashIntegration = true;
+        enableFishIntegration = true;
         fzf.enable = true;
         interfaceView = "BOTTOM";
       };
@@ -32,6 +33,9 @@ _: {
           ];
         };
       };
+      programs.fish = {
+        enable = true;
+      };
       programs.bash = {
         enable = true;
         enableCompletion = true;
@@ -40,6 +44,7 @@ _: {
         enable = true;
         enableZshIntegration = true;
         enableBashIntegration = true;
+        enableFishIntegration = true;
         settings = {
           add_newline = true;
           character = {

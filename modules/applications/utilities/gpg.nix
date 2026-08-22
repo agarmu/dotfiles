@@ -11,6 +11,7 @@
         enable = true;
         # todo --- better way ?
         enableBashIntegration = true;
+        enableFishIntegration = true;
         enableZshIntegration = true;
         pinentry.package = lib.mkDefault pkgs.pinentry-curses;
       };
