@@ -15,6 +15,7 @@
             force = true;
             packages = with addons; [
               cliget
+              hister
               web-archives
               zotero-connector
               bypass-paywalls-clean
