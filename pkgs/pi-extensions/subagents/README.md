@@ -22,6 +22,12 @@ subagents({
 subagents({ action: "poll" })
 // => compact metadata only: status, ready, age/running duration, unread bytes, model
 
+subagents({ action: "wait_any" })
+// => blocks until the first child becomes ready, then returns its metadata
+
+subagents({ action: "wait_all" })
+// => blocks concurrently until all children become ready, then returns metadata
+
 subagents({ action: "inspect", id: "a1b2c3d4", maxBytes: 4096 })
 // => explicitly retrieves a bounded output chunk; details includes next cursor and more
 
@@ -29,10 +35,13 @@ subagents({ action: "send", id: "a1b2c3d4", task: "Now inspect tests." })
 subagents({ action: "stop", id: "a1b2c3d4" })
 ```
 
-`spawn`, `send`, `poll`, and `stop` return compact metadata. They never copy
-the delegated prompt or child response into the host context. `inspect` is the
-only output retrieval action; it defaults to 4 KiB and allows at most 32 KiB.
-`read` remains an alias for `inspect`, and `list` remains an alias for `poll`.
+`spawn`, `send`, `poll`, `wait_any`, `wait_all`, and `stop` return compact metadata.
+They never copy the delegated prompt or child response into the host context.
+`wait_any` blocks until the first selected child is ready; `wait_all` blocks until
+all selected children are ready. `inspect` is the only output retrieval action;
+it defaults to
+4 KiB and allows at most 32 KiB. `read` remains an alias for `inspect`, and `list`
+remains an alias for `poll`.
 
 Tool rows in the TUI display only the child label and resolved model. The
 prompt, status details, and output stay out of the transcript unless the user
@@ -47,9 +56,11 @@ age, and unread output. In the TUI, selecting a child opens an action picker:
 - `output` — retained assistant output
 - `prompts` — delegated initial and follow-up tasks
 - `stderr` — retained child stderr
+- `wait_any` — wait until the first selected child is ready
+- `wait_all` — wait until all selected children are ready
 - `stop` — terminate the child
 
-Non-interactively, use `/subagents <id> [details|output|prompts|stderr|stop]`.
+Non-interactively, use `/subagents <id> [details|output|prompts|stderr|wait_any|wait_all|stop]`.
 This command is user-only: none of its inspection data enters the host model
 context.
 
@@ -57,6 +68,7 @@ context.
 
 - `poll` reports whether a child is ready, its age and current running time,
   unread output size, and model without consuming output.
+- `wait_any` blocks until the first selected child is ready; `wait_all` blocks until all selected children are ready. Neither consumes output.
 - `inspect` advances a per-child inspection cursor by default. Pass `cursor`
   to revisit a specific retained range.
 - Every child retains at most 256 KiB. Cursors are absolute byte offsets.

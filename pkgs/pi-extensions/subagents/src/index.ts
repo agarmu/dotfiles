@@ -49,6 +49,7 @@ type Child = {
 	inspectionCursor: number;
 	stderr: string;
 	pending: Map<string, Pending>;
+	waiters: Set<() => void>;
 	stdoutBuffer: string;
 	stdoutDecoder: StringDecoder;
 	tempDirectory?: string;
@@ -56,10 +57,10 @@ type Child = {
 };
 
 const Params = Type.Object({
-	action: StringEnum(["spawn", "send", "poll", "inspect", "list", "read", "stop"] as const, {
-		description: "poll/list return metadata only; inspect/read return bounded output explicitly.",
+	action: StringEnum(["spawn", "send", "poll", "inspect", "list", "read", "wait_any", "wait_all", "stop"] as const, {
+		description: "poll/list/wait_any/wait_all return metadata only; inspect/read return bounded output explicitly. wait_all waits for all selected children; wait_any waits for the first.",
 	}),
-	id: Type.Optional(Type.String({ description: "Child id (send/poll/inspect/read/stop)." })),
+	id: Type.Optional(Type.String({ description: "Child id (send/poll/inspect/read/wait_any/wait_all/stop)." })),
 	task: Type.Optional(Type.String({ description: "Initial task (spawn) or follow-up (send)." })),
 	label: Type.Optional(Type.String({ description: "Short child name (spawn)." })),
 	systemPrompt: Type.Optional(Type.String({ description: "Temporary appended instructions (spawn)." })),
@@ -115,6 +116,28 @@ function setStatus(child: Child, status: Status) {
 	child.statusChangedAt = Date.now();
 	if (status === "running") child.lastStartedAt = child.statusChangedAt;
 	if (status === "idle") child.lastSettledAt = child.statusChangedAt;
+	if (isReady(child)) {
+		for (const waiter of child.waiters) waiter();
+		child.waiters.clear();
+	}
+}
+
+function waitForChild(child: Child, signal?: AbortSignal): Promise<void> {
+	if (isReady(child)) return Promise.resolve();
+	return new Promise((resolve, reject) => {
+		const done = () => {
+			child.waiters.delete(done);
+			signal?.removeEventListener("abort", abort);
+			resolve();
+		};
+		const abort = () => {
+			child.waiters.delete(done);
+			reject(new Error("wait aborted"));
+		};
+		child.waiters.add(done);
+		if (signal?.aborted) abort();
+		else signal?.addEventListener("abort", abort, { once: true });
+	});
 }
 
 function isReady(child: Child): boolean {
@@ -235,9 +258,18 @@ export default function registerSubagents(pi: ExtensionAPI) {
 
 			let action = args[1];
 			if (!action && ctx.mode === "tui") {
-				action = await ctx.ui.select(`${child.label} · ${child.model}`, ["details", "output", "prompts", "stderr", "stop"]);
+				action = await ctx.ui.select(`${child.label} · ${child.model}`, ["details", "output", "prompts", "stderr", "wait_any", "wait_all", "stop"]);
 			}
 			action ||= "details";
+			if (action === "wait_any" || action === "wait_all") {
+				try {
+					await waitForChild(child);
+					ctx.ui.notify(`${child.label} is ${child.status}.`, "info");
+				} catch (error) {
+					ctx.ui.notify(`Wait failed: ${error instanceof Error ? error.message : String(error)}`, "error");
+				}
+				return;
+			}
 			if (action === "stop") {
 				if (ctx.mode === "tui" && !(await ctx.ui.confirm("Stop subagent?", `${child.label} (${child.id})`))) return;
 				stopChild(child);
@@ -276,6 +308,7 @@ export default function registerSubagents(pi: ExtensionAPI) {
 		promptSnippet: "Spawn isolated children, poll readiness/status, and explicitly inspect bounded output",
 		promptGuidelines: [
 			"Use subagents poll after spawning to check readiness, runtime, and unread byte counts without retrieving output.",
+			"Use subagents wait_all to wait for all children, or wait_any to wait for the first child to finish; pass an id to limit either action to one child.",
 			"Use subagents inspect only when child output is needed; keep maxBytes small and continue from the returned cursor only as necessary.",
 			"Subagent tasks must be self-contained; send follow-ups when needed and stop finished children.",
 		],
@@ -324,7 +357,7 @@ export default function registerSubagents(pi: ExtensionAPI) {
 					id, label, model: params.model?.trim() || "default model", requestedModel: params.model?.trim(), thinking: params.thinking,
 					process: proc, status: "starting", createdAt: now, statusChangedAt: now, cwd: params.cwd || ctx.cwd,
 					prompts: [{ at: now, text: params.task.trim() }], buffer: Buffer.alloc(0), baseCursor: 0, nextCursor: 0,
-					inspectionCursor: 0, stderr: "", pending: new Map(), stdoutBuffer: "", stdoutDecoder: new StringDecoder("utf8"),
+					inspectionCursor: 0, stderr: "", pending: new Map(), waiters: new Set(), stdoutBuffer: "", stdoutDecoder: new StringDecoder("utf8"),
 					tempDirectory: promptFile?.directory,
 				};
 				children.set(id, child);
@@ -390,10 +423,46 @@ export default function registerSubagents(pi: ExtensionAPI) {
 				}
 			}
 
+			if (params.action === "wait_all" && !params.id) {
+				const selectedChildren = [...children.values()];
+				try {
+					await Promise.all(selectedChildren.map((child) => waitForChild(child, signal)));
+					const rows = selectedChildren.map((child) => snapshot(child));
+					const text = rows.length
+						? rows.map((row) => `${row.id} ${row.label}: ${row.status}, ready=${row.ready}, model=${row.model}`).join("\n")
+						: "No subagents.";
+					return { content: [{ type: "text", text }], details: { children: rows } };
+				} catch (error) {
+					return { content: [{ type: "text", text: `Wait failed: ${error instanceof Error ? error.message : String(error)}` }], isError: true };
+				}
+			}
+
+			if (params.action === "wait_any" && !params.id) {
+				const selectedChildren = [...children.values()];
+				if (selectedChildren.length === 0) return { content: [{ type: "text", text: "No subagents." }], details: { children: [] } };
+				try {
+					const child = await Promise.race(selectedChildren.map(async (candidate) => {
+						await waitForChild(candidate, signal);
+						return candidate;
+					}));
+					return { content: [{ type: "text", text: `${child.label} is ${child.status}.` }], details: snapshot(child) };
+				} catch (error) {
+					return { content: [{ type: "text", text: `Wait failed: ${error instanceof Error ? error.message : String(error)}` }], isError: true };
+				}
+			}
+
 			if (!params.id) return { content: [{ type: "text", text: `${params.action} requires id` }], isError: true };
 			const child = findChild(params.id);
 			if (!child) return { content: [{ type: "text", text: `Unknown subagent: ${params.id}` }], isError: true };
 
+			if (params.action === "wait_any" || params.action === "wait_all") {
+				try {
+					await waitForChild(child, signal);
+					return { content: [{ type: "text", text: `${child.label} is ${child.status}.` }], details: snapshot(child) };
+				} catch (error) {
+					return { content: [{ type: "text", text: `Wait failed: ${error instanceof Error ? error.message : String(error)}` }], isError: true };
+				}
+			}
 			if (params.action === "stop") {
 				stopChild(child);
 				children.delete(child.id);
