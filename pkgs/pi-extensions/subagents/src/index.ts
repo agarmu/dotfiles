@@ -57,10 +57,10 @@ type Child = {
 };
 
 const Params = Type.Object({
-	action: StringEnum(["spawn", "send", "poll", "inspect", "list", "read", "wait_any", "wait_all", "stop"] as const, {
-		description: "poll/list/wait_any/wait_all return metadata only; inspect/read return bounded output explicitly. wait_all waits for all selected children; wait_any waits for the first.",
+	action: StringEnum(["spawn", "send", "poll", "inspect", "list", "read", "wait_any", "wait_specific", "stop"] as const, {
+		description: "poll/list/wait_any/wait_specific return metadata only; inspect/read return bounded output explicitly. wait_any waits for the first child; wait_specific waits for the named child.",
 	}),
-	id: Type.Optional(Type.String({ description: "Child id (send/poll/inspect/read/wait_any/wait_all/stop)." })),
+	id: Type.Optional(Type.String({ description: "Child id (send/poll/inspect/read/wait_specific/stop)." })),
 	task: Type.Optional(Type.String({ description: "Initial task (spawn) or follow-up (send)." })),
 	label: Type.Optional(Type.String({ description: "Short child name (spawn)." })),
 	systemPrompt: Type.Optional(Type.String({ description: "Temporary appended instructions (spawn)." })),
@@ -222,6 +222,22 @@ function stopChild(child: Child, status: Status = "stopped") {
 
 export default function registerSubagents(pi: ExtensionAPI) {
 	const children = new Map<string, Child>();
+	const activeWaits = new Set<() => void>();
+
+	const waitWithBail = async <T>(signal: AbortSignal | undefined, operation: (waitSignal: AbortSignal) => Promise<T>): Promise<T> => {
+		const controller = new AbortController();
+		const abort = () => controller.abort();
+		activeWaits.add(abort);
+		signal?.addEventListener("abort", abort, { once: true });
+		if (signal?.aborted) abort();
+		try {
+			return await operation(controller.signal);
+		} finally {
+			controller.abort();
+			activeWaits.delete(abort);
+			signal?.removeEventListener("abort", abort);
+		}
+	};
 
 	const findChild = (query: string): Child | undefined => children.get(query) ?? [...children.values()].find((child) => child.label === query);
 
@@ -234,6 +250,12 @@ export default function registerSubagents(pi: ExtensionAPI) {
 		description: "View and inspect isolated subagents without adding their output to model context",
 		handler: async (rawArgs, ctx) => {
 			const args = rawArgs.trim().split(/\s+/).filter(Boolean);
+			if (args[0] === "bail") {
+				const count = activeWaits.size;
+				for (const abort of activeWaits) abort();
+				ctx.ui.notify(count ? `Bailed out of ${count} subagent wait${count === 1 ? "" : "s"}. Subagents are still running.` : "No active subagent waits.", "info");
+				return;
+			}
 			if (children.size === 0) {
 				ctx.ui.notify("No subagents.", "info");
 				return;
@@ -252,19 +274,30 @@ export default function registerSubagents(pi: ExtensionAPI) {
 				child = [...children.values()][choices.indexOf(selected)];
 			}
 			if (!child) {
-				ctx.ui.notify(`${[...children.values()].map((candidate) => summaryLine(candidate)).join("\n")}\nUse /subagents <id> [details|output|prompts|stderr|stop].`, "info");
+				ctx.ui.notify(`${[...children.values()].map((candidate) => summaryLine(candidate)).join("\n")}\nUse /subagents <id> [details|output|prompts|stderr|wait_specific|stop], or /subagents bail to interrupt active waits.`, "info");
 				return;
 			}
 
 			let action = args[1];
 			if (!action && ctx.mode === "tui") {
-				action = await ctx.ui.select(`${child.label} · ${child.model}`, ["details", "output", "prompts", "stderr", "wait_any", "wait_all", "stop"]);
+				action = await ctx.ui.select(`${child.label} · ${child.model}`, ["details", "output", "prompts", "stderr", "wait_any", "wait_specific", "stop"]);
 			}
 			action ||= "details";
-			if (action === "wait_any" || action === "wait_all") {
+			if (action === "wait_any" || action === "wait_specific") {
 				try {
-					await waitForChild(child);
-					ctx.ui.notify(`${child.label} is ${child.status}.`, "info");
+					if (action === "wait_any") {
+						const selectedChildren = [...children.values()];
+						ctx.ui.notify(`Waiting for any of ${selectedChildren.length} subagents…`, "info");
+						const readyChild = await waitWithBail(undefined, (waitSignal) => Promise.race(selectedChildren.map(async (candidate) => {
+							await waitForChild(candidate, waitSignal);
+							return candidate;
+						})));
+						ctx.ui.notify(`${readyChild.label} is ${readyChild.status}.`, "info");
+					} else {
+						ctx.ui.notify(`Waiting for subagent ${child.label}…`, "info");
+						await waitWithBail(undefined, (waitSignal) => waitForChild(child, waitSignal));
+						ctx.ui.notify(`${child.label} is ${child.status}.`, "info");
+					}
 				} catch (error) {
 					ctx.ui.notify(`Wait failed: ${error instanceof Error ? error.message : String(error)}`, "error");
 				}
@@ -308,7 +341,8 @@ export default function registerSubagents(pi: ExtensionAPI) {
 		promptSnippet: "Spawn isolated children, poll readiness/status, and explicitly inspect bounded output",
 		promptGuidelines: [
 			"Use subagents poll after spawning to check readiness, runtime, and unread byte counts without retrieving output.",
-			"Use subagents wait_all to wait for all children, or wait_any to wait for the first child to finish; pass an id to limit either action to one child.",
+			"Use subagents wait_any to wait for the first child to finish, or wait_specific with an id to wait for one named child.",
+			"Waits are visible in the TUI and can be interrupted with /subagents bail; this leaves children running. If interrupted by a steer message, unless the steer explicitly says to stop, continue the work and wait again as needed.",
 			"Use subagents inspect only when child output is needed; keep maxBytes small and continue from the returned cursor only as necessary.",
 			"Subagent tasks must be self-contained; send follow-ups when needed and stop finished children.",
 		],
@@ -423,28 +457,16 @@ export default function registerSubagents(pi: ExtensionAPI) {
 				}
 			}
 
-			if (params.action === "wait_all" && !params.id) {
-				const selectedChildren = [...children.values()];
-				try {
-					await Promise.all(selectedChildren.map((child) => waitForChild(child, signal)));
-					const rows = selectedChildren.map((child) => snapshot(child));
-					const text = rows.length
-						? rows.map((row) => `${row.id} ${row.label}: ${row.status}, ready=${row.ready}, model=${row.model}`).join("\n")
-						: "No subagents.";
-					return { content: [{ type: "text", text }], details: { children: rows } };
-				} catch (error) {
-					return { content: [{ type: "text", text: `Wait failed: ${error instanceof Error ? error.message : String(error)}` }], isError: true };
-				}
-			}
-
-			if (params.action === "wait_any" && !params.id) {
+			if (params.action === "wait_any") {
+				if (params.id) return { content: [{ type: "text", text: "wait_any does not accept id; use wait_specific." }], isError: true };
 				const selectedChildren = [...children.values()];
 				if (selectedChildren.length === 0) return { content: [{ type: "text", text: "No subagents." }], details: { children: [] } };
 				try {
-					const child = await Promise.race(selectedChildren.map(async (candidate) => {
-						await waitForChild(candidate, signal);
+					ctx.ui.notify(`Waiting for any of ${selectedChildren.length} subagents…`, "info");
+					const child = await waitWithBail(signal, (waitSignal) => Promise.race(selectedChildren.map(async (candidate) => {
+						await waitForChild(candidate, waitSignal);
 						return candidate;
-					}));
+					})));
 					return { content: [{ type: "text", text: `${child.label} is ${child.status}.` }], details: snapshot(child) };
 				} catch (error) {
 					return { content: [{ type: "text", text: `Wait failed: ${error instanceof Error ? error.message : String(error)}` }], isError: true };
@@ -455,9 +477,10 @@ export default function registerSubagents(pi: ExtensionAPI) {
 			const child = findChild(params.id);
 			if (!child) return { content: [{ type: "text", text: `Unknown subagent: ${params.id}` }], isError: true };
 
-			if (params.action === "wait_any" || params.action === "wait_all") {
+			if (params.action === "wait_specific") {
 				try {
-					await waitForChild(child, signal);
+					ctx.ui.notify(`Waiting for subagent ${child.label}…`, "info");
+					await waitWithBail(signal, (waitSignal) => waitForChild(child, waitSignal));
 					return { content: [{ type: "text", text: `${child.label} is ${child.status}.` }], details: snapshot(child) };
 				} catch (error) {
 					return { content: [{ type: "text", text: `Wait failed: ${error instanceof Error ? error.message : String(error)}` }], isError: true };

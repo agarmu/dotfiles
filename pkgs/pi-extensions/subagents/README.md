@@ -25,8 +25,8 @@ subagents({ action: "poll" })
 subagents({ action: "wait_any" })
 // => blocks until the first child becomes ready, then returns its metadata
 
-subagents({ action: "wait_all" })
-// => blocks concurrently until all children become ready, then returns metadata
+subagents({ action: "wait_specific", id: "a1b2c3d4" })
+// => blocks until the named child becomes ready, then returns its metadata
 
 subagents({ action: "inspect", id: "a1b2c3d4", maxBytes: 4096 })
 // => explicitly retrieves a bounded output chunk; details includes next cursor and more
@@ -35,11 +35,11 @@ subagents({ action: "send", id: "a1b2c3d4", task: "Now inspect tests." })
 subagents({ action: "stop", id: "a1b2c3d4" })
 ```
 
-`spawn`, `send`, `poll`, `wait_any`, `wait_all`, and `stop` return compact metadata.
-They never copy the delegated prompt or child response into the host context.
-`wait_any` blocks until the first selected child is ready; `wait_all` blocks until
-all selected children are ready. `inspect` is the only output retrieval action;
-it defaults to
+`spawn`, `send`, `poll`, `wait_any`, `wait_specific`, and `stop` return compact
+metadata. They never copy the delegated prompt or child response into the host context.
+`wait_any` blocks until the first child is ready; `wait_specific` blocks until the
+child identified by `id` is ready. `inspect` is the only
+output retrieval action; it defaults to
 4 KiB and allows at most 32 KiB. `read` remains an alias for `inspect`, and `list`
 remains an alias for `poll`.
 
@@ -50,17 +50,19 @@ opens the dedicated command below.
 ## User inspection
 
 Use `/subagents` to list current children, including label, id, model, status,
-age, and unread output. In the TUI, selecting a child opens an action picker:
+age, and unread output. Use `/subagents bail` to interrupt active waits without
+stopping any children. In the TUI, selecting a child opens an action picker:
 
 - `details` — model, thinking level, status, runtime, cursors, and cwd
 - `output` — retained assistant output
 - `prompts` — delegated initial and follow-up tasks
 - `stderr` — retained child stderr
-- `wait_any` — wait until the first selected child is ready
-- `wait_all` — wait until all selected children are ready
+- `wait_any` — wait until the first child is ready
+- `wait_specific` — wait until the child identified by id is ready
 - `stop` — terminate the child
 
-Non-interactively, use `/subagents <id> [details|output|prompts|stderr|wait_any|wait_all|stop]`.
+Non-interactively, use `/subagents <id> [details|output|prompts|stderr|wait_specific|stop]`.
+Waiting displays a TUI notification naming the child or number of candidates.
 This command is user-only: none of its inspection data enters the host model
 context.
 
@@ -68,7 +70,7 @@ context.
 
 - `poll` reports whether a child is ready, its age and current running time,
   unread output size, and model without consuming output.
-- `wait_any` blocks until the first selected child is ready; `wait_all` blocks until all selected children are ready. Neither consumes output.
+- `wait_any` blocks until the first selected child is ready without consuming output.
 - `inspect` advances a per-child inspection cursor by default. Pass `cursor`
   to revisit a specific retained range.
 - Every child retains at most 256 KiB. Cursors are absolute byte offsets.
