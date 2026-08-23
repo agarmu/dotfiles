@@ -20,6 +20,8 @@ in
   niri-tweaks = callPackage ./niri-tweaks { };
   stinkpot = callPackage ./stinkpot { };
   omniwm = callPackage ./omniwm { };
+  omry-cli = callPackage ./omry-cli { };
+  omry-server = callPackage ./omry-server { };
   open = callPackage ./open { };
   pi-extensions = callPackage ./pi-extensions { };
   qman = callPackage ./qman { };
