@@ -1,6 +1,7 @@
 { inputs, rootDir, ... }:
 let
   overlays = [
+    (import inputs.rust-overlay)
     (final: _: {
       stable = import inputs.stablePkgs {
         system = final.stdenv.hostPlatform.system;
@@ -10,6 +11,11 @@ let
   ];
 in
 {
+  flake-file.inputs.rust-overlay = {
+    url = "github:oxalica/rust-overlay";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   perSystem =
     { system, ... }:
     let
