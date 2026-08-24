@@ -4,6 +4,7 @@
     {
       programs.pi-coding-agent = {
         enable = true;
+        extraPackages = with pkgs; [ rtk ];
         settings = {
           autoshare = false;
           autoupdate = false;
