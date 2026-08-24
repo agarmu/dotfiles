@@ -1,0 +1,14 @@
+--- a/src/state.ts	2026-08-23 21:47:08.623454220 -0400
++++ b/src/state.ts
+@@ -128,6 +128,11 @@
+ 
+   switch (action) {
+     case "set":
++      // The provider-facing schema is intentionally flat, so models may include
++      // workingOn on a set action. A fresh plan has no in-progress task, hence
++      // there is no current work to retain; accept and discard the field.
++      assertOnlyFields(input, ["action", "phases", "workingOn"], action);
++      return { action, phases: parsePhases(input.phases) };
+     case "add":
+       assertOnlyFields(input, ["action", "phases"], action);
+       return { action, phases: parsePhases(input.phases) };

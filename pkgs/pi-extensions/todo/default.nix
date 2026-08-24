@@ -16,6 +16,8 @@ stdenvNoCC.mkDerivation rec {
     hash = "sha256-5K0nZ1++QR6UYBLIVghD7t8HCF+v6fdUreGItJZSPVg=";
   };
 
+  patches = [ ./patches/working-on-set.patch ];
+
   # No runtime dependencies: peer packages are provided by the Pi host.
   installPhase = ''
     runHook preInstall
