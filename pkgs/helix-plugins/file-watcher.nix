@@ -5,12 +5,12 @@
   rustPlatform,
 }:
 let
-  version = "0-unstable-2026-08-02";
+  version = "0-unstable-2026-08-09";
   src = fetchFromGitHub {
     owner = "mattwparas";
     repo = "helix-file-watcher";
-    rev = "ea1ad0dfc1f5f806eed837baf01ef0263cff1be0";
-    hash = "sha256-O8qkQX+yYjSCtnZ59jfVJdPYc7XTvMpBw3gXtWtjfAk=";
+    rev = "8cd0726da47be4a1011c3246ff308c1dfefda9d1";
+    hash = "sha256-auqS4wcJGCUJXzRVj4neQLJnqErvty3+3shfq5DU/pg=";
   };
   native = rustPlatform.buildRustPackage {
     pname = "helix-file-watcher-native";

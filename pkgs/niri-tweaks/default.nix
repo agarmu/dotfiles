@@ -10,7 +10,7 @@
 }:
 
 let
-  version = "0-unstable-2026-03-19";
+  version = "0-unstable-2026-08-04";
 in
 stdenvNoCC.mkDerivation {
   inherit version;
@@ -19,8 +19,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "heyoeyo";
     repo = "niri_tweaks";
-    rev = "b9a8eca759f0788959cdcfa3ed2f49e7ce077e8b";
-    hash = "sha256-Tqg1lAcltrQAflap4Q0RMyYEQfO6TbSAuuOT93yzW7I=";
+    rev = "3fd68a1598bd1fac8a7578a09aa9a9b36e19996d";
+    hash = "sha256-DRqUvQ0ZPCnLZYJnB71X4AXYt39e8PPHUsMy1cT8oGI=";
   };
 
   dontConfigure = true;

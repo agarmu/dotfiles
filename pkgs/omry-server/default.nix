@@ -5,17 +5,17 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "omry-server";
-  version = "0-unstable-2026-08-19";
+  version = "0.20.3";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "omry";
     repo = "omry";
-    rev = "6fbd10b441dee9b4a38abf2e53a6f090d1d45917";
-    hash = "sha256-s6tR3UYa7vOXXioKBsDMFtbp643NCUQ/2TTTgNFT0j4=";
+    rev = "defd99319fe58e81ed0aea92f6bc7d44bd33638b";
+    hash = "sha256-HIByMgpLYrPPZfUaevc1plM/zVMAytBD0qMpt9RhxLM=";
   };
 
-  cargoHash = "sha256-PQSRcP3ogX4BFxPtH7QsKsw9+IULydaqHtxaUkEEOk0=";
+  cargoHash = "sha256-cixNEVUR63ngSV7h168EZKb5g6+drV1ycl5vJBuvVAw=";
 
   cargoBuildFlags = [
     "--package"

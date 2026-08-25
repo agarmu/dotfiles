@@ -11,18 +11,18 @@
 
 buildNpmPackage rec {
   pname = "zotero-better-notes";
-  version = "3.2.6";
+  version = "3.3.3";
 
   src = fetchFromGitHub {
     owner = "windingwind";
     repo = "zotero-better-notes";
     tag = "v${version}";
-    hash = "sha256-2aMbpF4c6IyADKdYF5q7HY6/P+drbc22P7Nhd+pVX34=";
+    hash = "sha256-sgaUYGLEnTbg0zVNqmWkblOZUAiV8A0Y8lWV8C5us/w=";
   };
 
   nodejs = nodejs_22;
 
-  npmDepsHash = "sha256-HdCBPS8n5EymiRU4Ho9QosTbXI2ppTRhJ/17jIlKgxA=";
+  npmDepsHash = "sha256-/hPDnNTmBvMoz5zs+Y2TtT2Kd2NDC/cJb1l8HTyNNBw=";
 
   forceGitDeps = true;
 

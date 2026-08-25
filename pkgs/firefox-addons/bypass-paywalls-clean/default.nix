@@ -8,11 +8,11 @@
 
 buildFirefoxXpiAddon rec {
   pname = "bypass-paywalls-clean";
-  version = "4.4.1.6";
+  version = "4.4.2.7";
   addonId = "magnolia@12.34";
   src = fetchurl {
     url = "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-${version}.xpi";
-    hash = "sha256-ftoOCrwsXQEnQIQzYfGXgDVG8EB3OIgq3VK4LgJOea8=";
+    hash = "sha256-quOIU4JxCcJ02xuVCXVBxzzaSQiKjn0BqUkQnP6s5NI=";
   };
   meta = with lib; {
     homepage = "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean";

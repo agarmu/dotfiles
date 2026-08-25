@@ -8,11 +8,11 @@
 
 buildFirefoxXpiAddon rec {
   pname = "bitwarden";
-  version = "2026.7.0";
+  version = "2026.8.0";
   addonId = "{446900e4-71c2-419f-a6a7-df9c091e268b}";
   src = fetchurl {
-    url = "https://addons.mozilla.org/firefox/downloads/file/4915668/bitwarden_password_manager-${version}.xpi";
-    hash = "sha256-EYNuudKryZFLsze1fiDFoJz0TyT6Vy9+iGOE/TUKURI=";
+    url = "https://github.com/bitwarden/clients/releases/download/browser-v${version}/dist-firefox-${version}.zip";
+    hash = "sha256-4pk/bwIqM/Kt6EAmFVRgI9y5GgIqmpmD9cRrzu753aY=";
   };
   meta = with lib; {
     homepage = "https://bitwarden.com";
