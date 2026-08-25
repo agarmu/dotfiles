@@ -33,7 +33,7 @@
   libxcb,
 }:
 let
-  version = "0.11.2.1";
+  version = "0.15.7.1";
   pname = "helium";
 
   libPath = lib.makeLibraryPath [
@@ -67,7 +67,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://github.com/imputnet/helium-linux/releases/download/${version}/helium-${version}-arm64_linux.tar.xz";
-    hash = "sha256-dfKBzPn3O8kZRDzPrcK64Uf0gO9KiuQM5QMR/G2uyJs=";
+    hash = "sha256-CYHUDYEMwe+2//4cDPMS2VqcRfbRJD0USDxDJ7kKu6Q=";
   };
 
   nativeBuildInputs = [

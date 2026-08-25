@@ -8,12 +8,12 @@
 }:
 stdenv.mkDerivation rec {
   pname = "omniwm";
-  version = "0.5.1";
+  version = "0.6.2";
 
   src = fetchurl {
     url = "https://github.com/BarutSRB/OmniWM/releases/download/v${version}/OmniWM-v${version}.zip";
     # Use lib.fakeHash to deliberately fail the build and fetch the real hash
-    hash = "sha256-8zfA1c/LeWgVNY0j+Kr+zdusasITqhDL81RnYE9I6Hg=";
+    hash = "sha256-Iyv5HevupYlGW/EjC5r8ePdu2zg6n6028dB9b57U3rQ=";
   };
 
   nativeBuildInputs = [
