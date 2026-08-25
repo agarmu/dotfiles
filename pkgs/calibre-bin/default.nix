@@ -32,10 +32,10 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "calibre";
-  version = "9.10.0";
+  version = "9.13.0";
   src = fetchurl {
     url = "https://download.calibre-ebook.com/${version}/calibre-${version}.dmg";
-    hash = "sha256-aKCRpCBzUYQtpQn7oKvsmvu4Mkmfh1Lm/NmWQlstqII=";
+    hash = "sha256-ABvm7XDYrP15P6fYyV6lAEWr7a8OdWsg5WQnWgsKdmc=";
   };
 
   nativeBuildInputs = [

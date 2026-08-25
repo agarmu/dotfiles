@@ -2,7 +2,7 @@
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     let
-      localPlugins = pkgs.callPackage ../../../../pkgs/helix-plugins { };
+      inherit (pkgs) helix-plugins;
     in
     {
       xdg.configFile."helix/helix.scm".text = ''
@@ -18,10 +18,10 @@
         # Keep Helix's native keymap. These plugins cover the surrounding UI
         # provided by neo-tree, lualine, Telescope, and Trouble in Neovim.
         plugins = {
-          forest.package = localPlugins.forest;
+          forest.package = helix-plugins.forest;
           moka-bufferline = {
             enable = true;
-            package = localPlugins.moka;
+            package = helix-plugins.moka;
             requirePath = "moka/moka.scm";
             extra = ''
               (moka-bufferline-configure! #:gap 0)
@@ -30,27 +30,27 @@
           };
           oil = {
             enable = true;
-            package = localPlugins.oil;
+            package = helix-plugins.oil;
           };
           scooter = {
             enable = true;
-            package = localPlugins.scooter;
+            package = helix-plugins.scooter;
           };
           smooth-scroll = {
             enable = true;
-            package = localPlugins.smooth-scroll;
+            package = helix-plugins.smooth-scroll;
           };
           streal = {
             enable = true;
-            package = localPlugins.streal;
+            package = helix-plugins.streal;
           };
           wakatime = {
             enable = true;
-            package = localPlugins.wakatime;
+            package = helix-plugins.wakatime;
           };
           helix-file-watcher = {
             enable = true;
-            package = localPlugins.file-watcher;
+            package = helix-plugins.file-watcher;
             requirePath = "helix-file-watcher/file-watcher.scm";
             extra = "(spawn-watcher)";
           };

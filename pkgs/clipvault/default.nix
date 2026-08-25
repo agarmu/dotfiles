@@ -8,13 +8,13 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "clipvault";
-  version = "1.1.1";
+  version = "1.3.0";
 
   src = fetchFromGitHub {
     owner = "Rolv-Apneseth";
     repo = "clipvault";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-iETuHXMUllQstKcNc7p02gU230kPfmEFXYqBh2+HMy4=";
+    hash = "sha256-3KXb+IWthxWm6WsI/EiXOatDZ0Z76fMGL96ZNeRrYSQ=";
   };
 
   cargoHash = "sha256-hmr3N/K+cj87OQDoCz2G4vWoNByRfh78rd0BtGJN1hA=";

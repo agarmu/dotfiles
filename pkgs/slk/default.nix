@@ -4,23 +4,24 @@
   fetchFromGitHub,
   libX11,
   nix-update-script,
+  stdenv,
 }:
 
 buildGoModule rec {
   pname = "slk";
-  version = "0.8.1";
+  version = "0.16.0";
 
   src = fetchFromGitHub {
     owner = "gammons";
     repo = "slk";
     tag = "v${version}";
-    hash = "sha256-VZa/oc33obp02a18Wa5T1xF28Rlgfrfqv6XC02/1DjM=";
+    hash = "sha256-gYRG4/Kir4Pn2OLg25Fm834sIJ0KNPoGgf1Rdim1ox8=";
   };
   subPackages = [ "cmd/slk" ];
 
-  vendorHash = "sha256-jstv3EH3e827KXmbKl7d3GBuLNyrpwEQeRpiM/mYSOY=";
+  vendorHash = "sha256-deqCUDgRvhe/Bpmy+9bIHjSBo+KTCtAN2XcGMhAj/G0=";
 
-  buildInputs = [ libX11 ];
+  buildInputs = lib.optional stdenv.hostPlatform.isLinux libX11;
 
   meta = with lib; {
     description = "A blazingly fast Slack TUI";

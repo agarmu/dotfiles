@@ -1,22 +1,25 @@
 {
   lib,
-  stdenvNoCC,
+  buildNpmPackage,
   fetchFromGitHub,
 }:
 
-stdenvNoCC.mkDerivation {
+buildNpmPackage {
   pname = "pi-btw";
   version = "unstable";
+  npmWorkspace = "packages/pi-btw";
+  npmDepsFetcherVersion = 2;
+  npmDepsHash = "sha256-gquPyRukV8ZSwjd/61bruITc6RYA23+n2eqwq1L5b0c=";
   src = fetchFromGitHub {
     owner = "narumiruna";
     repo = "pi-extensions";
     rev = "main";
-    hash = "sha256-4k1hrUlrxHCjMmowyWraIc8OG/93ZQQ0bcHlUOmsAlg=";
+    hash = "sha256-vGe6lpSrk+TcwPA1O41VTP1r1HatdKC7mE11JTdueic=";
   };
-  installPhase = ''
-    runHook preInstall
-    cp -r packages/pi-btw/. "$out"
-    runHook postInstall
+  postInstall = ''
+    cp -r "$out/lib/node_modules/pi-extensions/." "$out/"
+    rm -rf "$out/lib"
+    find "$out" -xtype l -delete
   '';
   meta = with lib; {
     description = "Side-question /btw command for Pi";

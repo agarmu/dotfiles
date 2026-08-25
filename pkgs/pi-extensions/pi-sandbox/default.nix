@@ -9,13 +9,13 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "pi-sandbox";
-  version = "0.6.2";
+  version = "0.6.5";
 
   src = fetchFromGitHub {
     owner = "carderne";
     repo = "pi-sandbox";
     rev = "v${version}";
-    hash = "sha256-grQv6O1YHQy3uYJ7WZVMCjF1vPaKTdqaMDLQ2qodP7s=";
+    hash = "sha256-Yax4DgdNeUYhUaAUvsriw8oKmYzlzY8rus7s5gIypGU=";
   };
 
   pnpmWorkspaces = [ ];
@@ -28,7 +28,7 @@ stdenvNoCC.mkDerivation rec {
       pnpmWorkspaces
       ;
     pnpm = pnpm_10;
-    hash = "sha256-4jedfkRZSUsNJKNLK7dl82RHbGswS8Rd8c6kb/g8e2E=";
+    hash = "sha256-ayokpzo89jC6GtKPvBaHnAeyovaU4GZ6pN+W+uf4zjs=";
     fetcherVersion = 4;
   };
 

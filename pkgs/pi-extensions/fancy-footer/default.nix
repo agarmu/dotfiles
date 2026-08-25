@@ -7,21 +7,21 @@
 }:
 buildNpmPackage rec {
   pname = "pi-fancy-footer";
-  version = "unstable";
+  version = "3.0.1";
   src = fetchFromGitHub {
     owner = "mavam";
     repo = "pi-fancy-footer";
-    rev = "main";
-    hash = "sha256-USuDxnMfxycZokX1Nc0joz+3+rse9GgmqhsUJuL5tZQ=";
+    rev = "v${version}";
+    hash = "sha256-9qZFRiSTwZnK+PFLRQGjGZnv1zdGg+Vq0jXVqqIybMI=";
   };
-  npmDepsHash = "sha256-C9k2NJ6g1d+s8NpFdOjXQQ0Uz6Rbuv9Zx5b5p7a9uDU=";
+  npmDepsHash = "sha256-476zWw8+vQwUZ0/s3nOPbn70JUOT8kcQKPC+2sQwFoI=";
   nativeBuildInputs = [
     jq
     moreutils
   ];
   postPatch = ''
-    jq 'walk(if type == "object" then with_entries(select(.key | startswith("@earendil-works/") | not)) else . end)' package.json | sponge package.json
-    jq 'walk(if type == "object" then with_entries(select((.key | contains("@earendil-works/")) | not)) else . end)' package-lock.json | sponge package-lock.json
+    ${jq}/bin/jq 'walk(if type == "object" then with_entries(select(.key | startswith("@earendil-works/") | not)) else . end)' package.json | ${moreutils}/bin/sponge package.json
+    ${jq}/bin/jq 'walk(if type == "object" then with_entries(select((.key | contains("@earendil-works/")) | not)) else . end)' package-lock.json | ${moreutils}/bin/sponge package-lock.json
   '';
   dontNpmBuild = true;
   dontNpmPrune = true;

@@ -5,12 +5,12 @@
 }:
 buildHelixPlugin {
   pname = "moka.hx";
-  version = "0-unstable-2026-07-14";
+  version = "0-unstable-2026-08-23";
   src = fetchFromGitHub {
     owner = "Ra77a3l3-jar";
     repo = "moka.hx";
-    rev = "d25ce9e302c3ef0cbad82ec6012582cbb66d440f";
-    hash = "sha256-qV4MgOV3QJLQv8zCGvUSP5r8JOAWhx8jAUH+iKzHV9A=";
+    rev = "22059191425b7dbefa44060048bede3fe8676933";
+    hash = "sha256-5312U/diMFsU/XRdF91aLRPLLuK9+iEHJSJPvmsuHV4=";
   };
   meta = {
     description = "A configurable statusline and bufferline for Helix";
