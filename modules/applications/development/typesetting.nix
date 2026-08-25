@@ -120,6 +120,9 @@
         texlivePackage
         texlab # LaTeX LSP
         tinymist # Typst LSP
+        typstyle # typst formatter
+        typst-live # hot reload for typst
+        typstwriter # ide for typst
         marksman # Markdown LSP
         ltex-ls # grammar/spell checking LSP (LanguageTool)
         tex-fmt # LaTeX formatter
