@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
@@ -18,18 +18,8 @@
       ];
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
-        enable = true;
-        package = pkgs.sioyek.overrideAttrs (
-          prevAttrs:
-          lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
-            nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.llvmPackages.lld ];
-            env = {
-              # Work around ld64's libc++ hardening issue.
-              # TODO: Remove once #536365 reaches this branch.
-              NIX_CFLAGS_LINK = "-fuse-ld=lld";
-            };
-          }
-        );
+        enable = false;
+        package = pkgs.sioyek;
         config = {
           should_launch_new_window = "1";
           page_separator_width = "5";
@@ -40,17 +30,7 @@
     };
   flake.modules.homeManager.darwin = { pkgs, ... }: {
     home.packages = [
-      # TODO: change back when https://github.com/NixOS/nixpkgs/pull/544437 hits unstable
-      (pkgs.skimpdf.overrideAttrs (prevAttrs: {
-        nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
-
-        postInstall = (prevAttrs.postInstall or "") + ''
-          install -d "$out/bin"
-          for app in displayline skimnotes skimpdf; do
-            makeWrapper "$out/Applications/Skim.app/Contents/SharedSupport/$app" "$out/bin/$app"
-          done
-        '';
-      }))
+      pkgs.skimpdf
     ];
   };
   flake.modules.homeManager.linuxGui = { pkgs, ... }: {
