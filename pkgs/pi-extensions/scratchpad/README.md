@@ -2,7 +2,7 @@
 
 Creates a private scratchpad at `$PI_HOME/scratchpad/$PI_SESSION_ID` for each Pi session. If `PI_HOME` is unset, `PI_CODING_AGENT_DIR` (or `~/.pi`) is used.
 
-The path is included in the agent system prompt, exposed through the `scratchpad` tool, and shown by `/scratchpad`. It is suitable for temporary files and directories (anything you would otherwise put under `/tmp`), cloned repositories, and experiments without changing the current project. Agents are instructed not to use `/tmp` for agent-created temporary work.
+The exact per-session path is included in the agent system prompt on every turn, exposed through the `scratchpad` tool, and shown by `/scratchpad`. It is suitable for temporary files and directories (anything you would otherwise put under `/tmp`), cloned repositories, and experiments without changing the current project. Agents are instructed not to use `/tmp` for agent-created temporary work; OS- and application-created files such as Pi clipboard images remain in the platform temporary directory. The prompt also tells agents not to browse `/nix/store` recursively and to prefer source files in the current project.
 
 When Pi Sandbox is installed, the scratchpad root is automatically added to `$PI_CODING_AGENT_DIR/sandbox.json` (or `~/.pi/agent/sandbox.json`) as an allowed read/write path, so sandbox permission checks do not prompt for scratchpad work. Set `PI_SCRATCHPAD_SANDBOX=0` to opt out.
 

@@ -18,6 +18,8 @@ stdenvNoCC.mkDerivation rec {
     hash = "sha256-Yax4DgdNeUYhUaAUvsriw8oKmYzlzY8rus7s5gIypGU=";
   };
 
+  patches = [ ./patches/allow-pi-clipboard-images.patch ];
+
   pnpmWorkspaces = [ ];
 
   pnpmDeps = fetchPnpmDeps {

@@ -1,0 +1,64 @@
+diff --git a/src/policy.ts b/src/policy.ts
+index 7c7fc62..8a2dd18 100644
+--- a/src/policy.ts
++++ b/src/policy.ts
+@@ -77,6 +77,8 @@ export function matchesPattern(filePath: string, patterns: string[]): boolean {
+     const absolutePattern = pattern.includes("*") ? expandPath(pattern) : canonicalizePath(pattern);
+     if (pattern.includes("*")) {
+-      const escaped = absolutePattern.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
++      const escaped = absolutePattern
++        .replace(/[.+^${}()|[\]\\]/g, "\\$&")
++        .replace(/\*/g, "[^/\\\\]*");
+       return new RegExp(`^${escaped}$`).test(absolutePath);
+     }
+     const separator = absolutePattern.endsWith("/") ? "" : "/";
+diff --git a/src/sandbox-runtime.ts b/src/sandbox-runtime.ts
+index 60ca7f3..0f05c9f 100644
+--- a/src/sandbox-runtime.ts
++++ b/src/sandbox-runtime.ts
+@@ -1,5 +1,7 @@
+ import { spawn } from "node:child_process";
+-import { existsSync } from "node:fs";
++import { existsSync, realpathSync } from "node:fs";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
+ 
+ import {
+   SandboxManager,
+@@ -30,7 +32,20 @@ function unique(values: string[]): string[] {
+   return [...new Set(values)];
+ }
+ 
++function getPiClipboardReadPattern(): string | undefined {
++  try {
++    const directory = tmpdir();
++    try {
++      return join(realpathSync(directory), "pi-clipboard-*");
++    } catch {
++      return join(directory, "pi-clipboard-*");
++    }
++  } catch {
++    return undefined;
++  }
++}
++
+ const canonicalizeFilesystemPattern = (path: string) =>
+   path.includes("*") ? path : canonicalizePath(path);
+ 
+ const canonicalizeFilesystemPatterns = (paths: string[]) =>
+@@ -44,13 +60,15 @@ export function resolveAllowances(
+     ...(config.filesystem?.allowWrite ?? []),
+     ...(allowances?.writePaths ?? []),
+   ]);
++  const piClipboardReadPattern = getPiClipboardReadPattern();
+ 
+   return {
+     domains: unique([...(config.network?.allowedDomains ?? []), ...(allowances?.domains ?? [])]),
+     readPaths: unique([
+       ...(config.filesystem?.allowRead ?? []),
+       ...(allowances?.readPaths ?? []),
+       ...writePaths,
++      ...(piClipboardReadPattern ? [piClipboardReadPattern] : []),
+     ]),
+     writePaths,
+   };
