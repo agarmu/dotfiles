@@ -8,6 +8,13 @@ in
   flake.modules.homeManager.base =
     { pkgs, config, ... }:
     {
+      programs.nixvim.plugins.treesitter.grammarPackages =
+        with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          diff
+          git_config
+          git_rebase
+          gitcommit
+        ];
       home.packages = with pkgs; [
         difftastic
       ];

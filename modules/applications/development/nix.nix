@@ -15,7 +15,7 @@ in
   };
   flake.modules.darwin.base = module;
   flake.modules.homeManager.dev =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       home.packages = with pkgs; [
         nixd
@@ -26,6 +26,8 @@ in
         statix
         nixfmt
       ];
+      programs.nixvim.plugins.treesitter.grammarPackages =
+        with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [ nix ];
       programs.nixvim.plugins.lsp.servers.nixd = {
         enable = true;
         package = null;

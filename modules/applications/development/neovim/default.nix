@@ -381,6 +381,12 @@
           };
           treesitter = {
             enable = true; # syntax highlighting
+            grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+              lua
+              regex
+              vim
+              vimdoc
+            ];
             settings = {
               highlight.enable = true;
               indent.enable = true;

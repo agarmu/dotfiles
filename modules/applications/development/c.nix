@@ -1,7 +1,12 @@
 {
   flake.modules.homeManager.dev =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
+      programs.nixvim.plugins.treesitter.grammarPackages =
+        with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          c
+          cpp
+        ];
       programs.nixvim.plugins.lsp.servers.clangd = {
         enable = true;
         packageFallback = true;
