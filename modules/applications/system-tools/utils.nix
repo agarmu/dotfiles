@@ -32,8 +32,7 @@
         killall # kill processes by nae
         bc # calculator
         chase # resolve symlinks
-        # TODO: switch fend back once #540900 is fixed.
-        stable.fend
+        fend
         grc
         trash-cli
         gdu
