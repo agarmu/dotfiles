@@ -8,6 +8,14 @@
       texlivePackage = pkgs.texliveFull;
     in
     {
+      programs.nixvim.plugins.treesitter.grammarPackages =
+        with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          bibtex
+          latex
+          markdown
+          markdown_inline
+          typst
+        ];
       programs.nixvim.plugins.vimtex = {
         enable = true;
         inherit texlivePackage;

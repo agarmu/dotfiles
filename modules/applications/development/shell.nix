@@ -5,6 +5,12 @@ _: {
       ...
     }:
     {
+      programs.nixvim.plugins.treesitter.grammarPackages =
+        with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          bash
+          fish
+          zsh
+        ];
       programs.mcfly = {
         enable = false;
         enableZshIntegration = true;
