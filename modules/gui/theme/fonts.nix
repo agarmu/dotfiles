@@ -19,6 +19,7 @@ let
           iosevka-kian-bin
           league-of-moveable-type
           national-park-typeface
+          kpfonts
         ]
         ++ (toDrvList tex-gyre)
         ++ (toDrvList tex-gyre-math);
