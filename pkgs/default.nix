@@ -13,6 +13,7 @@ in
   imgblur = callPackage ./imgblur { };
   iosevka-kian = callPackage ./iosevka-kian { };
   iosevka-kian-bin = callPackage ./iosevka-kian-bin { };
+  kpfonts = callPackage ./kpfonts { };
   kent-class-download = callPackage ./kent-class-download { };
   lazymake = callPackage ./lazymake { };
   mkWallpaper = callPackage ./mkWallpaper { };
