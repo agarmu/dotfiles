@@ -27,6 +27,7 @@ in
   omry-server = callPackage ./omry-server { };
   open = callPackage ./open { };
   pi-extensions = callPackage ./pi-extensions { };
+  prequery = callPackage ./prequery { };
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
   why = callPackage ./why { };
