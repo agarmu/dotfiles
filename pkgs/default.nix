@@ -25,6 +25,7 @@ in
   omry-cli = callPackage ./omry-cli { };
   omry-server = callPackage ./omry-server { };
   open = callPackage ./open { };
+  prequery = callPackage ./prequery { };
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
   why = callPackage ./why { };
