@@ -47,7 +47,7 @@ _: {
         enableCompletion = true;
       };
       programs.starship = {
-        enable = true;
+        enable = false;
         enableZshIntegration = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
