@@ -128,6 +128,7 @@
         texlivePackage
         texlab # LaTeX LSP
         tinymist # Typst LSP
+        prequery # Typst preprocessor
         typstyle # typst formatter
         typst-live # hot reload for typst
         typstwriter # ide for typst
