@@ -2,6 +2,7 @@ _: {
   flake.modules.homeManager.base =
     {
       config,
+      pkgs,
       ...
     }:
     {
@@ -41,6 +42,31 @@ _: {
       };
       programs.fish = {
         enable = true;
+        # disable fish greeting
+        interactiveShellInit = ''
+          set --global fish_greeting
+          set --global fish_prompt_pwd_dir_length 2
+          set --global hydro_cmd_duration_threshold 2000
+          set --global sponge_purge_only_on_exit true
+          set --global sponge_successful_exit_codes 0 130 141
+        '';
+        plugins =
+          with pkgs.fishPlugins;
+          [
+            fzf-fish
+            # notify when long-running commands finish
+            done
+            # keep failed commands and typos out of shell history
+            sponge
+            # expand navigation shortcuts and history substitutions
+            puffer
+            # pretty prompt
+            hydro
+          ]
+          |> map (x: {
+            inherit (x) src;
+            name = x.pname;
+          });
       };
       programs.bash = {
         enable = true;
