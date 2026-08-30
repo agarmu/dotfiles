@@ -3,7 +3,7 @@
     programs.fzf = {
       enable = true;
       enableBashIntegration = true;
-      enableFishIntegration = true;
+      enableFishIntegration = false;
       enableZshIntegration = true;
       tmux.enableShellIntegration = true;
     };
