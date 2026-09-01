@@ -21,6 +21,7 @@ in
   niri-shaders = callPackage ./niri-shaders { };
   niri-tweaks = callPackage ./niri-tweaks { };
   stinkpot = callPackage ./stinkpot { };
+  tytanic = callPackage ./tytanic { };
   omniwm = callPackage ./omniwm { };
   omry-cli = callPackage ./omry-cli { };
   omry-server = callPackage ./omry-server { };
