@@ -132,6 +132,7 @@
         typstyle # typst formatter
         typst-live # hot reload for typst
         typstwriter # ide for typst
+        tytanic # tests for typst
         marksman # Markdown LSP
         ltex-ls # grammar/spell checking LSP (LanguageTool)
         tex-fmt # LaTeX formatter
