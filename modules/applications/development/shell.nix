@@ -47,6 +47,9 @@ _: {
           set --global fish_greeting
           set --global fish_prompt_pwd_dir_length 2
           set --global hydro_cmd_duration_threshold 2000
+          if set --query IN_NIX_SHELL
+            set --global hydro_symbol_start " "
+          end
           set --global sponge_purge_only_on_exit true
           set --global sponge_successful_exit_codes 0 130 141
         '';
