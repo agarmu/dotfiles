@@ -42,7 +42,7 @@
         # this is way too slow unfortunately.
         # will enable once they do dynamically
         # like NixOS.
-        # generateCaches = true;
+        generateCaches = false;
       };
       home.packages = [ pkgs.qman ];
       home.shellAliases.q = "qman";
