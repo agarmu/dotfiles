@@ -1,29 +1,31 @@
 {
   lib,
-  buildNpmPackage,
+  stdenvNoCC,
   fetchFromGitHub,
 }:
 
-buildNpmPackage {
+stdenvNoCC.mkDerivation rec {
   pname = "pi-goal";
-  version = "unstable";
-  npmWorkspace = "packages/pi-goal";
-  npmDepsFetcherVersion = 2;
-  npmDepsHash = "sha256-gquPyRukV8ZSwjd/61bruITc6RYA23+n2eqwq1L5b0c=";
+  version = "0.1.7";
+
   src = fetchFromGitHub {
-    owner = "narumiruna";
-    repo = "pi-extensions";
-    rev = "main";
-    hash = "sha256-vGe6lpSrk+TcwPA1O41VTP1r1HatdKC7mE11JTdueic=";
+    owner = "Michaelliv";
+    repo = "pi-goal";
+    tag = "v${version}";
+    hash = "sha256-bp/Gk/iPN0Cx7hIbAKkIOuRgb0gzCeL8bgjVU8iXBto=";
   };
-  postInstall = ''
-    cp -r "$out/lib/node_modules/pi-extensions/." "$out/"
-    rm -rf "$out/lib"
-    find "$out" -xtype l -delete
+
+  installPhase = ''
+    runHook preInstall
+    cp -r ./. "$out"
+    substituteInPlace "$out/package.json" \
+      --replace-fail '".pi/extensions/pi-goal"' '".pi/extensions/pi-goal/index.ts"'
+    runHook postInstall
   '';
+
   meta = with lib; {
     description = "Codex-like verified /goal workflow for Pi";
-    homepage = "https://github.com/narumiruna/pi-extensions";
+    homepage = "https://github.com/Michaelliv/pi-goal";
     license = licenses.mit;
     platforms = platforms.all;
   };
