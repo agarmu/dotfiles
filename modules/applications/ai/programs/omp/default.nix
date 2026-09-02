@@ -1,7 +1,7 @@
 _: {
   flake.modules.homeManager.ai = _: {
     programs.omp = {
-      enable = true;
+      enable = false;
       settings = {
         autoshare = false;
         autoupdate = false;
