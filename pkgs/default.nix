@@ -27,6 +27,7 @@ in
   omry-server = callPackage ./omry-server { };
   open = callPackage ./open { };
   papercut = callPackage ./papercut { };
+  perspec = callPackage ./perspec { };
   prequery = callPackage ./prequery { };
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
