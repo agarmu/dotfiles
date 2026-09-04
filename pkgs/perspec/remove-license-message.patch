@@ -1,0 +1,20 @@
+diff --git a/source/Lib.hs b/source/Lib.hs
+--- a/source/Lib.hs
++++ b/source/Lib.hs
+@@ -120,6 +120,6 @@ import Types (
+   AppState (..),
+-  Config (licenseKey, transformBackendFlag),
++  Config (transformBackendFlag),
+   Corner,
+   CornersTup,
+   EdgeIndex (..),
+   ExportMode (..),
+@@ -1544,7 +1544,7 @@ loadAndStart config filePathsMb = do
+         \Install a font like DejaVu Sans to display text."
+ 
+   let
+-    isRegistered = config.licenseKey `elem` licenses
++    isRegistered = True
+     stateDraft =
+       initialState
+         { transformBackend = config.transformBackendFlag
