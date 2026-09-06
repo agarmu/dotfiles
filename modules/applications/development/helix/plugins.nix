@@ -11,7 +11,6 @@
       pluginPackages = [
         helix-plugins.glyph
         helix-plugins.forest
-        helix-plugins.moka
         helix-plugins.oil
         helix-plugins.scooter
         helix-plugins.smooth-scroll
@@ -73,15 +72,6 @@
         # provided by neo-tree, lualine, Telescope, and Trouble in Neovim.
         plugins = {
           forest.package = helix-plugins.forest;
-          moka-bufferline = {
-            enable = true;
-            package = helix-plugins.moka;
-            requirePath = "moka/moka.scm";
-            extra = ''
-              (moka-bufferline-configure! #:gap 0)
-              (moka-bufferline-enable!)
-            '';
-          };
           oil = {
             enable = true;
             package = helix-plugins.oil;
