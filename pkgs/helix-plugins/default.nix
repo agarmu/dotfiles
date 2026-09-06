@@ -8,7 +8,6 @@ lib.makeScope newScope (self: {
   glyph = self.callPackage ./glyph.nix { };
   notify = self.callPackage ./notify.nix { };
   forest = self.callPackage ./forest.nix { };
-  moka = self.callPackage ./moka.nix { };
   oil = self.callPackage ./oil.nix { };
   scooter = self.callPackage ./scooter.nix { };
   smooth-scroll = self.callPackage ./smooth-scroll.nix { };
