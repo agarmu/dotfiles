@@ -32,5 +32,6 @@ in
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
   why = callPackage ./why { };
+  xournalpp-bin = callPackage ./xournalpp-bin { };
   zotero-addons = callPackage ./zotero-addons { };
 }

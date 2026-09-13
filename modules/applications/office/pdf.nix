@@ -32,6 +32,7 @@
   flake.modules.homeManager.darwin = { pkgs, ... }: {
     home.packages = [
       pkgs.skimpdf
+      pkgs.xournalpp-bin
     ];
   };
   flake.modules.homeManager.linuxGui = { pkgs, ... }: {
