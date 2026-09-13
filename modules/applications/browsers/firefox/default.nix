@@ -13,7 +13,6 @@
           "browser.feeds.showFirstRunUI" = false;
           "browser.messaging-system.whatsNewPanel.enabled" = false;
           "browser.rights.3.shown" = true;
-          "browser.shell.checkDefaultBrowser" = false;
           "browser.shell.defaultBrowserCheckCount" = 1;
           "browser.startup.homepage_override.mstone" = "ignore";
           "browser.uitour.enabled" = false;
@@ -25,22 +24,35 @@
           # download directory
           "browser.download.useDownloadDir" = false;
 
-          # Disable fx accounts
-          "identity.fxaccounts.enabled" = false;
           # Disable "save password" prompt
           "signon.rememberSignons" = false;
           # Harden
           "privacy.trackingprotection.enabled" = true;
-          "dom.security.https_only_mode" = true;
 
           # don't overcorrect - uBO does what i need
           "browser.contentblocking.category" = "standard";
         };
       };
       policies = {
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        DisableFirefoxAccounts = true;
+        DontCheckDefaultBrowser = true;
+        HttpsOnlyMode = "force_enabled";
+
+        FirefoxHome = {
+          SponsoredTopSites = false;
+          SponsoredStories = false;
+          Stories = false;
+          Highlights = false;
+        };
+
+        # Disable saving logins, payment details, addresses, and form/search entries.
         PasswordManagerEnabled = false;
         OfferToSaveLogins = false;
-        CredentialsEnableService = false;
+        AutofillCreditCardEnabled = false;
+        AutofillAddressEnabled = false;
+        DisableFormHistory = true;
         ExtensionUpdate = false;
         Preferences = {
           "signon.rememberSignons" = false;
