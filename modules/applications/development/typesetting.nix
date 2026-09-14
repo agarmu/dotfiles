@@ -16,6 +16,14 @@
           markdown_inline
           typst
         ];
+      programs.nixvim.plugins.typst-preview = {
+        enable = true;
+        # Use packaged dependencies instead of downloading binaries at runtime.
+        settings.dependencies_bin = {
+          tinymist = "${pkgs.tinymist}/bin/tinymist";
+          websocat = "${pkgs.websocat}/bin/websocat";
+        };
+      };
       programs.nixvim.plugins.vimtex = {
         enable = true;
         inherit texlivePackage;
