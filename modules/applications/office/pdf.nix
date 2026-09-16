@@ -15,7 +15,7 @@
     {
       home.packages = [
         pkgs.pdfarranger
-        pkgs.perspec
+        # pkgs.perspec
       ];
       stylix.targets.sioyek.enable = false;
       programs.sioyek = {
