@@ -1,6 +1,6 @@
-{
+{ lib, ... }: {
   flake.modules.homeManager.gui =
-    { lib, ... }:
+    { pkgs, ... }:
     let
       purelymailAddresses = [
         "acme@agarmu.com"
@@ -22,6 +22,7 @@
       ];
     in
     {
+      home.packages = [ pkgs.pelton ];
       programs.thunderbird = {
         enable = true;
         profiles = {
