@@ -49,6 +49,12 @@ let
       user = "agarw396";
       forwardAgent = true;
     };
+    "phack" = {
+      hostname = "server.purduehackers.com";
+      user = "mukul";
+      forwardAgent = true;
+      port = 10022;
+    };
   };
 in
 {
