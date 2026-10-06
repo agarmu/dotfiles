@@ -5,7 +5,7 @@
       programs.vscodium = {
         enable = true;
         package = pkgs.vscodium;
-        mutableExtensionsDir = false;
+        mutableExtensionsDir = true;
         profiles.default = {
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
