@@ -20,6 +20,10 @@ in
     url = "github:nix-community/stylix";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  flake.modules.homeManager.base = {
+    # Rofi is unused; its Stylix target sets the deprecated programs.rofi.font.
+    stylix.targets.rofi.enable = false;
+  };
   flake.modules.nixos.base = {
     imports = [
       inputs.stylix.nixosModules.stylix
