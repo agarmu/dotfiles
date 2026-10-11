@@ -1,5 +1,6 @@
 {
-  flake.modules.homeManager.dev =
+  # Retained for future use; current hosts only import the dev module.
+  flake.modules.homeManager.steelix =
     {
       config,
       lib,

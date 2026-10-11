@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.dev.programs.nhx.languages = {
+  flake.modules.homeManager.dev.programs.helix.languages = {
     language-server = {
       nixd = {
         command = "nixd";
