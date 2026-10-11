@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.dev.programs.nhx.settings = {
+  flake.modules.homeManager.dev.programs.helix.settings = {
     theme = "catppuccin_latte";
 
     editor = {
@@ -37,19 +37,5 @@
         wrap-at-text-width = true;
       };
     };
-
-    keys.normal = {
-      C-d = ":half-page-down-smooth";
-      C-u = ":half-page-up-smooth";
-      pageup = ":page-up-smooth";
-      pagedown = ":page-down-smooth";
-      "\\" = ":streal-open --per-branch";
-      space = {
-        o = ":oil";
-        t = ":open-term";
-      };
-    };
-
-    keys.select."\\" = ":streal-open --per-branch";
   };
 }

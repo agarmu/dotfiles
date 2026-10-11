@@ -1,4 +1,4 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
   outputs =
@@ -42,10 +42,6 @@
       flake = false;
     };
     import-tree.url = "github:vic/import-tree";
-    nhx = {
-      url = "github:Ra77a3l3-jar/nhx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     niri-screen-time = {
       url = "github:probeldev/niri-screen-time";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,12 +52,12 @@
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {

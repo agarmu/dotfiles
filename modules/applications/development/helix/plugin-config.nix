@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.dev = {
+  flake.modules.homeManager.steelix = {
     programs.nhx.plugins.forest = {
       enable = true;
       config = {
