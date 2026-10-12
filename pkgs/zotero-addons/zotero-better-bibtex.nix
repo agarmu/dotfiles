@@ -11,13 +11,13 @@
 
 buildNpmPackage rec {
   pname = "zotero-better-bibtex";
-  version = "9.0.36";
+  version = "9.0.71";
 
   src = fetchgit {
     url = "https://github.com/retorquere/zotero-better-bibtex.git";
-    rev = "cfde2a84ce64a12eb3c287d8db460f8671745ba0";
+    rev = "d1b4df51a7a028d986d8ba3079675059200fa074";
     fetchSubmodules = true;
-    hash = "sha256-yB0rfjuDfxFnPjnJ4AMkGuVKvROlcyM/g0NkZfdbCMM=";
+    hash = "sha256-vTAFwebNJ0jY4eEy0xoFnvCV5lmLluqPu9hVG8exgi0=";
   };
 
   postPatch = ''
@@ -29,7 +29,7 @@ buildNpmPackage rec {
 
   makeCacheWritable = true;
 
-  npmDepsHash = "sha256-tWkCpO5LU2KDsyJMw1ZCKPOcbd6PhR4GAQdxtdC8cjU=";
+  npmDepsHash = "sha256-V+0RdEdyxtwI67b9iXJEANefZaUVGQ8+h7lZt+NInbk=";
 
   buildPhase = ''
     runHook preBuild
