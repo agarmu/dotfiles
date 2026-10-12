@@ -8,11 +8,11 @@
 
 buildFirefoxXpiAddon rec {
   pname = "bitwarden";
-  version = "2026.8.0";
+  version = "2026.9.3";
   addonId = "{446900e4-71c2-419f-a6a7-df9c091e268b}";
   src = fetchurl {
     url = "https://github.com/bitwarden/clients/releases/download/browser-v${version}/dist-firefox-${version}.zip";
-    hash = "sha256-4pk/bwIqM/Kt6EAmFVRgI9y5GgIqmpmD9cRrzu753aY=";
+    hash = "sha256-vveqqWZn8eM4ZukX0YwM2v96O8J3ZhHfGpJCSd7vJSs=";
   };
   meta = with lib; {
     homepage = "https://bitwarden.com";

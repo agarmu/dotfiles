@@ -9,11 +9,11 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "xournalpp-bin";
-  version = "1.3.7";
+  version = "1.3.8";
 
   src = fetchurl {
     url = "https://github.com/xournalpp/xournalpp/releases/download/v${version}/xournalpp-${version}-macOS-ARM64.dmg";
-    sha256 = "b13e5229e113da630946826ddc37e25d33d24fe1192ab0d3327468e319ccf4d4";
+    sha256 = "7d992ef097afd6db304cb9df70615e67f1a1de412e06f7dc8f907fcde3b7d6d7";
   };
 
   nativeBuildInputs = [

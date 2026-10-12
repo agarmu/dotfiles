@@ -9,19 +9,22 @@
 
 buildGoModule rec {
   pname = "slk";
-  version = "0.16.0";
+  version = "0.26.2";
 
   src = fetchFromGitHub {
     owner = "gammons";
     repo = "slk";
     tag = "v${version}";
-    hash = "sha256-gYRG4/Kir4Pn2OLg25Fm834sIJ0KNPoGgf1Rdim1ox8=";
+    hash = "sha256-wp4c37c4BMKJzszI1pl751+ATe21Azr4gNN4g7xgkx8=";
   };
   subPackages = [ "cmd/slk" ];
 
-  vendorHash = "sha256-deqCUDgRvhe/Bpmy+9bIHjSBo+KTCtAN2XcGMhAj/G0=";
+  vendorHash = "sha256-/J4gr4m9v6Y0Be8BU4wepIdl2sjoPh0pFCvJL2kIeLk=";
 
   buildInputs = lib.optional stdenv.hostPlatform.isLinux libX11;
+
+  # The test suite starts HTTP servers on loopback.
+  __darwinAllowLocalNetworking = true;
 
   meta = with lib; {
     description = "A blazingly fast Slack TUI";

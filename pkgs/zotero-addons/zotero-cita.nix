@@ -12,13 +12,13 @@
 
 buildNpmPackage rec {
   pname = "zotero-cita";
-  version = "1.0.0-beta.24";
+  version = "1.0.0";
 
   src = fetchFromGitHub {
     owner = "zotero-cita";
     repo = "zotero-cita";
     tag = "v${version}";
-    hash = "sha256-h5cNa0qIONTkU86I2zg6HIqL/UtfwCQmh+le+bbN/W4=";
+    hash = "sha256-Oc90wnRTYmCYzYbSd60E1yDJcLssGj547Qe1+E1dQg0=";
   };
 
   localCitationNetwork = fetchgit {
@@ -34,7 +34,7 @@ buildNpmPackage rec {
 
   nodejs = nodejs_22;
 
-  npmDepsHash = "sha256-ct7T+9tN4qvJJ7Udb4Ommb8P9OIYYdnDHTPgGk/AtcI=";
+  npmDepsHash = "sha256-/cedz/UYjJ5WbsoTGsseNU+tWYX0ydE9cAByO2QFwpA=";
 
   forceGitDeps = true;
 

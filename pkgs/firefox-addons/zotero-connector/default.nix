@@ -8,11 +8,11 @@
 
 buildFirefoxXpiAddon rec {
   pname = "zotero-connector";
-  version = "5.0.211";
+  version = "5.0.217";
   addonId = "zotero@chnm.gmu.edu";
   src = fetchurl {
     url = "https://download.zotero.org/connector/firefox/release/Zotero_Connector-${version}.xpi";
-    hash = "sha256-mh5XrFZqXPgaLXwc3JCYoISxH+oiwoEyKiSJcfSVOqg=";
+    hash = "sha256-lF/XwOyO3VXC24NLL7JHEzPXMASUuWEtg/ky0lh3uDQ=";
   };
   mozPermissions = [
     "http://*/*"

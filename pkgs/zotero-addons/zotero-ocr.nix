@@ -10,13 +10,13 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "zotero-ocr";
-  version = "0.9.5.1";
+  version = "0.9.6";
 
   src = fetchFromGitHub {
     owner = "UB-Mannheim";
     repo = "zotero-ocr";
-    tag = "0.9.5.1";
-    hash = "sha256-7rXx8h26LUumZTWczFCGnXOMNNMPMIvICfAiqfop3p0=";
+    tag = "${version}";
+    hash = "sha256-QPRA6eBOpzTXx3OMzhvra6qW58MZRERYe0wEfntBPlE=";
   };
 
   nativeBuildInputs = [ zip ];
