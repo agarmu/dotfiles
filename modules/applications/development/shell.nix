@@ -45,11 +45,10 @@ _: {
         # disable fish greeting
         interactiveShellInit = ''
           set --global fish_greeting
-          set --global fish_prompt_pwd_dir_length 2
-          set --global hydro_cmd_duration_threshold 2000
-          if set --query IN_NIX_SHELL
-            set --global hydro_symbol_start " "
-          end
+          set --global pure_enable_single_line_prompt true
+          set --global pure_threshold_command_duration 2
+          set --global pure_enable_nixdevshell true
+          set --global pure_symbol_nixdevshell_prefix " "
           set --global sponge_purge_only_on_exit true
           set --global sponge_successful_exit_codes 0 130 141
         '';
@@ -63,8 +62,8 @@ _: {
             sponge
             # expand navigation shortcuts and history substitutions
             puffer
-            # pretty prompt
-            hydro
+            # native Fish prompt with synchronous Git status
+            pure
           ]
           |> map (x: {
             inherit (x) src;
@@ -74,25 +73,6 @@ _: {
       programs.bash = {
         enable = true;
         enableCompletion = true;
-      };
-      programs.starship = {
-        enable = false;
-        enableZshIntegration = true;
-        enableBashIntegration = true;
-        enableFishIntegration = true;
-        settings = {
-          add_newline = true;
-          character = {
-            success_symbol = "[>](bold green)";
-            error_symbol = "[x](bold red)";
-          };
-          directory = {
-            truncation_length = 3;
-            truncate_to_repo = true;
-            style = "bold cyan";
-          };
-          cmd_duration.min_time = 2000;
-        };
       };
     };
 
