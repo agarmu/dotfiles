@@ -50,7 +50,7 @@ let
       forwardAgent = true;
     };
     "phack" = {
-      hostname = "server.purduehackers.com";
+      hostname = "phack.sh";
       user = "mukul";
       forwardAgent = true;
       port = 10022;
