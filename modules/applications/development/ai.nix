@@ -6,6 +6,9 @@
     };
 
   flake.modules.darwin.base = {
-    homebrew.casks = [ "codex" ];
+    homebrew.casks = [
+      "codex"
+      "codex-app"
+    ];
   };
 }
