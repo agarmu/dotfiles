@@ -17,6 +17,7 @@ let
           noto-fonts-color-emoji
           libertinus
           iosevka-kian-bin
+          nordwand-mono
           league-of-moveable-type
           national-park-typeface
           kpfonts
@@ -37,8 +38,8 @@ let
           name = "Source Sans 3";
         };
         monospace = {
-          package = pkgs.iosevka-kian-bin;
-          name = "Iosevka Kian Term";
+          package = pkgs.nordwand-mono;
+          name = "Nordwand Mono";
         };
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
