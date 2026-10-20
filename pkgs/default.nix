@@ -20,6 +20,7 @@ in
   niri-scripts = callPackage ./niri-scripts { };
   niri-shaders = callPackage ./niri-shaders { };
   niri-tweaks = callPackage ./niri-tweaks { };
+  nordwand-mono = callPackage ./nordwand-mono { };
   stinkpot = callPackage ./stinkpot { };
   tytanic = callPackage ./tytanic { };
   omniwm = callPackage ./omniwm { };
