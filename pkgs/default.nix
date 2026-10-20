@@ -29,7 +29,6 @@ in
   open = callPackage ./open { };
   papercut = callPackage ./papercut { };
   pelton = callPackage ./pelton { };
-  perspec = callPackage ./perspec { };
   prequery = callPackage ./prequery { };
   qman = callPackage ./qman { };
   slk = callPackage ./slk { };
