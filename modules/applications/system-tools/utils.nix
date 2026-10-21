@@ -38,8 +38,6 @@
         gdu
         pkgs.why
         pciutils # pci devices
-        kent-class-download
-        lazymake
         libnotify # for notify-send
         glow # md viewer for terminal
         pipes-rs

@@ -14,8 +14,8 @@ in
   iosevka-kian = callPackage ./iosevka-kian { };
   iosevka-kian-bin = callPackage ./iosevka-kian-bin { };
   kpfonts = callPackage ./kpfonts { };
-  kent-class-download = callPackage ./kent-class-download { };
-  lazymake = callPackage ./lazymake { };
+  # kent-class-download = callPackage ./kent-class-download { };
+  # lazymake = callPackage ./lazymake { };
   mkWallpaper = callPackage ./mkWallpaper { };
   niri-scripts = callPackage ./niri-scripts { };
   niri-shaders = callPackage ./niri-shaders { };
@@ -23,16 +23,16 @@ in
   nordwand-mono = callPackage ./nordwand-mono { };
   stinkpot = callPackage ./stinkpot { };
   tytanic = callPackage ./tytanic { };
-  omniwm = callPackage ./omniwm { };
+  # omniwm = callPackage ./omniwm { };
   omry-cli = callPackage ./omry-cli { };
   omry-server = callPackage ./omry-server { };
   open = callPackage ./open { };
   papercut = callPackage ./papercut { };
   pelton = callPackage ./pelton { };
   prequery = callPackage ./prequery { };
-  qman = callPackage ./qman { };
+  # qman = callPackage ./qman { };
   slk = callPackage ./slk { };
   why = callPackage ./why { };
-  xournalpp-bin = callPackage ./xournalpp-bin { };
+  # xournalpp-bin = callPackage ./xournalpp-bin { };
   zotero-addons = callPackage ./zotero-addons { };
 }

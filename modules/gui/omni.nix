@@ -1,28 +1,32 @@
 {
-  flake.modules.darwin.base = { pkgs, ... }: {
-    environment.systemPackages = [ pkgs.omniwm ];
-  };
-  flake.modules.homeManager.darwin = { pkgs, ... }: {
-    launchd.agents.omniwm = {
-      enable = false;
-      config = {
-        Label = "org.bartusrb.omniwm";
-        # Provide the exact path to the wrapper we built earlier
-        ProgramArguments = [ "${pkgs.omniwm}/bin/OmniWM" ];
+  flake.modules.darwin.base =
+    { lib, pkgs, ... }:
+    lib.mkIf false {
+      environment.systemPackages = [ pkgs.omniwm ];
+    };
+  flake.modules.homeManager.darwin =
+    { lib, pkgs, ... }:
+    lib.mkIf false {
+      launchd.agents.omniwm = {
+        enable = false;
+        config = {
+          Label = "org.bartusrb.omniwm";
+          # Provide the exact path to the wrapper we built earlier
+          ProgramArguments = [ "${pkgs.omniwm}/bin/OmniWM" ];
 
-        # Start automatically on login
-        RunAtLoad = true;
+          # Start automatically on login
+          RunAtLoad = true;
 
-        # Restart it if it crashes
-        KeepAlive = true;
+          # Restart it if it crashes
+          KeepAlive = true;
 
-        # Helpful for debugging why the WM might fail to start
-        StandardOutPath = "/tmp/omniwm.out";
-        StandardErrorPath = "/tmp/omniwm.err";
+          # Helpful for debugging why the WM might fail to start
+          StandardOutPath = "/tmp/omniwm.out";
+          StandardErrorPath = "/tmp/omniwm.err";
 
-        # Window managers often need to ensure the GUI is fully loaded
-        LimitLoadToSessionType = "Aqua";
+          # Window managers often need to ensure the GUI is fully loaded
+          LimitLoadToSessionType = "Aqua";
+        };
       };
     };
-  };
 }
