@@ -3,7 +3,7 @@
     { pkgs, ... }:
     {
       home.packages = [
-        pkgs.qbittorrent
+        pkgs.stable.qbittorrent
       ];
     };
 }
