@@ -7,6 +7,7 @@ let
       fonts.packages =
         with pkgs;
         [
+          adwaita-fonts
           inconsolata
           cm_unicode
           lmodern
