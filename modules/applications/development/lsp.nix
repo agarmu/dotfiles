@@ -1,7 +1,15 @@
 {
   flake.modules.homeManager.dev =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
+      # Keep FastAPI and application dependencies in each project's .venv.
+      home.packages = with pkgs; [
+        python3
+        uv
+        basedpyright
+        ruff
+      ];
+      programs.nixvim.plugins.conform-nvim.settings.formatters_by_ft.python = [ "ruff_format" ];
       programs.nixvim.plugins.treesitter.grammarPackages =
         with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
           haskell
