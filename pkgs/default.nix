@@ -8,7 +8,6 @@ in
   calibre-bin = callPackage ./calibre-bin { };
   clipvault = callPackage ./clipvault { };
   firefox-addons = callPackage ./firefox-addons { };
-  helix-plugins = callPackage ./helix-plugins { };
   helium = callPackage ./helium { };
   imgblur = callPackage ./imgblur { };
   iosevka-kian = callPackage ./iosevka-kian { };
