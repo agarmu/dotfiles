@@ -2,7 +2,6 @@ _: {
   flake.modules.nixos.gui =
     {
       pkgs,
-      config,
       ...
     }:
     {
@@ -14,7 +13,6 @@ _: {
         satty
         wayland
         wdisplays
-        config.stylix.cursor.package
       ];
       xdg.portal = {
         enable = true;

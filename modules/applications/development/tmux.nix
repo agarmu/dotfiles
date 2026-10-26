@@ -68,23 +68,9 @@
         bind C-p previous-window
         bind C-n next-window
 
-        # Appearance
-        set -g clock-mode-colour yellow
-        set -g mode-style 'fg=black bg=yellow bold'
-        set -g pane-border-style 'fg=brightblack'
-        set -g pane-active-border-style 'fg=cyan'
+        # Appearance is supplied by the Catppuccin Mocha plugin.
         set -g status-position bottom
         set -g status-justify left
-        set -g status-style 'fg=cyan'
-        set -g status-left ""
-        set -g status-right-style 'fg=black bg=cyan'
-        set -g status-right ' %Y-%m-%d %H:%M '
-        set -g window-status-current-style 'fg=black bg=cyan bold'
-        set -g window-status-current-format ' #I #W #F '
-        set -g window-status-style 'fg=cyan bg=black'
-        set -g window-status-format ' #I #[fg=white]#W #[fg=yellow]#F '
-        set -g window-status-bell-style 'fg=yellow bg=red bold'
-        set -g message-style 'fg=yellow bg=black bold'
       '';
     };
   };

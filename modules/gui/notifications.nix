@@ -54,6 +54,6 @@ _: {
         notification-visibility = { };
       };
     };
-    stylix.targets.swaync.enable = true;
+    catppuccin.swaync.enable = true;
   };
 }

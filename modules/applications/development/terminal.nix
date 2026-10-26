@@ -4,7 +4,9 @@
     {
       programs.alacritty = {
         enable = true;
+        settings.font.normal.family = "Nordwand Mono";
         settings.window = {
+          opacity = 0.75;
           blur = true;
           padding = {
             x = 15;
@@ -21,6 +23,9 @@
           else
             pkgs.ghostty-bin;
         settings = {
+          font-family = "Nordwand Mono";
+          font-size = 12;
+          background-opacity = 0.75;
           window-padding-x = 15;
           window-padding-y = 15;
           window-decoration = pkgs.stdenv.hostPlatform.isDarwin;

@@ -26,38 +26,11 @@ let
         ++ (toDrvList tex-gyre)
         ++ (toDrvList tex-gyre-math);
     };
-  stylix-fonts =
-    { pkgs, ... }:
-    {
-      stylix.fonts = {
-        serif = {
-          package = pkgs.source-serif;
-          name = "Source Serif 4";
-        };
-        sansSerif = {
-          package = pkgs.source-sans;
-          name = "Source Sans 3";
-        };
-        monospace = {
-          package = pkgs.nordwand-mono;
-          name = "Nordwand Mono";
-        };
-        emoji = {
-          package = pkgs.noto-fonts-color-emoji;
-          name = "Noto Color Emoji";
-        };
-        sizes = {
-          applications = 12;
-          desktop = 14;
-        };
-      };
-    };
 in
 {
   flake.modules.nixos.base = {
     imports = [
       fonts
-      stylix-fonts
     ];
   };
 
@@ -65,12 +38,20 @@ in
     { pkgs, ... }:
     {
       home.packages = [ pkgs.gnome-font-viewer ];
+      fonts.fontconfig = {
+        enable = true;
+        defaultFonts = {
+          serif = [ "Source Serif 4" ];
+          sansSerif = [ "Source Sans 3" ];
+          monospace = [ "Nordwand Mono" ];
+          emoji = [ "Noto Color Emoji" ];
+        };
+      };
     };
 
   flake.modules.darwin.base = {
     imports = [
       fonts
-      stylix-fonts
     ];
   };
 }

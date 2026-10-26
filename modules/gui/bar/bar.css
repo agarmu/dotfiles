@@ -3,7 +3,7 @@
     border: none;
     border-radius: 0;
     background: transparent;
-    color: @base06;
+    color: @text;
     font-size: 0.95rem;
 }
 
@@ -17,7 +17,7 @@
 
 .module {
     margin-top: 8px;
-    background-color: alpha(@base00, 0.55);
+    background-color: alpha(@base, 0.55);
     padding: 0.2rem 1rem;
 }
 
@@ -31,16 +31,16 @@
 }
 
 #workspaces button {
-    color: @base06;
+    color: @text;
     padding: 0.2rem 0.2rem;
 }
 
 #workspaces button.active {
-    color: @base0D;
+    color: @mauve;
 }
 
 #workspaces button:hover {
-    background-color: alpha(@base00, 0.95);
+    background-color: alpha(@base, 0.95);
 }
 
 #window {
@@ -55,7 +55,7 @@
     padding-right: 0.5rem;
 }
 #idle_inhibitor.activated {
-    background-color: alpha(mix(@base0D, @base00, 0.75), 0.55);
+    background-color: alpha(mix(@mauve, @base, 0.75), 0.55);
 }
 
 #cpu,
@@ -77,23 +77,23 @@
 }
 
 #battery {
-    color: @base0B;
+    color: @green;
     margin-left: 0.5em;
     margin-right: 0.5em;
     border-radius: 10px;
 }
 
 #battery.charging {
-    color: @base0B;
+    color: @green;
 }
 
 #battery.warning:not(.charging) {
-    color: @base08;
+    color: @red;
 }
 
 #clock {
-    color: @base0D;
-    border-color: @base0D;
+    color: @mauve;
+    border-color: @mauve;
     border-radius: 10px;
     margin-left: 0.5rem;
     margin-right: 0.5rem;

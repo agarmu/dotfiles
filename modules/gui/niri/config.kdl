@@ -74,7 +74,7 @@ layout {
     always-center-single-column
 }
 cursor {
-    xcursor-theme "phinger-cursors-light"
+    xcursor-theme "catppuccin-mocha-mauve-cursors"
     xcursor-size 24
 }
 binds {

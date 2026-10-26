@@ -24,10 +24,6 @@
         # document NixOS
         nixos = {
           enable = true;
-          /*
-            	    cannot enable this b/c of stylix. see
-            	    https://github.com/nix-community/stylix/issues/98
-          */
           includeAllModules = lib.mkForce false;
         };
         # development nice-to-haves

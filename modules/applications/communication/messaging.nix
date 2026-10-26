@@ -15,6 +15,5 @@
         };
       };
       programs.discord.enable = !needsShamefulConfig;
-      stylix.targets.vesktop.enable = false;
     };
 }

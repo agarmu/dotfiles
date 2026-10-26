@@ -4,14 +4,14 @@
     programs.hyprlock.enable = true;
   };
   flake.modules.homeManager.linuxGui =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
     {
-      stylix.targets.hyprlock.enable = false;
+      catppuccin.hyprlock.enable = false;
 
       programs.hyprlock = {
         enable = true;
         settings = {
-          "$font" = config.stylix.fonts.monospace.name;
+          "$font" = "Nordwand Mono";
           background = {
             path = "/etc/wallpaper.jpg";
             blur_passes = 3;
@@ -36,11 +36,11 @@
             outline_thickness = 3;
             inner_color = "rgba(0, 0, 0, 0.0)"; # no fill
 
-            outer_color = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-            check_color = "rgba(00ff99ee) rgba(ff6633ee) 120deg";
-            fail_color = "rgba(ff6633ee) rgba(ff0066ee) 40deg";
+            outer_color = "rgba(cba6f7ee) rgba(a6e3a1ee) 45deg";
+            check_color = "rgba(a6e3a1ee) rgba(fab387ee) 120deg";
+            fail_color = "rgba(fab387ee) rgba(f38ba8ee) 40deg";
 
-            font_color = "rgb(ffffff)";
+            font_color = "rgb(cdd6f4)";
             font_family = "$font";
             fade_on_empty = false;
             rounding = 15;

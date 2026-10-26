@@ -16,7 +16,6 @@
       home.packages = [
         pkgs.pdfarranger
       ];
-      stylix.targets.sioyek.enable = false;
       programs.sioyek = {
         enable = false;
         package = pkgs.sioyek;

@@ -1,10 +1,5 @@
 {
-  flake.modules.homeManager.linuxGui =
-    { pkgs, ... }:
-    {
-      gtk.iconTheme = {
-        package = pkgs.colloid-icon-theme;
-        name = "Colloid";
-      };
-    };
+  flake.modules.homeManager.linuxGui = {
+    catppuccin.gtk.icon.enable = true;
+  };
 }

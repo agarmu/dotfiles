@@ -31,10 +31,6 @@
     { config, ... }:
     {
 
-      stylix.targets = {
-        neovim.enable = false;
-        nixvim.enable = false;
-      };
       imports = [
         inputs.nixvim.homeModules.nixvim
       ];
@@ -50,12 +46,12 @@
           mapleader = " ";
           maplocalleader = "\\";
 
-          # stylix doesn't target neovide; apply window opacity ourselves
-          neovide_opacity = config.stylix.opacity.terminal;
+          # Keep the GUI transparency consistent with the terminals.
+          neovide_opacity = 0.75;
         };
 
         opts = {
-          background = "light";
+          background = "dark";
           number = true; # absolute line numbers
           signcolumn = "yes"; # always show, avoids layout shift
           cursorline = true; # highlight current line
@@ -338,7 +334,7 @@
         colorschemes.catppuccin = {
           enable = true;
           settings = {
-            flavour = "latte";
+            flavour = "mocha";
             term_colors = true;
 
             integrations = {

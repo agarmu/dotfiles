@@ -1,11 +1,10 @@
 {
-  flake.modules.nixos.gui =
-    { pkgs, ... }:
-    {
-      stylix.cursor = {
-        package = pkgs.phinger-cursors;
-        name = "phinger-cursors-light";
-        size = 24;
-      };
+  flake.modules.homeManager.linuxGui = {
+    catppuccin.cursors.enable = true;
+    home.pointerCursor = {
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
     };
+  };
 }
