@@ -6,6 +6,7 @@
       enableBashIntegration = true;
       enableFishIntegration = true;
       enableZshIntegration = true;
+      config.global.log_format = "-";
     };
   };
 }
