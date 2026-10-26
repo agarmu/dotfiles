@@ -12,7 +12,7 @@ stdenvNoCC.mkDerivation {
     owner = "google";
     repo = "fonts";
     rev = "e7db6ca603fd4862010383ff17ffd6cc4ffac1c0";
-    hash = lib.fakeHash;
+    hash = "sha256-urpY11cNmDElW/qoklYAx2lvvj/mDFkii/6IEOGoD0g=";
     sparseCheckout = [ "ofl/titilliumweb" ];
   };
 
