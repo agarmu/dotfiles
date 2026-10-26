@@ -6,6 +6,7 @@ in
   build-support = callPackage ./build-support { };
 
   calibre-bin = callPackage ./calibre-bin { };
+  catppuccin-terminal = callPackage ./catppuccin-terminal { };
   clipvault = callPackage ./clipvault { };
   firefox-addons = callPackage ./firefox-addons { };
   helium = callPackage ./helium { };
