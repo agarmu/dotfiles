@@ -22,6 +22,7 @@ in
   nordwand-mono = callPackage ./nordwand-mono { };
   stinkpot = callPackage ./stinkpot { };
   tytanic = callPackage ./tytanic { };
+  titillium-web = callPackage ./titillium-web { };
   # omniwm = callPackage ./omniwm { };
   omry-cli = callPackage ./omry-cli { };
   omry-server = callPackage ./omry-server { };

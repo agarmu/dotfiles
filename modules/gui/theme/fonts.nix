@@ -21,6 +21,7 @@ let
           nordwand-mono
           league-of-moveable-type
           national-park-typeface
+          titillium-web
           kpfonts
         ]
         ++ (toDrvList tex-gyre)
