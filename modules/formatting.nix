@@ -23,6 +23,13 @@
         src = inputs.self;
         package = pkgs.prek;
         hooks = {
+          no-fake-hash = {
+            enable = true;
+            name = "disallow placeholder hashes";
+            entry = "fake[H]ash";
+            language = "pygrep";
+            types = [ "nix" ];
+          };
           treefmt = {
             enable = true;
             packageOverrides.treefmt = config.treefmt.build.wrapper;
