@@ -1,6 +1,7 @@
 {
   lib,
   stdenvNoCC,
+  build-support,
   fetchFromGitHub,
 }:
 
@@ -15,6 +16,9 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-urpY11cNmDElW/qoklYAx2lvvj/mDFkii/6IEOGoD0g=";
     sparseCheckout = [ "ofl/titilliumweb" ];
   };
+
+  nativeInstallCheckInputs = [ build-support.fontCheckHook ];
+  doInstallCheck = true;
 
   installPhase = ''
     runHook preInstall

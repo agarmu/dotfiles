@@ -1,5 +1,6 @@
 {
   stdenvNoCC,
+  build-support,
   texlive,
 }:
 
@@ -10,6 +11,9 @@ stdenvNoCC.mkDerivation {
   src = texlive.pkgs.kpfonts-otf.tex;
 
   dontUnpack = true;
+
+  nativeInstallCheckInputs = [ build-support.fontCheckHook ];
+  doInstallCheck = true;
 
   installPhase = ''
     runHook preInstall

@@ -1,4 +1,8 @@
-{ iosevka, symlinkJoin }:
+{
+  iosevka,
+  symlinkJoin,
+  build-support,
+}:
 let
   baseBuildPlan = builtins.readFile ./build-plan.toml;
 
@@ -70,6 +74,9 @@ symlinkJoin {
     term
     fixed
   ];
+
+  nativeBuildInputs = [ build-support.fontCheckHook ];
+  postBuild = "fontCheckPhase";
 
   passthru = {
     inherit sans term fixed;

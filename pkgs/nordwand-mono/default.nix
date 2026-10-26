@@ -1,6 +1,7 @@
 {
   lib,
   stdenvNoCC,
+  build-support,
   fetchFromGitHub,
   python3,
   nix-update-script,
@@ -38,6 +39,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     runHook postBuild
   '';
+
+  nativeInstallCheckInputs = [ build-support.fontCheckHook ];
+  doInstallCheck = true;
 
   installPhase = ''
     runHook preInstall

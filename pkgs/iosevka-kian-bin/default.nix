@@ -1,5 +1,6 @@
 {
   stdenvNoCC,
+  build-support,
   fetchFromGitHub,
   nix-update-script,
 }:
@@ -12,6 +13,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     tag = finalAttrs.version;
     hash = "sha256-A60WkTJSuhJw1oQwjQXTEY0f9SUxb9wyf3w1XkNGnKQ=";
   };
+  nativeInstallCheckInputs = [ build-support.fontCheckHook ];
+  doInstallCheck = true;
+
   dontInstall = true;
   unpackPhase = ''
     mkdir -p $out/share/fonts
