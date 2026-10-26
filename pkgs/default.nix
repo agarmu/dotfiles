@@ -3,8 +3,8 @@ let
   callPackage = pkgs.lib.callPackageWith pkgs;
 in
 {
+  beads-viewer = callPackage ./beads-viewer { };
   build-support = callPackage ./build-support { };
-
   calibre-bin = callPackage ./calibre-bin { };
   catppuccin-terminal = callPackage ./catppuccin-terminal { };
   clipvault = callPackage ./clipvault { };

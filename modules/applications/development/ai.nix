@@ -2,7 +2,10 @@
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.beads ];
+      home.packages = with pkgs; [
+        beads
+        beads-viewer
+      ];
     };
 
   flake.modules.darwin.base = {
