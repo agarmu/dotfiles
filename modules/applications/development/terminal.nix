@@ -24,7 +24,7 @@
             pkgs.ghostty-bin;
         settings = {
           font-family = "Nordwand Mono";
-          font-size = 12;
+          font-size = 16;
           background-opacity = 0.75;
           window-padding-x = 15;
           window-padding-y = 15;
