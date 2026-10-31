@@ -6,6 +6,7 @@
         beads
         beads-viewer
         herdr
+        herdr-gpui
       ];
     };
 

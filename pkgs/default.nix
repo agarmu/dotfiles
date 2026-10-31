@@ -10,6 +10,7 @@ in
   clipvault = callPackage ./clipvault { };
   firefox-addons = callPackage ./firefox-addons { };
   helium = callPackage ./helium { };
+  herdr-gpui = callPackage ./herdr-gpui { };
   imgblur = callPackage ./imgblur { };
   iosevka-kian = callPackage ./iosevka-kian { };
   iosevka-kian-bin = callPackage ./iosevka-kian-bin { };
