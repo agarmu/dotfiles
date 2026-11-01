@@ -17,6 +17,8 @@ in
         ];
       home.packages = with pkgs; [
         difftastic
+        git-absorb
+        git-branchless
       ];
       programs.git = {
         enable = true;
