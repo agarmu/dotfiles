@@ -114,7 +114,10 @@
       programs.nixvim.extraConfigLua = builtins.readFile ./neovim/latex-snippets.lua;
       programs.nixvim.plugins.lsp.servers = {
         texlab.enable = true;
-        ltex.enable = true;
+        ltex_plus = {
+          enable = true;
+          package = pkgs.ltex-ls-plus;
+        };
         tinymist.enable = true;
         marksman.enable = true;
       };
@@ -142,7 +145,7 @@
         typstwriter # ide for typst
         tytanic # tests for typst
         marksman # Markdown LSP
-        ltex-ls # grammar/spell checking LSP (LanguageTool)
+        ltex-ls-plus # grammar/spell checking LSP (LanguageTool)
         tex-fmt # LaTeX formatter
         tectonic # self-contained LaTeX engine
         vale # prose linter (style guide enforcement)
