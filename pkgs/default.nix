@@ -3,6 +3,7 @@ let
   callPackage = pkgs.lib.callPackageWith pkgs;
 in
 {
+  slideconv = callPackage ./slideconv { };
   beads-viewer = callPackage ./beads-viewer { };
   build-support = callPackage ./build-support { };
   calibre-bin = callPackage ./calibre-bin { };

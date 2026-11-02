@@ -17,6 +17,9 @@
         pkgs.libreoffice
       ];
     };
+  flake.modules.homeManager.darwin = { pkgs, ... }: {
+    home.packages = [ pkgs.slideconv ];
+  };
   flake.modules.darwin.homebrew = {
     homebrew.casks = [
       "microsoft-word"
