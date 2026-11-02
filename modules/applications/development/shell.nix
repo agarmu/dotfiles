@@ -53,6 +53,15 @@ _: {
           set --global pure_symbol_nixdevshell_prefix " "
           set --global sponge_purge_only_on_exit true
           set --global sponge_successful_exit_codes 0 130 141
+
+          # Hide git segment in jj workspace
+          functions --copy _pure_prompt_git _pure_prompt_git_without_jj
+          function _pure_prompt_git
+            if command jj --ignore-working-copy root >/dev/null 2>&1
+              return
+            end
+            _pure_prompt_git_without_jj
+          end
         '';
         plugins =
           with pkgs.fishPlugins;
