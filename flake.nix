@@ -11,6 +11,10 @@
     } (inputs.import-tree ./modules);
 
   inputs = {
+    agent-skills = {
+      url = "github:Kyure-A/agent-skills-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     apple-silicon = {
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +50,10 @@
       flake = false;
     };
     import-tree.url = "github:vic/import-tree";
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
     niri-screen-time = {
       url = "github:probeldev/niri-screen-time";
       inputs.nixpkgs.follows = "nixpkgs";
