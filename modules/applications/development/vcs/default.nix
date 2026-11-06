@@ -23,6 +23,9 @@ in
       programs.git = {
         enable = true;
         package = pkgs.gitFull;
+        includes = [
+          { path = "${config.xdg.configHome}/git/config.d/signing.conf"; }
+        ];
         settings = {
           user = identity;
           init.defaultBranch = "main";
@@ -93,11 +96,6 @@ in
         lfs = {
           enable = true;
           skipSmudge = false;
-        };
-        signing = {
-          key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
-          signByDefault = true;
-          format = "ssh";
         };
       };
 
