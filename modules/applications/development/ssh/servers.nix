@@ -28,6 +28,10 @@ let
       user = "mukul";
       port = 4225;
     };
+    "vps" = {
+      hostname = "vps.mukulagarwal.net";
+      user = "mukul";
+    };
     "millet" = {
       hostname = "millet.internal";
       port = 2350;
