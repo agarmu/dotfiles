@@ -35,5 +35,7 @@ in
   flake.modules.darwin.base = {
     imports = [ sharedConfig ];
     system.primaryUser = userName;
+    # translate POSIX startup scripts at build time
+    programs.fish.useBabelfish = true;
   };
 }
