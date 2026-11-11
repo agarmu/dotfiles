@@ -3,7 +3,16 @@ def log-status [message: string] {
 }
 
 def valid-name [name: string] {
-  $name == '00 Math Conversations with LLMs' or $name =~ '^\d{2}-\d{2} .+$'
+  $name == '00 Math Conversations with LLMs' or $name =~ '^(\d{2,} )?\d{2}-\d{2} .+$'
+}
+
+def unnumbered-name [name: string] {
+  if $name == '00 Math Conversations with LLMs' { return $name }
+  $name | str replace -r '^\d{2,} ' ''
+}
+
+def name-date [name: string] {
+  unnumbered-name $name | str substring 0..4
 }
 
 def is-powerpoint-lock-file [file: string] {
@@ -104,28 +113,27 @@ def trim-pdf [file: string] {
   true
 }
 
-def process-pptx [source: string] {
+def collect-name [source: string, reserved: list<string>] {
   let filename = ($source | path basename)
-  if (is-powerpoint-lock-file $source) { return 'ok' }
   let old_name = ($source | path parse | get stem)
-  mut name = $old_name
+  mut name = (unnumbered-name $old_name)
   loop {
     if (valid-name $name) {
-      if $name == $old_name or not ($"pptx/($name).pptx" | path exists) { break }
+      if $name not-in $reserved { return $name }
       log-status $"Name already used: ($name).pptx"
     }
     let answer = (try {
-      let value = (input $"MM-DD Topic for ($filename): ")
-      if ($value | is-empty) { error make { msg: 'Empty name' } }
-      $value
-    } catch {
-      log-status $"No name provided: ($filename)"
-      null
-    })
-    if $answer == null { return 'error' }
-    $name = ($answer | str trim | str replace -r '\.pptx$' '')
+      input $"MM-DD Topic for ($filename): "
+    } catch { null })
+    if $answer == null or ($answer | str trim | is-empty) {
+      error make { msg: $"No name provided: ($filename)" }
+    }
+    $name = (unnumbered-name ($answer | str trim | str replace -r '\.pptx$' ''))
   }
+}
 
+def process-pptx [source: string, name: string] {
+  let old_name = ($source | path parse | get stem)
   mut file = $source
   if $name != $old_name {
     let renamed = $"pptx/($name).pptx"
@@ -164,8 +172,68 @@ def main [] {
       $failures += 1
     }
   }
-  for file in (glob --no-dir 'pptx/*.pptx') {
-    let result = (process-pptx $file)
+  # Gather every name before renaming presentations or starting PowerPoint.
+  mut plans = []
+  mut reserved = []
+  for file in (glob --no-dir 'pptx/*.pptx' | sort) {
+    if (is-powerpoint-lock-file $file) { continue }
+    let name = (collect-name $file $reserved)
+    $reserved = ($reserved | append $name)
+    $plans = ($plans | append { source: $file, name: $name })
+  }
+
+  mut next = 1
+  mut numbered = []
+  let pdfs = (glob --no-dir './*.pdf')
+  mut matched_pdfs = []
+  for plan in ($plans | sort-by name) {
+    mut name = $plan.name
+    if $name != '00 Math Conversations with LLMs' {
+      let prefix = ($next | into string | fill -a right -c '0' -w 2)
+      $name = $"($prefix) ($name)"
+      $next += 1
+    }
+    let matches = ($pdfs | where { |pdf|
+      let stem = ($pdf | path parse | get stem)
+      if $plan.name == '00 Math Conversations with LLMs' {
+        $stem == $plan.name
+      } else {
+        (valid-name $stem) and ((name-date $stem) == (name-date $plan.name))
+      }
+    })
+    if ($matches | length) > 1 {
+      error make { msg: $"Multiple PDFs match date for: ($name)" }
+    }
+    let pdf = ($matches | get -o 0)
+    if $pdf != null {
+      if $pdf in $matched_pdfs {
+        error make { msg: $"Multiple presentations match PDF: ($pdf)" }
+      }
+      $matched_pdfs = ($matched_pdfs | append $pdf)
+    }
+    $numbered = ($numbered | append { source: $plan.source, name: $name, pdf: $pdf })
+  }
+  # Check all destinations before making any naming changes.
+  for plan in $numbered {
+    let target = $"pptx/($plan.name).pptx"
+    if ($target | path exists) and (($target | path expand) != ($plan.source | path expand)) {
+      error make { msg: $"Cannot rename, already exists: ($target)" }
+    }
+  }
+  for plan in $numbered {
+    if $plan.pdf != null {
+      let target = $"($plan.name).pdf"
+      if ($plan.pdf | path expand) != ($target | path expand) {
+        if ($target | path exists) {
+          error make { msg: $"Cannot rename, already exists: ($target)" }
+        }
+        mv $plan.pdf $target
+        log-status $"Renamed: ($target)"
+      }
+    }
+  }
+  for plan in $numbered {
+    let result = (process-pptx $plan.source $plan.name)
     if $result == 'skip' { $skipped += 1 } else if $result == 'error' { $failures += 1 }
   }
   if $skipped > 0 { log-status $"Skipping ($skipped) existing pdfs" }
