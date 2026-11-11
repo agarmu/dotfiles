@@ -22,6 +22,9 @@ in
     inputs.catppuccin.darwinModules.catppuccin
     theme
   ];
+  # no need to apply theme globally
+  flake.modules.darwin.base.catppuccin.fish.enable = false;
+  flake.modules.nixos.base.catppuccin.fish.enable = false;
   flake.modules.homeManager.base = {
     imports = [
       inputs.catppuccin.homeModules.catppuccin
