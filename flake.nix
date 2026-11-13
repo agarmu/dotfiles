@@ -50,6 +50,10 @@
       flake = false;
     };
     import-tree.url = "github:vic/import-tree";
+    janestreet-skills = {
+      url = "github:janestreet/agent_skills";
+      flake = false;
+    };
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;

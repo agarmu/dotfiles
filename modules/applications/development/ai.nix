@@ -8,6 +8,10 @@
     url = "github:mattpocock/skills";
     flake = false;
   };
+  flake-file.inputs.janestreet-skills = {
+    url = "github:janestreet/agent_skills";
+    flake = false;
+  };
 
   flake.modules.homeManager.dev =
     { pkgs, ... }:
@@ -86,7 +90,13 @@
           path = inputs.mattpocock-skills;
           subdir = "skills";
         };
-        skills.enableAll = [ "mattpocock" ];
+        sources.janestreet = {
+          path = inputs.janestreet-skills;
+        };
+        skills.enableAll = [
+          "mattpocock"
+          "janestreet"
+        ];
         targets.agents.enable = true;
         targets.claude.enable = true;
       };

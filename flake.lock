@@ -306,6 +306,22 @@
         "type": "github"
       }
     },
+    "janestreet-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793728425,
+        "narHash": "sha256-bKGKDaK2pSJsp5uVMUQDcj8J+N9nX2fDdeU1DXM2qLw=",
+        "owner": "janestreet",
+        "repo": "agent_skills",
+        "rev": "7c6715c29548a3b39d4a9545c698ee4fd17a7213",
+        "type": "github"
+      },
+      "original": {
+        "owner": "janestreet",
+        "repo": "agent_skills",
+        "type": "github"
+      }
+    },
     "mattpocock-skills": {
       "flake": false,
       "locked": {
@@ -448,6 +464,7 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "import-tree": "import-tree",
+        "janestreet-skills": "janestreet-skills",
         "mattpocock-skills": "mattpocock-skills",
         "niri-screen-time": "niri-screen-time",
         "nix-darwin": "nix-darwin",
