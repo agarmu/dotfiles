@@ -15,6 +15,7 @@
     {
       home.packages = [
         pkgs.pdfarranger
+        pkgs.pympress
       ];
       programs.sioyek = {
         enable = false;
