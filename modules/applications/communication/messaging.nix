@@ -5,7 +5,10 @@
       needsShamefulConfig = pkgs.stdenv.hostPlatform.isLinux && pkgs.stdenv.hostPlatform.isAarch64;
     in
     {
-      home.packages = [ (if needsShamefulConfig then pkgs.slk else pkgs.slack) ];
+      home.packages = [
+        (if needsShamefulConfig then pkgs.slk else pkgs.slack)
+        pkgs.sable
+      ];
       # SHAME ON DISCORD!
       programs.vesktop = {
         enable = needsShamefulConfig;
