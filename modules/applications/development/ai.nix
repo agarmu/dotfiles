@@ -105,7 +105,7 @@
         beads
         beads-viewer
         herdr
-        herdr-gpui
+        # herdr-gpui
       ];
     };
 }
