@@ -103,6 +103,7 @@ in
         enable = true;
         settings = {
           user = identity;
+          template-aliases."format_short_signature(signature)" = "signature.name()";
           signing = {
             behavior = "own";
             backend = "ssh";
