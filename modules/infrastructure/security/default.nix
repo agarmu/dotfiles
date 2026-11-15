@@ -1,4 +1,11 @@
 { lib, ... }: {
+  flake.modules.homeManager.base =
+    { pkgs, ... }:
+    {
+      home.packages = [
+        pkgs.kanidm_1_12
+      ];
+    };
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
