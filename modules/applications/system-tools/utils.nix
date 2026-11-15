@@ -40,6 +40,7 @@
         pciutils # pci devices
         libnotify # for notify-send
         glow # md viewer for terminal
+        go-grip # md viewer for web /w autoreload
         pipes-rs
       ];
       programs.jq.enable = true;
