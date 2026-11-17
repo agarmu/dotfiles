@@ -318,10 +318,30 @@
               "x"
             ];
             key = "<leader>cf";
-            action = "<cmd>lua if vim.bo.filetype ~= 'tex' and vim.bo.filetype ~= 'plaintex' then require('conform').format({ async = true, lsp_format = 'fallback' }) end<cr>";
+            action = "<cmd>lua require('conform').format({ async = true, lsp_format = 'fallback' })<cr>";
             options.desc = "Format buffer or selection";
           }
         ];
+
+        userCommands.FormatToggle = {
+          bang = true;
+          desc = "Toggle format on save (! for current buffer only)";
+          command.__raw = ''
+            function(args)
+              if args.bang then
+                local cur = vim.b.autoformat
+                if cur == nil then
+                  cur = vim.g.autoformat
+                end
+                vim.b.autoformat = not cur
+                vim.notify("Format on save (buffer): " .. (vim.b.autoformat and "on" or "off"))
+              else
+                vim.g.autoformat = not vim.g.autoformat
+                vim.notify("Format on save (global): " .. (vim.g.autoformat and "on" or "off"))
+              end
+            end
+          '';
+        };
 
         autoCmd = [
           {
@@ -427,8 +447,12 @@
             settings = {
               format_on_save = ''
                 function(bufnr)
-                  local filetype = vim.bo[bufnr].filetype
-                  if filetype == "tex" or filetype == "plaintex" then
+                  -- off by default; buffer-local setting overrides global
+                  local enabled = vim.b[bufnr].autoformat
+                  if enabled == nil then
+                    enabled = vim.g.autoformat
+                  end
+                  if not enabled then
                     return
                   end
                   return { timeout_ms = 1000, lsp_format = "fallback" }
